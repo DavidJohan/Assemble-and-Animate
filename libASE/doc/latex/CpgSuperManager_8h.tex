@@ -1,0 +1,66 @@
+\hypertarget{CpgSuperManager_8h}{
+\section{/home/david/ASE/src/control/strategies/Cpg/CpgSuperManager.h File Reference}
+\label{CpgSuperManager_8h}\index{/home/david/ASE/src/control/strategies/Cpg/CpgSuperManager.h@{/home/david/ASE/src/control/strategies/Cpg/CpgSuperManager.h}}
+}
+{\tt \#include \char`\"{}CpgSuper.h\char`\"{}}\par
+{\tt \#include \char`\"{}LinkedList.h\char`\"{}}\par
+{\tt \#include \char`\"{}Manager.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structCpgSuperManager__t}{CpgSuperManager\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$ \hyperlink{CpgSuperManager_8h_1506a7c387428b5eace164aa34feaac0}{\_\-CpgSuperManager\_\-createCpg} (short label, float hz, \hyperlink{structCpgSuperManager__t}{CpgSuperManager\_\-t} $\ast$manager)
+\item 
+\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$ \hyperlink{CpgSuperManager_8h_920cd87d7c6a5aada8a0851a7d631a86}{\_\-CpgSuperManager\_\-createCoupling} (short fromLabel, short toLabel, float strength, float phaseDiff, \hyperlink{structCpgSuperManager__t}{CpgSuperManager\_\-t} $\ast$manager)
+\item 
+void \hyperlink{CpgSuperManager_8h_dc7d38be0d459773c0071c50729dd123}{\_\-CpgSuperManager\_\-handleMessage} (\hyperlink{structCpgSuperMsg__t}{CpgSuperMsg\_\-t} $\ast$msg, char channel, \hyperlink{structCpgSuperManager__t}{CpgSuperManager\_\-t} $\ast$manager)
+\item 
+int \hyperlink{CpgSuperManager_8h_1282314824171ccc8c96aff5628ef0cd}{\_\-CpgSuperManager\_\-update} (\hyperlink{structCpgSuperManager__t}{CpgSuperManager\_\-t} $\ast$manager)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{CpgSuperManager_8h}{CpgSuperManager.h} is a super class of specific cpgs.
+
+This class should never bee used directly unless from an class which inherits from it (another sub cpg manager).
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, University of Southern Denmark \end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{CpgSuperManager_8h_920cd87d7c6a5aada8a0851a7d631a86}{
+\index{CpgSuperManager.h@{CpgSuperManager.h}!\_\-CpgSuperManager\_\-createCoupling@{\_\-CpgSuperManager\_\-createCoupling}}
+\index{\_\-CpgSuperManager\_\-createCoupling@{\_\-CpgSuperManager\_\-createCoupling}!CpgSuperManager.h@{CpgSuperManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf CpgSuperCoupling\_\-t}$\ast$ \_\-CpgSuperManager\_\-createCoupling (short {\em fromLabel}, \/  short {\em toLabel}, \/  float {\em strength}, \/  float {\em phaseDiff}, \/  {\bf CpgSuperManager\_\-t} $\ast$ {\em manager})}}
+\label{CpgSuperManager_8h_920cd87d7c6a5aada8a0851a7d631a86}
+
+
+Creates a coupling from cpgs with label \char`\"{}fromLabel\char`\"{} to \char`\"{}toLabel\char`\"{} with a coupling strength and desired phase difference. \hypertarget{CpgSuperManager_8h_1506a7c387428b5eace164aa34feaac0}{
+\index{CpgSuperManager.h@{CpgSuperManager.h}!\_\-CpgSuperManager\_\-createCpg@{\_\-CpgSuperManager\_\-createCpg}}
+\index{\_\-CpgSuperManager\_\-createCpg@{\_\-CpgSuperManager\_\-createCpg}!CpgSuperManager.h@{CpgSuperManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf CpgSuper\_\-t}$\ast$ \_\-CpgSuperManager\_\-createCpg (short {\em label}, \/  float {\em hz}, \/  {\bf CpgSuperManager\_\-t} $\ast$ {\em manager})}}
+\label{CpgSuperManager_8h_1506a7c387428b5eace164aa34feaac0}
+
+
+Create a \char`\"{}super\char`\"{} or \char`\"{}parent\char`\"{} CPG with default parameters. hz specify the frequency of the created CPG The label is used to identify the cpg \hypertarget{CpgSuperManager_8h_dc7d38be0d459773c0071c50729dd123}{
+\index{CpgSuperManager.h@{CpgSuperManager.h}!\_\-CpgSuperManager\_\-handleMessage@{\_\-CpgSuperManager\_\-handleMessage}}
+\index{\_\-CpgSuperManager\_\-handleMessage@{\_\-CpgSuperManager\_\-handleMessage}!CpgSuperManager.h@{CpgSuperManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void \_\-CpgSuperManager\_\-handleMessage ({\bf CpgSuperMsg\_\-t} $\ast$ {\em msg}, \/  char {\em channel}, \/  {\bf CpgSuperManager\_\-t} $\ast$ {\em manager})}}
+\label{CpgSuperManager_8h_dc7d38be0d459773c0071c50729dd123}
+
+
+Handles CPG messages protected method do not use from controller \hypertarget{CpgSuperManager_8h_1282314824171ccc8c96aff5628ef0cd}{
+\index{CpgSuperManager.h@{CpgSuperManager.h}!\_\-CpgSuperManager\_\-update@{\_\-CpgSuperManager\_\-update}}
+\index{\_\-CpgSuperManager\_\-update@{\_\-CpgSuperManager\_\-update}!CpgSuperManager.h@{CpgSuperManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int \_\-CpgSuperManager\_\-update ({\bf CpgSuperManager\_\-t} $\ast$ {\em manager})}}
+\label{CpgSuperManager_8h_1282314824171ccc8c96aff5628ef0cd}
+
+
+Update all CPGs if it is time returns the number of CPGs updated protected method do not use from controller 

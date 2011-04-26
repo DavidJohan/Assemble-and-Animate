@@ -1,0 +1,12 @@
+CC=gcc
+CFLAGS=-c -Wall -D MTRAN -D USSR
+AR=ar
+
+TARGETCFLAGS =
+
+TARGETSOURCE=\
+targets/mtran/mtran-ussr/socket-api/MTRANSocketApi.c \
+targets/mtran/mtran-ussr/socket-api/AbstractMTRANSocketApi.c \
+targets/utils/socket-tools/SimpleSocket.c \
+targets/utils/socket-tools/CommandSender.c \
+targets/utils/socket-tools/EventListner.c

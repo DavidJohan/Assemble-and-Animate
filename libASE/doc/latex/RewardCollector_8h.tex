@@ -1,0 +1,74 @@
+\hypertarget{RewardCollector_8h}{
+\section{/home/david/ASE/src/tools/RewardCollector/RewardCollector.h File Reference}
+\label{RewardCollector_8h}\index{/home/david/ASE/src/tools/RewardCollector/RewardCollector.h@{/home/david/ASE/src/tools/RewardCollector/RewardCollector.h}}
+}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{rewardCollector\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\hypertarget{RewardCollector_8h_14b2ff5fd249eb1e5a778c10cc6bd023}{
+\#define \textbf{REWARDCOLLECTOR\_\-SUM}~1}
+\label{RewardCollector_8h_14b2ff5fd249eb1e5a778c10cc6bd023}
+
+\item 
+\hypertarget{RewardCollector_8h_ae75ac8a3de53a9ba452658e05a5893c}{
+\#define \textbf{REWARDCOLLECTOR\_\-MAX}~2}
+\label{RewardCollector_8h_ae75ac8a3de53a9ba452658e05a5893c}
+
+\item 
+\hypertarget{RewardCollector_8h_23ac79b35a55e2b3791ab52f001e2a70}{
+\#define \textbf{REWARDCOLLECTOR\_\-MIN}~3}
+\label{RewardCollector_8h_23ac79b35a55e2b3791ab52f001e2a70}
+
+\item 
+\hypertarget{RewardCollector_8h_bdf8f0914e0c5456dc47521e14e880d7}{
+\#define \textbf{REWARDCOLLECTOR\_\-LATEST}~4}
+\label{RewardCollector_8h_bdf8f0914e0c5456dc47521e14e880d7}
+
+\item 
+\hypertarget{RewardCollector_8h_529e74d5982913585fc1b91d804e1d23}{
+\#define \textbf{REWARDCOLLECTOR\_\-H\_\-}}
+\label{RewardCollector_8h_529e74d5982913585fc1b91d804e1d23}
+
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{RewardCollector_8h_2e35cd4a8ed83c41b487d5ef8dea119c}{
+void \textbf{rewardCollector\_\-init} (rewardCollector\_\-t $\ast$collector, int type)}
+\label{RewardCollector_8h_2e35cd4a8ed83c41b487d5ef8dea119c}
+
+\item 
+\hypertarget{RewardCollector_8h_b965e844e9835af84497973c411a1039}{
+int \textbf{rewardCollector\_\-isUpdated} (rewardCollector\_\-t $\ast$collector)}
+\label{RewardCollector_8h_b965e844e9835af84497973c411a1039}
+
+\item 
+\hypertarget{RewardCollector_8h_073ea6906ad7b655e741c261110f32b9}{
+void \textbf{rewardCollector\_\-collect} (rewardCollector\_\-t $\ast$collector, float reward)}
+\label{RewardCollector_8h_073ea6906ad7b655e741c261110f32b9}
+
+\item 
+\hypertarget{RewardCollector_8h_0d20201b20009afd4e147ebe17a0372a}{
+float \textbf{rewardCollector\_\-getReward} (rewardCollector\_\-t $\ast$collector)}
+\label{RewardCollector_8h_0d20201b20009afd4e147ebe17a0372a}
+
+\item 
+\hypertarget{RewardCollector_8h_b77eac5f739b16616b3174ba572aa33e}{
+void \textbf{rewardCollector\_\-resetReward} (rewardCollector\_\-t $\ast$collector)}
+\label{RewardCollector_8h_b77eac5f739b16616b3174ba572aa33e}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{RewardCollector_8h}{RewardCollector.h} collects (sum or relace type) the reward as needed by the basic learning strategy.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

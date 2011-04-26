@@ -1,0 +1,180 @@
+\hypertarget{CommandSender_8c}{
+\section{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/CommandSender.c File Reference}
+\label{CommandSender_8c}\index{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/CommandSender.c@{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/CommandSender.c}}
+}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include \char`\"{}SimpleSocket.h\char`\"{}}\par
+{\tt \#include \char`\"{}CommandSender.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{CommandSender_8c_c3146f1e9227301bb4aa518f4d336cee}{BUFFERSIZE}~100
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{CommandSender_8c_bfc6d04e5d50a268c0f19efac5dc6f86}{cs\_\-init} (int port, char $\ast$host)
+\item 
+int \hyperlink{CommandSender_8c_9951849f08e9f1367ed3bd17d5ec4d2b}{parseReceiveBuffer} (char $\ast$returnParam)
+\item 
+int \hyperlink{CommandSender_8c_0d69ac8abd93c93496ec67ac565b049a}{cs\_\-sendCommand} (char $\ast$command, char $\ast$returnParam)
+\item 
+void \hyperlink{CommandSender_8c_fa8ad3e97292c29b746b0d0605166c09}{cs\_\-sendCommand\_\-void} (char $\ast$command)
+\item 
+int \hyperlink{CommandSender_8c_784968acd8bf8bb2409d248a12f7778b}{cs\_\-sendCommand\_\-int} (char $\ast$command)
+\item 
+int \hyperlink{CommandSender_8c_b09550f71c606653880fc821334379e9}{cs\_\-sendCommand\_\-bool} (char $\ast$command)
+\item 
+float \hyperlink{CommandSender_8c_bf40de762eb1edb7eb968e0c49c5da79}{cs\_\-sendCommand\_\-float} (char $\ast$command)
+\item 
+char $\ast$ \hyperlink{CommandSender_8c_450b277ac80e3b9aef5580a87a879c9e}{cs\_\-sendCommand\_\-string} (char $\ast$command, char $\ast$returnString)
+\item 
+int \hyperlink{CommandSender_8c_bd30a11a5a9e0c6d61c908beebc47401}{cs\_\-wasSuccess} ()
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char \hyperlink{CommandSender_8c_d8cb30538dee09fa47ee4bf97dde9f85}{cs\_\-commandBuffer} \mbox{[}BUFFERSIZE\mbox{]}
+\item 
+char \hyperlink{CommandSender_8c_accc7d8ec338f5b3e56667d768afcf49}{cs\_\-receiveBuffer} \mbox{[}BUFFERSIZE\mbox{]}
+\item 
+int \hyperlink{CommandSender_8c_abbfa258710087738d11981bbde4dd5d}{cs\_\-sockfd}
+\item 
+int \hyperlink{CommandSender_8c_374ef4b8c2ffc469bd8bde95a20e229f}{cs\_\-commandCounter}
+\item 
+int \hyperlink{CommandSender_8c_a84c9b03943ffa8691cb2f8be055b59b}{cs\_\-commandBufferIndex}
+\item 
+int \hyperlink{CommandSender_8c_586080792c3ae762d91c2848f5bd46d4}{cs\_\-success}
+\item 
+int \hyperlink{CommandSender_8c_9a3516848bb81711eaa9a7ab6700cab7}{cs\_\-busy}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{CommandSender_8c_c3146f1e9227301bb4aa518f4d336cee}{
+\index{CommandSender.c@{CommandSender.c}!BUFFERSIZE@{BUFFERSIZE}}
+\index{BUFFERSIZE@{BUFFERSIZE}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFERSIZE~100}}
+\label{CommandSender_8c_c3146f1e9227301bb4aa518f4d336cee}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{CommandSender_8c_bfc6d04e5d50a268c0f19efac5dc6f86}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-init@{cs\_\-init}}
+\index{cs\_\-init@{cs\_\-init}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cs\_\-init (int {\em port}, \/  char $\ast$ {\em host})}}
+\label{CommandSender_8c_bfc6d04e5d50a268c0f19efac5dc6f86}
+
+
+\hypertarget{CommandSender_8c_0d69ac8abd93c93496ec67ac565b049a}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-sendCommand@{cs\_\-sendCommand}}
+\index{cs\_\-sendCommand@{cs\_\-sendCommand}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-sendCommand (char $\ast$ {\em command}, \/  char $\ast$ {\em returnParam})}}
+\label{CommandSender_8c_0d69ac8abd93c93496ec67ac565b049a}
+
+
+\hypertarget{CommandSender_8c_b09550f71c606653880fc821334379e9}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-sendCommand\_\-bool@{cs\_\-sendCommand\_\-bool}}
+\index{cs\_\-sendCommand\_\-bool@{cs\_\-sendCommand\_\-bool}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-sendCommand\_\-bool (char $\ast$ {\em command})}}
+\label{CommandSender_8c_b09550f71c606653880fc821334379e9}
+
+
+\hypertarget{CommandSender_8c_bf40de762eb1edb7eb968e0c49c5da79}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-sendCommand\_\-float@{cs\_\-sendCommand\_\-float}}
+\index{cs\_\-sendCommand\_\-float@{cs\_\-sendCommand\_\-float}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float cs\_\-sendCommand\_\-float (char $\ast$ {\em command})}}
+\label{CommandSender_8c_bf40de762eb1edb7eb968e0c49c5da79}
+
+
+\hypertarget{CommandSender_8c_784968acd8bf8bb2409d248a12f7778b}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-sendCommand\_\-int@{cs\_\-sendCommand\_\-int}}
+\index{cs\_\-sendCommand\_\-int@{cs\_\-sendCommand\_\-int}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-sendCommand\_\-int (char $\ast$ {\em command})}}
+\label{CommandSender_8c_784968acd8bf8bb2409d248a12f7778b}
+
+
+\hypertarget{CommandSender_8c_450b277ac80e3b9aef5580a87a879c9e}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-sendCommand\_\-string@{cs\_\-sendCommand\_\-string}}
+\index{cs\_\-sendCommand\_\-string@{cs\_\-sendCommand\_\-string}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cs\_\-sendCommand\_\-string (char $\ast$ {\em command}, \/  char $\ast$ {\em returnString})}}
+\label{CommandSender_8c_450b277ac80e3b9aef5580a87a879c9e}
+
+
+\hypertarget{CommandSender_8c_fa8ad3e97292c29b746b0d0605166c09}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-sendCommand\_\-void@{cs\_\-sendCommand\_\-void}}
+\index{cs\_\-sendCommand\_\-void@{cs\_\-sendCommand\_\-void}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cs\_\-sendCommand\_\-void (char $\ast$ {\em command})}}
+\label{CommandSender_8c_fa8ad3e97292c29b746b0d0605166c09}
+
+
+\hypertarget{CommandSender_8c_bd30a11a5a9e0c6d61c908beebc47401}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-wasSuccess@{cs\_\-wasSuccess}}
+\index{cs\_\-wasSuccess@{cs\_\-wasSuccess}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-wasSuccess ()}}
+\label{CommandSender_8c_bd30a11a5a9e0c6d61c908beebc47401}
+
+
+\hypertarget{CommandSender_8c_9951849f08e9f1367ed3bd17d5ec4d2b}{
+\index{CommandSender.c@{CommandSender.c}!parseReceiveBuffer@{parseReceiveBuffer}}
+\index{parseReceiveBuffer@{parseReceiveBuffer}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int parseReceiveBuffer (char $\ast$ {\em returnParam})}}
+\label{CommandSender_8c_9951849f08e9f1367ed3bd17d5ec4d2b}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{CommandSender_8c_9a3516848bb81711eaa9a7ab6700cab7}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-busy@{cs\_\-busy}}
+\index{cs\_\-busy@{cs\_\-busy}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf cs\_\-busy}}}
+\label{CommandSender_8c_9a3516848bb81711eaa9a7ab6700cab7}
+
+
+\hypertarget{CommandSender_8c_d8cb30538dee09fa47ee4bf97dde9f85}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-commandBuffer@{cs\_\-commandBuffer}}
+\index{cs\_\-commandBuffer@{cs\_\-commandBuffer}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf cs\_\-commandBuffer}\mbox{[}BUFFERSIZE\mbox{]}}}
+\label{CommandSender_8c_d8cb30538dee09fa47ee4bf97dde9f85}
+
+
+\hypertarget{CommandSender_8c_a84c9b03943ffa8691cb2f8be055b59b}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-commandBufferIndex@{cs\_\-commandBufferIndex}}
+\index{cs\_\-commandBufferIndex@{cs\_\-commandBufferIndex}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf cs\_\-commandBufferIndex}}}
+\label{CommandSender_8c_a84c9b03943ffa8691cb2f8be055b59b}
+
+
+\hypertarget{CommandSender_8c_374ef4b8c2ffc469bd8bde95a20e229f}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-commandCounter@{cs\_\-commandCounter}}
+\index{cs\_\-commandCounter@{cs\_\-commandCounter}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf cs\_\-commandCounter}}}
+\label{CommandSender_8c_374ef4b8c2ffc469bd8bde95a20e229f}
+
+
+\hypertarget{CommandSender_8c_accc7d8ec338f5b3e56667d768afcf49}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-receiveBuffer@{cs\_\-receiveBuffer}}
+\index{cs\_\-receiveBuffer@{cs\_\-receiveBuffer}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf cs\_\-receiveBuffer}\mbox{[}BUFFERSIZE\mbox{]}}}
+\label{CommandSender_8c_accc7d8ec338f5b3e56667d768afcf49}
+
+
+\hypertarget{CommandSender_8c_abbfa258710087738d11981bbde4dd5d}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-sockfd@{cs\_\-sockfd}}
+\index{cs\_\-sockfd@{cs\_\-sockfd}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf cs\_\-sockfd}}}
+\label{CommandSender_8c_abbfa258710087738d11981bbde4dd5d}
+
+
+\hypertarget{CommandSender_8c_586080792c3ae762d91c2848f5bd46d4}{
+\index{CommandSender.c@{CommandSender.c}!cs\_\-success@{cs\_\-success}}
+\index{cs\_\-success@{cs\_\-success}!CommandSender.c@{CommandSender.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf cs\_\-success}}}
+\label{CommandSender_8c_586080792c3ae762d91c2848f5bd46d4}
+
+

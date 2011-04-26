@@ -1,0 +1,107 @@
+\hypertarget{DistributedStateManager_8h}{
+\section{/home/david/ASE/src/control/strategies/DistributedStateMachine/DistributedStateManager.h File Reference}
+\label{DistributedStateManager_8h}\index{/home/david/ASE/src/control/strategies/DistributedStateMachine/DistributedStateManager.h@{/home/david/ASE/src/control/strategies/DistributedStateMachine/DistributedStateManager.h}}
+}
+{\tt \#include $<$stdint.h$>$}\par
+{\tt \#include $<$stdbool.h$>$}\par
+{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{DSManager\_\-msg}
+\item 
+struct \textbf{DSManager\_\-update\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{DistributedStateManager_8h_3c2d67b6750a775b0929c9d6a1089881}{
+void \textbf{DSManager\_\-init} (int id)}
+\label{DistributedStateManager_8h_3c2d67b6750a775b0929c9d6a1089881}
+
+\item 
+\hypertarget{DistributedStateManager_8h_1b9b2af419647b0a1b9d3bedf2a60b30}{
+int \textbf{DSManager\_\-act} ()}
+\label{DistributedStateManager_8h_1b9b2af419647b0a1b9d3bedf2a60b30}
+
+\item 
+void \hyperlink{DistributedStateManager_8h_ce9aba9ed7ec8d7f855c3e938a7af62b}{DSManager\_\-sendState} (uint8\_\-t state, uint8\_\-t recipientId)
+\item 
+void \hyperlink{DistributedStateManager_8h_40e4be2550f324bdc1d83f6a18ebf083}{DSManager\_\-addPendingState} (uint8\_\-t state)
+\item 
+void \hyperlink{DistributedStateManager_8h_95edaa5693c3ab2765c35e6d38d2c3cd}{DSManager\_\-removePendingState} (uint8\_\-t state)
+\item 
+bool \hyperlink{DistributedStateManager_8h_45dc5006a5abf695f13c8282f2226898}{DSManager\_\-pendingStatesPresent} ()
+\item 
+\hypertarget{DistributedStateManager_8h_fc18c3e1211f8e82ac203a9a4e90cd5f}{
+uint8\_\-t \textbf{DSManager\_\-getMyNewState} ()}
+\label{DistributedStateManager_8h_fc18c3e1211f8e82ac203a9a4e90cd5f}
+
+\item 
+\hypertarget{DistributedStateManager_8h_2f26fa7a8e5dc77717c43ec330bde96f}{
+uint8\_\-t \textbf{DSManager\_\-getGlobalState} ()}
+\label{DistributedStateManager_8h_2f26fa7a8e5dc77717c43ec330bde96f}
+
+\item 
+\hypertarget{DistributedStateManager_8h_9ee11e6f9434610d21980f429cbda8aa}{
+void \textbf{DSManager\_\-reset\_\-state} ()}
+\label{DistributedStateManager_8h_9ee11e6f9434610d21980f429cbda8aa}
+
+\item 
+\hypertarget{DistributedStateManager_8h_b76e5e2fa7728f1de6be4cf50532de68}{
+void \textbf{DSManager\_\-reset\_\-sequence} ()}
+\label{DistributedStateManager_8h_b76e5e2fa7728f1de6be4cf50532de68}
+
+\item 
+\hypertarget{DistributedStateManager_8h_b2efaa487cdc35dc3b207fc851fce144}{
+void \textbf{DSManager\_\-reset} ()}
+\label{DistributedStateManager_8h_b2efaa487cdc35dc3b207fc851fce144}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{DistributedStateManager_8h}{DistributedStateManager.h} provides a distributed state machine with pending states. It is used by the \char`\"{}dynarole\char`\"{} language to perform self-reconfiguration.
+
+\begin{Desc}
+\item[See also:]\hyperlink{DistributedStateMerger_8h}{DistributedStateMerger.h}\end{Desc}
+\begin{Desc}
+\item[Date:]March 11, 2009 \end{Desc}
+\begin{Desc}
+\item[Author:]Ulrik P. Shultz 
+
+Mirko Bordignon 
+
+David Johan Christensen \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{DistributedStateManager_8h_40e4be2550f324bdc1d83f6a18ebf083}{
+\index{DistributedStateManager.h@{DistributedStateManager.h}!DSManager\_\-addPendingState@{DSManager\_\-addPendingState}}
+\index{DSManager\_\-addPendingState@{DSManager\_\-addPendingState}!DistributedStateManager.h@{DistributedStateManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DSManager\_\-addPendingState (uint8\_\-t {\em state})}}
+\label{DistributedStateManager_8h_40e4be2550f324bdc1d83f6a18ebf083}
+
+
+Add a state to the pending states vector \hypertarget{DistributedStateManager_8h_45dc5006a5abf695f13c8282f2226898}{
+\index{DistributedStateManager.h@{DistributedStateManager.h}!DSManager\_\-pendingStatesPresent@{DSManager\_\-pendingStatesPresent}}
+\index{DSManager\_\-pendingStatesPresent@{DSManager\_\-pendingStatesPresent}!DistributedStateManager.h@{DistributedStateManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool DSManager\_\-pendingStatesPresent ()}}
+\label{DistributedStateManager_8h_45dc5006a5abf695f13c8282f2226898}
+
+
+Check whether there is any currently pending state \hypertarget{DistributedStateManager_8h_95edaa5693c3ab2765c35e6d38d2c3cd}{
+\index{DistributedStateManager.h@{DistributedStateManager.h}!DSManager\_\-removePendingState@{DSManager\_\-removePendingState}}
+\index{DSManager\_\-removePendingState@{DSManager\_\-removePendingState}!DistributedStateManager.h@{DistributedStateManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DSManager\_\-removePendingState (uint8\_\-t {\em state})}}
+\label{DistributedStateManager_8h_95edaa5693c3ab2765c35e6d38d2c3cd}
+
+
+Remove a state from the pending states vector \hypertarget{DistributedStateManager_8h_ce9aba9ed7ec8d7f855c3e938a7af62b}{
+\index{DistributedStateManager.h@{DistributedStateManager.h}!DSManager\_\-sendState@{DSManager\_\-sendState}}
+\index{DSManager\_\-sendState@{DSManager\_\-sendState}!DistributedStateManager.h@{DistributedStateManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DSManager\_\-sendState (uint8\_\-t {\em state}, \/  uint8\_\-t {\em recipientId})}}
+\label{DistributedStateManager_8h_ce9aba9ed7ec8d7f855c3e938a7af62b}
+
+
+Send a certain state for a certain recipient 

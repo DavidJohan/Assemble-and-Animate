@@ -1,0 +1,70 @@
+\hypertarget{SimpleSocket_8c}{
+\section{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/SimpleSocket.c File Reference}
+\label{SimpleSocket_8c}\index{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/SimpleSocket.c@{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/SimpleSocket.c}}
+}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$unistd.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$netdb.h$>$}\par
+{\tt \#include $<$sys/types.h$>$}\par
+{\tt \#include $<$netinet/in.h$>$}\par
+{\tt \#include $<$sys/socket.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{SimpleSocket_8c_16c16f9369be4a374a3e621f6d13bb16}{MAXDATASIZE}~100
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{SimpleSocket_8c_562345133c9358d376065f37e8e139ee}{ss\_\-connect} (char $\ast$host, int port)
+\item 
+int \hyperlink{SimpleSocket_8c_a324d89ae319d838c2fe87e1096dc5e5}{ss\_\-receive} (char $\ast$buffer, int sockfd)
+\item 
+void \hyperlink{SimpleSocket_8c_507491c0c5323aa9f0b0234667789188}{ss\_\-send} (char $\ast$data, int length, int sockfd)
+\item 
+void \hyperlink{SimpleSocket_8c_96e35f7d80fe4dcc7d6b558859c24443}{ss\_\-close} (int sockfd)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{SimpleSocket_8c_16c16f9369be4a374a3e621f6d13bb16}{
+\index{SimpleSocket.c@{SimpleSocket.c}!MAXDATASIZE@{MAXDATASIZE}}
+\index{MAXDATASIZE@{MAXDATASIZE}!SimpleSocket.c@{SimpleSocket.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXDATASIZE~100}}
+\label{SimpleSocket_8c_16c16f9369be4a374a3e621f6d13bb16}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{SimpleSocket_8c_96e35f7d80fe4dcc7d6b558859c24443}{
+\index{SimpleSocket.c@{SimpleSocket.c}!ss\_\-close@{ss\_\-close}}
+\index{ss\_\-close@{ss\_\-close}!SimpleSocket.c@{SimpleSocket.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ss\_\-close (int {\em sockfd})}}
+\label{SimpleSocket_8c_96e35f7d80fe4dcc7d6b558859c24443}
+
+
+\hypertarget{SimpleSocket_8c_562345133c9358d376065f37e8e139ee}{
+\index{SimpleSocket.c@{SimpleSocket.c}!ss\_\-connect@{ss\_\-connect}}
+\index{ss\_\-connect@{ss\_\-connect}!SimpleSocket.c@{SimpleSocket.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int ss\_\-connect (char $\ast$ {\em host}, \/  int {\em port})}}
+\label{SimpleSocket_8c_562345133c9358d376065f37e8e139ee}
+
+
+\hypertarget{SimpleSocket_8c_a324d89ae319d838c2fe87e1096dc5e5}{
+\index{SimpleSocket.c@{SimpleSocket.c}!ss\_\-receive@{ss\_\-receive}}
+\index{ss\_\-receive@{ss\_\-receive}!SimpleSocket.c@{SimpleSocket.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int ss\_\-receive (char $\ast$ {\em buffer}, \/  int {\em sockfd})}}
+\label{SimpleSocket_8c_a324d89ae319d838c2fe87e1096dc5e5}
+
+
+\hypertarget{SimpleSocket_8c_507491c0c5323aa9f0b0234667789188}{
+\index{SimpleSocket.c@{SimpleSocket.c}!ss\_\-send@{ss\_\-send}}
+\index{ss\_\-send@{ss\_\-send}!SimpleSocket.c@{SimpleSocket.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ss\_\-send (char $\ast$ {\em data}, \/  int {\em length}, \/  int {\em sockfd})}}
+\label{SimpleSocket_8c_507491c0c5323aa9f0b0234667789188}
+
+

@@ -1,0 +1,15 @@
+// DyCoR = Dynamic Collaborative Roles? :-)
+
+role M1 extends Module { require (self.id==1); }
+
+sequence singleseq {
+  M1.rotateFromToBy(0,180,true,150);
+  M1.Connector[6].extend() |
+  M1.Connector[4].extend();
+  M1.rotateFromToBy(180,0,false,150) |
+  M1.Connector[6].retract() |
+  M1.Connector[4].retract();
+
+}
+deployment { M0 M1 }
+startup { singleseq}

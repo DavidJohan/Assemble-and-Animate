@@ -1,0 +1,12 @@
+CC=gcc
+CFLAGS=-c -Wall -DODIN -DUSSR
+AR=ar
+
+TARGETCFLAGS =
+
+TARGETSOURCE=\
+targets/odin/odin-ussr/socket-api/OdinSocketApi.c \
+targets/odin/odin-ussr/socket-api/AbstractOdinApi.c \
+targets/utils/socket-tools/SimpleSocket.c \
+targets/utils/socket-tools/CommandSender.c \
+targets/utils/socket-tools/EventListner.c

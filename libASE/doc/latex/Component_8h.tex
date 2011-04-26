@@ -1,0 +1,107 @@
+\hypertarget{Component_8h}{
+\section{/home/david/workspace/ASE/src/infrastructure/Component/Component.h File Reference}
+\label{Component_8h}\index{/home/david/workspace/ASE/src/infrastructure/Component/Component.h@{/home/david/workspace/ASE/src/infrastructure/Component/Component.h}}
+}
+{\tt \#include $<$stdbool.h$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structComponent__t}{Component\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{Component_8h_b0a23b1aeefbc5de63da302a7918652f}{Component\_\-init} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component, void($\ast$start)(void $\ast$), void($\ast$stop)(void $\ast$), void($\ast$pause)(void $\ast$), void($\ast$resume)(void $\ast$), void($\ast$restart)(void $\ast$))
+\item 
+void \hyperlink{Component_8h_ea30f9b83801b42c6cf0b484514b1417}{Component\_\-stop} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component, void $\ast$data)
+\item 
+void \hyperlink{Component_8h_f33c2668ed060da98e9fda0e81d9c0b1}{Component\_\-start} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component, void $\ast$data)
+\item 
+void \hyperlink{Component_8h_fbbd02162125ff876c0a51028593fea2}{Component\_\-pause} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component, void $\ast$data)
+\item 
+void \hyperlink{Component_8h_ebffc3016fcbdc4461c5b482459da38f}{Component\_\-resume} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component, void $\ast$data)
+\item 
+void \hyperlink{Component_8h_0ec23bc6a1e7f8c352b981641a455b1a}{Component\_\-restart} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component, void $\ast$data)
+\item 
+bool \hyperlink{Component_8h_5e27a2a20d772914a5a3903d0689cf2c}{Component\_\-isInitialized} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component)
+\item 
+bool \hyperlink{Component_8h_2d215b7bf2a8cc288f75c46b006710cc}{Component\_\-isStarted} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component)
+\item 
+bool \hyperlink{Component_8h_ccd5cae31ea1ed8f66083993e69cd98b}{Component\_\-isPaused} (\hyperlink{structComponent__t}{Component\_\-t} $\ast$component)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{Component_8h}{Component.h} is a top-level construct for ASE. Most components extend it. It contains methods and variables to start, stop, pause, resume and restart the component.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{Component_8h_b0a23b1aeefbc5de63da302a7918652f}{
+\index{Component.h@{Component.h}!Component\_\-init@{Component\_\-init}}
+\index{Component\_\-init@{Component\_\-init}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void Component\_\-init ({\bf Component\_\-t} $\ast$ {\em component}, \/  void($\ast$)(void $\ast$) {\em start}, \/  void($\ast$)(void $\ast$) {\em stop}, \/  void($\ast$)(void $\ast$) {\em pause}, \/  void($\ast$)(void $\ast$) {\em resume}, \/  void($\ast$)(void $\ast$) {\em restart})}}
+\label{Component_8h_b0a23b1aeefbc5de63da302a7918652f}
+
+
+Initialize the component \hypertarget{Component_8h_5e27a2a20d772914a5a3903d0689cf2c}{
+\index{Component.h@{Component.h}!Component\_\-isInitialized@{Component\_\-isInitialized}}
+\index{Component\_\-isInitialized@{Component\_\-isInitialized}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-isInitialized}]{\setlength{\rightskip}{0pt plus 5cm}bool Component\_\-isInitialized ({\bf Component\_\-t} $\ast$ {\em component})}}
+\label{Component_8h_5e27a2a20d772914a5a3903d0689cf2c}
+
+
+Is the component initialized? \hypertarget{Component_8h_ccd5cae31ea1ed8f66083993e69cd98b}{
+\index{Component.h@{Component.h}!Component\_\-isPaused@{Component\_\-isPaused}}
+\index{Component\_\-isPaused@{Component\_\-isPaused}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-isPaused}]{\setlength{\rightskip}{0pt plus 5cm}bool Component\_\-isPaused ({\bf Component\_\-t} $\ast$ {\em component})}}
+\label{Component_8h_ccd5cae31ea1ed8f66083993e69cd98b}
+
+
+Is the component paused or running? \hypertarget{Component_8h_2d215b7bf2a8cc288f75c46b006710cc}{
+\index{Component.h@{Component.h}!Component\_\-isStarted@{Component\_\-isStarted}}
+\index{Component\_\-isStarted@{Component\_\-isStarted}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-isStarted}]{\setlength{\rightskip}{0pt plus 5cm}bool Component\_\-isStarted ({\bf Component\_\-t} $\ast$ {\em component})}}
+\label{Component_8h_2d215b7bf2a8cc288f75c46b006710cc}
+
+
+Is the component started or stopped? \hypertarget{Component_8h_fbbd02162125ff876c0a51028593fea2}{
+\index{Component.h@{Component.h}!Component\_\-pause@{Component\_\-pause}}
+\index{Component\_\-pause@{Component\_\-pause}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-pause}]{\setlength{\rightskip}{0pt plus 5cm}void Component\_\-pause ({\bf Component\_\-t} $\ast$ {\em component}, \/  void $\ast$ {\em data})}}
+\label{Component_8h_fbbd02162125ff876c0a51028593fea2}
+
+
+Pause the component \hypertarget{Component_8h_0ec23bc6a1e7f8c352b981641a455b1a}{
+\index{Component.h@{Component.h}!Component\_\-restart@{Component\_\-restart}}
+\index{Component\_\-restart@{Component\_\-restart}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-restart}]{\setlength{\rightskip}{0pt plus 5cm}void Component\_\-restart ({\bf Component\_\-t} $\ast$ {\em component}, \/  void $\ast$ {\em data})}}
+\label{Component_8h_0ec23bc6a1e7f8c352b981641a455b1a}
+
+
+Restart the component \hypertarget{Component_8h_ebffc3016fcbdc4461c5b482459da38f}{
+\index{Component.h@{Component.h}!Component\_\-resume@{Component\_\-resume}}
+\index{Component\_\-resume@{Component\_\-resume}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-resume}]{\setlength{\rightskip}{0pt plus 5cm}void Component\_\-resume ({\bf Component\_\-t} $\ast$ {\em component}, \/  void $\ast$ {\em data})}}
+\label{Component_8h_ebffc3016fcbdc4461c5b482459da38f}
+
+
+Resume the component \hypertarget{Component_8h_f33c2668ed060da98e9fda0e81d9c0b1}{
+\index{Component.h@{Component.h}!Component\_\-start@{Component\_\-start}}
+\index{Component\_\-start@{Component\_\-start}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void Component\_\-start ({\bf Component\_\-t} $\ast$ {\em component}, \/  void $\ast$ {\em data})}}
+\label{Component_8h_f33c2668ed060da98e9fda0e81d9c0b1}
+
+
+Start the component \hypertarget{Component_8h_ea30f9b83801b42c6cf0b484514b1417}{
+\index{Component.h@{Component.h}!Component\_\-stop@{Component\_\-stop}}
+\index{Component\_\-stop@{Component\_\-stop}!Component.h@{Component.h}}
+\subsubsection[{Component\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void Component\_\-stop ({\bf Component\_\-t} $\ast$ {\em component}, \/  void $\ast$ {\em data})}}
+\label{Component_8h_ea30f9b83801b42c6cf0b484514b1417}
+
+
+Stop the component 

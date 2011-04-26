@@ -1,0 +1,46 @@
+\hypertarget{ConsensusAverage_8h}{
+\section{/home/david/ASE/src/control/strategies/Consensus/ConsensusAverage.h File Reference}
+\label{ConsensusAverage_8h}\index{/home/david/ASE/src/control/strategies/Consensus/ConsensusAverage.h@{/home/david/ASE/src/control/strategies/Consensus/ConsensusAverage.h}}
+}
+{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{consensus\_\-t}
+\item 
+struct \textbf{consensusMsg\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{ConsensusAverage_8h_ce63281bd9efd316ec182e01ca629140}{
+void \textbf{consensus\_\-init} (consensus\_\-t $\ast$consensus)}
+\label{ConsensusAverage_8h_ce63281bd9efd316ec182e01ca629140}
+
+\item 
+\hypertarget{ConsensusAverage_8h_4d36c13df20c7a645c64b6e799bb69a2}{
+void \textbf{consensus\_\-update} (consensus\_\-t $\ast$consensus)}
+\label{ConsensusAverage_8h_4d36c13df20c7a645c64b6e799bb69a2}
+
+\item 
+\hypertarget{ConsensusAverage_8h_05c4667d3254def48e3809e96c540e03}{
+void \textbf{consensus\_\-handleMessage} (consensus\_\-t $\ast$consensus, consensusMsg\_\-t $\ast$msg, int channel)}
+\label{ConsensusAverage_8h_05c4667d3254def48e3809e96c540e03}
+
+\item 
+\hypertarget{ConsensusAverage_8h_33d0a0f73d761018a26d3a4fa299c66b}{
+void \textbf{consensus\_\-setValue} (float newValue, consensus\_\-t $\ast$consensus)}
+\label{ConsensusAverage_8h_33d0a0f73d761018a26d3a4fa299c66b}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{ConsensusAverage_8h}{ConsensusAverage.h} provides a distributed average consensus algorithm. The algorithm implemented corrosponds almost direclty to the A2 algorithm proposed in: M. Mehyar et al. (2007) \char`\"{}Asynchronous Distributed Averaging on Communication Networks\char`\"{}
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
+\begin{Desc}
+\item[\hyperlink{todo__todo000004}{Todo}]document code \end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

@@ -1,0 +1,67 @@
+\hypertarget{CPGManager_8h}{
+\section{/home/david/workspace/ASE/src/control/strategies/CPG/CPGManager.h File Reference}
+\label{CPGManager_8h}\index{/home/david/workspace/ASE/src/control/strategies/CPG/CPGManager.h@{/home/david/workspace/ASE/src/control/strategies/CPG/CPGManager.h}}
+}
+{\tt \#include \char`\"{}CentralPatternGenerator.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{cpgUpdate\_\-struct}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{CPGManager_8h_97b6cd861e00932b0c38423c8fb99374}{
+void \textbf{CPGManager\_\-init} ()}
+\label{CPGManager_8h_97b6cd861e00932b0c38423c8fb99374}
+
+\item 
+\hypertarget{CPGManager_8h_bc82b2a0ff88cf5e1b8553211ba198bd}{
+void \textbf{CPGManager\_\-removeCPG} (cpg\_\-struct $\ast$cpg)}
+\label{CPGManager_8h_bc82b2a0ff88cf5e1b8553211ba198bd}
+
+\item 
+\hypertarget{CPGManager_8h_824129db95246ea5eb9c2eea7b970db9}{
+cpg\_\-struct $\ast$ \textbf{CPGManager\_\-createCPG} (short label, float hz)}
+\label{CPGManager_8h_824129db95246ea5eb9c2eea7b970db9}
+
+\item 
+\hypertarget{CPGManager_8h_d8204fa06caedded90e08d4ad80c00a7}{
+void \textbf{CPGManager\_\-setFrequency} (short label, float hz)}
+\label{CPGManager_8h_d8204fa06caedded90e08d4ad80c00a7}
+
+\item 
+\hypertarget{CPGManager_8h_185997128f2d63407b749a2bc0438ae5}{
+float \textbf{CPGManager\_\-getFrequency} (short label)}
+\label{CPGManager_8h_185997128f2d63407b749a2bc0438ae5}
+
+\item 
+\hypertarget{CPGManager_8h_6c6a628893a803a93866e374a8a3179f}{
+void \textbf{CPGManager\_\-removeCoupling} (cpgCoupling\_\-struct $\ast$coupling)}
+\label{CPGManager_8h_6c6a628893a803a93866e374a8a3179f}
+
+\item 
+\hypertarget{CPGManager_8h_7c544e18affeec2599d60d5605cf64e2}{
+cpgCoupling\_\-struct $\ast$ \textbf{CPGManager\_\-createCoupling} (short fromLabel, short toLabel, float strength, float phaseDiff)}
+\label{CPGManager_8h_7c544e18affeec2599d60d5605cf64e2}
+
+\item 
+\hypertarget{CPGManager_8h_6b65b341c574b7f7c678c745b5872884}{
+int \textbf{CPGManager\_\-act} ()}
+\label{CPGManager_8h_6b65b341c574b7f7c678c745b5872884}
+
+\item 
+\hypertarget{CPGManager_8h_6f5c58d0ebed05252faf3523bdc1ab4a}{
+void \textbf{CPGManager\_\-handleMessage} (char $\ast$message, char messageSize, char channel)}
+\label{CPGManager_8h_6f5c58d0ebed05252faf3523bdc1ab4a}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{CPGManager_8h}{CPGManager.h} provides magement of artificial central pattern generators.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

@@ -1,0 +1,71 @@
+\hypertarget{CentralPatternGenerator_8h}{
+\section{/home/david/workspace/ASE/src/control/strategies/CPG/CentralPatternGenerator.h File Reference}
+\label{CentralPatternGenerator_8h}\index{/home/david/workspace/ASE/src/control/strategies/CPG/CentralPatternGenerator.h@{/home/david/workspace/ASE/src/control/strategies/CPG/CentralPatternGenerator.h}}
+}
+{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
+{\tt \#include $<$stdint.h$>$}\par
+{\tt \#include $<$stdbool.h$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{cpg\_\-struct}
+\item 
+struct \textbf{cpgCoupling\_\-struct}
+\item 
+struct \textbf{cpgMsg\_\-struct}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{CentralPatternGenerator_8h_56a8207b95956ee99316c5ff607c09a7}{cpg\_\-init} (cpg\_\-struct $\ast$cpg)
+\item 
+\hypertarget{CentralPatternGenerator_8h_8b736b61db965c018222eb3120916d42}{
+void \textbf{cpg\_\-iterate} (cpg\_\-struct $\ast$cpg)}
+\label{CentralPatternGenerator_8h_8b736b61db965c018222eb3120916d42}
+
+\item 
+\hypertarget{CentralPatternGenerator_8h_9273735392b1ebf8e64249ffdede41bf}{
+float \textbf{cpg\_\-getX} (cpg\_\-struct $\ast$cpg)}
+\label{CentralPatternGenerator_8h_9273735392b1ebf8e64249ffdede41bf}
+
+\item 
+\hypertarget{CentralPatternGenerator_8h_b5fb0ff694f82fa49cd6612457b40041}{
+float \textbf{cpg\_\-getV} (cpg\_\-struct $\ast$cpg)}
+\label{CentralPatternGenerator_8h_b5fb0ff694f82fa49cd6612457b40041}
+
+\item 
+\hypertarget{CentralPatternGenerator_8h_81af6413a6bc8f5ed83ee01489d45476}{
+void \textbf{cpg\_\-resetState} (cpg\_\-struct $\ast$cpg)}
+\label{CentralPatternGenerator_8h_81af6413a6bc8f5ed83ee01489d45476}
+
+\item 
+\hypertarget{CentralPatternGenerator_8h_5187969146a2027ddff15f54e915902a}{
+void \textbf{cpg\_\-setUpdateRate} (float updatesPerPeriode, cpg\_\-struct $\ast$cpg)}
+\label{CentralPatternGenerator_8h_5187969146a2027ddff15f54e915902a}
+
+\item 
+\hypertarget{CentralPatternGenerator_8h_3839085d6d87f390ddcda623d51a4982}{
+void \textbf{cpg\_\-addCoupling} (float x1, float v1, cpgCoupling\_\-struct $\ast$coupling, cpg\_\-struct $\ast$cpg)}
+\label{CentralPatternGenerator_8h_3839085d6d87f390ddcda623d51a4982}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{CentralPatternGenerator_8h}{CentralPatternGenerator.h} provides a simple interface to an implementation of artificial central pattern generator. \begin{Desc}
+\item[\hyperlink{todo__todo000005}{Todo}]rename to more specific name and document code \end{Desc}
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{CentralPatternGenerator_8h_56a8207b95956ee99316c5ff607c09a7}{
+\index{CentralPatternGenerator.h@{CentralPatternGenerator.h}!cpg\_\-init@{cpg\_\-init}}
+\index{cpg\_\-init@{cpg\_\-init}!CentralPatternGenerator.h@{CentralPatternGenerator.h}}
+\subsubsection[{cpg\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void cpg\_\-init (cpg\_\-struct $\ast$ {\em cpg})}}
+\label{CentralPatternGenerator_8h_56a8207b95956ee99316c5ff607c09a7}
+
+
+Initialize the central pattern generator 

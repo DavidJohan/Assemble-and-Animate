@@ -1,0 +1,19 @@
+CC=gcc
+CFLAGS=-c -Wall -DATRON -DUSSR 
+AR=ar
+
+
+TARGETCFLAGS =
+
+TARGETSOURCE=\
+targets/atron/atron-ussr/socket-api/AtronSocketApi.c \
+targets/atron/atron-ussr/socket-api/AbstractAtronSocketApi.c \
+targets/utils/socket-tools/SimpleSocket.c \
+targets/utils/socket-tools/CommandSender.c \
+targets/utils/socket-tools/EventListner.c \
+control/behaviors/atron/self-reconfiguration/SnakeToQuadruped_8M/SnakeToQuadruped_8M.c \
+control/behaviors/atron/self-reconfiguration/QuadrupedToSnake_8M/QuadrupedToSnake_8M.c \
+control/behaviors/atron/locomotion/QuadrupedGait_8M/QuadrupedGait_8M.c \
+control/behaviors/atron/locomotion/SnakeGait/SnakeGait.c \
+tools/atron/AtronStatus/AtronStatus.c
+

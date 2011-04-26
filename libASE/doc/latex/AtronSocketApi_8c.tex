@@ -1,0 +1,370 @@
+\hypertarget{AtronSocketApi_8c}{
+\section{/home/david/workspace/ASE/src/abstraction/real\_\-modules/atron-ussr/socket-api/AtronSocketApi.c File Reference}
+\label{AtronSocketApi_8c}\index{/home/david/workspace/ASE/src/abstraction/real\_\-modules/atron-ussr/socket-api/AtronSocketApi.c@{/home/david/workspace/ASE/src/abstraction/real\_\-modules/atron-ussr/socket-api/AtronSocketApi.c}}
+}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}AtronSocketApi.h\char`\"{}}\par
+{\tt \#include \char`\"{}../../ussr-tools/socket-tools/CommandSender.h\char`\"{}}\par
+{\tt \#include \char`\"{}../../ussr-tools/socket-tools/EventListner.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{AtronSocketApi_8c_17e333794ae761cd55ec6fd6fc0f1bac}{MAX\_\-MSG\_\-SIZE}~50
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{AtronSocketApi_8c_7dca4dd89d10a7ef208ef0f5a6cc8b29}{atronApi\_\-wasSend} ()
+\item 
+void \hyperlink{AtronSocketApi_8c_deb1c5bd3cbc70364caecabf89acef78}{atronApi\_\-home} ()
+\item 
+char $\ast$ \hyperlink{AtronSocketApi_8c_ed6ad07620d5b3c43d8a9e368bbdf070}{atronApi\_\-getName} (char $\ast$returnString)
+\item 
+int \hyperlink{AtronSocketApi_8c_4e8a26540438e9fbb55ee19f8a747882}{atronApi\_\-isRotating} ()
+\item 
+int \hyperlink{AtronSocketApi_8c_3e58dde5b127df9be6ed9055a2cacdd9}{atronApi\_\-getJointPosition} ()
+\item 
+void \hyperlink{AtronSocketApi_8c_f30deafa6e7ff66f644f4a831401c6b7}{atronApi\_\-rotate} (int dir)
+\item 
+void \hyperlink{AtronSocketApi_8c_372504168569c5e0ada7f53256285d3d}{atronApi\_\-rotateDegrees} (int degrees)
+\item 
+void \hyperlink{AtronSocketApi_8c_7399c692da724c83918917b75663c50b}{atronApi\_\-rotateToDegreeInDegrees} (int degrees)
+\item 
+void \hyperlink{AtronSocketApi_8c_35bef59747807471af3f1faa3425f084}{atronApi\_\-rotateToDegree} (float rad)
+\item 
+float \hyperlink{AtronSocketApi_8c_ec6fb687f9043a3a1c4c6a449cf45fb0}{atronApi\_\-getTime} ()
+\item 
+float \hyperlink{AtronSocketApi_8c_7cdb13d46e3985bf2dfa5606898b2b00}{atronApi\_\-getAngularPosition} ()
+\item 
+int \hyperlink{AtronSocketApi_8c_c6078ffaf1a2c492f2aa3b4bd30c1ad5}{atronApi\_\-getAngularPositionDegrees} ()
+\item 
+void \hyperlink{AtronSocketApi_8c_1c3a57547bb3780baeb5489f28a0095b}{atronApi\_\-disconnectAll} ()
+\item 
+void \hyperlink{AtronSocketApi_8c_9679378d4b27b45e515ea3a5b36ee97c}{atronApi\_\-connectAll} ()
+\item 
+int \hyperlink{AtronSocketApi_8c_342e0285a1a9037f9faca5dad5e18906}{atronApi\_\-canConnect} (int connector)
+\item 
+int \hyperlink{AtronSocketApi_8c_cf88daed54454b563b9c8a29499afd45}{atronApi\_\-canDisconnect} (int connector)
+\item 
+int \hyperlink{AtronSocketApi_8c_c47cef46e03f2de8e3d4acd3bd7474b8}{atronApi\_\-isMale} (int connector)
+\item 
+void \hyperlink{AtronSocketApi_8c_21209237436860f2c50292c7d638ba65}{atronApi\_\-connect} (int connector)
+\item 
+void \hyperlink{AtronSocketApi_8c_4e0ad78b0e075fc0aa74985d47c07934}{atronApi\_\-disconnect} (int connector)
+\item 
+int \hyperlink{AtronSocketApi_8c_507429d2bc5e044d082234881d04fce0}{atronApi\_\-isConnected} (int connector)
+\item 
+int \hyperlink{AtronSocketApi_8c_ede7c48d7a76cbc2ef460a82f4ccb269}{atronApi\_\-isDisconnected} (int connector)
+\item 
+void \hyperlink{AtronSocketApi_8c_99df50a2ba090af8c9792dcfd63e0801}{atronApi\_\-rotateContinuous} (float dir)
+\item 
+void \hyperlink{AtronSocketApi_8c_2cc8ce01d43916753b637966255558a1}{atronApi\_\-centerBrake} ()
+\item 
+void \hyperlink{AtronSocketApi_8c_7e61dace046f499ea30dfe8ea2af7280}{atronApi\_\-centerStop} ()
+\item 
+int \hyperlink{AtronSocketApi_8c_a3a2716b9eb5604255b117b88f387ccb}{atronApi\_\-isOtherConnectorNearby} (int connector)
+\item 
+int \hyperlink{AtronSocketApi_8c_e3679538ac6181a8242e0911347b0fd7}{atronApi\_\-isObjectNearby} (int connector)
+\item 
+short \hyperlink{AtronSocketApi_8c_a570693ce791a3e163be01bc699513b6}{atronApi\_\-getTiltX} ()
+\item 
+short \hyperlink{AtronSocketApi_8c_71c4ee6d391d86744ae6e0ee325b9872}{atronApi\_\-getTiltY} ()
+\item 
+short \hyperlink{AtronSocketApi_8c_c962c747960c764d4c1046f64b1b7177}{atronApi\_\-getTiltZ} ()
+\item 
+void \hyperlink{AtronSocketApi_8c_bb26a95f368874caf92aba2638c4c7f6}{charArrayToString} (char $\ast$array, char $\ast$result, char arrayLength)
+\item 
+void \hyperlink{AtronSocketApi_8c_1c9bd64aa33f619159cbd6bb45d3205c}{stringToCharArray} (char $\ast$string, char $\ast$result)
+\item 
+int \hyperlink{AtronSocketApi_8c_c3a33b5cf6bd4b326264eef98eb5416d}{atronApi\_\-sendMessage} (char $\ast$message, char messageSize, char connector)
+\item 
+void \hyperlink{AtronSocketApi_8c_0d34d8084d91349aebe7ec56b3b8309d}{atronApi\_\-handleMessage} (char $\ast$eventType, char $\ast$messageData)
+\item 
+void \hyperlink{AtronSocketApi_8c_44442e8843419bd84485df442dd45ae4}{atronApi\_\-setup} (int portRC, int portEvent, char $\ast$host, void($\ast$msgHandler)(char $\ast$, char, char))
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char \hyperlink{AtronSocketApi_8c_3ad51de2a13f3b9a47d4955e6b48e740}{atronApi\_\-msgReceiveBuffer} \mbox{[}MAX\_\-MSG\_\-SIZE\mbox{]}
+\item 
+char \hyperlink{AtronSocketApi_8c_7cc83d5f34a822a373bd73cb4139dcbd}{atronApi\_\-msgSendBuffer} \mbox{[}MAX\_\-MSG\_\-SIZE\mbox{]}
+\item 
+void($\ast$ \hyperlink{AtronSocketApi_8c_6eae678c666ce59f37101dd8a557dbfb}{atronApi\_\-msgHandler} )(char $\ast$, char, char)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{AtronSocketApi_8c_17e333794ae761cd55ec6fd6fc0f1bac}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!MAX\_\-MSG\_\-SIZE@{MAX\_\-MSG\_\-SIZE}}
+\index{MAX\_\-MSG\_\-SIZE@{MAX\_\-MSG\_\-SIZE}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-MSG\_\-SIZE~50}}
+\label{AtronSocketApi_8c_17e333794ae761cd55ec6fd6fc0f1bac}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{AtronSocketApi_8c_342e0285a1a9037f9faca5dad5e18906}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-canConnect@{atronApi\_\-canConnect}}
+\index{atronApi\_\-canConnect@{atronApi\_\-canConnect}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-canConnect (int {\em connector})}}
+\label{AtronSocketApi_8c_342e0285a1a9037f9faca5dad5e18906}
+
+
+\hypertarget{AtronSocketApi_8c_cf88daed54454b563b9c8a29499afd45}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-canDisconnect@{atronApi\_\-canDisconnect}}
+\index{atronApi\_\-canDisconnect@{atronApi\_\-canDisconnect}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-canDisconnect (int {\em connector})}}
+\label{AtronSocketApi_8c_cf88daed54454b563b9c8a29499afd45}
+
+
+\hypertarget{AtronSocketApi_8c_2cc8ce01d43916753b637966255558a1}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-centerBrake@{atronApi\_\-centerBrake}}
+\index{atronApi\_\-centerBrake@{atronApi\_\-centerBrake}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-centerBrake ()}}
+\label{AtronSocketApi_8c_2cc8ce01d43916753b637966255558a1}
+
+
+\hypertarget{AtronSocketApi_8c_7e61dace046f499ea30dfe8ea2af7280}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-centerStop@{atronApi\_\-centerStop}}
+\index{atronApi\_\-centerStop@{atronApi\_\-centerStop}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-centerStop ()}}
+\label{AtronSocketApi_8c_7e61dace046f499ea30dfe8ea2af7280}
+
+
+\hypertarget{AtronSocketApi_8c_21209237436860f2c50292c7d638ba65}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-connect@{atronApi\_\-connect}}
+\index{atronApi\_\-connect@{atronApi\_\-connect}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-connect (int {\em connector})}}
+\label{AtronSocketApi_8c_21209237436860f2c50292c7d638ba65}
+
+
+\hypertarget{AtronSocketApi_8c_9679378d4b27b45e515ea3a5b36ee97c}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-connectAll@{atronApi\_\-connectAll}}
+\index{atronApi\_\-connectAll@{atronApi\_\-connectAll}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-connectAll ()}}
+\label{AtronSocketApi_8c_9679378d4b27b45e515ea3a5b36ee97c}
+
+
+\hypertarget{AtronSocketApi_8c_4e0ad78b0e075fc0aa74985d47c07934}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-disconnect@{atronApi\_\-disconnect}}
+\index{atronApi\_\-disconnect@{atronApi\_\-disconnect}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-disconnect (int {\em connector})}}
+\label{AtronSocketApi_8c_4e0ad78b0e075fc0aa74985d47c07934}
+
+
+\hypertarget{AtronSocketApi_8c_1c3a57547bb3780baeb5489f28a0095b}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-disconnectAll@{atronApi\_\-disconnectAll}}
+\index{atronApi\_\-disconnectAll@{atronApi\_\-disconnectAll}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-disconnectAll ()}}
+\label{AtronSocketApi_8c_1c3a57547bb3780baeb5489f28a0095b}
+
+
+\hypertarget{AtronSocketApi_8c_7cdb13d46e3985bf2dfa5606898b2b00}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getAngularPosition@{atronApi\_\-getAngularPosition}}
+\index{atronApi\_\-getAngularPosition@{atronApi\_\-getAngularPosition}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float atronApi\_\-getAngularPosition ()}}
+\label{AtronSocketApi_8c_7cdb13d46e3985bf2dfa5606898b2b00}
+
+
+\hypertarget{AtronSocketApi_8c_c6078ffaf1a2c492f2aa3b4bd30c1ad5}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getAngularPositionDegrees@{atronApi\_\-getAngularPositionDegrees}}
+\index{atronApi\_\-getAngularPositionDegrees@{atronApi\_\-getAngularPositionDegrees}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-getAngularPositionDegrees ()}}
+\label{AtronSocketApi_8c_c6078ffaf1a2c492f2aa3b4bd30c1ad5}
+
+
+\hypertarget{AtronSocketApi_8c_3e58dde5b127df9be6ed9055a2cacdd9}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getJointPosition@{atronApi\_\-getJointPosition}}
+\index{atronApi\_\-getJointPosition@{atronApi\_\-getJointPosition}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-getJointPosition ()}}
+\label{AtronSocketApi_8c_3e58dde5b127df9be6ed9055a2cacdd9}
+
+
+\hypertarget{AtronSocketApi_8c_ed6ad07620d5b3c43d8a9e368bbdf070}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getName@{atronApi\_\-getName}}
+\index{atronApi\_\-getName@{atronApi\_\-getName}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ atronApi\_\-getName (char $\ast$ {\em returnString})}}
+\label{AtronSocketApi_8c_ed6ad07620d5b3c43d8a9e368bbdf070}
+
+
+\hypertarget{AtronSocketApi_8c_a570693ce791a3e163be01bc699513b6}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getTiltX@{atronApi\_\-getTiltX}}
+\index{atronApi\_\-getTiltX@{atronApi\_\-getTiltX}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}short atronApi\_\-getTiltX ()}}
+\label{AtronSocketApi_8c_a570693ce791a3e163be01bc699513b6}
+
+
+\hypertarget{AtronSocketApi_8c_71c4ee6d391d86744ae6e0ee325b9872}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getTiltY@{atronApi\_\-getTiltY}}
+\index{atronApi\_\-getTiltY@{atronApi\_\-getTiltY}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}short atronApi\_\-getTiltY ()}}
+\label{AtronSocketApi_8c_71c4ee6d391d86744ae6e0ee325b9872}
+
+
+\hypertarget{AtronSocketApi_8c_c962c747960c764d4c1046f64b1b7177}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getTiltZ@{atronApi\_\-getTiltZ}}
+\index{atronApi\_\-getTiltZ@{atronApi\_\-getTiltZ}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}short atronApi\_\-getTiltZ ()}}
+\label{AtronSocketApi_8c_c962c747960c764d4c1046f64b1b7177}
+
+
+\hypertarget{AtronSocketApi_8c_ec6fb687f9043a3a1c4c6a449cf45fb0}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-getTime@{atronApi\_\-getTime}}
+\index{atronApi\_\-getTime@{atronApi\_\-getTime}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float atronApi\_\-getTime ()}}
+\label{AtronSocketApi_8c_ec6fb687f9043a3a1c4c6a449cf45fb0}
+
+
+\hypertarget{AtronSocketApi_8c_0d34d8084d91349aebe7ec56b3b8309d}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-handleMessage@{atronApi\_\-handleMessage}}
+\index{atronApi\_\-handleMessage@{atronApi\_\-handleMessage}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-handleMessage (char $\ast$ {\em eventType}, \/  char $\ast$ {\em messageData})}}
+\label{AtronSocketApi_8c_0d34d8084d91349aebe7ec56b3b8309d}
+
+
+\hypertarget{AtronSocketApi_8c_deb1c5bd3cbc70364caecabf89acef78}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-home@{atronApi\_\-home}}
+\index{atronApi\_\-home@{atronApi\_\-home}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-home ()}}
+\label{AtronSocketApi_8c_deb1c5bd3cbc70364caecabf89acef78}
+
+
+\hypertarget{AtronSocketApi_8c_507429d2bc5e044d082234881d04fce0}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-isConnected@{atronApi\_\-isConnected}}
+\index{atronApi\_\-isConnected@{atronApi\_\-isConnected}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isConnected (int {\em connector})}}
+\label{AtronSocketApi_8c_507429d2bc5e044d082234881d04fce0}
+
+
+\hypertarget{AtronSocketApi_8c_ede7c48d7a76cbc2ef460a82f4ccb269}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-isDisconnected@{atronApi\_\-isDisconnected}}
+\index{atronApi\_\-isDisconnected@{atronApi\_\-isDisconnected}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isDisconnected (int {\em connector})}}
+\label{AtronSocketApi_8c_ede7c48d7a76cbc2ef460a82f4ccb269}
+
+
+\hypertarget{AtronSocketApi_8c_c47cef46e03f2de8e3d4acd3bd7474b8}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-isMale@{atronApi\_\-isMale}}
+\index{atronApi\_\-isMale@{atronApi\_\-isMale}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isMale (int {\em connector})}}
+\label{AtronSocketApi_8c_c47cef46e03f2de8e3d4acd3bd7474b8}
+
+
+\hypertarget{AtronSocketApi_8c_e3679538ac6181a8242e0911347b0fd7}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-isObjectNearby@{atronApi\_\-isObjectNearby}}
+\index{atronApi\_\-isObjectNearby@{atronApi\_\-isObjectNearby}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isObjectNearby (int {\em connector})}}
+\label{AtronSocketApi_8c_e3679538ac6181a8242e0911347b0fd7}
+
+
+\hypertarget{AtronSocketApi_8c_a3a2716b9eb5604255b117b88f387ccb}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-isOtherConnectorNearby@{atronApi\_\-isOtherConnectorNearby}}
+\index{atronApi\_\-isOtherConnectorNearby@{atronApi\_\-isOtherConnectorNearby}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isOtherConnectorNearby (int {\em connector})}}
+\label{AtronSocketApi_8c_a3a2716b9eb5604255b117b88f387ccb}
+
+
+\hypertarget{AtronSocketApi_8c_4e8a26540438e9fbb55ee19f8a747882}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-isRotating@{atronApi\_\-isRotating}}
+\index{atronApi\_\-isRotating@{atronApi\_\-isRotating}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isRotating ()}}
+\label{AtronSocketApi_8c_4e8a26540438e9fbb55ee19f8a747882}
+
+
+\hypertarget{AtronSocketApi_8c_f30deafa6e7ff66f644f4a831401c6b7}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-rotate@{atronApi\_\-rotate}}
+\index{atronApi\_\-rotate@{atronApi\_\-rotate}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotate (int {\em dir})}}
+\label{AtronSocketApi_8c_f30deafa6e7ff66f644f4a831401c6b7}
+
+
+\hypertarget{AtronSocketApi_8c_99df50a2ba090af8c9792dcfd63e0801}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-rotateContinuous@{atronApi\_\-rotateContinuous}}
+\index{atronApi\_\-rotateContinuous@{atronApi\_\-rotateContinuous}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateContinuous (float {\em dir})}}
+\label{AtronSocketApi_8c_99df50a2ba090af8c9792dcfd63e0801}
+
+
+\hypertarget{AtronSocketApi_8c_372504168569c5e0ada7f53256285d3d}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-rotateDegrees@{atronApi\_\-rotateDegrees}}
+\index{atronApi\_\-rotateDegrees@{atronApi\_\-rotateDegrees}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateDegrees (int {\em degrees})}}
+\label{AtronSocketApi_8c_372504168569c5e0ada7f53256285d3d}
+
+
+\hypertarget{AtronSocketApi_8c_35bef59747807471af3f1faa3425f084}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-rotateToDegree@{atronApi\_\-rotateToDegree}}
+\index{atronApi\_\-rotateToDegree@{atronApi\_\-rotateToDegree}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateToDegree (float {\em rad})}}
+\label{AtronSocketApi_8c_35bef59747807471af3f1faa3425f084}
+
+
+\hypertarget{AtronSocketApi_8c_7399c692da724c83918917b75663c50b}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-rotateToDegreeInDegrees@{atronApi\_\-rotateToDegreeInDegrees}}
+\index{atronApi\_\-rotateToDegreeInDegrees@{atronApi\_\-rotateToDegreeInDegrees}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateToDegreeInDegrees (int {\em degrees})}}
+\label{AtronSocketApi_8c_7399c692da724c83918917b75663c50b}
+
+
+\hypertarget{AtronSocketApi_8c_c3a33b5cf6bd4b326264eef98eb5416d}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-sendMessage@{atronApi\_\-sendMessage}}
+\index{atronApi\_\-sendMessage@{atronApi\_\-sendMessage}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-sendMessage (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em connector})}}
+\label{AtronSocketApi_8c_c3a33b5cf6bd4b326264eef98eb5416d}
+
+
+\hypertarget{AtronSocketApi_8c_44442e8843419bd84485df442dd45ae4}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-setup@{atronApi\_\-setup}}
+\index{atronApi\_\-setup@{atronApi\_\-setup}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-setup (int {\em portRC}, \/  int {\em portEvent}, \/  char $\ast$ {\em host}, \/  void($\ast$)(char $\ast$, char, char) {\em msgHandler})}}
+\label{AtronSocketApi_8c_44442e8843419bd84485df442dd45ae4}
+
+
+\hypertarget{AtronSocketApi_8c_7dca4dd89d10a7ef208ef0f5a6cc8b29}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-wasSend@{atronApi\_\-wasSend}}
+\index{atronApi\_\-wasSend@{atronApi\_\-wasSend}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-wasSend ()}}
+\label{AtronSocketApi_8c_7dca4dd89d10a7ef208ef0f5a6cc8b29}
+
+
+Please document me... \hypertarget{AtronSocketApi_8c_bb26a95f368874caf92aba2638c4c7f6}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!charArrayToString@{charArrayToString}}
+\index{charArrayToString@{charArrayToString}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void charArrayToString (char $\ast$ {\em array}, \/  char $\ast$ {\em result}, \/  char {\em arrayLength})}}
+\label{AtronSocketApi_8c_bb26a95f368874caf92aba2638c4c7f6}
+
+
+\hypertarget{AtronSocketApi_8c_1c9bd64aa33f619159cbd6bb45d3205c}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!stringToCharArray@{stringToCharArray}}
+\index{stringToCharArray@{stringToCharArray}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void stringToCharArray (char $\ast$ {\em string}, \/  char $\ast$ {\em result})}}
+\label{AtronSocketApi_8c_1c9bd64aa33f619159cbd6bb45d3205c}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{AtronSocketApi_8c_6eae678c666ce59f37101dd8a557dbfb}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-msgHandler@{atronApi\_\-msgHandler}}
+\index{atronApi\_\-msgHandler@{atronApi\_\-msgHandler}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ {\bf atronApi\_\-msgHandler})(char $\ast$, char, char)}}
+\label{AtronSocketApi_8c_6eae678c666ce59f37101dd8a557dbfb}
+
+
+\hypertarget{AtronSocketApi_8c_3ad51de2a13f3b9a47d4955e6b48e740}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-msgReceiveBuffer@{atronApi\_\-msgReceiveBuffer}}
+\index{atronApi\_\-msgReceiveBuffer@{atronApi\_\-msgReceiveBuffer}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf atronApi\_\-msgReceiveBuffer}\mbox{[}MAX\_\-MSG\_\-SIZE\mbox{]}}}
+\label{AtronSocketApi_8c_3ad51de2a13f3b9a47d4955e6b48e740}
+
+
+\hypertarget{AtronSocketApi_8c_7cc83d5f34a822a373bd73cb4139dcbd}{
+\index{AtronSocketApi.c@{AtronSocketApi.c}!atronApi\_\-msgSendBuffer@{atronApi\_\-msgSendBuffer}}
+\index{atronApi\_\-msgSendBuffer@{atronApi\_\-msgSendBuffer}!AtronSocketApi.c@{AtronSocketApi.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf atronApi\_\-msgSendBuffer}\mbox{[}MAX\_\-MSG\_\-SIZE\mbox{]}}}
+\label{AtronSocketApi_8c_7cc83d5f34a822a373bd73cb4139dcbd}
+
+

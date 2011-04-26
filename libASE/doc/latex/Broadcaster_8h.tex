@@ -1,0 +1,47 @@
+\hypertarget{Broadcaster_8h}{
+\section{/home/david/ASE/src/communication/Broadcast/Broadcaster.h File Reference}
+\label{Broadcaster_8h}\index{/home/david/ASE/src/communication/Broadcast/Broadcaster.h@{/home/david/ASE/src/communication/Broadcast/Broadcaster.h}}
+}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{Broadcaster_8h_c80c867a888d524e05d8ea5bb4ac2270}{broadcaster\_\-init} ()
+\item 
+int \hyperlink{Broadcaster_8h_3c6e3d0ffa6150838b12c46b5fc3694d}{broadcaster\_\-act} ()
+\item 
+int \hyperlink{Broadcaster_8h_470b1d790aca30dc15a30989c4e142ea}{broadcaster\_\-broadcast} (char $\ast$message, char messageSize, char channel)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{Broadcaster_8h}{Broadcaster.h} enables the modules to broadcast messages, each module in the robot will received the broadcasted message once. Received messages must elsewhere be forwarded to the broadcast(.) function, which will make the decision on whether or not to transmit the message further. This file is used by \hyperlink{MCManager_8h}{MCManager.h}
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{Broadcaster_8h_3c6e3d0ffa6150838b12c46b5fc3694d}{
+\index{Broadcaster.h@{Broadcaster.h}!broadcaster\_\-act@{broadcaster\_\-act}}
+\index{broadcaster\_\-act@{broadcaster\_\-act}!Broadcaster.h@{Broadcaster.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int broadcaster\_\-act ()}}
+\label{Broadcaster_8h_3c6e3d0ffa6150838b12c46b5fc3694d}
+
+
+Check if a broadcast message needs to be resend \hypertarget{Broadcaster_8h_470b1d790aca30dc15a30989c4e142ea}{
+\index{Broadcaster.h@{Broadcaster.h}!broadcaster\_\-broadcast@{broadcaster\_\-broadcast}}
+\index{broadcaster\_\-broadcast@{broadcaster\_\-broadcast}!Broadcaster.h@{Broadcaster.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int broadcaster\_\-broadcast (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em channel})}}
+\label{Broadcaster_8h_470b1d790aca30dc15a30989c4e142ea}
+
+
+Broadcast the message. Note that this function will only transmit the message if it is not already stored in a cache memory (not already send). \hypertarget{Broadcaster_8h_c80c867a888d524e05d8ea5bb4ac2270}{
+\index{Broadcaster.h@{Broadcaster.h}!broadcaster\_\-init@{broadcaster\_\-init}}
+\index{broadcaster\_\-init@{broadcaster\_\-init}!Broadcaster.h@{Broadcaster.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void broadcaster\_\-init ()}}
+\label{Broadcaster_8h_c80c867a888d524e05d8ea5bb4ac2270}
+
+
+Initializes the broadcaster 

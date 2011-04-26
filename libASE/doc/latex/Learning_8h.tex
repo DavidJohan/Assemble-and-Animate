@@ -1,0 +1,71 @@
+\hypertarget{Learning_8h}{
+\section{/home/david/ASE/src/control/strategies/Learning/Learning.h File Reference}
+\label{Learning_8h}\index{/home/david/ASE/src/control/strategies/Learning/Learning.h@{/home/david/ASE/src/control/strategies/Learning/Learning.h}}
+}
+{\tt \#include \char`\"{}Message.h\char`\"{}}\par
+{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
+{\tt \#include \char`\"{}RewardCollector.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structLearningMsg__t}{LearningMsg\_\-t}
+\item 
+struct \textbf{Learning\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{Learning_8h_9265585b7f401adaf2854a543579aa3c}{
+void \textbf{learning\_\-init} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_9265585b7f401adaf2854a543579aa3c}
+
+\item 
+\hypertarget{Learning_8h_b99907a1e56c2620d36f3c665cf9de6c}{
+void \textbf{learning\_\-reset} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_b99907a1e56c2620d36f3c665cf9de6c}
+
+\item 
+\hypertarget{Learning_8h_892d70a11bb87d8549612463865824f6}{
+void \textbf{learning\_\-update} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_892d70a11bb87d8549612463865824f6}
+
+\item 
+\hypertarget{Learning_8h_5c534e0eabdbce66457fa9d7ad36680a}{
+int \textbf{learning\_\-accelerateNow} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_5c534e0eabdbce66457fa9d7ad36680a}
+
+\item 
+\hypertarget{Learning_8h_d9baf51a9c72b2170cc302c994549961}{
+int \textbf{learning\_\-getAction} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_d9baf51a9c72b2170cc302c994549961}
+
+\item 
+\hypertarget{Learning_8h_f5588b26357fce7be7eb02e2b289ff76}{
+float \textbf{learning\_\-getReward} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_f5588b26357fce7be7eb02e2b289ff76}
+
+\item 
+\hypertarget{Learning_8h_c072920bee41880c69ad6d5187edd720}{
+int \textbf{learning\_\-isReady} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_c072920bee41880c69ad6d5187edd720}
+
+\item 
+\hypertarget{Learning_8h_cf5fc0c1beb94b612d70babccaf2ed05}{
+int \textbf{learning\_\-getBestAction} (Learning\_\-t $\ast$process)}
+\label{Learning_8h_cf5fc0c1beb94b612d70babccaf2ed05}
+
+\item 
+\hypertarget{Learning_8h_2dfd94d154d7133d0b1f9b57e6fe29da}{
+void \textbf{learning\_\-collectReward} (Learning\_\-t $\ast$process, float reward)}
+\label{Learning_8h_2dfd94d154d7133d0b1f9b57e6fe29da}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{Learning_8h}{Learning.h} a simple reinforcement learning algoritm for modular robots. Following the algorithm described in: D.J.Christensen et al. \char`\"{}Morphology Independent Learning for Modular robots\char`\"{} DARS2008 Basically each module is independently optimizing it own reward using an exponential moving average.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

@@ -1,0 +1,65 @@
+\hypertarget{Gradient_8h}{
+\section{/home/david/ASE/src/control/strategies/Gradient/Gradient.h File Reference}
+\label{Gradient_8h}\index{/home/david/ASE/src/control/strategies/Gradient/Gradient.h@{/home/david/ASE/src/control/strategies/Gradient/Gradient.h}}
+}
+{\tt \#include \char`\"{}Manager.h\char`\"{}}\par
+{\tt \#include \char`\"{}Message.h\char`\"{}}\par
+{\tt \#include \char`\"{}PeriodicStrategy.h\char`\"{}}\par
+{\tt \#include $<$stdlib.h$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structGradient__t}{Gradient\_\-t}
+\item 
+struct \hyperlink{structGradientMsg__t}{GradientMsg\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\hypertarget{Gradient_8h_21506f20e4e599bfdf6435ec833d9460}{
+\#define \textbf{GRADIENT\_\-UPDATED\_\-EVENT}~\char`\"{}GRADIENT\_\-UPDATED\_\-EVENT\char`\"{}}
+\label{Gradient_8h_21506f20e4e599bfdf6435ec833d9460}
+
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{Gradient_8h_45c5d10da3e9e1fd4cb5480ba9ea3c75}{
+void \textbf{Gradient\_\-initialize} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient, short label, float hz)}
+\label{Gradient_8h_45c5d10da3e9e1fd4cb5480ba9ea3c75}
+
+\item 
+\hypertarget{Gradient_8h_6bd1523975f6e83e3388959b2689e9f6}{
+bool \textbf{Gradient\_\-sendIfTime} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient, \hyperlink{structGradientMsg__t}{GradientMsg\_\-t} $\ast$msg)}
+\label{Gradient_8h_6bd1523975f6e83e3388959b2689e9f6}
+
+\item 
+\hypertarget{Gradient_8h_909fbe6e37fadc96e6402734cd2ba6e8}{
+short \textbf{Gradient\_\-updateFromValue} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient, short value)}
+\label{Gradient_8h_909fbe6e37fadc96e6402734cd2ba6e8}
+
+\item 
+\hypertarget{Gradient_8h_440b75ceea5cbbb50187f6cff3fe4358}{
+short \textbf{Gradient\_\-getValue} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient)}
+\label{Gradient_8h_440b75ceea5cbbb50187f6cff3fe4358}
+
+\item 
+\hypertarget{Gradient_8h_63a9f6247c9a2e263e1c156e6c39cdd2}{
+void \textbf{Gradient\_\-setSeed} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient, bool seed, short value)}
+\label{Gradient_8h_63a9f6247c9a2e263e1c156e6c39cdd2}
+
+\item 
+\hypertarget{Gradient_8h_ebb11e3a9f2f85b45e0d7a027f2559e5}{
+bool \textbf{Gradient\_\-isSeed} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient)}
+\label{Gradient_8h_ebb11e3a9f2f85b45e0d7a027f2559e5}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{Gradient_8h}{Gradient.h} a simple hop-count gradient. \begin{Desc}
+\item[\hyperlink{todo__todo000005}{Todo}]Removeal or forgetting of gradient if seed turns off gradient \end{Desc}
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

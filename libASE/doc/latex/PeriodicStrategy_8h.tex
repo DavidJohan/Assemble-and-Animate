@@ -1,0 +1,73 @@
+\hypertarget{PeriodicStrategy_8h}{
+\section{/home/david/ASE/src/infrastructure/Entity/Strategy/PeriodicStrategy/PeriodicStrategy.h File Reference}
+\label{PeriodicStrategy_8h}\index{/home/david/ASE/src/infrastructure/Entity/Strategy/PeriodicStrategy/PeriodicStrategy.h@{/home/david/ASE/src/infrastructure/Entity/Strategy/PeriodicStrategy/PeriodicStrategy.h}}
+}
+{\tt \#include $<$stdbool.h$>$}\par
+{\tt \#include \char`\"{}Strategy.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{PeriodicStrategy_8h_4daad354f8d62f70bbd389e15fe05653}{
+void \textbf{PeriodicStrategy\_\-setDelay} (int delay, \hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_4daad354f8d62f70bbd389e15fe05653}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_8b4463241c55b39db6372dd24e874c09}{
+void \textbf{PeriodicStrategy\_\-setVariance} (int variance, \hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_8b4463241c55b39db6372dd24e874c09}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_73e769f0a0dc8a5829241706378d3932}{
+int \textbf{PeriodicStrategy\_\-getDelay} (\hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_73e769f0a0dc8a5829241706378d3932}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_984f2556ba6505ef6f39668fe5d99311}{
+int \textbf{PeriodicStrategy\_\-getVariance} (\hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_984f2556ba6505ef6f39668fe5d99311}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_033c66c498b3a13438f0743dc273d6b2}{
+void \textbf{PeriodicStrategy\_\-setParameters} (int delay, int variance, \hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_033c66c498b3a13438f0743dc273d6b2}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_c887fe5ec7a4708938339dafd64c550c}{
+int \textbf{PeriodicStrategy\_\-getPendingSteps} (\hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_c887fe5ec7a4708938339dafd64c550c}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_1f26d7e4fbef985c4cc15466b47c9796}{
+bool \textbf{PeriodicStrategy\_\-hasPendingSteps} (\hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_1f26d7e4fbef985c4cc15466b47c9796}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_fda2672be86d4fc1fe90ef0e5fe6bd62}{
+void \textbf{PeriodicStrategy\_\-step} (\hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_fda2672be86d4fc1fe90ef0e5fe6bd62}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_653aec1dbe8125290d71349fa13b4757}{
+void \textbf{PeriodicStrategy\_\-catchUp} (\hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_653aec1dbe8125290d71349fa13b4757}
+
+\item 
+\hypertarget{PeriodicStrategy_8h_858db6e1e1f53ad2c98633a8a89a525f}{
+void \textbf{PeriodicStrategy\_\-init} (int delay, int variance, \hyperlink{structPeriodicStrategy__t}{PeriodicStrategy\_\-t} $\ast$per)}
+\label{PeriodicStrategy_8h_858db6e1e1f53ad2c98633a8a89a525f}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{PeriodicStrategy_8h}{PeriodicStrategy.h} is a construct for ASE. Most strategies extend it. It contains methods and variables to start, stop, pause, resume and restart the strategy.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maersk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

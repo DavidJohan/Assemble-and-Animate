@@ -1,0 +1,41 @@
+\hypertarget{CnoCpgManager_8h}{
+\section{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpgManager.h File Reference}
+\label{CnoCpgManager_8h}\index{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpgManager.h@{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpgManager.h}}
+}
+{\tt \#include \char`\"{}CnoCpg.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$ \hyperlink{CnoCpgManager_8h_0bd196d4d624891d5d3be6e31fd0738a}{CnoCpgManager\_\-createCpg} (short label, float hz)
+\item 
+\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$ \hyperlink{CnoCpgManager_8h_92299c483ba4604d178b019741ac845b}{CnoCpgManager\_\-createCoupling} (short fromLabel, short toLabel, float strength, float phaseDiff)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{CnoCpgManager_8h}{CnoCpgManager.h} provides management of 'cno' artificial central pattern generators.
+
+Uses: \hyperlink{CpgSuperManager_8h}{CpgSuperManager.h} and \hyperlink{CpgSuper_8h}{CpgSuper.h}
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{CnoCpgManager_8h_92299c483ba4604d178b019741ac845b}{
+\index{CnoCpgManager.h@{CnoCpgManager.h}!CnoCpgManager\_\-createCoupling@{CnoCpgManager\_\-createCoupling}}
+\index{CnoCpgManager\_\-createCoupling@{CnoCpgManager\_\-createCoupling}!CnoCpgManager.h@{CnoCpgManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf CpgSuperCoupling\_\-t}$\ast$ CnoCpgManager\_\-createCoupling (short {\em fromLabel}, \/  short {\em toLabel}, \/  float {\em strength}, \/  float {\em phaseDiff})}}
+\label{CnoCpgManager_8h_92299c483ba4604d178b019741ac845b}
+
+
+Create a CPG coupling from 'fromLabel' to 'toLabel' with a specified coupling strength and phase difference. \hypertarget{CnoCpgManager_8h_0bd196d4d624891d5d3be6e31fd0738a}{
+\index{CnoCpgManager.h@{CnoCpgManager.h}!CnoCpgManager\_\-createCpg@{CnoCpgManager\_\-createCpg}}
+\index{CnoCpgManager\_\-createCpg@{CnoCpgManager\_\-createCpg}!CnoCpgManager.h@{CnoCpgManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf CnoCpg\_\-t}$\ast$ CnoCpgManager\_\-createCpg (short {\em label}, \/  float {\em hz})}}
+\label{CnoCpgManager_8h_0bd196d4d624891d5d3be6e31fd0738a}
+
+
+Create a CPG with specified label, frequency and otherwise default parameters 

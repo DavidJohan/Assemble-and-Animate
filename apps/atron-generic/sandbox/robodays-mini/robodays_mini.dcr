@@ -1,0 +1,24 @@
+role M0 extends Module { require (self.id==0); }
+role M1 extends Module { require (self.id==1); }
+role M2 extends Module { require (self.id==2); }
+role M3 extends Module { require (self.id==3); }
+
+sequence Main {
+  M1.Connector[0].retract();
+  M0.rotateFromToBy(0,180,true,150) |
+  M2.rotateFromToBy(0,180,true,150);
+  M0.rotateFromToBy(180,0,true,150) |
+  M2.rotateFromToBy(180,0,true,150);
+  M1.Connector[0].extend();
+  M0.Connector[6].retract();
+  M1.rotateFromToBy(0,180,true,150) |
+  M2.rotateFromToBy(0,180,true,150);
+  M1.rotateFromToBy(180,0,true,150) |
+  M2.rotateFromToBy(180,0,true,150);
+  M0.Connector[6].extend();
+}
+
+sequence Back = reverse Main;
+
+deployment { M0 M1 M2 }
+startup { Main Back }

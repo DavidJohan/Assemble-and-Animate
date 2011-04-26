@@ -1,0 +1,173 @@
+\hypertarget{CpgGait_8h}{
+\section{/home/david/ASE/src/control/behaviors/generic/CpgGait/CpgGait.h File Reference}
+\label{CpgGait_8h}\index{/home/david/ASE/src/control/behaviors/generic/CpgGait/CpgGait.h@{/home/david/ASE/src/control/behaviors/generic/CpgGait/CpgGait.h}}
+}
+{\tt \#include $<$stdbool.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\hypertarget{CpgGait_8h_4015f1064bdcdcec973501ad11d5547c}{
+\#define \textbf{CPGGAIT\_\-N\_\-FEEDBACK\_\-TERMS}~4}
+\label{CpgGait_8h_4015f1064bdcdcec973501ad11d5547c}
+
+\item 
+\hypertarget{CpgGait_8h_e22187022bc8d53cb1b130b38bf8fad4}{
+\#define \textbf{CPGGAIT\_\-H\_\-}}
+\label{CpgGait_8h_e22187022bc8d53cb1b130b38bf8fad4}
+
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{CpgGait_8h_119fd973ed56aec825ffec56af1000ef}{CpgGait\_\-init} ()
+\item 
+\hypertarget{CpgGait_8h_30853c1b1ac13fd771e7580283652ad9}{
+void \textbf{CpgGait\_\-start} ()}
+\label{CpgGait_8h_30853c1b1ac13fd771e7580283652ad9}
+
+\item 
+\hypertarget{CpgGait_8h_6ced9cc1acd2fcbc168d76041e51e57a}{
+bool \textbf{CpgGait\_\-isStarted} ()}
+\label{CpgGait_8h_6ced9cc1acd2fcbc168d76041e51e57a}
+
+\item 
+void \hyperlink{CpgGait_8h_664ea74b2579070d017da4e891ad2b19}{CpgGait\_\-setCouplingStrenghts} (float g2gStrength, float g2lStrength, float l2gStrength)
+\item 
+void \hyperlink{CpgGait_8h_891de0c232941bf1edd82c966083c305}{CpgGait\_\-setAmplitude} (float amplitude, int index)
+\item 
+void \hyperlink{CpgGait_8h_5497c342c6bb46381f76a0933a2919e6}{CpgGait\_\-setOffset} (float offset, int index)
+\item 
+void \hyperlink{CpgGait_8h_3f4256e810bb864f5c993ccd35b7364f}{CpgGait\_\-setPhaseShift} (float phaseShift, int index)
+\item 
+void \hyperlink{CpgGait_8h_62b33178e647bf7a9122c2017acccd7e}{CpgGait\_\-setFrequency} (float hz, int index)
+\item 
+void \hyperlink{CpgGait_8h_c3a4b950c9ae98756be582329f899eb4}{CpgGait\_\-setFeedbackTerm} (float term, int nr, int actuatorIndex)
+\item 
+void \hyperlink{CpgGait_8h_c6c16d1f38293f2e88fdf8d460fa9e56}{CpgGait\_\-getController} (float $\ast$controller)
+\item 
+void \hyperlink{CpgGait_8h_94b44bc98a4bd1c5f9c6d821382b4dad}{CpgGait\_\-setController} (float $\ast$controller)
+\item 
+void \hyperlink{CpgGait_8h_c082a65a890d909de10c65554388069e}{CpgGait\_\-setUseFeedback} (int feedback)
+\item 
+void \hyperlink{CpgGait_8h_1b7e238e26be37ecdb8d74527ca45107}{CpgGait\_\-logController} (int id, FILE $\ast$file)
+\item 
+void \hyperlink{CpgGait_8h_5910f5f881215243cece899087211bdd}{CpgGait\_\-loadController} (int id, FILE $\ast$file)
+\item 
+void \hyperlink{CpgGait_8h_f67dc3efa3f9bc2cf3322f56ca54182c}{CpgGait\_\-setLoggers} (FILE $\ast$lCPG, FILE $\ast$lControl)
+\item 
+void \hyperlink{CpgGait_8h_b018d098438ab1012fa3cfa934a3434c}{CpgGait\_\-logCpg} (FILE $\ast$log)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{CpgGait_8h}{CpgGait.h} provides a generic, distributed, locomotion system for any actuated modular robot. The locomotion system is based in Hopf central pattern generators. It uses one CPG per module as a shared global clock (cpg's are in phase) and one locally coupled CPG per actuator. The local cpg's are only coupled to the global clock cpg and their phase shift is relative to this global clock.
+
+\begin{Desc}
+\item[See also:]\hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h} \end{Desc}
+\begin{Desc}
+\item[\hyperlink{todo__todo000002}{Todo}]Move all references to log files elsewhere\end{Desc}
+Created on: May 4, 2009 \begin{Desc}
+\item[Author:]David Johan Christensen \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{CpgGait_8h_c6c16d1f38293f2e88fdf8d460fa9e56}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-getController@{CpgGait\_\-getController}}
+\index{CpgGait\_\-getController@{CpgGait\_\-getController}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-getController (float $\ast$ {\em controller})}}
+\label{CpgGait_8h_c6c16d1f38293f2e88fdf8d460fa9e56}
+
+
+Get current controller as an array of floats Format: ampl0, phase0,freq0,offset0, ampl1, phase1, freq1, offset1, ... Followed by: feedbackTerms0, feedbackTerms1,... \hypertarget{CpgGait_8h_119fd973ed56aec825ffec56af1000ef}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-init@{CpgGait\_\-init}}
+\index{CpgGait\_\-init@{CpgGait\_\-init}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-init ()}}
+\label{CpgGait_8h_119fd973ed56aec825ffec56af1000ef}
+
+
+Initialize the gait with default values and starts to update the Hopf cpg's, couples the sensor feedback from encoders and updates the actuators position based on the output of the local cpg's. \hypertarget{CpgGait_8h_5910f5f881215243cece899087211bdd}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-loadController@{CpgGait\_\-loadController}}
+\index{CpgGait\_\-loadController@{CpgGait\_\-loadController}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-loadController (int {\em id}, \/  FILE $\ast$ {\em file})}}
+\label{CpgGait_8h_5910f5f881215243cece899087211bdd}
+
+
+Depricated Method \hypertarget{CpgGait_8h_1b7e238e26be37ecdb8d74527ca45107}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-logController@{CpgGait\_\-logController}}
+\index{CpgGait\_\-logController@{CpgGait\_\-logController}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-logController (int {\em id}, \/  FILE $\ast$ {\em file})}}
+\label{CpgGait_8h_1b7e238e26be37ecdb8d74527ca45107}
+
+
+Depricated Method \hypertarget{CpgGait_8h_b018d098438ab1012fa3cfa934a3434c}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-logCpg@{CpgGait\_\-logCpg}}
+\index{CpgGait\_\-logCpg@{CpgGait\_\-logCpg}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-logCpg (FILE $\ast$ {\em log})}}
+\label{CpgGait_8h_b018d098438ab1012fa3cfa934a3434c}
+
+
+Depricated Method \hypertarget{CpgGait_8h_891de0c232941bf1edd82c966083c305}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setAmplitude@{CpgGait\_\-setAmplitude}}
+\index{CpgGait\_\-setAmplitude@{CpgGait\_\-setAmplitude}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setAmplitude (float {\em amplitude}, \/  int {\em index})}}
+\label{CpgGait_8h_891de0c232941bf1edd82c966083c305}
+
+
+Set the amplitude of the CPG which controls actuator index \mbox{[}0, 1, 2,..\mbox{]} \hypertarget{CpgGait_8h_94b44bc98a4bd1c5f9c6d821382b4dad}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setController@{CpgGait\_\-setController}}
+\index{CpgGait\_\-setController@{CpgGait\_\-setController}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setController (float $\ast$ {\em controller})}}
+\label{CpgGait_8h_94b44bc98a4bd1c5f9c6d821382b4dad}
+
+
+Set current controller as an array of floats Format: ampl0, phase0,freq0,offset0, ampl1, phase1, freq1, offset1, ... Followed by: feedbackTerms0, feedbackTerms1,... \hypertarget{CpgGait_8h_664ea74b2579070d017da4e891ad2b19}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setCouplingStrenghts@{CpgGait\_\-setCouplingStrenghts}}
+\index{CpgGait\_\-setCouplingStrenghts@{CpgGait\_\-setCouplingStrenghts}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setCouplingStrenghts (float {\em g2gStrength}, \/  float {\em g2lStrength}, \/  float {\em l2gStrength})}}
+\label{CpgGait_8h_664ea74b2579070d017da4e891ad2b19}
+
+
+Set the three different couplings strengths (global to global, global to local and local to local) \hypertarget{CpgGait_8h_c3a4b950c9ae98756be582329f899eb4}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setFeedbackTerm@{CpgGait\_\-setFeedbackTerm}}
+\index{CpgGait\_\-setFeedbackTerm@{CpgGait\_\-setFeedbackTerm}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setFeedbackTerm (float {\em term}, \/  int {\em nr}, \/  int {\em actuatorIndex})}}
+\label{CpgGait_8h_c3a4b950c9ae98756be582329f899eb4}
+
+
+Set the feedback terms using in Hopf cpg's, nr indicates which feedback type: 0 - Current actuator pos added to the X equation of the Hopf CPG 1 - Current actuator error added to the X equation of the Hopf CPG 2 - Current actuator pos added to the Y equation of the Hopf CPG 3 - Current actuator error added to the Y equation of the Hopf CPG \hypertarget{CpgGait_8h_62b33178e647bf7a9122c2017acccd7e}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setFrequency@{CpgGait\_\-setFrequency}}
+\index{CpgGait\_\-setFrequency@{CpgGait\_\-setFrequency}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setFrequency (float {\em hz}, \/  int {\em index})}}
+\label{CpgGait_8h_62b33178e647bf7a9122c2017acccd7e}
+
+
+Set the frequency (in hz) of the CPG which controls actuator index \mbox{[}0, 1, 2,..\mbox{]} \hypertarget{CpgGait_8h_f67dc3efa3f9bc2cf3322f56ca54182c}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setLoggers@{CpgGait\_\-setLoggers}}
+\index{CpgGait\_\-setLoggers@{CpgGait\_\-setLoggers}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setLoggers (FILE $\ast$ {\em lCPG}, \/  FILE $\ast$ {\em lControl})}}
+\label{CpgGait_8h_f67dc3efa3f9bc2cf3322f56ca54182c}
+
+
+Depricated Method \hypertarget{CpgGait_8h_5497c342c6bb46381f76a0933a2919e6}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setOffset@{CpgGait\_\-setOffset}}
+\index{CpgGait\_\-setOffset@{CpgGait\_\-setOffset}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setOffset (float {\em offset}, \/  int {\em index})}}
+\label{CpgGait_8h_5497c342c6bb46381f76a0933a2919e6}
+
+
+Set the offset of the CPG which controls actuator index \mbox{[}0, 1, 2,..\mbox{]} \hypertarget{CpgGait_8h_3f4256e810bb864f5c993ccd35b7364f}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setPhaseShift@{CpgGait\_\-setPhaseShift}}
+\index{CpgGait\_\-setPhaseShift@{CpgGait\_\-setPhaseShift}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setPhaseShift (float {\em phaseShift}, \/  int {\em index})}}
+\label{CpgGait_8h_3f4256e810bb864f5c993ccd35b7364f}
+
+
+Set the offset of the CPG which controls actuator index \mbox{[}0, 1, 2,..\mbox{]} \hypertarget{CpgGait_8h_c082a65a890d909de10c65554388069e}{
+\index{CpgGait.h@{CpgGait.h}!CpgGait\_\-setUseFeedback@{CpgGait\_\-setUseFeedback}}
+\index{CpgGait\_\-setUseFeedback@{CpgGait\_\-setUseFeedback}!CpgGait.h@{CpgGait.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgGait\_\-setUseFeedback (int {\em feedback})}}
+\label{CpgGait_8h_c082a65a890d909de10c65554388069e}
+
+
+Set if encoder feedback should be added to the local Hopf Cpg's otherwise the feedback terms will be ignored 

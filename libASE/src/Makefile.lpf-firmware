@@ -1,0 +1,11 @@
+CC=arm-elf-gcc
+#CFLAGS=-mmcu=sam7s256 -c -Wall -DLPF
+CFLAGS=-c -Wall -DLPF
+
+AR=arm-elf-ar
+
+
+TARGETSOURCE=\
+targets/lpf/LPFApi.c \
+targets/lpf/AbstractLPFApi.c \
+targets/lpf/LPFPrintf.c

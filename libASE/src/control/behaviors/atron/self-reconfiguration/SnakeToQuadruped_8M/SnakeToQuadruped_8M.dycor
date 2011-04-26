@@ -1,0 +1,38 @@
+// DyCoR = Dynamic Collaborative Roles? :-)
+
+ 
+role M1 extends Module { require (self.id==1); }
+role M2 extends Module { require (self.id==2); }
+role M3 extends Module { require (self.id==3); }
+role M4 extends Module { require (self.id==4); }
+role M5 extends Module { require (self.id==5); }
+role M6 extends Module { require (self.id==6); }
+role M7 extends Module { require (self.id==7); }
+role M8 extends Module { require (self.id==8); }
+
+sequence snake2shift8 {
+  M2.rotateFromToBy(0,180,false,150) |
+  M3.rotateFromToBy(0,180,false,150) |
+  M6.rotateFromToBy(0,180,true,150) |
+  M7.rotateFromToBy(0,180,true,150);
+  M1.Connector[4].extend() |
+  M1.Connector[6].extend() |
+  M5.Connector[4].extend();
+}
+
+sequence shift82quad {
+  M3.Connector[6].retract() |
+  M7.Connector[6].retract();
+  M4.rotateFromToBy(0,270,true,150) |
+  M1.rotateFromToBy(0,90,true,150) |
+  M5.rotateFromToBy(0,90,true,150) |
+  M8.rotateFromToBy(0,270,true,150);
+}
+
+sequence shift82snake = reverse snake2shift8;
+
+sequence quad2shift8 = reverse shift82quad;
+
+deployment { M0 M1 M2 M3 M4 M5 M6 M7 }
+startup { snake2shift8 shift82quad } 
+

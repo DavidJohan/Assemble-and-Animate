@@ -1,0 +1,53 @@
+\hypertarget{PubSubManager_8h}{
+\section{/home/david/ASE/src/infrastructure/Entity/Manager/PubSubManager/PubSubManager.h File Reference}
+\label{PubSubManager_8h}\index{/home/david/ASE/src/infrastructure/Entity/Manager/PubSubManager/PubSubManager.h@{/home/david/ASE/src/infrastructure/Entity/Manager/PubSubManager/PubSubManager.h}}
+}
+{\tt \#include $<$stdbool.h$>$}\par
+{\tt \#include \char`\"{}Entity.h\char`\"{}}\par
+{\tt \#include \char`\"{}Manager.h\char`\"{}}\par
+{\tt \#include \char`\"{}LinkedList.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structPubSubManager__t}{PubSubManager\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{PubSubManager_8h_3712b9f7fedf3e73fc5df15772373cbf}{
+void \textbf{PubSubManager\_\-init} (\hyperlink{structPubSubManager__t}{PubSubManager\_\-t} $\ast$manager, short label)}
+\label{PubSubManager_8h_3712b9f7fedf3e73fc5df15772373cbf}
+
+\item 
+\hypertarget{PubSubManager_8h_d5d380d1ac4bd9c3fb489605c3a1eb69}{
+bool \textbf{PubSubManager\_\-isInitialized} (\hyperlink{structPubSubManager__t}{PubSubManager\_\-t} $\ast$manager)}
+\label{PubSubManager_8h_d5d380d1ac4bd9c3fb489605c3a1eb69}
+
+\item 
+\hypertarget{PubSubManager_8h_ce384b42c7be6f8ce5efc64e7fad5313}{
+int \textbf{PubSubManager\_\-countSubscribers} (\hyperlink{structPubSubManager__t}{PubSubManager\_\-t} $\ast$manager)}
+\label{PubSubManager_8h_ce384b42c7be6f8ce5efc64e7fad5313}
+
+\item 
+\hypertarget{PubSubManager_8h_9a6ee14ab49114dde50204a3dd7b5f09}{
+void \textbf{PubSubManager\_\-addSubscriber} (\hyperlink{structPubSubManager__t}{PubSubManager\_\-t} $\ast$manager, void $\ast$subscriber)}
+\label{PubSubManager_8h_9a6ee14ab49114dde50204a3dd7b5f09}
+
+\item 
+\hypertarget{PubSubManager_8h_2c385da0e8d7ea4853147cc4f462bf83}{
+bool \textbf{PubSubManager\_\-hasSubscriber} (\hyperlink{structPubSubManager__t}{PubSubManager\_\-t} $\ast$manager, void $\ast$subscriber, bool($\ast$equals)(void $\ast$, void $\ast$))}
+\label{PubSubManager_8h_2c385da0e8d7ea4853147cc4f462bf83}
+
+\item 
+\hypertarget{PubSubManager_8h_a54d19d42dfcd89148fafd7e3a32bd9a}{
+int \textbf{PubSubManager\_\-publish} (\hyperlink{structPubSubManager__t}{PubSubManager\_\-t} $\ast$manager, void $\ast$topic, void $\ast$event, bool($\ast$subscribes)(void $\ast$, void $\ast$), void($\ast$handler)(void $\ast$, void $\ast$, void $\ast$))}
+\label{PubSubManager_8h_a54d19d42dfcd89148fafd7e3a32bd9a}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maersk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+find . | grep CMakeFiles | xargs rm -fR
+find . | grep CMakeCache | xargs rm -fR
+find . | grep cmake | xargs rm -fR

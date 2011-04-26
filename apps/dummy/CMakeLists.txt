@@ -1,0 +1,10 @@
+CMAKE_MINIMUM_REQUIRED (VERSION 2.6)
+
+PROJECT (DUMMY)
+
+INCLUDE_DIRECTORIES (../../libASE/include)
+
+SET (CMAKE_C_FLAGS "-Wall -DDUMMY")
+
+ADD_SUBDIRECTORY (./controllers/timer ./bin/dummy-timer EXCLUDE_FROM_ALL)
+

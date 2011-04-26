@@ -1,0 +1,6 @@
+#TARGET=mtran-ussr
+TARGET=atron-ussr
+#TARGET=atron-tinyos
+#TARGET=odin-ussr
+#TARGET=odin-contiki
+#TARGET=roombot-webots

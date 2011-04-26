@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS=-c -Wall -DKHEPERA -DWEBOTS
+AR=ar
+
+TARGETCFLAGS =
+
+TARGETSOURCE=\
+targets/khepera/khepera-webots/KheperaApi.c \
+targets/utils/socket-tools/SimpleSocket.c \
+targets/utils/socket-tools/CommandSender.c \
+targets/utils/socket-tools/EventListner.c

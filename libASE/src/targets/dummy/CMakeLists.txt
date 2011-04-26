@@ -1,0 +1,13 @@
+INCLUDE (${ASE_SOURCE_DIR}/src/CMakeLists.txt)
+
+SET (SRCS
+        AbstractDummyApi.c
+)
+SET (CMAKE_C_COMPILER "gcc")
+SET (CMAKE_AR "ar")
+SET (CMAKE_C_FLAGS "-c -Wall -DDUMMY")
+
+
+
+ADD_LIBRARY (dummy STATIC ${SRCS} ${FULL_SRCS})
+SET_TARGET_PROPERTIES (dummy PROPERTIES OUTPUT_NAME "ASE")

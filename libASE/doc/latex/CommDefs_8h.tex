@@ -1,0 +1,71 @@
+\hypertarget{CommDefs_8h}{
+\section{/home/david/ASE/src/communication/CommDefs.h File Reference}
+\label{CommDefs_8h}\index{/home/david/ASE/src/communication/CommDefs.h@{/home/david/ASE/src/communication/CommDefs.h}}
+}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\hypertarget{CommDefs_8h_dfb26ef4ba37ce98e0bb274a35c15307}{
+\#define \textbf{PING\_\-MESSAGE}~1}
+\label{CommDefs_8h_dfb26ef4ba37ce98e0bb274a35c15307}
+
+\item 
+\hypertarget{CommDefs_8h_e9413eacf0bf0aa97f67dda0630682ec}{
+\#define \textbf{CPG\_\-CNO\_\-MESSAGE}~2}
+\label{CommDefs_8h_e9413eacf0bf0aa97f67dda0630682ec}
+
+\item 
+\hypertarget{CommDefs_8h_2d19a3e9679067410e72f799a5078b23}{
+\#define \textbf{GRADIENT\_\-MESSAGE}~3}
+\label{CommDefs_8h_2d19a3e9679067410e72f799a5078b23}
+
+\item 
+\hypertarget{CommDefs_8h_1355f718be8610531b23cec392fbf8d5}{
+\#define \textbf{LEARNING\_\-MESSAGE}~4}
+\label{CommDefs_8h_1355f718be8610531b23cec392fbf8d5}
+
+\item 
+\hypertarget{CommDefs_8h_3c41452ba5038ebdbd12b49937c7faca}{
+\#define \textbf{CONSENSUS\_\-MESSAGE}~5}
+\label{CommDefs_8h_3c41452ba5038ebdbd12b49937c7faca}
+
+\item 
+\hypertarget{CommDefs_8h_7b6646e428bdecd4213262e7dbb904b9}{
+\#define \textbf{MODULAR\_\-COMMANDER\_\-MESSAGE}~6}
+\label{CommDefs_8h_7b6646e428bdecd4213262e7dbb904b9}
+
+\item 
+\hypertarget{CommDefs_8h_5b7a1af342d5ceb376fb4913c0fd70e9}{
+\#define \textbf{DISTRIBUTED\_\-STATE\_\-MESSAGE}~7}
+\label{CommDefs_8h_5b7a1af342d5ceb376fb4913c0fd70e9}
+
+\item 
+\hypertarget{CommDefs_8h_9b0f72039dc8e838e02d9a77fac1009d}{
+\#define \textbf{GOSSIP\_\-MESSAGE}~8}
+\label{CommDefs_8h_9b0f72039dc8e838e02d9a77fac1009d}
+
+\item 
+\hypertarget{CommDefs_8h_1913efec8389610553c0181bd7f29b1a}{
+\#define \textbf{CPG\_\-HC\_\-MESSAGE}~9}
+\label{CommDefs_8h_1913efec8389610553c0181bd7f29b1a}
+
+\item 
+\hypertarget{CommDefs_8h_08fcbe8f9c183b2ee4a5015361da6935}{
+\#define \textbf{INTERNAL\_\-MESSAGE}~254}
+\label{CommDefs_8h_08fcbe8f9c183b2ee4a5015361da6935}
+
+\item 
+\hypertarget{CommDefs_8h_0c53c193f976610f5152679c64abab06}{
+\#define \textbf{BROADCAST\_\-MESSAGE}~255}
+\label{CommDefs_8h_0c53c193f976610f5152679c64abab06}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{CommDefs_8h}{CommDefs.h} defines the types of communication messages that are recognized and used internally by ASE the convention is that the first byte in a message defines its type, e.g., a CPG\_\-MESSAGE will have a 2 as its first byte. This information is needed for internal routing of messages. Note that application specific messages should avoid using the same types as defined here.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

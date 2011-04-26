@@ -1,0 +1,8 @@
+CC=avr-gcc
+CFLAGS=-mmcu=atmega128 -c -Wall -DCM510 -DDYNAMIXEL
+AR=avr-ar
+
+
+TARGETSOURCE=\
+#targets/dynamixel/dynamixel-CM510/AbstractDynamixelApi.c \
+#targets/dynamixel/dynamixel-CM510/DynamixelD2UApi.c 

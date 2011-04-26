@@ -1,0 +1,10 @@
+1) Doxygen documentation of code
+2) IDManager_MC, who assignes hardID?
+3) Remove local ID from Modular Commander (use IDContainer)
+4) replace *_act() methods with timers or with generic act handler?
+5) Make generic message handler 
+6) hardID in tos api getHardID() method?
+7) generic IDManager_Gradient
+8) Make generic *_init() handler or local "initialized" flags?
+9) Minimize memory use by using #IFDEF
+10) merge AbstractAtronTosApi and AbstracAtronSocketApi

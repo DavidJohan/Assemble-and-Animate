@@ -1,0 +1,21 @@
+role M0 extends Module { require (true==true); }
+
+sequence Main {
+  M0.rotateFromToBy(0,90,true,150);
+  M0.rotateFromToBy(90,180,true,150);
+  M0.rotateFromToBy(180,270,true,150);
+  M0.rotateFromToBy(270,0,true,150);
+  M0.Connector[0].extend()|
+  M0.Connector[2].extend()|
+  M0.Connector[4].extend()|
+  M0.Connector[6].extend();
+  M0.Connector[0].retract()|
+  M0.Connector[2].retract()|
+  M0.Connector[4].retract()|
+  M0.Connector[6].retract();
+}
+
+sequence Back = reverse Main;
+
+deployment { M0 }
+startup { Main }

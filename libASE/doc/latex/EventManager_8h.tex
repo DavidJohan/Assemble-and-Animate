@@ -1,0 +1,58 @@
+\hypertarget{EventManager_8h}{
+\section{/home/david/ASE/src/infrastructure/EventManager/EventManager.h File Reference}
+\label{EventManager_8h}\index{/home/david/ASE/src/infrastructure/EventManager/EventManager.h@{/home/david/ASE/src/infrastructure/EventManager/EventManager.h}}
+}
+{\tt \#include \char`\"{}PubSubManager.h\char`\"{}}\par
+{\tt \#include \char`\"{}LinkedList.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+union \textbf{Event\_\-t}
+\item 
+struct \textbf{EventHandler\_\-t}
+\item 
+struct \hyperlink{structEventManager__t}{EventManager\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{EventManager_8h_2bcb572d38ec6cc20845b598fb25352e}{EventManager\_\-subscribe} (char $\ast$topic, void($\ast$handler)(char $\ast$, Event\_\-t $\ast$))
+\item 
+void \hyperlink{EventManager_8h_77fd502b67fdd3cac706ca7c008c4b40}{EventManager\_\-registerTopic} (char $\ast$topic)
+\item 
+void \hyperlink{EventManager_8h_afc06f6e106e93757e422492f6cd31e5}{EventManager\_\-publish} (char $\ast$topic, Event\_\-t $\ast$event)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{EventManager_8h}{EventManager.h} provides a publish/subscribe system of internal events between different components
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{EventManager_8h_afc06f6e106e93757e422492f6cd31e5}{
+\index{EventManager.h@{EventManager.h}!EventManager\_\-publish@{EventManager\_\-publish}}
+\index{EventManager\_\-publish@{EventManager\_\-publish}!EventManager.h@{EventManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-publish (char $\ast$ {\em topic}, \/  Event\_\-t $\ast$ {\em event})}}
+\label{EventManager_8h_afc06f6e106e93757e422492f6cd31e5}
+
+
+Allows a component (a publisher) to signal (or publish) an event \hypertarget{EventManager_8h_77fd502b67fdd3cac706ca7c008c4b40}{
+\index{EventManager.h@{EventManager.h}!EventManager\_\-registerTopic@{EventManager\_\-registerTopic}}
+\index{EventManager\_\-registerTopic@{EventManager\_\-registerTopic}!EventManager.h@{EventManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-registerTopic (char $\ast$ {\em topic})}}
+\label{EventManager_8h_77fd502b67fdd3cac706ca7c008c4b40}
+
+
+Allows an component (publisher) to make an topic available for publication \hypertarget{EventManager_8h_2bcb572d38ec6cc20845b598fb25352e}{
+\index{EventManager.h@{EventManager.h}!EventManager\_\-subscribe@{EventManager\_\-subscribe}}
+\index{EventManager\_\-subscribe@{EventManager\_\-subscribe}!EventManager.h@{EventManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-subscribe (char $\ast$ {\em topic}, \/  void($\ast$)(char $\ast$, Event\_\-t $\ast$) {\em handler})}}
+\label{EventManager_8h_2bcb572d38ec6cc20845b598fb25352e}
+
+
+Allows a component (a subscriber) to subscribe to specific event topics char$\ast$ topic should point to a global variable 

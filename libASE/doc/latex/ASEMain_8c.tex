@@ -1,0 +1,101 @@
+\hypertarget{ASEMain_8c}{
+\section{/home/david/workspace/ASE/src/abstraction/real\_\-modules/atron-ussr/jni-api/ASEMain.c File Reference}
+\label{ASEMain_8c}\index{/home/david/workspace/ASE/src/abstraction/real\_\-modules/atron-ussr/jni-api/ASEMain.c@{/home/david/workspace/ASE/src/abstraction/real\_\-modules/atron-ussr/jni-api/ASEMain.c}}
+}
+{\tt \#include $<$ussr.h$>$}\par
+{\tt \#include $<$atron.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}ModuleUpdater.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{struct__Global}{\_\-Global}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{ASEMain_8c_f30572b35b789436dcca7435ea97d447}{GLOBAL}(env, name)~globals\_\-static\_\-alloc.name
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef struct \hyperlink{struct__Global}{\_\-Global} \hyperlink{ASEMain_8c_d6b6a082d1e6cdde1c7cbf7074bd3183}{Global}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{ASEMain_8c_a982bbb7d1789aeca690836162785a8c}{mainLoop} (USSRONLY(USSREnv $\ast$env))
+\item 
+void \hyperlink{ASEMain_8c_8ae7125d41ebd55092ac0ed4e58ae04f}{init} (USSRONLY(USSREnv $\ast$env))
+\item 
+void \hyperlink{ASEMain_8c_edaa832f4265c117ee19a7879e9b63a1}{activate} (USSRONLY(USSREnv $\ast$env))
+\item 
+void \hyperlink{ASEMain_8c_c6ca4e229f23287388d9701aa1498bab}{handleMessage} (USSRONLYC(USSREnv $\ast$env) unsigned char $\ast$incoming, unsigned char messageSize, unsigned char channel)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+\hyperlink{struct__Global}{Global} \hyperlink{ASEMain_8c_b5b25c3bd50b5ff0312f0cbdc49f9402}{globals\_\-static\_\-alloc}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{ASEMain_8c_f30572b35b789436dcca7435ea97d447}{
+\index{ASEMain.c@{ASEMain.c}!GLOBAL@{GLOBAL}}
+\index{GLOBAL@{GLOBAL}!ASEMain.c@{ASEMain.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define GLOBAL(env, \/  name)~globals\_\-static\_\-alloc.name}}
+\label{ASEMain_8c_f30572b35b789436dcca7435ea97d447}
+
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{ASEMain_8c_d6b6a082d1e6cdde1c7cbf7074bd3183}{
+\index{ASEMain.c@{ASEMain.c}!Global@{Global}}
+\index{Global@{Global}!ASEMain.c@{ASEMain.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-Global}  {\bf Global}}}
+\label{ASEMain_8c_d6b6a082d1e6cdde1c7cbf7074bd3183}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{ASEMain_8c_edaa832f4265c117ee19a7879e9b63a1}{
+\index{ASEMain.c@{ASEMain.c}!activate@{activate}}
+\index{activate@{activate}!ASEMain.c@{ASEMain.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void activate (USSRONLY(USSREnv $\ast$env))}}
+\label{ASEMain_8c_edaa832f4265c117ee19a7879e9b63a1}
+
+
+\hypertarget{ASEMain_8c_c6ca4e229f23287388d9701aa1498bab}{
+\index{ASEMain.c@{ASEMain.c}!handleMessage@{handleMessage}}
+\index{handleMessage@{handleMessage}!ASEMain.c@{ASEMain.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void handleMessage (USSRONLYC(USSREnv $\ast$env) unsigned char $\ast$ {\em incoming}, \/  unsigned char {\em messageSize}, \/  unsigned char {\em channel})}}
+\label{ASEMain_8c_c6ca4e229f23287388d9701aa1498bab}
+
+
+\hypertarget{ASEMain_8c_8ae7125d41ebd55092ac0ed4e58ae04f}{
+\index{ASEMain.c@{ASEMain.c}!init@{init}}
+\index{init@{init}!ASEMain.c@{ASEMain.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void init (USSRONLY(USSREnv $\ast$env))}}
+\label{ASEMain_8c_8ae7125d41ebd55092ac0ed4e58ae04f}
+
+
+\hypertarget{ASEMain_8c_a982bbb7d1789aeca690836162785a8c}{
+\index{ASEMain.c@{ASEMain.c}!mainLoop@{mainLoop}}
+\index{mainLoop@{mainLoop}!ASEMain.c@{ASEMain.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mainLoop (USSRONLY(USSREnv $\ast$env))}}
+\label{ASEMain_8c_a982bbb7d1789aeca690836162785a8c}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{ASEMain_8c_b5b25c3bd50b5ff0312f0cbdc49f9402}{
+\index{ASEMain.c@{ASEMain.c}!globals\_\-static\_\-alloc@{globals\_\-static\_\-alloc}}
+\index{globals\_\-static\_\-alloc@{globals\_\-static\_\-alloc}!ASEMain.c@{ASEMain.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Global} {\bf globals\_\-static\_\-alloc}}}
+\label{ASEMain_8c_b5b25c3bd50b5ff0312f0cbdc49f9402}
+
+

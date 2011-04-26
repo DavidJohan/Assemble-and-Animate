@@ -1,0 +1,101 @@
+\hypertarget{CommandSender_8h}{
+\section{/home/david/ASE/src/targets/utils/socket-tools/CommandSender.h File Reference}
+\label{CommandSender_8h}\index{/home/david/ASE/src/targets/utils/socket-tools/CommandSender.h@{/home/david/ASE/src/targets/utils/socket-tools/CommandSender.h}}
+}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{CommandSender_8h_bfc6d04e5d50a268c0f19efac5dc6f86}{cs\_\-init} (int port, char $\ast$host)
+\item 
+void \hyperlink{CommandSender_8h_80df4c519768c8e72cf9b2008f26a152}{cs\_\-sendCommandCount} (int sendCommandCount)
+\item 
+int \hyperlink{CommandSender_8h_0d69ac8abd93c93496ec67ac565b049a}{cs\_\-sendCommand} (char $\ast$command, char $\ast$returnParam)
+\item 
+int \hyperlink{CommandSender_8h_bd30a11a5a9e0c6d61c908beebc47401}{cs\_\-wasSuccess} ()
+\item 
+char $\ast$ \hyperlink{CommandSender_8h_450b277ac80e3b9aef5580a87a879c9e}{cs\_\-sendCommand\_\-string} (char $\ast$command, char $\ast$returnString)
+\item 
+void \hyperlink{CommandSender_8h_fa8ad3e97292c29b746b0d0605166c09}{cs\_\-sendCommand\_\-void} (char $\ast$command)
+\item 
+int \hyperlink{CommandSender_8h_784968acd8bf8bb2409d248a12f7778b}{cs\_\-sendCommand\_\-int} (char $\ast$command)
+\item 
+int \hyperlink{CommandSender_8h_b09550f71c606653880fc821334379e9}{cs\_\-sendCommand\_\-bool} (char $\ast$command)
+\item 
+float \hyperlink{CommandSender_8h_bf40de762eb1edb7eb968e0c49c5da79}{cs\_\-sendCommand\_\-float} (char $\ast$command)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{CommandSender_8h}{CommandSender.h} provides together with \hyperlink{EventListner_8h}{EventListner.h} an generic socket based interface to the Unified Simulator for Self-Reconfigurable Robots (USSR). String formatted as function calls are send to the simulator for execution (through reflection). For example \char`\"{}SendMessage 123,32,10, 3 5\char`\"{} will trigger the SendMessage method in USSR with the appropiate parameters: the message (\{123,32,10\}), the message length (3) and the channel(5).
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{CommandSender_8h_bfc6d04e5d50a268c0f19efac5dc6f86}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-init@{cs\_\-init}}
+\index{cs\_\-init@{cs\_\-init}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cs\_\-init (int {\em port}, \/  char $\ast$ {\em host})}}
+\label{CommandSender_8h_bfc6d04e5d50a268c0f19efac5dc6f86}
+
+
+Initialize the commandSender with a free socket port (e.g. 1234) and a host (typically LOCALHOST) \hypertarget{CommandSender_8h_0d69ac8abd93c93496ec67ac565b049a}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-sendCommand@{cs\_\-sendCommand}}
+\index{cs\_\-sendCommand@{cs\_\-sendCommand}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-sendCommand (char $\ast$ {\em command}, \/  char $\ast$ {\em returnParam})}}
+\label{CommandSender_8h_0d69ac8abd93c93496ec67ac565b049a}
+
+
+Generic method for sending a command to USSR the return parameter is returned as a string in returnParam \hypertarget{CommandSender_8h_b09550f71c606653880fc821334379e9}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-sendCommand\_\-bool@{cs\_\-sendCommand\_\-bool}}
+\index{cs\_\-sendCommand\_\-bool@{cs\_\-sendCommand\_\-bool}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-sendCommand\_\-bool (char $\ast$ {\em command})}}
+\label{CommandSender_8h_b09550f71c606653880fc821334379e9}
+
+
+Send a command to USSR returns the return parameter as a boolean int \hypertarget{CommandSender_8h_bf40de762eb1edb7eb968e0c49c5da79}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-sendCommand\_\-float@{cs\_\-sendCommand\_\-float}}
+\index{cs\_\-sendCommand\_\-float@{cs\_\-sendCommand\_\-float}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float cs\_\-sendCommand\_\-float (char $\ast$ {\em command})}}
+\label{CommandSender_8h_bf40de762eb1edb7eb968e0c49c5da79}
+
+
+Send a command to USSR returns the return parameter as a float \hypertarget{CommandSender_8h_784968acd8bf8bb2409d248a12f7778b}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-sendCommand\_\-int@{cs\_\-sendCommand\_\-int}}
+\index{cs\_\-sendCommand\_\-int@{cs\_\-sendCommand\_\-int}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-sendCommand\_\-int (char $\ast$ {\em command})}}
+\label{CommandSender_8h_784968acd8bf8bb2409d248a12f7778b}
+
+
+Send a command to USSR returns the return parameter as an int \hypertarget{CommandSender_8h_450b277ac80e3b9aef5580a87a879c9e}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-sendCommand\_\-string@{cs\_\-sendCommand\_\-string}}
+\index{cs\_\-sendCommand\_\-string@{cs\_\-sendCommand\_\-string}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cs\_\-sendCommand\_\-string (char $\ast$ {\em command}, \/  char $\ast$ {\em returnString})}}
+\label{CommandSender_8h_450b277ac80e3b9aef5580a87a879c9e}
+
+
+Send a command to USSR returns the return parameter as a string \hypertarget{CommandSender_8h_fa8ad3e97292c29b746b0d0605166c09}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-sendCommand\_\-void@{cs\_\-sendCommand\_\-void}}
+\index{cs\_\-sendCommand\_\-void@{cs\_\-sendCommand\_\-void}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cs\_\-sendCommand\_\-void (char $\ast$ {\em command})}}
+\label{CommandSender_8h_fa8ad3e97292c29b746b0d0605166c09}
+
+
+Send a command to USSR returns void \hypertarget{CommandSender_8h_80df4c519768c8e72cf9b2008f26a152}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-sendCommandCount@{cs\_\-sendCommandCount}}
+\index{cs\_\-sendCommandCount@{cs\_\-sendCommandCount}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void cs\_\-sendCommandCount (int {\em sendCommandCount})}}
+\label{CommandSender_8h_80df4c519768c8e72cf9b2008f26a152}
+
+
+Set if command counter is also send in the message (for khepera-webots compatability) \hypertarget{CommandSender_8h_bd30a11a5a9e0c6d61c908beebc47401}{
+\index{CommandSender.h@{CommandSender.h}!cs\_\-wasSuccess@{cs\_\-wasSuccess}}
+\index{cs\_\-wasSuccess@{cs\_\-wasSuccess}!CommandSender.h@{CommandSender.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cs\_\-wasSuccess ()}}
+\label{CommandSender_8h_bd30a11a5a9e0c6d61c908beebc47401}
+
+
+If last command was send successfully 

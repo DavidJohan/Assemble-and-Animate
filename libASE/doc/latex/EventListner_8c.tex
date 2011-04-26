@@ -1,0 +1,143 @@
+\hypertarget{EventListner_8c}{
+\section{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/EventListner.c File Reference}
+\label{EventListner_8c}\index{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/EventListner.c@{/home/david/workspace/ASE/src/abstraction/real\_\-modules/ussr-tools/socket-tools/EventListner.c}}
+}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$pthread.h$>$}\par
+{\tt \#include \char`\"{}SimpleSocket.h\char`\"{}}\par
+{\tt \#include \char`\"{}EventListner.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structEventHandler}{EventHandler}
+\item 
+struct \hyperlink{structEventHandlers}{EventHandlers}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{EventListner_8c_e42954bb8545d24e3e9dcde5920c9a0b}{MAX\_\-EVENTS}~10
+\item 
+\#define \hyperlink{EventListner_8c_6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_\-SIZE}~100
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{EventListner_8c_922aa3f5e4ad1103576ccddd5f465574}{el\_\-installEvent} (char $\ast$eventType, void(event\_\-routine)(char $\ast$, char $\ast$))
+\item 
+void \hyperlink{EventListner_8c_49b8c52b3390c44cad9bf72cf3a51528}{el\_\-removeEvent} (char $\ast$eventType, void(event\_\-routine)(char $\ast$, char $\ast$))
+\item 
+void \hyperlink{EventListner_8c_1f835b895cbc13734aa619ef64c06d91}{el\_\-signalEvent} (char $\ast$eventType, char $\ast$eventString)
+\item 
+void $\ast$ \hyperlink{EventListner_8c_648f7cdc45de1a24a75915fe1ce74a7d}{el\_\-listenForEvents} ()
+\item 
+void \hyperlink{EventListner_8c_be65a02a21e07be8d6315d08f66c9a28}{el\_\-startEventListen} ()
+\item 
+void \hyperlink{EventListner_8c_e23b013d0352221aa97fbfa70fc62c0c}{el\_\-init} (int port, char $\ast$host)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char \hyperlink{EventListner_8c_5e3bc85dbd4a25a2217bfd2063a43725}{el\_\-receiveBuffer} \mbox{[}BUFFER\_\-SIZE\mbox{]}
+\item 
+char \hyperlink{EventListner_8c_aafc57a6b6cd09538234542ab7220219}{el\_\-replyBuffer} \mbox{[}BUFFER\_\-SIZE\mbox{]}
+\item 
+int \hyperlink{EventListner_8c_9c41484ea82fa751714d585626f1d39b}{el\_\-sockfd}
+\item 
+\hyperlink{structEventHandlers}{EventHandlers} \hyperlink{EventListner_8c_9c4e727f7ef64c29d48cdb8b912a5952}{eventHandlers}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{EventListner_8c_6b20d41d6252e9871430c242cb1a56e7}{
+\index{EventListner.c@{EventListner.c}!BUFFER\_\-SIZE@{BUFFER\_\-SIZE}}
+\index{BUFFER\_\-SIZE@{BUFFER\_\-SIZE}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFER\_\-SIZE~100}}
+\label{EventListner_8c_6b20d41d6252e9871430c242cb1a56e7}
+
+
+\hypertarget{EventListner_8c_e42954bb8545d24e3e9dcde5920c9a0b}{
+\index{EventListner.c@{EventListner.c}!MAX\_\-EVENTS@{MAX\_\-EVENTS}}
+\index{MAX\_\-EVENTS@{MAX\_\-EVENTS}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-EVENTS~10}}
+\label{EventListner_8c_e42954bb8545d24e3e9dcde5920c9a0b}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{EventListner_8c_e23b013d0352221aa97fbfa70fc62c0c}{
+\index{EventListner.c@{EventListner.c}!el\_\-init@{el\_\-init}}
+\index{el\_\-init@{el\_\-init}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-init (int {\em port}, \/  char $\ast$ {\em host})}}
+\label{EventListner_8c_e23b013d0352221aa97fbfa70fc62c0c}
+
+
+\hypertarget{EventListner_8c_922aa3f5e4ad1103576ccddd5f465574}{
+\index{EventListner.c@{EventListner.c}!el\_\-installEvent@{el\_\-installEvent}}
+\index{el\_\-installEvent@{el\_\-installEvent}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-installEvent (char $\ast$ {\em eventType}, \/  void(event\_\-routine)(char $\ast$, char $\ast$))}}
+\label{EventListner_8c_922aa3f5e4ad1103576ccddd5f465574}
+
+
+\hypertarget{EventListner_8c_648f7cdc45de1a24a75915fe1ce74a7d}{
+\index{EventListner.c@{EventListner.c}!el\_\-listenForEvents@{el\_\-listenForEvents}}
+\index{el\_\-listenForEvents@{el\_\-listenForEvents}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ el\_\-listenForEvents ()}}
+\label{EventListner_8c_648f7cdc45de1a24a75915fe1ce74a7d}
+
+
+\hypertarget{EventListner_8c_49b8c52b3390c44cad9bf72cf3a51528}{
+\index{EventListner.c@{EventListner.c}!el\_\-removeEvent@{el\_\-removeEvent}}
+\index{el\_\-removeEvent@{el\_\-removeEvent}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-removeEvent (char $\ast$ {\em eventType}, \/  void(event\_\-routine)(char $\ast$, char $\ast$))}}
+\label{EventListner_8c_49b8c52b3390c44cad9bf72cf3a51528}
+
+
+\hypertarget{EventListner_8c_1f835b895cbc13734aa619ef64c06d91}{
+\index{EventListner.c@{EventListner.c}!el\_\-signalEvent@{el\_\-signalEvent}}
+\index{el\_\-signalEvent@{el\_\-signalEvent}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-signalEvent (char $\ast$ {\em eventType}, \/  char $\ast$ {\em eventString})}}
+\label{EventListner_8c_1f835b895cbc13734aa619ef64c06d91}
+
+
+\hypertarget{EventListner_8c_be65a02a21e07be8d6315d08f66c9a28}{
+\index{EventListner.c@{EventListner.c}!el\_\-startEventListen@{el\_\-startEventListen}}
+\index{el\_\-startEventListen@{el\_\-startEventListen}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-startEventListen ()}}
+\label{EventListner_8c_be65a02a21e07be8d6315d08f66c9a28}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{EventListner_8c_5e3bc85dbd4a25a2217bfd2063a43725}{
+\index{EventListner.c@{EventListner.c}!el\_\-receiveBuffer@{el\_\-receiveBuffer}}
+\index{el\_\-receiveBuffer@{el\_\-receiveBuffer}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf el\_\-receiveBuffer}\mbox{[}BUFFER\_\-SIZE\mbox{]}}}
+\label{EventListner_8c_5e3bc85dbd4a25a2217bfd2063a43725}
+
+
+\hypertarget{EventListner_8c_aafc57a6b6cd09538234542ab7220219}{
+\index{EventListner.c@{EventListner.c}!el\_\-replyBuffer@{el\_\-replyBuffer}}
+\index{el\_\-replyBuffer@{el\_\-replyBuffer}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char {\bf el\_\-replyBuffer}\mbox{[}BUFFER\_\-SIZE\mbox{]}}}
+\label{EventListner_8c_aafc57a6b6cd09538234542ab7220219}
+
+
+\hypertarget{EventListner_8c_9c41484ea82fa751714d585626f1d39b}{
+\index{EventListner.c@{EventListner.c}!el\_\-sockfd@{el\_\-sockfd}}
+\index{el\_\-sockfd@{el\_\-sockfd}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf el\_\-sockfd}}}
+\label{EventListner_8c_9c41484ea82fa751714d585626f1d39b}
+
+
+\hypertarget{EventListner_8c_9c4e727f7ef64c29d48cdb8b912a5952}{
+\index{EventListner.c@{EventListner.c}!eventHandlers@{eventHandlers}}
+\index{eventHandlers@{eventHandlers}!EventListner.c@{EventListner.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf EventHandlers} {\bf eventHandlers}}}
+\label{EventListner_8c_9c4e727f7ef64c29d48cdb8b912a5952}
+
+

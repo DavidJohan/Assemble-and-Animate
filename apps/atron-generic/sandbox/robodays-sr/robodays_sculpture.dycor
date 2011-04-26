@@ -1,0 +1,45 @@
+role M0 extends Module { require (self.id==0); }
+role M1 extends Module { require (self.id==1); }
+role M2 extends Module { require (self.id==2); }
+role M3 extends Module { require (self.id==3); }
+role M4 extends Module { require (self.id==4); }
+role M5 extends Module { require (self.id==5); }
+role M6 extends Module { require (self.id==6); }
+
+sequence Test {
+  M6.rotateFromToBy(0,180,true,150) ; 
+  M0.rotateFromToBy(0,90,true,150) ;
+  M3.rotateFromToBy(0,90,true,150);
+}
+
+sequence MoveTwo {
+  M6.rotateFromToBy(0,180,true,150) |
+  M0.rotateFromToBy(0,90,true,150) |
+  M3.rotateFromToBy(0,90,true,150);
+  M3.rotateFromToBy(0,90,true,150);
+  M1.Connector[0].extend();
+  M3.Connector[6].retract();
+  M6.rotateFromToBy(180,0,true,150) |
+  M1.rotateFromToBy(0,180,true,150) |
+  M0.rotateFromToBy(90,270,false,150) |
+  M4.rotateFromToBy(0,90,true,150) |
+  M3.rotateFromToBy(90,180,true,150);
+  M1.Connector[2].extend() |
+  M2.Connector[4].extend();
+  M4.Connector[6].retract() |
+  M1.Connector[0].retract();
+  M5.rotateFromToBy(0,180,true,150) |
+  M2.rotateFromToBy(0,180,true,150) |
+  M1.rotateFromToBy(180,0,false,150) |
+  M4.rotateFromToBy(90,180,true,150);
+  M2.Connector[6].extend();
+  M1.Connector[2].retract();
+  M5.rotateFromToBy(180,0,true,150) |
+  M2.rotateFromToBy(180,270,true,150);
+  M0.rotateFromToBy(270,0,true,150);
+}
+
+sequence Back = reverse MoveTwo;
+
+deployment { M0 M1 M2 M3 M4 M5 M6 }
+startup { MoveTwo Back }

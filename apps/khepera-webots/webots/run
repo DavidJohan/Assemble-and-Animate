@@ -1,0 +1,11 @@
+#!/bin/sh
+portRC=9900
+portEvent=9901
+increment=2 
+for (( i = 0; i < $1; i++ ))
+do
+	echo $total
+	./appX -portRC=$portRC -portEvent=$portEvent -host=localhost &
+	portRC=`expr $portRC + $increment`
+	portEvent=`expr $portEvent + $increment`
+done

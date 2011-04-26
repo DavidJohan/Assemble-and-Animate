@@ -1,0 +1,407 @@
+\hypertarget{AtronApi_8h}{
+\section{/home/david/ASE/src/targets/atron/AtronApi.h File Reference}
+\label{AtronApi_8h}\index{/home/david/ASE/src/targets/atron/AtronApi.h@{/home/david/ASE/src/targets/atron/AtronApi.h}}
+}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{AtronApi_8h_011f7517c8c2ea6fab5d248fd6935a62}{atronApi\_\-setup} ()
+\item 
+void \hyperlink{AtronApi_8h_37b6b19faffce54e2fe3d0be1f4a30f3}{atronApi\_\-ussrSetup} (int portRC, int portEvent, char $\ast$host, void($\ast$msgHandler)(char $\ast$, char, char))
+\item 
+void \hyperlink{AtronApi_8h_deb1c5bd3cbc70364caecabf89acef78}{atronApi\_\-home} ()
+\item 
+void \hyperlink{AtronApi_8h_f5d266d023773cabf58c195a9969fafa}{atronApi\_\-setLeds} (int i)
+\item 
+int \hyperlink{AtronApi_8h_176b8ceb30b09470fe64937084f08f60}{atronApi\_\-getLeds} ()
+\item 
+long \hyperlink{AtronApi_8h_0a0daec09ee13f687ba301b33d484681}{atronApi\_\-getRandomSeed} ()
+\item 
+char $\ast$ \hyperlink{AtronApi_8h_ed6ad07620d5b3c43d8a9e368bbdf070}{atronApi\_\-getName} (char $\ast$returnString)
+\item 
+int \hyperlink{AtronApi_8h_4e8a26540438e9fbb55ee19f8a747882}{atronApi\_\-isRotating} ()
+\item 
+int \hyperlink{AtronApi_8h_3e58dde5b127df9be6ed9055a2cacdd9}{atronApi\_\-getJointPosition} ()
+\item 
+void \hyperlink{AtronApi_8h_f30deafa6e7ff66f644f4a831401c6b7}{atronApi\_\-rotate} (int dir)
+\item 
+void \hyperlink{AtronApi_8h_372504168569c5e0ada7f53256285d3d}{atronApi\_\-rotateDegrees} (int degrees)
+\item 
+void \hyperlink{AtronApi_8h_7399c692da724c83918917b75663c50b}{atronApi\_\-rotateToDegreeInDegrees} (int degrees)
+\item 
+void \hyperlink{AtronApi_8h_35bef59747807471af3f1faa3425f084}{atronApi\_\-rotateToDegree} (float rad)
+\item 
+void \hyperlink{AtronApi_8h_606b01deebc283a0b66f40de3e156545}{atronApi\_\-rotateToViaInDegrees} (int goalDegree, int viaDegree)
+\item 
+void \hyperlink{AtronApi_8h_511187ea360a0cd00e4db3da2c6e9322}{atronApi\_\-rotateDirToInDegrees} (int to, int dir)
+\item 
+float \hyperlink{AtronApi_8h_ec6fb687f9043a3a1c4c6a449cf45fb0}{atronApi\_\-getTime} ()
+\item 
+long \hyperlink{AtronApi_8h_774a92f516e03180c257225273fb2f0f}{atronApi\_\-getMsTime} ()
+\item 
+float \hyperlink{AtronApi_8h_7cdb13d46e3985bf2dfa5606898b2b00}{atronApi\_\-getAngularPosition} ()
+\item 
+int \hyperlink{AtronApi_8h_c6078ffaf1a2c492f2aa3b4bd30c1ad5}{atronApi\_\-getAngularPositionDegrees} ()
+\item 
+void \hyperlink{AtronApi_8h_1c3a57547bb3780baeb5489f28a0095b}{atronApi\_\-disconnectAll} ()
+\item 
+void \hyperlink{AtronApi_8h_9679378d4b27b45e515ea3a5b36ee97c}{atronApi\_\-connectAll} ()
+\item 
+int \hyperlink{AtronApi_8h_4109b28af55d5bfd9ceaa65fe924b946}{atronApi\_\-canConnect} (int i)
+\item 
+int \hyperlink{AtronApi_8h_5b7f77417ee1887265232aa6bb7a2eb5}{atronApi\_\-canDisconnect} (int i)
+\item 
+int \hyperlink{AtronApi_8h_402d0d3888d69076b06f2984aeba8fdb}{atronApi\_\-isMale} (int i)
+\item 
+void \hyperlink{AtronApi_8h_16e5ee9948fed11ef021be580ff140c6}{atronApi\_\-connect} (int i)
+\item 
+void \hyperlink{AtronApi_8h_ff5a40f7744f759f3dd142cb77353a1f}{atronApi\_\-disconnect} (int i)
+\item 
+int \hyperlink{AtronApi_8h_bfdf1afb98f075f6506ffb0d1a635e78}{atronApi\_\-isConnected} (int i)
+\item 
+int \hyperlink{AtronApi_8h_ea63bdb76cc8fec78c6758bd6583f7b5}{atronApi\_\-isDisconnected} (int i)
+\item 
+void \hyperlink{AtronApi_8h_99df50a2ba090af8c9792dcfd63e0801}{atronApi\_\-rotateContinuous} (float dir)
+\item 
+void \hyperlink{AtronApi_8h_2cc8ce01d43916753b637966255558a1}{atronApi\_\-centerBrake} ()
+\item 
+void \hyperlink{AtronApi_8h_7e61dace046f499ea30dfe8ea2af7280}{atronApi\_\-centerStop} ()
+\item 
+int \hyperlink{AtronApi_8h_a3a2716b9eb5604255b117b88f387ccb}{atronApi\_\-isOtherConnectorNearby} (int connector)
+\item 
+int \hyperlink{AtronApi_8h_e3679538ac6181a8242e0911347b0fd7}{atronApi\_\-isObjectNearby} (int connector)
+\item 
+short \hyperlink{AtronApi_8h_a570693ce791a3e163be01bc699513b6}{atronApi\_\-getTiltX} ()
+\item 
+short \hyperlink{AtronApi_8h_71c4ee6d391d86744ae6e0ee325b9872}{atronApi\_\-getTiltY} ()
+\item 
+short \hyperlink{AtronApi_8h_c962c747960c764d4c1046f64b1b7177}{atronApi\_\-getTiltZ} ()
+\item 
+void \hyperlink{AtronApi_8h_38acd4dbdb299463b6c5494b1095f633}{atronApi\_\-yield} ()
+\item 
+void \hyperlink{AtronApi_8h_acceeff6ae455ccf02c9a940a61d8331}{atronApi\_\-delay} (long ms)
+\item 
+int \hyperlink{AtronApi_8h_c3a33b5cf6bd4b326264eef98eb5416d}{atronApi\_\-sendMessage} (char $\ast$message, char messageSize, char connector)
+\item 
+int \hyperlink{AtronApi_8h_d6af5dd5becf65126d0ea720f708e324}{atronApi\_\-sendMessageToAll} (char $\ast$message, char messageSize)
+\item 
+int \hyperlink{AtronApi_8h_ed40c4490492d6b1b0883508144bdcbe}{atronApi\_\-sendMessageToAllExcept} (char $\ast$message, char messageSize, char except)
+\item 
+int \hyperlink{AtronApi_8h_50d61175fb31607b4d7004d54f0c79be}{atronApi\_\-getHardwareID} ()
+\item 
+int \hyperlink{AtronApi_8h_66a8bfdf0d405248e3b22ebdbb41ca71}{atronApi\_\-getBatteryLevel} ()
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{AtronApi_8h}{AtronApi.h} provides an interface for an ATRON module.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{AtronApi_8h_4109b28af55d5bfd9ceaa65fe924b946}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-canConnect@{atronApi\_\-canConnect}}
+\index{atronApi\_\-canConnect@{atronApi\_\-canConnect}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-canConnect (int {\em i})}}
+\label{AtronApi_8h_4109b28af55d5bfd9ceaa65fe924b946}
+
+
+Test whether a specific connector is able to connect, best effort based on avaliable information (no garantiees on physical modules) \hypertarget{AtronApi_8h_5b7f77417ee1887265232aa6bb7a2eb5}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-canDisconnect@{atronApi\_\-canDisconnect}}
+\index{atronApi\_\-canDisconnect@{atronApi\_\-canDisconnect}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-canDisconnect (int {\em i})}}
+\label{AtronApi_8h_5b7f77417ee1887265232aa6bb7a2eb5}
+
+
+Test whether a specific connector can disconnect, meaning that it is a male connector currently connected to another module. \hypertarget{AtronApi_8h_2cc8ce01d43916753b637966255558a1}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-centerBrake@{atronApi\_\-centerBrake}}
+\index{atronApi\_\-centerBrake@{atronApi\_\-centerBrake}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-centerBrake ()}}
+\label{AtronApi_8h_2cc8ce01d43916753b637966255558a1}
+
+
+Cause the main joint to stop rotating and presumably break actively (the latter is not implemented yet) \hypertarget{AtronApi_8h_7e61dace046f499ea30dfe8ea2af7280}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-centerStop@{atronApi\_\-centerStop}}
+\index{atronApi\_\-centerStop@{atronApi\_\-centerStop}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-centerStop ()}}
+\label{AtronApi_8h_7e61dace046f499ea30dfe8ea2af7280}
+
+
+Causes the main joint to stop rotating \hypertarget{AtronApi_8h_16e5ee9948fed11ef021be580ff140c6}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-connect@{atronApi\_\-connect}}
+\index{atronApi\_\-connect@{atronApi\_\-connect}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-connect (int {\em i})}}
+\label{AtronApi_8h_16e5ee9948fed11ef021be580ff140c6}
+
+
+Attempt to connect this connector. \hypertarget{AtronApi_8h_9679378d4b27b45e515ea3a5b36ee97c}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-connectAll@{atronApi\_\-connectAll}}
+\index{atronApi\_\-connectAll@{atronApi\_\-connectAll}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-connectAll ()}}
+\label{AtronApi_8h_9679378d4b27b45e515ea3a5b36ee97c}
+
+
+Connect all connectors \hypertarget{AtronApi_8h_acceeff6ae455ccf02c9a940a61d8331}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-delay@{atronApi\_\-delay}}
+\index{atronApi\_\-delay@{atronApi\_\-delay}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-delay (long {\em ms})}}
+\label{AtronApi_8h_acceeff6ae455ccf02c9a940a61d8331}
+
+
+Wait ms milliseconds \hypertarget{AtronApi_8h_ff5a40f7744f759f3dd142cb77353a1f}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-disconnect@{atronApi\_\-disconnect}}
+\index{atronApi\_\-disconnect@{atronApi\_\-disconnect}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-disconnect (int {\em i})}}
+\label{AtronApi_8h_ff5a40f7744f759f3dd142cb77353a1f}
+
+
+Attempt to disconnect this connector, will work if the connector is male and connected \hypertarget{AtronApi_8h_1c3a57547bb3780baeb5489f28a0095b}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-disconnectAll@{atronApi\_\-disconnectAll}}
+\index{atronApi\_\-disconnectAll@{atronApi\_\-disconnectAll}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-disconnectAll ()}}
+\label{AtronApi_8h_1c3a57547bb3780baeb5489f28a0095b}
+
+
+Disconnect all connectors \hypertarget{AtronApi_8h_7cdb13d46e3985bf2dfa5606898b2b00}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getAngularPosition@{atronApi\_\-getAngularPosition}}
+\index{atronApi\_\-getAngularPosition@{atronApi\_\-getAngularPosition}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float atronApi\_\-getAngularPosition ()}}
+\label{AtronApi_8h_7cdb13d46e3985bf2dfa5606898b2b00}
+
+
+Get the position of the main joint in radians \hypertarget{AtronApi_8h_c6078ffaf1a2c492f2aa3b4bd30c1ad5}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getAngularPositionDegrees@{atronApi\_\-getAngularPositionDegrees}}
+\index{atronApi\_\-getAngularPositionDegrees@{atronApi\_\-getAngularPositionDegrees}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-getAngularPositionDegrees ()}}
+\label{AtronApi_8h_c6078ffaf1a2c492f2aa3b4bd30c1ad5}
+
+
+Get the position of the main joint in degrees \hypertarget{AtronApi_8h_66a8bfdf0d405248e3b22ebdbb41ca71}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getBatteryLevel@{atronApi\_\-getBatteryLevel}}
+\index{atronApi\_\-getBatteryLevel@{atronApi\_\-getBatteryLevel}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-getBatteryLevel ()}}
+\label{AtronApi_8h_66a8bfdf0d405248e3b22ebdbb41ca71}
+
+
+Get battery level of module in mV \mbox{[}0, 4200mV\mbox{]}, below 3500mV is critically low \hypertarget{AtronApi_8h_50d61175fb31607b4d7004d54f0c79be}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getHardwareID@{atronApi\_\-getHardwareID}}
+\index{atronApi\_\-getHardwareID@{atronApi\_\-getHardwareID}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-getHardwareID ()}}
+\label{AtronApi_8h_50d61175fb31607b4d7004d54f0c79be}
+
+
+Get \char`\"{}fixed\char`\"{} hardware ID written to flash or set in USSR \hypertarget{AtronApi_8h_3e58dde5b127df9be6ed9055a2cacdd9}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getJointPosition@{atronApi\_\-getJointPosition}}
+\index{atronApi\_\-getJointPosition@{atronApi\_\-getJointPosition}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-getJointPosition ()}}
+\label{AtronApi_8h_3e58dde5b127df9be6ed9055a2cacdd9}
+
+
+Get the main joint position in terms of the current hemisphere (0-3 both inclusive) \hypertarget{AtronApi_8h_176b8ceb30b09470fe64937084f08f60}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getLeds@{atronApi\_\-getLeds}}
+\index{atronApi\_\-getLeds@{atronApi\_\-getLeds}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-getLeds ()}}
+\label{AtronApi_8h_176b8ceb30b09470fe64937084f08f60}
+
+
+Get the Leds on the north hemisphere (8 bits) \hypertarget{AtronApi_8h_774a92f516e03180c257225273fb2f0f}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getMsTime@{atronApi\_\-getMsTime}}
+\index{atronApi\_\-getMsTime@{atronApi\_\-getMsTime}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long atronApi\_\-getMsTime ()}}
+\label{AtronApi_8h_774a92f516e03180c257225273fb2f0f}
+
+
+Get the current real time in milli seconds since the module was turned on \hypertarget{AtronApi_8h_ed6ad07620d5b3c43d8a9e368bbdf070}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getName@{atronApi\_\-getName}}
+\index{atronApi\_\-getName@{atronApi\_\-getName}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ atronApi\_\-getName (char $\ast$ {\em returnString})}}
+\label{AtronApi_8h_ed6ad07620d5b3c43d8a9e368bbdf070}
+
+
+Gets the name of the module (if set at compile time) \hypertarget{AtronApi_8h_0a0daec09ee13f687ba301b33d484681}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getRandomSeed@{atronApi\_\-getRandomSeed}}
+\index{atronApi\_\-getRandomSeed@{atronApi\_\-getRandomSeed}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long atronApi\_\-getRandomSeed ()}}
+\label{AtronApi_8h_0a0daec09ee13f687ba301b33d484681}
+
+
+Get a random seed \hypertarget{AtronApi_8h_a570693ce791a3e163be01bc699513b6}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getTiltX@{atronApi\_\-getTiltX}}
+\index{atronApi\_\-getTiltX@{atronApi\_\-getTiltX}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}short atronApi\_\-getTiltX ()}}
+\label{AtronApi_8h_a570693ce791a3e163be01bc699513b6}
+
+
+Read the value of the X tilt sensor. \hypertarget{AtronApi_8h_71c4ee6d391d86744ae6e0ee325b9872}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getTiltY@{atronApi\_\-getTiltY}}
+\index{atronApi\_\-getTiltY@{atronApi\_\-getTiltY}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}short atronApi\_\-getTiltY ()}}
+\label{AtronApi_8h_71c4ee6d391d86744ae6e0ee325b9872}
+
+
+Read the value of the Y tilt sensor. \hypertarget{AtronApi_8h_c962c747960c764d4c1046f64b1b7177}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getTiltZ@{atronApi\_\-getTiltZ}}
+\index{atronApi\_\-getTiltZ@{atronApi\_\-getTiltZ}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}short atronApi\_\-getTiltZ ()}}
+\label{AtronApi_8h_c962c747960c764d4c1046f64b1b7177}
+
+
+Read the value of the Z tilt sensor. \hypertarget{AtronApi_8h_ec6fb687f9043a3a1c4c6a449cf45fb0}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-getTime@{atronApi\_\-getTime}}
+\index{atronApi\_\-getTime@{atronApi\_\-getTime}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float atronApi\_\-getTime ()}}
+\label{AtronApi_8h_ec6fb687f9043a3a1c4c6a449cf45fb0}
+
+
+Get the current real time in seconds since the module was turned on \hypertarget{AtronApi_8h_deb1c5bd3cbc70364caecabf89acef78}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-home@{atronApi\_\-home}}
+\index{atronApi\_\-home@{atronApi\_\-home}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-home ()}}
+\label{AtronApi_8h_deb1c5bd3cbc70364caecabf89acef78}
+
+
+Rotate the module to a home position \hypertarget{AtronApi_8h_bfdf1afb98f075f6506ffb0d1a635e78}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-isConnected@{atronApi\_\-isConnected}}
+\index{atronApi\_\-isConnected@{atronApi\_\-isConnected}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isConnected (int {\em i})}}
+\label{AtronApi_8h_bfdf1afb98f075f6506ffb0d1a635e78}
+
+
+Test if a specific connector is currently connected \hypertarget{AtronApi_8h_ea63bdb76cc8fec78c6758bd6583f7b5}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-isDisconnected@{atronApi\_\-isDisconnected}}
+\index{atronApi\_\-isDisconnected@{atronApi\_\-isDisconnected}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isDisconnected (int {\em i})}}
+\label{AtronApi_8h_ea63bdb76cc8fec78c6758bd6583f7b5}
+
+
+Test is a specific connector is currently disconnected \hypertarget{AtronApi_8h_402d0d3888d69076b06f2984aeba8fdb}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-isMale@{atronApi\_\-isMale}}
+\index{atronApi\_\-isMale@{atronApi\_\-isMale}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isMale (int {\em i})}}
+\label{AtronApi_8h_402d0d3888d69076b06f2984aeba8fdb}
+
+
+Test if a specific connector is a male connector \hypertarget{AtronApi_8h_e3679538ac6181a8242e0911347b0fd7}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-isObjectNearby@{atronApi\_\-isObjectNearby}}
+\index{atronApi\_\-isObjectNearby@{atronApi\_\-isObjectNearby}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isObjectNearby (int {\em connector})}}
+\label{AtronApi_8h_e3679538ac6181a8242e0911347b0fd7}
+
+
+Test if there is an object in the proximity of a specific connector. \hypertarget{AtronApi_8h_a3a2716b9eb5604255b117b88f387ccb}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-isOtherConnectorNearby@{atronApi\_\-isOtherConnectorNearby}}
+\index{atronApi\_\-isOtherConnectorNearby@{atronApi\_\-isOtherConnectorNearby}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isOtherConnectorNearby (int {\em connector})}}
+\label{AtronApi_8h_a3a2716b9eb5604255b117b88f387ccb}
+
+
+Test is another connector is within communication range \hypertarget{AtronApi_8h_4e8a26540438e9fbb55ee19f8a747882}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-isRotating@{atronApi\_\-isRotating}}
+\index{atronApi\_\-isRotating@{atronApi\_\-isRotating}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-isRotating ()}}
+\label{AtronApi_8h_4e8a26540438e9fbb55ee19f8a747882}
+
+
+If the module is currently rotating \hypertarget{AtronApi_8h_f30deafa6e7ff66f644f4a831401c6b7}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-rotate@{atronApi\_\-rotate}}
+\index{atronApi\_\-rotate@{atronApi\_\-rotate}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotate (int {\em dir})}}
+\label{AtronApi_8h_f30deafa6e7ff66f644f4a831401c6b7}
+
+
+Rotate the main joint to a specific joint position in terms of the hemisphere (0-3 both inclusive) \hypertarget{AtronApi_8h_99df50a2ba090af8c9792dcfd63e0801}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-rotateContinuous@{atronApi\_\-rotateContinuous}}
+\index{atronApi\_\-rotateContinuous@{atronApi\_\-rotateContinuous}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateContinuous (float {\em dir})}}
+\label{AtronApi_8h_99df50a2ba090af8c9792dcfd63e0801}
+
+
+Rotate the main joint continuously in the given direction. \hypertarget{AtronApi_8h_372504168569c5e0ada7f53256285d3d}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-rotateDegrees@{atronApi\_\-rotateDegrees}}
+\index{atronApi\_\-rotateDegrees@{atronApi\_\-rotateDegrees}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateDegrees (int {\em degrees})}}
+\label{AtronApi_8h_372504168569c5e0ada7f53256285d3d}
+
+
+Rotate the main joint a number of degrees \hypertarget{AtronApi_8h_511187ea360a0cd00e4db3da2c6e9322}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-rotateDirToInDegrees@{atronApi\_\-rotateDirToInDegrees}}
+\index{atronApi\_\-rotateDirToInDegrees@{atronApi\_\-rotateDirToInDegrees}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateDirToInDegrees (int {\em to}, \/  int {\em dir})}}
+\label{AtronApi_8h_511187ea360a0cd00e4db3da2c6e9322}
+
+
+Rotate the main joint to a specific degree position in a given direction (clockwise or counterclockwise) \hypertarget{AtronApi_8h_35bef59747807471af3f1faa3425f084}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-rotateToDegree@{atronApi\_\-rotateToDegree}}
+\index{atronApi\_\-rotateToDegree@{atronApi\_\-rotateToDegree}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateToDegree (float {\em rad})}}
+\label{AtronApi_8h_35bef59747807471af3f1faa3425f084}
+
+
+Rotate the main jount to a specific radian position \hypertarget{AtronApi_8h_7399c692da724c83918917b75663c50b}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-rotateToDegreeInDegrees@{atronApi\_\-rotateToDegreeInDegrees}}
+\index{atronApi\_\-rotateToDegreeInDegrees@{atronApi\_\-rotateToDegreeInDegrees}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateToDegreeInDegrees (int {\em degrees})}}
+\label{AtronApi_8h_7399c692da724c83918917b75663c50b}
+
+
+Rotate the main joint to a specific degree position \hypertarget{AtronApi_8h_606b01deebc283a0b66f40de3e156545}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-rotateToViaInDegrees@{atronApi\_\-rotateToViaInDegrees}}
+\index{atronApi\_\-rotateToViaInDegrees@{atronApi\_\-rotateToViaInDegrees}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-rotateToViaInDegrees (int {\em goalDegree}, \/  int {\em viaDegree})}}
+\label{AtronApi_8h_606b01deebc283a0b66f40de3e156545}
+
+
+Rotate the main joint to a specific degree position passing by a specic position \hypertarget{AtronApi_8h_c3a33b5cf6bd4b326264eef98eb5416d}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-sendMessage@{atronApi\_\-sendMessage}}
+\index{atronApi\_\-sendMessage@{atronApi\_\-sendMessage}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-sendMessage (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em connector})}}
+\label{AtronApi_8h_c3a33b5cf6bd4b326264eef98eb5416d}
+
+
+Send a message on a given connector \hypertarget{AtronApi_8h_d6af5dd5becf65126d0ea720f708e324}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-sendMessageToAll@{atronApi\_\-sendMessageToAll}}
+\index{atronApi\_\-sendMessageToAll@{atronApi\_\-sendMessageToAll}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-sendMessageToAll (char $\ast$ {\em message}, \/  char {\em messageSize})}}
+\label{AtronApi_8h_d6af5dd5becf65126d0ea720f708e324}
+
+
+Send a message to all IR connectors \hypertarget{AtronApi_8h_ed40c4490492d6b1b0883508144bdcbe}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-sendMessageToAllExcept@{atronApi\_\-sendMessageToAllExcept}}
+\index{atronApi\_\-sendMessageToAllExcept@{atronApi\_\-sendMessageToAllExcept}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int atronApi\_\-sendMessageToAllExcept (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em except})}}
+\label{AtronApi_8h_ed40c4490492d6b1b0883508144bdcbe}
+
+
+Send a message to all IR connectors except one \hypertarget{AtronApi_8h_f5d266d023773cabf58c195a9969fafa}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-setLeds@{atronApi\_\-setLeds}}
+\index{atronApi\_\-setLeds@{atronApi\_\-setLeds}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-setLeds (int {\em i})}}
+\label{AtronApi_8h_f5d266d023773cabf58c195a9969fafa}
+
+
+Set the Leds on the north hemisphere (8 bits) \hypertarget{AtronApi_8h_011f7517c8c2ea6fab5d248fd6935a62}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-setup@{atronApi\_\-setup}}
+\index{atronApi\_\-setup@{atronApi\_\-setup}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-setup ()}}
+\label{AtronApi_8h_011f7517c8c2ea6fab5d248fd6935a62}
+
+
+Setup used for physical modules running tinyos \hypertarget{AtronApi_8h_37b6b19faffce54e2fe3d0be1f4a30f3}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-ussrSetup@{atronApi\_\-ussrSetup}}
+\index{atronApi\_\-ussrSetup@{atronApi\_\-ussrSetup}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-ussrSetup (int {\em portRC}, \/  int {\em portEvent}, \/  char $\ast$ {\em host}, \/  void($\ast$)(char $\ast$, char, char) {\em msgHandler})}}
+\label{AtronApi_8h_37b6b19faffce54e2fe3d0be1f4a30f3}
+
+
+Setup the API for USSR, two free socket ports portRC and portEvent must be provided for commands and events respectively. Also a host (usually LOCALHOST) and a pointer to a function (e.g. handleMessage(char$\ast$ message, char messageSize, char channel)) that will handle messages received from other modules. \hypertarget{AtronApi_8h_38acd4dbdb299463b6c5494b1095f633}{
+\index{AtronApi.h@{AtronApi.h}!atronApi\_\-yield@{atronApi\_\-yield}}
+\index{atronApi\_\-yield@{atronApi\_\-yield}!AtronApi.h@{AtronApi.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void atronApi\_\-yield ()}}
+\label{AtronApi_8h_38acd4dbdb299463b6c5494b1095f633}
+
+
+Yield the module, that is wait one physicstimestep in the USSR simulator (dummy on physical modules) 

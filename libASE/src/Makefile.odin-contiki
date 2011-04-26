@@ -1,0 +1,7 @@
+CC=arm-elf-gcc
+CFLAGS=-c -Wall
+AR=ar
+
+TARGETCFLAGS =
+
+TARGETSOURCE=\

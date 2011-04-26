@@ -1,0 +1,110 @@
+\hypertarget{TimerManager_8h}{
+\section{/home/david/ASE/src/tools/Timer/TimerManager.h File Reference}
+\label{TimerManager_8h}\index{/home/david/ASE/src/tools/Timer/TimerManager.h@{/home/david/ASE/src/tools/Timer/TimerManager.h}}
+}
+{\tt \#include $<$stdbool.h$>$}\par
+{\tt \#include $<$stdint.h$>$}\par
+{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{Timer\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\hypertarget{TimerManager_8h_e2a50be4d3f87b4a09c50b51a2ca553a}{
+\#define \textbf{TIMER\_\-FIRED\_\-EVENT}~\char`\"{}TIMER\_\-FIRED\_\-EVENT\char`\"{}}
+\label{TimerManager_8h_e2a50be4d3f87b4a09c50b51a2ca553a}
+
+\item 
+\hypertarget{TimerManager_8h_7a774fcdd1f66a915fe75fa7e812a1da}{
+\#define \textbf{TIMERMANAGER\_\-H\_\-}}
+\label{TimerManager_8h_7a774fcdd1f66a915fe75fa7e812a1da}
+
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+Timer\_\-t $\ast$ \hyperlink{TimerManager_8h_1082bc9b6f437a5d9a8ca1056b83ca12}{TimerManager\_\-createPeriodicTimer} (long msDelay, int id, void(handler)(int))
+\item 
+Timer\_\-t $\ast$ \hyperlink{TimerManager_8h_d6758c22d86c8dcd93203a9c6c530d71}{TimerManager\_\-createOneShotTimer} (long msDelay, int id, void(handler)(int))
+\item 
+int \hyperlink{TimerManager_8h_caa9343a5a6e132cb1e9ac01d62829b3}{TimerManager\_\-setDelay} (Timer\_\-t $\ast$timer, long msDelay)
+\item 
+int \hyperlink{TimerManager_8h_c8fae6fec934aadb51d5a8cc097174cf}{TimerManager\_\-removeTimer} (Timer\_\-t $\ast$timer)
+\item 
+int \hyperlink{TimerManager_8h_12c9a611556636655e79090f02a26ceb}{TimerManager\_\-resetTimer} (Timer\_\-t $\ast$timer)
+\item 
+int \hyperlink{TimerManager_8h_9938e0b4adbd6ac83b76ac2961288e8e}{TimerManager\_\-pauseTimer} (Timer\_\-t $\ast$timer)
+\item 
+int \hyperlink{TimerManager_8h_9fefef9c90f9daeb1d7c48e54f9d8bf3}{TimerManager\_\-startTimer} (Timer\_\-t $\ast$timer)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{TimerManager_8h}{TimerManager.h} provides managed timers to applications and control strategies
+
+\begin{Desc}
+\item[Date:]March 27, 2009 \end{Desc}
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{TimerManager_8h_d6758c22d86c8dcd93203a9c6c530d71}{
+\index{TimerManager.h@{TimerManager.h}!TimerManager\_\-createOneShotTimer@{TimerManager\_\-createOneShotTimer}}
+\index{TimerManager\_\-createOneShotTimer@{TimerManager\_\-createOneShotTimer}!TimerManager.h@{TimerManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Timer\_\-t$\ast$ TimerManager\_\-createOneShotTimer (long {\em msDelay}, \/  int {\em id}, \/  void(handler)(int))}}
+\label{TimerManager_8h_d6758c22d86c8dcd93203a9c6c530d71}
+
+
+Create a one shot timer which will call the handler after a delay of msDelay in milliseconds. The argument for the handler is the id parameter. \hypertarget{TimerManager_8h_1082bc9b6f437a5d9a8ca1056b83ca12}{
+\index{TimerManager.h@{TimerManager.h}!TimerManager\_\-createPeriodicTimer@{TimerManager\_\-createPeriodicTimer}}
+\index{TimerManager\_\-createPeriodicTimer@{TimerManager\_\-createPeriodicTimer}!TimerManager.h@{TimerManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Timer\_\-t$\ast$ TimerManager\_\-createPeriodicTimer (long {\em msDelay}, \/  int {\em id}, \/  void(handler)(int))}}
+\label{TimerManager_8h_1082bc9b6f437a5d9a8ca1056b83ca12}
+
+
+Create a periodic timer which will call the handler periodic with a delay of msDelay in milliseconds. The argument for the handler is the id parameter. \hypertarget{TimerManager_8h_9938e0b4adbd6ac83b76ac2961288e8e}{
+\index{TimerManager.h@{TimerManager.h}!TimerManager\_\-pauseTimer@{TimerManager\_\-pauseTimer}}
+\index{TimerManager\_\-pauseTimer@{TimerManager\_\-pauseTimer}!TimerManager.h@{TimerManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int TimerManager\_\-pauseTimer (Timer\_\-t $\ast$ {\em timer})}}
+\label{TimerManager_8h_9938e0b4adbd6ac83b76ac2961288e8e}
+
+
+Stops the timer from generating call-back events \hypertarget{TimerManager_8h_c8fae6fec934aadb51d5a8cc097174cf}{
+\index{TimerManager.h@{TimerManager.h}!TimerManager\_\-removeTimer@{TimerManager\_\-removeTimer}}
+\index{TimerManager\_\-removeTimer@{TimerManager\_\-removeTimer}!TimerManager.h@{TimerManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int TimerManager\_\-removeTimer (Timer\_\-t $\ast$ {\em timer})}}
+\label{TimerManager_8h_c8fae6fec934aadb51d5a8cc097174cf}
+
+
+Remove a timer. \begin{Desc}
+\item[Returns:]1 if successful \end{Desc}
+\hypertarget{TimerManager_8h_12c9a611556636655e79090f02a26ceb}{
+\index{TimerManager.h@{TimerManager.h}!TimerManager\_\-resetTimer@{TimerManager\_\-resetTimer}}
+\index{TimerManager\_\-resetTimer@{TimerManager\_\-resetTimer}!TimerManager.h@{TimerManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int TimerManager\_\-resetTimer (Timer\_\-t $\ast$ {\em timer})}}
+\label{TimerManager_8h_12c9a611556636655e79090f02a26ceb}
+
+
+Reset a timer so that the timer will fire after msDelay milliseconds \hypertarget{TimerManager_8h_caa9343a5a6e132cb1e9ac01d62829b3}{
+\index{TimerManager.h@{TimerManager.h}!TimerManager\_\-setDelay@{TimerManager\_\-setDelay}}
+\index{TimerManager\_\-setDelay@{TimerManager\_\-setDelay}!TimerManager.h@{TimerManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int TimerManager\_\-setDelay (Timer\_\-t $\ast$ {\em timer}, \/  long {\em msDelay})}}
+\label{TimerManager_8h_caa9343a5a6e132cb1e9ac01d62829b3}
+
+
+Set the delay of the timer to fire after msDelay. \begin{Desc}
+\item[Returns:]1 if timer is in use \end{Desc}
+\hypertarget{TimerManager_8h_9fefef9c90f9daeb1d7c48e54f9d8bf3}{
+\index{TimerManager.h@{TimerManager.h}!TimerManager\_\-startTimer@{TimerManager\_\-startTimer}}
+\index{TimerManager\_\-startTimer@{TimerManager\_\-startTimer}!TimerManager.h@{TimerManager.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int TimerManager\_\-startTimer (Timer\_\-t $\ast$ {\em timer})}}
+\label{TimerManager_8h_9fefef9c90f9daeb1d7c48e54f9d8bf3}
+
+
+Start timer if it has been paused, will automatically reset the timer 

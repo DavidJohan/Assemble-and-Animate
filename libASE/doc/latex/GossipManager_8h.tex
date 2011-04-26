@@ -1,0 +1,73 @@
+\hypertarget{GossipManager_8h}{
+\section{/home/david/ASE/src/communication/Gossip/GossipManager.h File Reference}
+\label{GossipManager_8h}\index{/home/david/ASE/src/communication/Gossip/GossipManager.h@{/home/david/ASE/src/communication/Gossip/GossipManager.h}}
+}
+{\tt \#include $<$stdint.h$>$}\par
+{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
+{\tt \#include \char`\"{}TimerManager.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{gossip\_\-msg}
+\item 
+struct \textbf{gossip\_\-heard}
+\item 
+struct \textbf{GOSSIP\_\-TAG}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+\hypertarget{GossipManager_8h_9e33715954bafc5d5894552d23fb2461}{
+typedef struct GOSSIP\_\-TAG \textbf{gossip\_\-t}}
+\label{GossipManager_8h_9e33715954bafc5d5894552d23fb2461}
+
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{GossipManager_8h_f1c6e1cb36a58df127d745b4386e22dd}{
+void \textbf{GossipManager\_\-init} ()}
+\label{GossipManager_8h_f1c6e1cb36a58df127d745b4386e22dd}
+
+\item 
+\hypertarget{GossipManager_8h_8682641d0d4ecb5421c5e06cb0ed41f2}{
+int \textbf{GossipManager\_\-act} ()}
+\label{GossipManager_8h_8682641d0d4ecb5421c5e06cb0ed41f2}
+
+\item 
+\hypertarget{GossipManager_8h_2411c6c092969ebf268579ac1b6e4c00}{
+gossip\_\-t $\ast$ \textbf{GossipManager\_\-createGossip} (uint8\_\-t label, long msDelay, long msVariance, void(handler)(char $\ast$, char, char), void($\ast$updater)(gossip\_\-t $\ast$))}
+\label{GossipManager_8h_2411c6c092969ebf268579ac1b6e4c00}
+
+\item 
+\hypertarget{GossipManager_8h_48a4732946ef0085bbd05d028f1402ee}{
+void \textbf{GossipManager\_\-updateGossip} (gossip\_\-t $\ast$gossip, char $\ast$message, char messageSize)}
+\label{GossipManager_8h_48a4732946ef0085bbd05d028f1402ee}
+
+\item 
+\hypertarget{GossipManager_8h_f6fa533bfea29289cdfa267b95f2ad21}{
+int \textbf{GossipManager\_\-remove} (gossip\_\-t $\ast$gossip)}
+\label{GossipManager_8h_f6fa533bfea29289cdfa267b95f2ad21}
+
+\item 
+\hypertarget{GossipManager_8h_b6f007cc39c77f81c9dd9baa38794e99}{
+int \textbf{GossipManager\_\-start} (gossip\_\-t $\ast$gossip)}
+\label{GossipManager_8h_b6f007cc39c77f81c9dd9baa38794e99}
+
+\item 
+\hypertarget{GossipManager_8h_2d997ffd62a7c31e86c0885a1b5fafc3}{
+int \textbf{GossipManager\_\-pause} (gossip\_\-t $\ast$gossip)}
+\label{GossipManager_8h_2d997ffd62a7c31e86c0885a1b5fafc3}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{GossipManager_8h}{GossipManager.h} enables the modules to share data in an epedemic fashion.
+
+\begin{Desc}
+\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark \end{Desc}
+\begin{Desc}
+\item[\hyperlink{todo__todo000001}{Todo}]Document code \end{Desc}
+\begin{Desc}
+\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}

@@ -1,0 +1,18 @@
+// DyCoR = Dynamic Collaborative Roles? :-)
+
+role M1 extends Module { require (self.id==1); }
+role M2 extends Module { require (self.id==2); }
+role M3 extends Module { require (self.id==3); }
+role M4 extends Module { require (self.id==4); }
+
+sequence snake2four {
+ M2.rotateFromToBy(0,180,true,150) |
+ M3.rotateFromToBy(0,180,true,150);
+ M1.Connector[4].extend();
+}
+
+
+sequence four2snake = reverse snake2four;
+
+deployment { M0 M1 M2 M3 M4 }
+startup { snake2four }

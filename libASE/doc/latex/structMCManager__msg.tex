@@ -1,0 +1,45 @@
+\hypertarget{structMCManager__msg}{
+\section{MCManager\_\-msg Struct Reference}
+\label{structMCManager__msg}\index{MCManager\_\-msg@{MCManager\_\-msg}}
+}
+{\tt \#include $<$MCManager.h$>$}
+
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{structMCManager__msg_793f1df791cd797089add8db19ec237c}{
+uint8\_\-t \textbf{msgType}}
+\label{structMCManager__msg_793f1df791cd797089add8db19ec237c}
+
+\item 
+\hypertarget{structMCManager__msg_e96601b2f5c796f078fc75d40f6f3252}{
+uint8\_\-t \textbf{msgID}}
+\label{structMCManager__msg_e96601b2f5c796f078fc75d40f6f3252}
+
+\item 
+\hypertarget{structMCManager__msg_7f5ea83d351a0b7beb5ac1e132895ceb}{
+uint8\_\-t \textbf{recID}}
+\label{structMCManager__msg_7f5ea83d351a0b7beb5ac1e132895ceb}
+
+\item 
+\hypertarget{structMCManager__msg_7675796d23b723400a16d069a9781194}{
+uint8\_\-t \textbf{mcType}}
+\label{structMCManager__msg_7675796d23b723400a16d069a9781194}
+
+\item 
+\hypertarget{structMCManager__msg_d99c205d4882be2173b2e68c74a2f4a5}{
+uint8\_\-t \textbf{payload} \mbox{[}MC\_\-MAX\_\-PAYLOAD\mbox{]}}
+\label{structMCManager__msg_d99c205d4882be2173b2e68c74a2f4a5}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A container for messages used by ModularCommander.\begin{itemize}
+\item msgType must be MODULAR\_\-COMMANDER\_\-MESSAGE\item msgID is incremented for each message send\item recID it the ID of the module/modules that should received the message\item mcType is the type of command equivalent to the workings of ModularCommander \end{itemize}
+
+
+The documentation for this struct was generated from the following files:\begin{CompactItemize}
+\item 
+/home/david/ASE/src/communication/RemoteControl/ModularCommander/MCManager.h\item 
+/home/david/ASE/src/MCManager.h\end{CompactItemize}

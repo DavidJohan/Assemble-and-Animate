@@ -1,0 +1,12 @@
+CC=gcc
+CFLAGS=-c -Wall -D ROOMBOT -D WEBOTS
+AR=ar
+
+#note "WEBOTS_HOME" must be set, e.g.: "export WEBOTS_HOME=/home/david/webots"
+
+TARGETCFLAGS = 
+TARGETINCLUDE = -I$(WEBOTS_HOME)/include/controller/c
+
+TARGETSOURCE=\
+targets/roombot/roombot-webots/AbstractRoombotApi.c \
+targets/roombot/roombot-webots/RoombotApi.c
