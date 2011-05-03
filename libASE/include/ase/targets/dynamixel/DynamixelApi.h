@@ -175,5 +175,18 @@ long dynamixelApi_getRandomSeed();
  */
 void dynamixelApi_terminate();
 
+#ifdef CM510
+void dynamixelApi_CM510_init();
+void dynamixelApi_CM510_setMicEventFunction(void (*mic_event_func)(void));
+int dynamixelApi_CM510_getMicEventCount();
+void dynamixelApi_CM510_setLed(int index);
+void dynamixelApi_CM510_clearLed(int index);
+void dynamixelApi_CM510_toggleLed(int index);
+void dynamixelApi_CM510_buzz();
+int dynamixelApi_CM510_getButton(int index);
+int dynamixelApi_CM510_getADC(int index);
+int dynamixelApi_CM510_getMic();
+#endif
+
 #define DYNAMIXELAPI_H_
 #endif /* DYNAMIXELAPI_H_ */

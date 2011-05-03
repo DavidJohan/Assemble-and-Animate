@@ -42,7 +42,7 @@
 #endif
 
 #ifdef CM510 //Dynamixel controller
-#define ase_printf(format, ...) //printf(format, ##__VA_ARGS__);
+#define ase_printf(format, ...) printf(format, ##__VA_ARGS__);
 #endif
 
 
