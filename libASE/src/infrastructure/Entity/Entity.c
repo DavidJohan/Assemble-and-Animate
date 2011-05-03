@@ -19,3 +19,4 @@ short Entity_getLabel(Entity_t* entity) {
 void Entity_setLabel(Entity_t* entity, short label) {
 	entity->label = label;
 }
+
