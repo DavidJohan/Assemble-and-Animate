@@ -1,5 +1,5 @@
-#include <AbstractModuleApi.h>
-#include <DynamixelApi.h>
+#include <ase/targets/AbstractModuleApi.h>
+#include <ase/targets/dynamixel/DynamixelApi.h>
 
 float getLocalTime() {
 	return dynamixelApi_getTime();

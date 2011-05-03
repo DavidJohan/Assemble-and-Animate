@@ -1,14 +1,18 @@
-#include <ase/DynamixelApi.h>
-#include <ase/Dynamixel.h>
+#include <ase/targets/dynamixel/DynamixelApi.h>
+#include <ase/targets/dynamixel/dynamixel-cm510/firmware/Dynamixel.h>
+#include <ase/targets/dynamixel/dynamixel-cm510/firmware/serial.h>
 #include <ase/targets/AbstractModuleApi.h>
 #include <ase/infrastructure/EventManager/EventManager.h>
 #include <ase/tools/Timer/TimerManager.h>
+
+#include <avr/io.h>
+#include <avr/iom2561.h>
+#include <avr/interrupt.h>
+
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <Windows.h>
-    #include <stdio.h>
+#include <stdio.h>
 //--- Control Table Address ---
 //EEPROM AREA
 #define P_MODEL_NUMBER_L 		0
@@ -62,6 +66,9 @@
 #define P_PUNCH_L 				(48)
 #define P_PUNCH_H 				(49)
 
+static long time_ms =0;
+static int mic_cnt = 0;
+static void (*mic_event_function)(void);
 static Dynamixel_t dyna;
 
 static void checkForError(int actuator,int callerID) {
@@ -116,9 +123,59 @@ static void updateStates(int id) {
 	}
 }
 
+void dynamixelApi_CM510_init() {
+	//Init ports
+	DDRA  = 0xFC;
+	PORTA = 0xFC;
+
+	DDRB  = 0x20;
+	PORTB = 0x00;
+
+	DDRC  = 0x7F; //input direction on Port C
+	PORTC = 0x7E; //set all leds
+
+	DDRD  = 0x70;
+	PORTD = 0x20; //0x13;
+
+	//ZigBee setup
+	//PORTD &= ~0x80;	//PORT_LINK_PLUGIN = 0;   // no pull up
+	//PORTD &= ~0x20;	//PORT_ENABLE_RXD_LINK_PC = 0;
+	//PORTD |= 0x40;	//PORT_ENABLE_RXD_LINK_ZIGBEE = 1;
+
+
+	DDRE  = 0x0C;
+	PORTE = 0xF0;
+
+	//init serial comm
+	serial_initialize(57600);				// USART Initialize
+
+	//Init ADC
+	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1);	// ADC Enable, Clock 1/64div.
+
+	//Init Timer
+	TCCR0A = (1<<COM0A1)|(1<<COM0A0);  //Set OC0A on Compare Match
+	TCCR0B = (1<<FOC0A)|(1<<CS01)|(1<<CS00); //Force Output Compare A and 64 prescaler
+	OCR0A = 249;	//1ms according to KAVRCalc (16Mhz, 1msm, 64 prescaler, 0.0% error)
+	TIMSK0 = 1<<OCIE0A; 	// Enable Timer 0 Output Compare A Match Event Interrupt
+
+	//Init Mic pin to be an external interrupt
+	EICRA = (1 << ISC11) | (1 << ISC10);   //trigger INT 1 on rising edge
+	//EICRA = (1 << ISC11);   //trigger INT 1 on falling edge
+	EIMSK = (1 << INT1);	//Enable INT 1*/
+
+	sei();
+
+}
+
 bool dynamixelApi_setup(int baud, void (*msgHandler)(char*, char, char)) {
 	EventManager_registerTopic(DYNAMIXEL_ERROR_EVENT);
-	int res = dxl_initialize();
+	//dynamixelApi_setBaud(baud);
+	dyna.baud = baud;
+	dyna.logPos = false;
+	//dyna.updateTimer = TimerManager_createPeriodicTimer(100, 0, updateStates); //10hz updates
+	dxl_initialize(0, dyna.baud);
+	return true;
+	/*int res = dxl_initialize( 1, dyna.baud);
 	if (res == 1) {
 		ase_printf("SUCCESS: USB2Dynamixel opened!\n");
 		dynamixelApi_setBaud(baud);
@@ -134,7 +191,8 @@ bool dynamixelApi_setup(int baud, void (*msgHandler)(char*, char, char)) {
 		Event_t event; event.val_prt = errorType;
 		EventManager_publish(DYNAMIXEL_ERROR_EVENT, &event);
 		return false;
-	}
+	}*/
+
 }
 
 bool dynamixelApi_connect(int actId) {
@@ -165,11 +223,6 @@ int dynamixelApi_countActuators() {
 	return dyna.nActuators;
 }
 
-
-void dynamixelApi_setBaud(int baud) {
-	dyna.baud = baud;
-	dxl_set_baud(dyna.baud);
-}
 
 bool dynamixelApi_isWheelMode(int actuator) {
 	return dyna.states[actuator].wheelMode;
@@ -251,7 +304,7 @@ void dynamixelApi_setCompliance(int actuator, char margin, char slope) {
 void dynamixelApi_setGoalPos(int actuator, int pos) {
 	if(dynamixelApi_isWheelMode(actuator)) printf("WARNING: Position control in Dynamixel only possible in non-wheel model\n");
 	dxl_write_word(dyna.actuators[actuator], P_GOAL_POSITION_L, pos );
-	if(dyna.logPos) {
+	/*if(dyna.logPos) {
 		if(dyna.posLog==0) {
 			char name[100];
 			sprintf(name, "SetPos%li.log",time(NULL));
@@ -259,7 +312,7 @@ void dynamixelApi_setGoalPos(int actuator, int pos) {
 		}
 		fprintf(dyna.posLog,"%f \t %i \t %i \t %i\n",getLocalTime(), actuator, pos, dynamixelApi_getPosition(actuator));
 		fflush(dyna.posLog);
-	}
+	}*/
 	checkForError(actuator,13);
 }
 
@@ -375,26 +428,17 @@ void dynamixelApi_wheelMove(int actuator, int torque, bool dir) {
 //10 9 8 7 6 5 4 3 2 1 0
 //1  1 0 0 0 0 0 0 0 0 0
 
-bool started;
-float startTime;
 float dynamixelApi_getTime() {
-	SYSTEMTIME st;
-	GetSystemTime(&st);
-	float time =60.0f*st.wMinute+st.wSecond+st.wMilliseconds/1000.0f;
-	if(!started) {
-		started=true;
-		startTime=time;
-	}
-	return time-startTime;
-	//return 2.3f*((float)clock())/((float)CLOCKS_PER_SEC);
+	return (float)time_ms/1000.0f;
 }
+
 long dynamixelApi_getMsTime() {
-	return (long)(1000*dynamixelApi_getTime());
+	return time_ms;
 }
 
 int dynamixelApi_sendMessage(char* message, char messageSize, char connector) {
-	ase_printf("Warning: dynamixelApi_sendMessage not implemented\n");
-	return 0;
+	ase_printf("#message %s %i %i\n",message, messageSize, connector );
+	return 1;
 }
 
 int dynamixelApi_sendMessageToAll(char* message, char messageSize){
@@ -412,17 +456,124 @@ int dynamixelApi_getHardwareID() {
 }
 
 long dynamixelApi_getRandomSeed() {
-	return time(NULL);
+	//return time(NULL);
+	return 0;
 }
 
 void dynamixelApi_terminate() {
 	dxl_terminate();
 }
 
-/*void atronApi_handleMessage(char* eventType, char* messageData) {
-	char* message = strtok(messageData," "); //handleMessage string
-	int messageSize = atoi(strtok(NULL, " "));
-	int channel = atoi(strtok(NULL, " "));
-	stringToCharArray(message, atronApi_msgReceiveBuffer);
-	atronApi_msgHandler(atronApi_msgReceiveBuffer, messageSize, channel);
-}*/
+ISR(INT1_vect) {
+	mic_cnt++;
+	if(mic_event_function!=NULL) mic_event_function();
+}
+
+ISR(TIMER0_COMPA_vect) {
+	time_ms++;
+}
+
+void dynamixelApi_CM510_setMicEventFunction(void (*mic_event_func)(void)) {
+	mic_event_function = mic_event_func;
+}
+int dynamixelApi_CM510_getMicEventCount() {
+	return mic_cnt;
+}
+
+
+
+void dynamixelApi_CM510_setLed(int index) {
+	if(index>=0&&index<=6) PORTC &= ~(1<<index);
+}
+
+void dynamixelApi_CM510_clearLed(int index) {
+	if(index>=0&&index<=6) PORTC |= (1<<index);
+}
+
+void dynamixelApi_CM510_toggleLed(int index) {
+	if(index>=0&&index<=6) {
+		if((~PINC & (1<<index))==0) {
+			dynamixelApi_CM510_setLed(index);
+		}
+		else {
+			dynamixelApi_CM510_clearLed(index);
+		}
+	}
+}
+
+static void myDelay(long del) {
+	long j;
+	for(j=0;j<del;j++) {
+		asm("nop");
+	}
+}
+
+
+
+
+
+void dynamixelApi_CM510_buzz() {
+	myDelay(1000);
+	PORTB |= 0x20;
+	myDelay(1000);
+	PORTB &= ~0x20;
+}
+
+#define SW_UP 0x10
+#define SW_DOWN 0x20
+#define SW_LEFT 0x40
+#define SW_RIGHT 0x80
+#define SW_START 0x01
+int dynamixelApi_CM510_getButton(int index) {
+	if(index==0) return ~PIND & SW_START;
+	else if(index==1) return ~PINE & SW_UP;
+	else if(index==2) return ~PINE & SW_DOWN;
+	else if(index==3) return ~PINE & SW_LEFT;
+	else if(index==4) return ~PINE & SW_RIGHT;
+	else return 0;
+}
+
+#define		ADC_PORT_1	1
+#define		ADC_PORT_2	2
+#define		ADC_PORT_3	3
+#define		ADC_PORT_4	4
+#define		ADC_PORT_5	5
+#define		ADC_PORT_6	6
+int dynamixelApi_CM510_getADC(int index) {
+	if(index==0) {
+		ADMUX = ADC_PORT_1;		// ADC Port 1 Select
+		PORTA &= ~0x80;			// ADC Port 1 IR ON
+	}
+	else if(index==1) {
+		ADMUX = ADC_PORT_2;
+		PORTA &= ~0x40;			// ADC Port 2 IR ON
+	}
+	else if(index==2) {
+		ADMUX = ADC_PORT_3;
+		PORTA &= ~0x20;			// ADC Port 3 IR ON
+	}
+	else if(index==3) {
+		ADMUX = ADC_PORT_4;
+		PORTA &= ~0x10;			// ADC Port 4 IR ON
+	}
+	else if(index==4) {
+		ADMUX = ADC_PORT_5;
+		PORTA &= ~0x08;			// ADC Port 5 IR ON
+	}
+	else if(index==5) {
+		ADMUX = ADC_PORT_6;
+		PORTA &= ~0x04;			// ADC Port 6 IR ON
+	}
+	myDelay(20);				// Short Delay for rising sensor signal
+	ADCSRA |= (1 << ADIF);		// AD-Conversion Interrupt Flag Clear
+	ADCSRA |= (1 << ADSC);		// AD-Conversion Start
+
+	while( !(ADCSRA & (1 << ADIF)) );	// Wait until AD-Conversion complete
+	PORTA = 0xFC;				// IR-LED Off
+	return ADC;
+}
+
+#define MIC_SIGNAL 0x02
+int dynamixelApi_CM510_getMic() {
+	return ~PIND & MIC_SIGNAL;
+}
