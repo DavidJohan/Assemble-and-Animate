@@ -36,6 +36,11 @@ SET (FULL_SRCS
         ${REL_PATH}/control/behaviors/generic/LearningCpgGait/LearningCpgGait.c
         ${REL_PATH}/control/behaviors/generic/LearningCpgGait/SPSACpgGait/SPSACpgGait.c
         ${REL_PATH}/control/behaviors/generic/LearningCpgGait/RandomSearchCpgGait/RandomSearchCpgGait.c
+        ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c
+        ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiBoard.c
+        ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiEventManager.c
+        ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiManager.c
+        ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiTraining.c
         ${REL_PATH}/control/strategies/Gradient/Gradient.c
         ${REL_PATH}/control/strategies/Gradient/GradientManager.c
         ${REL_PATH}/infrastructure/EventManager/EventManager.c

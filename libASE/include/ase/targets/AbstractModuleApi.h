@@ -37,7 +37,7 @@
 #endif
 
 #ifdef LPF
-#include <ase/LPFPrintf.h>
+#include <ase/targets/non-public/lpf/LPFPrintf.h>
 #define ase_printf(...) lpf_printf(__VA_ARGS__);
 #endif
 
@@ -115,6 +115,15 @@ Returns the number of actuators on the module.
 */
 int getNumberOfActuators();
 
+/**
+Returns the number of sensors on the module.
+*/
+int getNumberOfSensors();
+
+/**
+Get current/lates sensor (scaled 0.0-1.0) of the sensor with an index (0, 1, 2,...)
+*/
+float getSensorValue(int sensor);
 
 
 #define ABSTRACTMODULEAPI_H_

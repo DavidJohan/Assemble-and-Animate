@@ -423,6 +423,126 @@ __/__/__/control/behaviors/generic/LearningCpgGait/SPSACpgGait/SPSACpgGait.c.s:
 	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LearningCpgGait/SPSACpgGait/SPSACpgGait.c.s
 .PHONY : __/__/__/control/behaviors/generic/LearningCpgGait/SPSACpgGait/SPSACpgGait.c.s
 
+__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.obj: __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.obj
+
+# target to build an object file
+__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.obj
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.i: __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.i
+
+# target to preprocess a source file
+__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.i
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.s: __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.s
+
+# target to generate assembly for a file
+__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.s
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.obj: __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.obj
+
+# target to build an object file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.obj
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.i: __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.i
+
+# target to preprocess a source file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.i
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.s: __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.s
+
+# target to generate assembly for a file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.s
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.obj: __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.obj
+
+# target to build an object file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.obj
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.i: __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.i
+
+# target to preprocess a source file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.i
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.s: __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.s
+
+# target to generate assembly for a file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.c.s
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.obj: __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.obj
+
+# target to build an object file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.obj
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.i: __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.i
+
+# target to preprocess a source file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.i
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.s: __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.s
+
+# target to generate assembly for a file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.c.s
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.obj: __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.obj
+
+# target to build an object file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.obj
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.obj
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.i: __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.i
+
+# target to preprocess a source file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.i
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.i
+
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.s: __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.s
+
+# target to generate assembly for a file
+__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dynamixel-cm510\CMakeFiles\dynamixel-cm510.dir\build.make lib/dynamixel-cm510/CMakeFiles/dynamixel-cm510.dir/__/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s
+.PHONY : __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s
+
 __/__/__/control/strategies/Consensus/ConsensusAverage.obj: __/__/__/control/strategies/Consensus/ConsensusAverage.c.obj
 .PHONY : __/__/__/control/strategies/Consensus/ConsensusAverage.obj
 
@@ -1335,6 +1455,21 @@ help:
 	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LearningCpgGait/SPSACpgGait/SPSACpgGait.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LearningCpgGait/SPSACpgGait/SPSACpgGait.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LearningCpgGait/SPSACpgGait/SPSACpgGait.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiBoard.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiEventManager.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiManager.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.s"
 	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/strategies/Consensus/ConsensusAverage.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/strategies/Consensus/ConsensusAverage.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/__/control/strategies/Consensus/ConsensusAverage.s"
