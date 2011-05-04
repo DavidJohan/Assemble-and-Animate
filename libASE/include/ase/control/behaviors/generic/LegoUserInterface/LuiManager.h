@@ -5,7 +5,7 @@ void LuiManager_setDeviceRCList(signed char* data, int nData, int offset);
 void LuiManager_setSelectedBehaviorList(signed char* behaviors);
 signed char* LuiManager_getDeviceRCList();
 void LuiManager_applyControlOutput(signed char* outputValues, char nOutput);
-int LuiManager_updateDeviceCountList();
+//int LuiManager_updateDeviceCountList();
 int LuiManager_updateDeviceReadList();
 bool LuiManager_deviceReadSuccess();
 signed char* LuiManager_getDeviceRCList();

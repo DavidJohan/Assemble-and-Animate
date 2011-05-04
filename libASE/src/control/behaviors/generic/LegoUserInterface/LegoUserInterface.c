@@ -8,7 +8,7 @@
 #include <stdbool.h>
 #include <math.h>
 
-#include <ase/targets/non-public/lpf.h>
+//#include <ase/targets/non-public/lpf.h>
 #include <ase/targets/AbstractModuleApi.h>
 #include <ase/tools/Timer/TimerManager.h>
 #include <ase/infrastructure/Scheduler/Scheduler.h>
@@ -24,12 +24,12 @@
 #include <ase/control/behaviors/generic/LegoUserInterface/LuiTraining.h>
 #include <ase/control/behaviors/generic/LegoUserInterface/LegoUserInterface.h>
 
-#define LUI_SET_RC_STATE		1
+#define LUI_SET_RC_STATE			1
 #define LUI_UPDATE_DEVICELIST		2
 #define LUI_UPDATE_READ_DEVICELIST	3
-#define LUI_SETUP		4
-#define LUI_UPDATE_STATELIST	5
-#define LUI_SELECTED_BEHAVIORS 	6
+#define LUI_SETUP					4
+#define LUI_UPDATE_STATELIST		5
+#define LUI_SELECTED_BEHAVIORS 		6
 
 /*#define LPF_READ_DEVICELIST	1
 #define LPF_COUNT_DEVICELIST	2
@@ -205,10 +205,8 @@ void board_timer_fired(int id) { //10hz
 
 static void handleMessage(char* topic, Event_t* event) {
 	Msg_t* msg = (Msg_t*) event->val_prt;
-        #ifdef PRINTF
-	//ase_printf("Module %i got message of type %i with length %i on channel %i\n",id,msg->message[0],msg->messageSize,msg->channel);
-        #endif
-	int length = msg->messageSize;
+    ase_printf("BOT got message of type %i with length %i on channel %i\n",msg->message[0],msg->messageSize,msg->channel);
+    int length = msg->messageSize;
 	int type;
 	if(length>0) type = msg->message[0];
 	else return;
@@ -216,12 +214,12 @@ static void handleMessage(char* topic, Event_t* event) {
 	  	LuiManager_setDeviceRCList((signed char*)(&msg->message[1]), msg->messageSize-1, -100);
 	}
 	else if(type==LUI_UPDATE_DEVICELIST) {
-		int msgLength = LuiManager_updateDeviceCountList();
-		LPFApi_setMessage( (char*)LuiManager_getDeviceCountList(), msgLength);
+		//int msgLength = LuiManager_updateDeviceCountList();
+		//LPFApi_setMessage( (char*)LuiManager_getDeviceCountList(), msgLength);
 	} 
 	else if(type==LUI_UPDATE_READ_DEVICELIST) {
-		int msgLength = LuiManager_updateDeviceReadList();
-		LPFApi_setMessage((char*)LuiManager_getDeviceReadList(), msgLength);
+		//int msgLength = LuiManager_updateDeviceReadList();
+		//LPFApi_setMessage((char*)LuiManager_getDeviceReadList(), msgLength);
 	}
 	else if(type==LUI_UPDATE_STATELIST) {
 		/*char stateList[3];

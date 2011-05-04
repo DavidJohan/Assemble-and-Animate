@@ -39,6 +39,7 @@ SET (FULL_SRCS
         ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c
         ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiBoard.c
         ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiEventManager.c
+        ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c
         ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiManager.c
         ${REL_PATH}/control/behaviors/generic/LegoUserInterface/LuiTraining.c
         ${REL_PATH}/control/strategies/Gradient/Gradient.c

@@ -423,6 +423,30 @@ __/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.s:
 	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.s
 .PHONY : __/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.c.s
 
+__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.obj: __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.obj
+.PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.obj
+
+# target to build an object file
+__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.obj
+.PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.obj
+
+__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.i: __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.i
+.PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.i
+
+# target to preprocess a source file
+__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.i
+.PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.i
+
+__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.s: __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.s
+.PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.s
+
+# target to generate assembly for a file
+__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.s
+.PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.c.s
+
 __/__/control/behaviors/generic/LegoUserInterface/LuiBoard.obj: __/__/control/behaviors/generic/LegoUserInterface/LuiBoard.c.obj
 .PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiBoard.obj
 
@@ -1311,6 +1335,9 @@ help:
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LegoUserInterface.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.s"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiBoard.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiBoard.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiBoard.s"
