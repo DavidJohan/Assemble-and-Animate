@@ -45,19 +45,22 @@ typedef struct {
 } dynaCtrl_t;
 
 dynaCtrl_t dynaCtrl[6] = {
-		{512, 0, 1024, 100},
-		{512, 0, 1024, 100},
-		{512, 0, 1024, 100},
-		{512, 0, 1024, 100},
-		{512, 0, 1024, 100},
-		{512, 0, 1024, 100}};
+		{512, 0, 1024, 500},
+		{512, 0, 1024, 500},
+		{512, 0, 1024, 500},
+		{512, 0, 1024, 500},
+		{512, 0, 1024, 500},
+		{512, 0, 1024, 500}};
 
 
 void applyControlOutput(signed char* outputValues, char nOutput){
 	for(int i=0;i<nOutput;i++) {
-		int pos = 1023.0f*((outputValues[i]+100)/200.0f);
-		ase_printf("%i -> %i, ",outputValues[i], pos);
-		dynaCtrl[i].cPos = pos;
+		int vel = dynaCtrl[i].maxVel*(outputValues[i]/100.0f);
+		int deltaPos = vel/10; //10hz?
+		ase_printf("%i -> %i, ",dynaCtrl[i].cPos, dynaCtrl[i].cPos + deltaPos);
+		dynaCtrl[i].cPos +=deltaPos;
+		if(dynaCtrl[i].cPos>dynaCtrl[i].maxPos) dynaCtrl[i].cPos = dynaCtrl[i].maxPos;
+		if(dynaCtrl[i].cPos<dynaCtrl[i].minPos) dynaCtrl[i].cPos = dynaCtrl[i].minPos;
 		dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);
 	}
 	ase_printf("\n");

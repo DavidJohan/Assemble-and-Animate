@@ -25,7 +25,7 @@
 #include <time.h>
 #include <float.h>
 #include <assert.h>
-#include <ase/control/stragtegies/ANN/ann.h>
+#include <ase/control/strategies/ANN/ann.h>
 
 #define xmalloc(size) _xmalloc(size, __FILE__, __LINE__)
 void *_xmalloc(size_t size, char *filename, int fileline)

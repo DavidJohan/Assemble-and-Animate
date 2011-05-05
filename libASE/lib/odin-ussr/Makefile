@@ -567,6 +567,30 @@ __/__/src/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s:
 	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\odin-ussr\CMakeFiles\odin-ussr.dir\build.make lib/odin-ussr/CMakeFiles/odin-ussr.dir/__/__/src/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s
 .PHONY : __/__/src/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s
 
+__/__/src/control/strategies/ANN/ann.obj: __/__/src/control/strategies/ANN/ann.c.obj
+.PHONY : __/__/src/control/strategies/ANN/ann.obj
+
+# target to build an object file
+__/__/src/control/strategies/ANN/ann.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\odin-ussr\CMakeFiles\odin-ussr.dir\build.make lib/odin-ussr/CMakeFiles/odin-ussr.dir/__/__/src/control/strategies/ANN/ann.c.obj
+.PHONY : __/__/src/control/strategies/ANN/ann.c.obj
+
+__/__/src/control/strategies/ANN/ann.i: __/__/src/control/strategies/ANN/ann.c.i
+.PHONY : __/__/src/control/strategies/ANN/ann.i
+
+# target to preprocess a source file
+__/__/src/control/strategies/ANN/ann.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\odin-ussr\CMakeFiles\odin-ussr.dir\build.make lib/odin-ussr/CMakeFiles/odin-ussr.dir/__/__/src/control/strategies/ANN/ann.c.i
+.PHONY : __/__/src/control/strategies/ANN/ann.c.i
+
+__/__/src/control/strategies/ANN/ann.s: __/__/src/control/strategies/ANN/ann.c.s
+.PHONY : __/__/src/control/strategies/ANN/ann.s
+
+# target to generate assembly for a file
+__/__/src/control/strategies/ANN/ann.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\odin-ussr\CMakeFiles\odin-ussr.dir\build.make lib/odin-ussr/CMakeFiles/odin-ussr.dir/__/__/src/control/strategies/ANN/ann.c.s
+.PHONY : __/__/src/control/strategies/ANN/ann.c.s
+
 __/__/src/control/strategies/Consensus/ConsensusAverage.obj: __/__/src/control/strategies/Consensus/ConsensusAverage.c.obj
 .PHONY : __/__/src/control/strategies/Consensus/ConsensusAverage.obj
 
@@ -1449,6 +1473,9 @@ help:
 	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/behaviors/generic/LegoUserInterface/LuiTraining.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/behaviors/generic/LegoUserInterface/LuiTraining.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/behaviors/generic/LegoUserInterface/LuiTraining.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/strategies/ANN/ann.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/strategies/ANN/ann.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/strategies/ANN/ann.s"
 	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/strategies/Consensus/ConsensusAverage.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/strategies/Consensus/ConsensusAverage.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/src/control/strategies/Consensus/ConsensusAverage.s"

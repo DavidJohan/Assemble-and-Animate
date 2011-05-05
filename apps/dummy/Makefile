@@ -149,6 +149,32 @@ dummy-SPSA/fast:
 	$(MAKE) -f bin\dummy-SPSA\CMakeFiles\dummy-SPSA.dir\build.make bin/dummy-SPSA/CMakeFiles/dummy-SPSA.dir/build
 .PHONY : dummy-SPSA/fast
 
+#=============================================================================
+# Target rules for targets named controller-ANN-test
+
+# Build rule for target.
+controller-ANN-test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 controller-ANN-test
+.PHONY : controller-ANN-test
+
+# fast build rule for target.
+controller-ANN-test/fast:
+	$(MAKE) -f bin\dummy-ANN-test\CMakeFiles\controller-ANN-test.dir\build.make bin/dummy-ANN-test/CMakeFiles/controller-ANN-test.dir/build
+.PHONY : controller-ANN-test/fast
+
+#=============================================================================
+# Target rules for targets named dummy-ANN-test
+
+# Build rule for target.
+dummy-ANN-test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 dummy-ANN-test
+.PHONY : dummy-ANN-test
+
+# fast build rule for target.
+dummy-ANN-test/fast:
+	$(MAKE) -f bin\dummy-ANN-test\CMakeFiles\dummy-ANN-test.dir\build.make bin/dummy-ANN-test/CMakeFiles/dummy-ANN-test.dir/build
+.PHONY : dummy-ANN-test/fast
+
 # Help Target
 help:
 	@$(CMAKE_COMMAND) -E echo "The following are some of the valid targets for this Makefile:"
@@ -161,6 +187,8 @@ help:
 	@$(CMAKE_COMMAND) -E echo "... dummy-timer"
 	@$(CMAKE_COMMAND) -E echo "... controller-SPSA"
 	@$(CMAKE_COMMAND) -E echo "... dummy-SPSA"
+	@$(CMAKE_COMMAND) -E echo "... controller-ANN-test"
+	@$(CMAKE_COMMAND) -E echo "... dummy-ANN-test"
 .PHONY : help
 
 

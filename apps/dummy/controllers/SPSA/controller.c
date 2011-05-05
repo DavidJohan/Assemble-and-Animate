@@ -28,5 +28,4 @@ void controller_init() {
 		SPSALearning_update(&SPSAProcess);
 	}
 	exit(0);
-//	SPSALearning_collectReward(SPSALearning_t* process, float reward);
 }

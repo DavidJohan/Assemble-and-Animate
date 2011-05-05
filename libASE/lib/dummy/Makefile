@@ -543,6 +543,30 @@ __/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s:
 	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s
 .PHONY : __/__/control/behaviors/generic/LegoUserInterface/LuiTraining.c.s
 
+__/__/control/strategies/ANN/ann.obj: __/__/control/strategies/ANN/ann.c.obj
+.PHONY : __/__/control/strategies/ANN/ann.obj
+
+# target to build an object file
+__/__/control/strategies/ANN/ann.c.obj:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/strategies/ANN/ann.c.obj
+.PHONY : __/__/control/strategies/ANN/ann.c.obj
+
+__/__/control/strategies/ANN/ann.i: __/__/control/strategies/ANN/ann.c.i
+.PHONY : __/__/control/strategies/ANN/ann.i
+
+# target to preprocess a source file
+__/__/control/strategies/ANN/ann.c.i:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/strategies/ANN/ann.c.i
+.PHONY : __/__/control/strategies/ANN/ann.c.i
+
+__/__/control/strategies/ANN/ann.s: __/__/control/strategies/ANN/ann.c.s
+.PHONY : __/__/control/strategies/ANN/ann.s
+
+# target to generate assembly for a file
+__/__/control/strategies/ANN/ann.c.s:
+	cd C:\DOCUME~1\DAVIDJ~1.CHR\ASSEMB~1\libASE && $(MAKE) -f lib\dummy\CMakeFiles\dummy.dir\build.make lib/dummy/CMakeFiles/dummy.dir/__/__/control/strategies/ANN/ann.c.s
+.PHONY : __/__/control/strategies/ANN/ann.c.s
+
 __/__/control/strategies/Consensus/ConsensusAverage.obj: __/__/control/strategies/Consensus/ConsensusAverage.c.obj
 .PHONY : __/__/control/strategies/Consensus/ConsensusAverage.obj
 
@@ -1350,6 +1374,9 @@ help:
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiTraining.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiTraining.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/behaviors/generic/LegoUserInterface/LuiTraining.s"
+	@$(CMAKE_COMMAND) -E echo "... __/__/control/strategies/ANN/ann.obj"
+	@$(CMAKE_COMMAND) -E echo "... __/__/control/strategies/ANN/ann.i"
+	@$(CMAKE_COMMAND) -E echo "... __/__/control/strategies/ANN/ann.s"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/strategies/Consensus/ConsensusAverage.obj"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/strategies/Consensus/ConsensusAverage.i"
 	@$(CMAKE_COMMAND) -E echo "... __/__/control/strategies/Consensus/ConsensusAverage.s"

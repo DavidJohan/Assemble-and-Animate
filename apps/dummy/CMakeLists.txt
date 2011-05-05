@@ -8,4 +8,5 @@ SET (CMAKE_C_FLAGS "-Wall -DDUMMY")
 
 ADD_SUBDIRECTORY (./controllers/timer ./bin/dummy-timer EXCLUDE_FROM_ALL)
 ADD_SUBDIRECTORY (./controllers/SPSA ./bin/dummy-SPSA EXCLUDE_FROM_ALL)
+ADD_SUBDIRECTORY (./controllers/ANN-test ./bin/dummy-ANN-test EXCLUDE_FROM_ALL)
 
