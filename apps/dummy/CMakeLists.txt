@@ -7,4 +7,5 @@ INCLUDE_DIRECTORIES (../../libASE/include)
 SET (CMAKE_C_FLAGS "-Wall -DDUMMY")
 
 ADD_SUBDIRECTORY (./controllers/timer ./bin/dummy-timer EXCLUDE_FROM_ALL)
+ADD_SUBDIRECTORY (./controllers/SPSA ./bin/dummy-SPSA EXCLUDE_FROM_ALL)
 

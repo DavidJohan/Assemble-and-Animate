@@ -4,7 +4,7 @@ OBJECTS=$(SOURCES:.c=.o)
 
 
 all:
-	gcc -c -DDUMMY -Wall -I../../../../include/dummy/ $(SOURCES) 
+	gcc -c -DDUMMY -Wall -I$(ASE_HOME)/include/ $(SOURCES) 
 	ar -rcs libControl.a $(OBJECTS) 
 	mv libControl.a ../../dummy/libControl.a 
 

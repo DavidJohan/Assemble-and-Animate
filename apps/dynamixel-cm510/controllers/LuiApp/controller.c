@@ -37,11 +37,28 @@ void installBehaviors(Subsumption_t* subsumption) {
 	//LuiBehaviorManager_addBehavior(99,&kNN_behavior, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 't', subsumption);
 }
 
+typedef struct {
+	int cPos;
+	int minPos;
+	int maxPos;
+	int maxVel;
+} dynaCtrl_t;
+
+dynaCtrl_t dynaCtrl[6] = {
+		{512, 0, 1024, 100},
+		{512, 0, 1024, 100},
+		{512, 0, 1024, 100},
+		{512, 0, 1024, 100},
+		{512, 0, 1024, 100},
+		{512, 0, 1024, 100}};
+
+
 void applyControlOutput(signed char* outputValues, char nOutput){
 	for(int i=0;i<nOutput;i++) {
 		int pos = 1023.0f*((outputValues[i]+100)/200.0f);
 		ase_printf("%i -> %i, ",outputValues[i], pos);
-		dynamixelApi_setGoalPos(i, pos);
+		dynaCtrl[i].cPos = pos;
+		dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);
 	}
 	ase_printf("\n");
 }
@@ -64,6 +81,8 @@ void delay_ms(long delay_ms) {
 	long startTime = dynamixelApi_getMsTime();
 	while((startTime+delay_ms)>dynamixelApi_getMsTime());
 }
+
+
 void flowerInit() {
 	dynamixelApi_setup(1,NULL); delay_ms(250);
 	dynamixelApi_connect(8); delay_ms(50);
