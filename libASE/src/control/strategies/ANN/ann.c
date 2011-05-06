@@ -22,17 +22,19 @@
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
 #include <float.h>
 #include <assert.h>
 #include <ase/control/strategies/ANN/ann.h>
+#include <ase/targets/AbstractModuleApi.h>
+
+#define EXIT_FAILURE 1
 
 #define xmalloc(size) _xmalloc(size, __FILE__, __LINE__)
 void *_xmalloc(size_t size, char *filename, int fileline)
 {
         void *mem = malloc(size);
         if (mem == NULL) {
-                printf("xmalloc: Out of memory! (%s:%i)\n", filename, fileline);
+                ase_printf("xmalloc: Out of memory! (%s:%i)\n", filename, fileline);
                 exit(EXIT_FAILURE);
         }
 
@@ -93,7 +95,7 @@ void ANN_Execute(ANN_t *nn, float *inputs, float *output)
                 /* Now that we have summed all inputs to the neuron, we can get its output */
                 nn->neuron_outputs[i] = nn->ActivationFunction(sum); //ANN_sigmoid(sum);
                 if (nn->neuron_outputs[i] > 2) {
-                        printf("OUTPUT NEURON HAS VALUE LARGER THAN 1: %3.2f  SUM: %3.2f\n", nn->neuron_outputs[i], sum);
+                        ase_printf("OUTPUT NEURON HAS VALUE LARGER THAN 1: %3.2f  SUM: %3.2f\n", nn->neuron_outputs[i], sum);
                         exit(EXIT_FAILURE);
                 }
         }
@@ -103,7 +105,7 @@ void ANN_Execute(ANN_t *nn, float *inputs, float *output)
                 output[i] = nn->neuron_outputs[nn->nr_inputs + nn->nr_hidden + i];
         }
 
-        //printf("O: %3.2f\n", output[nn->nr_outputs - 1]);
+        //ase_printf("O: %3.2f\n", output[nn->nr_outputs - 1]);
 }
 
 void ANN_RandomizeWeights(ANN_t *nn)
@@ -151,7 +153,7 @@ ANN_t *ANN_New(unsigned int nr_inputs,
         ANN_RandomizeWeights(nn);
         if (nr_max_con_forward > 0) {
                 if (!ANN_MinimizeNrForwardWeights(nn)) {
-                        printf("Could not create a valid network with the specified amount of maximum forward connections\n");
+                        ase_printf("Could not create a valid network with the specified amount of maximum forward connections\n");
                         ANN_RandomizeWeights(nn);
                 }
         }
@@ -217,7 +219,7 @@ bool ANN_AllInputsLeadToOutput(ANN_t *nn)
                         /* Go to the neuron to which the current neuron is connected, if it is not a recurrent connection (not going backwards) */
                         if (nn->weights[k][j] > DOUBLE_MIN) {
                                 k = j;
-                                //printf("K %i\n", k);
+                                //ase_printf("K %i\n", k);
                                 if (k > (nn->nr_inputs + nn->nr_hidden - 1)) { /* -1 becuase it is zero indexed! */
                                         valid_inputs[i] = true;
                                 }
@@ -420,26 +422,26 @@ void ANN_Print(ANN_t *nn)
 {
         int neurons_total = nn->nr_inputs + nn->nr_hidden + nn->nr_outputs;
 
-        printf("NR OF INPUT NEURONS: %i\n", nn->nr_inputs);
-        printf("NR OF OUTPUT NEURONS: %i\n", nn->nr_outputs);
-        printf("NR OF HIDDEN NEURONS: %i\n", nn->nr_hidden);
-        printf("MAX NR OF FORWARD CONNECTIONS: %i\n", nn->nr_max_con_fw);
-        printf("MAX NR OF RECURRENT CONNECTIONS: %i\n", nn->nr_max_con_rc);
+        ase_printf("NR OF INPUT NEURONS: %i\n", nn->nr_inputs);
+        ase_printf("NR OF OUTPUT NEURONS: %i\n", nn->nr_outputs);
+        ase_printf("NR OF HIDDEN NEURONS: %i\n", nn->nr_hidden);
+        ase_printf("MAX NR OF FORWARD CONNECTIONS: %i\n", nn->nr_max_con_fw);
+        ase_printf("MAX NR OF RECURRENT CONNECTIONS: %i\n", nn->nr_max_con_rc);
         for (int i = 0; i < nn->nr_outputs; i++) {
-                printf("LAST OUTPUT%i: %3.2f\n", i, nn->neuron_outputs[nn->nr_inputs + nn->nr_hidden + i]);
+                ase_printf("LAST OUTPUT%i: %3.2f\n", i, nn->neuron_outputs[nn->nr_inputs + nn->nr_hidden + i]);
                 assert(nn->neuron_outputs[nn->nr_inputs + nn->nr_hidden + i] < 2);
         }
 
         for (int i = 0; i < neurons_total; i++) {
                 for (int j = 0; j < neurons_total; j++) {
                         if (nn->weights[i][j] == DOUBLE_MIN) {
-                                printf("NA\t");
+                                ase_printf("NA\t");
                         } else {
-                                printf("%3.2f\t", nn->weights[i][j]);
+                                ase_printf("%3.2f\t", nn->weights[i][j]);
                         }
                 }
 
-                printf("\n");
+                ase_printf("\n");
         }
 }
 
