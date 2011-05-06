@@ -501,6 +501,11 @@ void dynamixelApi_CM510_toggleLed(int index) {
 	}
 }
 
+/*void delay_ms(long delay_ms) {
+	long startTime = dynamixelApi_getMsTime();
+	while((startTime+delay_ms)>dynamixelApi_getMsTime());
+}*/
+
 static void myDelay(long del) {
 	long j;
 	for(j=0;j<del;j++) {
@@ -513,9 +518,9 @@ static void myDelay(long del) {
 
 
 void dynamixelApi_CM510_buzz() {
-	myDelay(1000);
+	myDelay(1);
 	PORTB |= 0x20;
-	myDelay(1000);
+	myDelay(1);
 	PORTB &= ~0x20;
 }
 
