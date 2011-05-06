@@ -18,6 +18,8 @@
 #ifndef ANN_H
 #define ANN_H
 
+#include <stdbool.h>
+
 #define DOUBLE_MIN (-(FLT_MAX / 2))
 #define DOUBLE_MAX (FLT_MAX / 2)
 
