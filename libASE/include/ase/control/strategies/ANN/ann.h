@@ -37,9 +37,6 @@ typedef struct ANN_s {
                                         * This way we get recurrent connections automatically (if a neuron is ahead in the network, we have its old value in this array!) */
 } ANN_t;
 
-void ANN_Print(ANN_t *);
-bool ANN_MinimizeNrForwardWeights(ANN_t *nn);
-void ANN_MinimizeNrRecurrentWeights(ANN_t *nn);
 void ANN_ResetNeuronState(ANN_t *n);
 float ANN_Sigmoid(float x);
 float ANN_Tanh(float x);
@@ -53,9 +50,6 @@ ANN_t *ANN_New(unsigned int nr_inputs,
                 float (*ActivationFunction)(float x),
                 float w_max,
                 float w_min);
-float ANN_FindLargestForwardWeightSmallerThanX(ANN_t *nn, float X);
-float ANN_FindLargestRecurrentWeightSmallerThanX(ANN_t *nn, float X);
-bool ANN_AllInputsLeadToOutput(ANN_t *nn);
 void ANN_ScaleHiddenNeuronWeights(ANN_t *nn, float factor);
 void ANN_ScaleAllNeuronWeights(ANN_t *nn, float factor);
 void ANN_RandomizeRecurrentWeights(ANN_t *nn);

@@ -26,20 +26,9 @@
 #include <assert.h>
 #include <ase/control/strategies/ANN/ann.h>
 #include <ase/targets/AbstractModuleApi.h>
+#include <ase/infrastructure/MemManager/MemManager.h>
 
 #define EXIT_FAILURE 1
-
-#define xmalloc(size) _xmalloc(size, __FILE__, __LINE__)
-void *_xmalloc(size_t size, char *filename, int fileline)
-{
-        void *mem = malloc(size);
-        if (mem == NULL) {
-                ase_printf("xmalloc: Out of memory! (%s:%i)\n", filename, fileline);
-                exit(EXIT_FAILURE);
-        }
-
-        return mem;
-}
 
 /*-----------------------------------------------------------------------------
  * NEURAL NETWORK
@@ -133,7 +122,7 @@ ANN_t *ANN_New(unsigned int nr_inputs,
                 float w_max,
                 float w_min)
 {
-        ANN_t *nn = (ANN_t *) xmalloc(sizeof(nn[0]));
+        ANN_t *nn = (ANN_t *) MemManager_Xmalloc(sizeof(nn[0]));
         nn->nr_inputs = nr_inputs;
         nn->nr_hidden = nr_hidden;
         nn->nr_outputs = nr_outputs;
@@ -144,9 +133,9 @@ ANN_t *ANN_New(unsigned int nr_inputs,
         nn->ActivationFunction = ActivationFunction;
 
         int neurons_total = nr_inputs + nr_hidden + nr_outputs;
-        nn->weights = (float **) xmalloc(sizeof(float *) * neurons_total);
+        nn->weights = (float **) MemManager_Xmalloc(sizeof(float *) * neurons_total);
         for (int i = 0; i < neurons_total; i++) {
-                nn->weights[i] = (float *) xmalloc(sizeof(float) * neurons_total);
+                nn->weights[i] = (float *) MemManager_Xmalloc(sizeof(float) * neurons_total);
         }
 
         nn->neuron_outputs = (float *) calloc(sizeof(float), neurons_total);
@@ -385,15 +374,15 @@ ANN_t *ANN_Copy(ANN_t *nn)
 {
         int neurons_total = nn->nr_inputs + nn->nr_hidden + nn->nr_outputs;
 
-        ANN_t *cpy = (ANN_t *) xmalloc(sizeof(ANN_t));
+        ANN_t *cpy = (ANN_t *) MemManager_Xmalloc(sizeof(ANN_t));
         memcpy(cpy, nn, sizeof(ANN_t));
 
-        cpy->neuron_outputs = (float *) xmalloc(sizeof(float) * neurons_total);
+        cpy->neuron_outputs = (float *) MemManager_Xmalloc(sizeof(float) * neurons_total);
         memcpy(cpy->neuron_outputs, nn->neuron_outputs, neurons_total);
 
-        cpy->weights = (float **) xmalloc(sizeof(float *) * neurons_total);
+        cpy->weights = (float **) MemManager_Xmalloc(sizeof(float *) * neurons_total);
         for (int i = 0; i < neurons_total; i++) {
-                cpy->weights[i] = (float *) xmalloc(sizeof(float) * neurons_total);
+                cpy->weights[i] = (float *) MemManager_Xmalloc(sizeof(float) * neurons_total);
                 for (int j = 0; j < neurons_total; j++) {
                         cpy->weights[i][j] = nn->weights[i][j];
                 }
