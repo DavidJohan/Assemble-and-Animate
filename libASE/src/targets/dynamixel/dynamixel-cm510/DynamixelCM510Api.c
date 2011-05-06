@@ -1,5 +1,5 @@
 #include <ase/targets/dynamixel/DynamixelApi.h>
-#include <ase/targets/dynamixel/dynamixel-cm510/firmware/Dynamixel.h>
+#include <ase/targets/dynamixel/dynamixel-cm510/firmware/dynamixel.h>
 #include <ase/targets/dynamixel/dynamixel-cm510/firmware/serial.h>
 #include <ase/targets/AbstractModuleApi.h>
 #include <ase/infrastructure/EventManager/EventManager.h>
