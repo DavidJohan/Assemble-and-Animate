@@ -509,7 +509,7 @@ void dynamixelApi_CM510_toggleLed(int index) {
 static void myDelay(long del) {
 	long j;
 	for(j=0;j<del;j++) {
-		asm("nop");
+		__asm__("nop");
 	}
 }
 
