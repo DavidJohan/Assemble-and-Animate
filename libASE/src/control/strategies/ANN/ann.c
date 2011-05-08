@@ -467,7 +467,7 @@ void ANN_Mutate(ANN_t *nn, float probability)
                         if (nn->weights[i][j] > DOUBLE_MIN) {
                                 if (ANN_Mutate_PROB == 0) {
                                         ANN_ResetNeuronState(nn);
-                                        switch (rand() % 8) {
+                                        switch (rand() % 18) {
                                                 case 0:
                                                         nn->weights[i][j] += ((rand() % 100) + 1) / 1000.0;
                                                         break;
@@ -489,6 +489,36 @@ void ANN_Mutate(ANN_t *nn, float probability)
                                                 case 7:
                                                         nn->weights[i][j] -= ((rand() % 1000) + 1) / 100.0;
                                                         break;
+                                                case 8:
+                                                        nn->weights[i][j] /= 1000;
+                                                        break;
+                                                case 9: 
+                                                        nn->weights[i][j] /= 100.0;
+                                                        break;
+                                                case 10:
+                                                        nn->weights[i][j] /= 10.0;
+                                                        break;
+                                                case 11: 
+                                                        nn->weights[i][j] = 0.0;
+                                                        break;
+                                                case 12:
+                                                        nn->weights[i][j] *= (rand() % 1000) / 1000.0;
+                                                        break;
+                                                case 13:
+                                                        nn->weights[i][j] /= (rand() % 1000) / 1000.0;
+                                                        break;
+                                                case 14:
+                                                        nn->weights[i][j] += (rand() % 1000) / 1000.0;
+                                                        break;
+                                                case 15:
+                                                        nn->weights[i][j] -= (rand() % 1000) / 1000.0;
+                                                        break;
+                                                case 16:
+                                                        nn->weights[i][j] *= 0.9;
+                                                        break;
+                                                case 17:
+                                                        nn->weights[i][j] *= 1.1;
+                                                        break; 
                                                 default:
                                                         break;
                                         }
@@ -502,9 +532,9 @@ ANN_t *ANN_Crossover(ANN_t *nn1, ANN_t *nn2)
 {
         int n_total = nn1->nr_inputs + nn1->nr_hidden + nn1->nr_outputs;
         ANN_t *cpy = NULL;
-        if (rand() % 10 < 7) /*  Do the crossover */
+        if (rand() % 10 < 6) /*  Do the crossover */
         {
-                switch (rand() % 2) {
+                switch (rand() % 3) {
                 case 0:
                         cpy = ANN_Copy(nn1);
                         for (int i = 0; i < n_total / (rand() % n_total + 1); i++) {

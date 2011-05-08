@@ -60,6 +60,18 @@ int GA_Cmp(const void *e1, const void *e2)
         return 0;
 }
 
+float GA_DecoratedFitness(GA_individual_t *indv, float (*GA_FitnessFunc)(GA_individual_t *ind))
+{
+        if (indv->fit > DOUBLE_MIN) {
+                //ase_printf("BOM!\n");
+                return indv->fit;
+        } else {
+                //ase_printf("XXXXX\n");
+                indv->fit = GA_FitnessFunc(indv); 
+                return indv->fit;
+        }
+}
+
 /*-----------------------------------------------------------------------------
  * Insertion sort. It is fast for small sorts, and especially if moving around
  * small elements, which we are (pointers).
@@ -67,7 +79,7 @@ int GA_Cmp(const void *e1, const void *e2)
 void GA_Sort(GA_individual_t *population[], int pop_size, float (*GA_FitnessFunc)(GA_individual_t *ind))
 {
         for (int i = 0; i < pop_size; i++) {
-                population[i]->fit = GA_FitnessFunc(population[i]);
+                population[i]->fit = GA_DecoratedFitness(population[i], GA_FitnessFunc);
         }
 
         qsort(population, pop_size, sizeof(GA_individual_t*), GA_Cmp);
@@ -78,13 +90,13 @@ GA_individual_t *GA_SelectParentRoulette(GA_individual_t *population[], int pop_
         float fit_sum = 0;
         float rnd_1 = 0;
         for (int i = 0; i < pop_size; i++) {
-                fit_sum += GA_Fit(population[i]);
+                fit_sum += GA_DecoratedFitness(population[i], GA_Fit);
         }
 
         rnd_1 = ((rand() % 1000) * fit_sum) / 1000.0;
         fit_sum = 0;
         for (int i = 0; i < pop_size; i++) {
-                fit_sum += GA_Fit(population[i]);
+                fit_sum += GA_DecoratedFitness(population[i], GA_Fit);
                 if (fit_sum >= rnd_1) {
                         return population[i];
                 }
@@ -106,13 +118,16 @@ GA_individual_t *GA_GeneticAlgorithm(GA_individual_t *population[],
         GA_individual_t *parent_2;
         GA_individual_t *pop_new[pop_size];
         int n_elite = 0;
-
-        GA_Sort(population, pop_size, GA_FitnessFunc);
+        static init = 0;
+        if (init == 0) {
+                GA_Sort(population, pop_size, GA_FitnessFunc);
+                init = 1;
+        }
 #if 1
         if (elitism) {
                 n_elite = pop_size / 10;
-                if (n_elite > 25) 
-                        n_elite = 25;
+                if (n_elite > 20) 
+                        n_elite = 20;
         } else {
                 n_elite = 0;
         }
