@@ -21,7 +21,8 @@ float GANN_Fitness(GA_individual_t *indv)
         for (float i = 0; i < 1; i = i + 0.01) {
                 inputs = i;
                 ANN_Execute(ann, &inputs, &outputs);
-                error_sum += fabs(sin(inputs * period) - outputs * period);
+                outputs = 2.0 * (outputs - 0.5);
+                error_sum += fabs(sin(inputs * period) - outputs);
                 //error_sum += fabs(sin(inputs * period));
         }
         //printf("error_sum %3.2f\n", error_sum);
@@ -46,7 +47,7 @@ bool GANN_Done(GA_individual_t *indv)
 GA_individual_t *GANN_Reproduce(GA_individual_t *parent1, GA_individual_t *parent2)
 {
         ANN_t *ar = ANN_Crossover(parent1->indv, parent2->indv);
-        ANN_Mutate(ar, 0.3);
+        ANN_Mutate(ar, 0.5);
         return GA_New(ar);
 }
 
@@ -63,8 +64,9 @@ void controller_init()
         GA_individual_t *population[pop_size];
         
         for (int i = 0; i < pop_size; i++) {
-                population[i] = GA_New(ANN_New(1, 1, 2, 0, 0, &ANN_Tanh, 200.0, 0.01));
+                population[i] = GA_New(ANN_New(1, 1, 4, 0, 0, &ANN_Sigmoid, 900.0, 0.01));
                 ANN_RandomizeWeights(population[i]->indv);
+                //ANN_DeleteRecurrentConnections(population[i]->indv);
         }
 
         int cnt = 0;
@@ -76,7 +78,7 @@ void controller_init()
                                     GANN_Delete,
                                     GANN_Clone,
                                     true);
-                if (cnt % 100 == 0)
+                if (cnt % 200 == 0)
                         ase_printf("Generation: %i\tFitness: %3.2f\n", cnt, population[0]->fit); 
                 cnt++;
         } while (!GANN_Done(population[0]));
