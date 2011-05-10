@@ -13,7 +13,11 @@ void controller_init() {
         input[0] = 0.1;
         input[1] = 0.312;
         ANN_Execute(n, input, &output);
-	ANN_Print(n);
-        printf("Output: %3.2f\n", output);
+        ANN_Print(n);
+        int i;
+        for(i=0;i<10;i++) {
+        	ase_printf("Output: %3.2f\n", output);
+        	ANN_Execute(n, input, &output);
+        }
 	exit(0);
 }
