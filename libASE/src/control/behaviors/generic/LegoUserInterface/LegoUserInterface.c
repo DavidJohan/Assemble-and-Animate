@@ -190,7 +190,6 @@ void board_timer_fired(int id) { //10hz
 		}
 		else if(LuiBoard_hasBehavior(&board) || Subsumption_hasActiveBehaviors(&SubsumptionProcess)) {
 		  	doSubsumptionBehaviors((signed char*)board.behaviors, 5);
-		  
 		}
 		else { //use gamepad if board is empty
 			LuiManager_applyControlOutput(LuiManager_getDeviceRCList(),nOutputs);

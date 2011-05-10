@@ -17,6 +17,7 @@
 #include <ase/tools/RewardCollector/RewardCollector.h>
 #include <ase/communication/Message.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 /**
  * \extends Message_t
@@ -41,8 +42,8 @@ typedef struct {
  */
 typedef struct {
 	short label;
-	float ak;
-	float ck;
+	float ak,ck,a,c;
+	int k;
 	float theta[SPSA_N_PARAMETERS_MAX];
 	float gradient[SPSA_N_PARAMETERS_MAX];
 	int delta[SPSA_N_PARAMETERS_MAX];
@@ -55,6 +56,7 @@ typedef struct {
 	float deltaTime;
 	float nextUpdateTime;
 	int nParameters;
+	bool nowrap;
 	rewardCollector_t collector;
 } SPSALearning_t;
 
@@ -108,9 +110,15 @@ float SPSALearning_getThetaNonPerturbed(SPSALearning_t* process, int index);
 float SPSALearning_getTheta(SPSALearning_t* process, int index, int wrap);
 
 /**
- * Set the learning variables from an array of float (must have length equal to SPSA_N_PARAMETERS_MAX).
+ * Set the learning variables from an array of float (must have length equal to nParameters).
  */
 void SPSALearning_setTheta(SPSALearning_t* process, float* theta);
+/**
+ * Set the learning variables at a given index<SPSA_N_PARAMETERS_MAX
+ */
+void SPSALearning_setThetaAt(SPSALearning_t* process, int index, float val);
+
+void SPSALearning_decayAkCk(SPSALearning_t* process, float a0, float c0, float A, float alpha, float gamma);
 
 #define SPSALEARNING_H_
 

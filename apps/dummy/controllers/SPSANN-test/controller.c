@@ -9,9 +9,8 @@
 #define PI 3.14159265
 static SPSALearning_t spsa_process;
 static int n_params = 7*7;
-static bool printNow = false;
 
-float SPSANN_Fitness(ANN_t * ann)
+float SPSANN_Fitness(ANN_t * ann, bool printOutput)
 {
 	int n_samples = 0;
 	float error_sum = 0.0;
@@ -25,9 +24,9 @@ float SPSANN_Fitness(ANN_t * ann)
 			float target = sin(i * period);
 			error_sum += fabs(target - outputs);
 			n_samples++;
-			if(printNow) ase_printf("{%f, %f, %f},",inputs, target,outputs);
+			if(printOutput) ase_printf("{%f, %f},", target, outputs);
 	}
-	if(printNow) ase_printf("\n");
+	if(printOutput) ase_printf("\n");
 	return 1-error_sum/n_samples;
 }
 
@@ -35,18 +34,17 @@ float SPSANN_Fitness(ANN_t * ann)
 void controller_init() {
 	ase_printf("SPSANN test\n");
 	SPSALearning_init(&spsa_process);
-	spsa_process.ak = 10.0;
-	spsa_process.ck = 1.00;
+	spsa_process.ck = 0.01f;
+	spsa_process.ak = 0.01f;
 	spsa_process.nowrap = 1;
 	spsa_process.nParameters = n_params;
     ANN_t *ann = ANN_New(1, 1, 5, 0, 0, &ANN_Sigmoid, 0.02, 0.01);
     for (int  i = 0; i < n_params; i++) {
     	SPSALearning_setThetaAt(&spsa_process, i, 0.0f); //initialize all weights to 0
     }
-    //ANN_RandomizeWeights(ann);
-    //ANN_DeleteRecurrentConnections(ann);
-	for (int n = 0; n < 1000000; n++) {
-		if(n%1000 == 0) printNow = true;
+    SPSALearning_reset(&spsa_process,1);
+    for (int n = 0; n < 500000; n++) {
+		//SPSALearning_decayAkCk(&spsa_process, 1.0f, 1.0f, 0, 0.602f, 0.101f);//0.602f, 0.101f
 		float reward = 0;
 		float theta = 0;
 		int x = 0, y = 0;
@@ -56,14 +54,15 @@ void controller_init() {
 				theta = SPSALearning_getTheta(&spsa_process, i, 0);
 				ann->weights[x][y] = theta;
 		}
-		reward = SPSANN_Fitness(ann);
-		if(printNow) ase_printf("REWARD = %f (n=%i, ck=%f ak=%f)\n", reward, n,spsa_process.ck, spsa_process.ak);
-		printNow = false;
+		reward = SPSANN_Fitness(ann, false);
+		if(n%10000 == 0) {
+			ase_printf("{%i, %f},\n", n,  reward);
+		}
 
 		SPSALearning_collectReward(&spsa_process, reward);
 		SPSALearning_update(&spsa_process);
-		SPSALearning_akDekay();
-		SPSALearning_ckDekay();
 	}
+    ANN_Print(ann);
+    SPSANN_Fitness(ann, true);
 	exit(0);
 }

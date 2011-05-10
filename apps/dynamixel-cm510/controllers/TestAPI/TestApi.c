@@ -191,6 +191,17 @@ void flowerDance() {
 	}
 }
 
+void flowerPrintPos() {
+	flowerInit();
+	int time=0;
+	while(1) {
+		for(int i=0;i<dynamixelApi_countActuators();i++) {
+			ase_printf("%i=%i \t",i, dynamixelApi_getPosition(i));
+		}
+		ase_printf("\n");
+		delay_ms(250);
+	}
+}
 
 void testDynamixel() {
 
@@ -305,9 +316,9 @@ void controller_init() {
 	dynamixelApi_CM510_init();
 	EventManager_subscribe(MSG_RECV_EVENT, handleMessage);
 	EventManager_subscribe(ACT_EVENT, act);
-	//ase_printf("*************************\n" );
-	//ase_printf("*Dynamixel-CM510 Started*\n" );
-	//ase_printf("************************\n" );
+	ase_printf("*************************\n" );
+	ase_printf("*Dynamixel-CM510 Started*\n" );
+	ase_printf("************************\n" );
 	//testButtons();
 	//testBuzz();
 	//testLed();
@@ -316,8 +327,9 @@ void controller_init() {
 	//testIR();
 	//testMic();
 	//testDynamixel();
-	flowerCatch();
-	//flowerDance();
+	//flowerCatch();
+	//flowerPrintPos();
+	flowerDance();
 	//testTimer();
 	//testZigBee();
 	//testSendMessage();

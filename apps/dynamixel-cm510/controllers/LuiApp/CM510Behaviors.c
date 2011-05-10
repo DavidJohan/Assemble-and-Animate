@@ -30,6 +30,7 @@ void escape_start(void* data) {
 	CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
 	escape_data->dir=1;
 }
+
 void escape_stop(void* data) {}
 void escape_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
   	//CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
@@ -141,11 +142,16 @@ void dance_stop(void* data) {}
 void dance_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
 	//CM510Behavior_dance_t* dance_data = (CM510Behavior_dance_t*) data;
 	float t = getLocalTime();
-	int pos = 200*sin(t/10.0f)+512;
-	int pos2 = 200*sin(-t/10.0f)+512+100;
-	if(pos2<512) pos2=512;
-	output[0] = pos; output[2] = pos; output[4] = pos;
-	output[1] = pos2; output[3] = pos2; output[5] = pos2;
+	int pos_1x = 75*sin(1.0f*t)+100;
+	int pos_1y = 75*sin(-1.0f*t)+100;
+
+	int pos_2x = 75*sin(1.0f*t+1*3.14/3.0f)+100;
+	int pos_2y = 75*sin(-1.0f*t+1*3.14/3.0f)+100;
+
+	int pos_3x = 75*sin(1.0f*t+2*3.14/3.0f)+100;
+	int pos_3y = 75*sin(-1.0f*t+2*3.14/3.0f)+100;
+	output[0] = pos_1x; output[2] = pos_2x; output[4] = pos_3x;
+	output[1] = pos_1y; output[3] = pos_2y; output[5] = pos_3y;
 }
 
 void fly_start(void* data) {
