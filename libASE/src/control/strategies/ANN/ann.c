@@ -472,7 +472,7 @@ void ANN_Mutate(ANN_t *nn, float probability)
                         if (nn->weights[i][j] > DOUBLE_MIN) {
                                 if (ANN_Mutate_PROB == 0) {
                                         ANN_ResetNeuronState(nn);
-                                        switch (rand() % 18) {
+                                        switch (rand() % 22) {
                                                 case 0:
                                                         nn->weights[i][j] += ((rand() % 100) + 1) / 1000.0;
                                                         break;
@@ -524,6 +524,19 @@ void ANN_Mutate(ANN_t *nn, float probability)
                                                 case 17:
                                                         nn->weights[i][j] *= 1.1;
                                                         break; 
+                                                case 18:
+                                                        nn->weights[i][j] += ((rand() % 100) + 1) / 10000.0;
+                                                        break;
+                                                case 19:
+                                                        nn->weights[i][j] -= ((rand() % 100) + 1) / 10000.0;
+                                                        break;
+                                                case 20:
+                                                        nn->weights[i][j] += ((rand() % 100) + 1) / 100000.0;
+                                                        break;
+                                                case 21:
+                                                        nn->weights[i][j] -= ((rand() % 100) + 1) / 100000.0;
+                                                        break;
+
                                                 default:
                                                         break;
                                         }
