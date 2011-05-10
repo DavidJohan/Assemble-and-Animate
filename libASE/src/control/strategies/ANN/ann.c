@@ -66,7 +66,9 @@ float ANN_Tanh(float x)
  */
 void ANN_Execute(ANN_t *nn, float *inputs, float *output)
 {
+
         int neurons_total = nn->nr_inputs + nn->nr_hidden + nn->nr_outputs;
+        float temp_neuron_outputs[neurons_total];
         float sum = 0;
         for (int i = 0; i < neurons_total; i++) {
                 if (i < nn->nr_inputs) { /* Its an input neuron */
@@ -82,13 +84,16 @@ void ANN_Execute(ANN_t *nn, float *inputs, float *output)
                 }
 
                 /* Now that we have summed all inputs to the neuron, we can get its output */
-                nn->neuron_outputs[i] = nn->ActivationFunction(sum); //ANN_sigmoid(sum);
+                //nn->neuron_outputs[i] = nn->ActivationFunction(sum); //ANN_sigmoid(sum);
+                temp_neuron_outputs[i] = nn->ActivationFunction(sum);
                 if (nn->neuron_outputs[i] > 2) {
                         ase_printf("OUTPUT NEURON HAS VALUE LARGER THAN 1: %3.2f  SUM: %3.2f\n", nn->neuron_outputs[i], sum);
                         exit(EXIT_FAILURE);
                 }
         }
-
+        for (int i = 0; i < neurons_total; i++) {
+        		nn->neuron_outputs[i] = temp_neuron_outputs[i];
+        }
         for (int i = 0; i < nn->nr_outputs; i++) {
                 /* The output neurons are offset by nn->nr_inputs nn->nr_hidden in the neuron_output */
                 output[i] = nn->neuron_outputs[nn->nr_inputs + nn->nr_hidden + i];
