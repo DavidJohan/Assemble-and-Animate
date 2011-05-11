@@ -39,29 +39,50 @@ void installBehaviors(Subsumption_t* subsumption) {
 
 typedef struct {
 	int cPos;
+	float cVel;
 	int minPos;
 	int maxPos;
 	int maxVel;
 } dynaCtrl_t;
 
 dynaCtrl_t dynaCtrl[6] = {
-		{512, 0, 1024, 500},
-		{512, 0, 1024, 500},
-		{512, 0, 1024, 500},
-		{512, 0, 1024, 500},
-		{512, 0, 1024, 500},
-		{512, 0, 1024, 500}};
+		{512, 0, 0, 850, 500},
+		{512, 0, 512, 850, 500},
+		{512, 0, 0, 850, 500},
+		{512, 0, 512, 850, 500},
+		{512, 0, 0, 850, 500},
+		{512, 0, 512, 850, 500}};
 
 
 void applyControlOutput(signed char* outputValues, char nOutput){
 	for(int i=0;i<nOutput;i++) {
-		int vel = dynaCtrl[i].maxVel*(outputValues[i]/100.0f);
-		int deltaPos = vel/10; //10hz?
+		/*dynaCtrl[i].cVel += 0.5f*(outputValues[i]-dynaCtrl[i].cVel);
+
+		if(dynaCtrl[i].cVel>dynaCtrl[i].maxVel) dynaCtrl[i].cVel = dynaCtrl[i].maxVel;
+		if(dynaCtrl[i].cVel<-dynaCtrl[i].maxVel) dynaCtrl[i].cVel = -dynaCtrl[i].maxVel;
+
+		int deltaPos = dynaCtrl[i].cVel; //10hz?
 		ase_printf("%i -> %i, ",dynaCtrl[i].cPos, dynaCtrl[i].cPos + deltaPos);
-		dynaCtrl[i].cPos +=deltaPos;
+		dynaCtrl[i].cPos += deltaPos;
+		if(dynaCtrl[i].cPos>dynaCtrl[i].maxPos) dynaCtrl[i].cPos = dynaCtrl[i].maxPos;
+		if(dynaCtrl[i].cPos<dynaCtrl[i].minPos) dynaCtrl[i].cPos = dynaCtrl[i].minPos;
+		dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);*/
+
+		//direct control
+		/*dynaCtrl[i].cPos = (int)(10.23f*outputValues[i]); //assumed [0,100]
 		if(dynaCtrl[i].cPos>dynaCtrl[i].maxPos) dynaCtrl[i].cPos = dynaCtrl[i].maxPos;
 		if(dynaCtrl[i].cPos<dynaCtrl[i].minPos) dynaCtrl[i].cPos = dynaCtrl[i].minPos;
 		dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);
+		ase_printf("%i ", dynaCtrl[i].cPos);*/
+
+		//indirect control within a range
+		float percentage = (float)outputValues[i]/100.0f; //assumed [0,100]
+		dynaCtrl[i].cPos = (int)(percentage*(dynaCtrl[i].maxPos-dynaCtrl[i].minPos)+dynaCtrl[i].minPos);
+
+		if(dynaCtrl[i].cPos>dynaCtrl[i].maxPos) dynaCtrl[i].cPos = dynaCtrl[i].maxPos;
+		if(dynaCtrl[i].cPos<dynaCtrl[i].minPos) dynaCtrl[i].cPos = dynaCtrl[i].minPos;
+		dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);
+		ase_printf("%i ", dynaCtrl[i].cPos);
 	}
 	ase_printf("\n");
 }
@@ -99,6 +120,7 @@ void flowerInit() {
 	int i;
 	for(i=0;i<dynamixelApi_countActuators();i++) {
 		dynamixelApi_setWheelMode(i, false);
+		dynamixelApi_setCompliance(i,1,254);
 	}
 }
 

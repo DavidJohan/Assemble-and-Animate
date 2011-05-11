@@ -95,7 +95,7 @@ static void updateTheta(SPSALearning_t* process) {
 			if(fabs(step)>maxStep) {
 				//float temp=step;
 				step = ((step>0)?1:-1)*maxStep;
-				//printf("Outlier protection at work (%f -> %f)\n",temp, step);
+				//ase_printf("Outlier protection at work (%f -> %f)\n",temp, step);
 			}
 			if(!blocked) {
 				process->theta[i] = theta - step;
@@ -106,7 +106,7 @@ static void updateTheta(SPSALearning_t* process) {
 			process->yPlus_old = process->yPlus;
 			process->yMinus_old = process->yMinus;
 		}
-		process->theta[i] = clamp(process->theta[i]);
+		if(!process->nowrap) process->theta[i] = clamp(process->theta[i]);
 	}
 }
 
@@ -121,7 +121,11 @@ void SPSALearning_init(SPSALearning_t* process) {
 	process->label = 1;
 	process->ak = 0.001f;
 	process->ck = 0.001f;
+	process->a = process->ak;
+	process->c = process->ck;
+	process->k = 0;
 	process->nParameters=SPSA_N_PARAMETERS_MAX;
+	process->nowrap = 0;
 	SPSALearning_reset(process,0);
 	rewardCollector_init(&(process->collector), REWARDCOLLECTOR_LATEST);
 }
@@ -169,27 +173,42 @@ float SPSALearning_getThetaNonPerturbed(SPSALearning_t* process, int index) {
 float SPSALearning_getTheta(SPSALearning_t* process, int index, int wrap) {
 	if(process->state==0) {
 		float theta = process->theta[index]+process->ck*process->delta[index];
+		if(process->nowrap) return theta;
 		if(wrap) return wrapClamp(theta);
 		else return clamp(theta);
 	}
 	else { //state==1
 		float theta = process->theta[index]-process->ck*process->delta[index];
+		if(process->nowrap) return theta;
 		if(wrap) return wrapClamp(theta);
 		else return clamp(theta);
 	}
 }
 
+void SPSALearning_setThetaAt(SPSALearning_t* process, int index, float theta) {
+	float val = theta;
+	if(!process->nowrap) val = clamp(theta);
+	if(val!=theta) {
+		#ifdef PRINTF
+		ase_printf("Warning: #2 in SPSALearning %f \n",theta); //  Only use parameters between 0-1 (scale later)
+		#endif
+	}
+	process->theta[index] = val;
+}
+
+
 void SPSALearning_setTheta(SPSALearning_t* process, float* theta) {
 	int i;
 	for(i=0;i<process->nParameters;i++) {
-		float s = clamp(theta[i]);
-		if(s!=theta[i]) {
-			#ifdef PRINTF
-			ase_printf("Warning: #2 in SPSALearning \n"); //  Only use parameters between 0-1 (scale later)
-			#endif
-		}
-		process->theta[i] = s;
+		SPSALearning_setThetaAt(process, i, theta[i]);
 	}
+}
+
+void SPSALearning_decayAkCk(SPSALearning_t* process, float a0, float c0, float A, float alpha, float gamma) {
+	float k = (float) process->k;
+	process->ak = a0/pow((A+k+1),alpha);
+	process->ck = c0/pow((k+1),gamma);
+	process->k++;
 }
 
 float SPSALearning_getReward(SPSALearning_t* process) {

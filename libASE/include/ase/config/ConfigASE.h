@@ -93,7 +93,7 @@
 
 #define	LEARNING_MAX_ACTIONS	10	//Typical=10
 #define LEARNING_PROCESSES_MAX	10	//Typical=10
-#define SPSA_N_PARAMETERS_MAX	50
+#define SPSA_N_PARAMETERS_MAX	500
 
 #define GOSSIP_MAX				3	//numbers of gossip algorithms
 #define GOSSIP_MAX_MSG_SIZE		5  	//max number of bytes communicated through gossiping
