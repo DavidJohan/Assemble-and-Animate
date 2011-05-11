@@ -14,8 +14,9 @@ typedef struct PSO_Parameters_s {
 } PSO_Parameters_t;
 
 typedef struct PSO_Particle_s {
-        PSO_Parameters_t location;
-        PSO_Parameters_t best_location;
+        PSO_Parameters_t params;
+        PSO_Parameters_t best_params;
+        PSO_Parameters_t velocity;
         float fitness;
         float best_fitnesss;
 } PSO_Particle_t;
@@ -29,15 +30,6 @@ typedef struct PSO_SwarmParams_s {
         int size;
 } PSO_SwarmParams_t;
 
-PSO_Particle_s *PSO_NewParticle(PSO_Parameters_t *param)
-{
-        PSO_Particle_t *new = (PSO_Particle_t*)MemManager_Xmalloc(sizeof(PSO_Particle_t));
-        new->location = param;
-        new->best_location = NULL;
-        new->fitness = DOUBLE_MIN;
-        new->best_fitness = DOUBLE_MIN;
-}
-
 PSO_Parameters_t *PSO_NewParameters(size_t nr_of_parameters)
 {
         assert(nr_of_parameters > 0);
@@ -45,6 +37,18 @@ PSO_Parameters_t *PSO_NewParameters(size_t nr_of_parameters)
         PSO_Parameters_t *new = (PSO_Parameters_t*)MemManager_Xmalloc(sizeof(PSO_Parameters_t));        
         new->pv = (float*)MemManager_Xmalloc(sizeof(float) * nr_of_parameters);
         new->pc = nr_of_parameters;
+        for (int i = 0; i < new->pc; i++) 
+                new->pv[i] = 0.0;
+}
+
+PSO_Particle_s *PSO_NewParticle(PSO_Parameters_t *param)
+{
+        PSO_Particle_t *new = (PSO_Particle_t*)MemManager_Xmalloc(sizeof(PSO_Particle_t));
+        new->params = param;
+        new->best_params = PSO_CloneParameters(param);
+        new->velocity = PSO_NewParameters(param->pc);
+        new->fitness = DOUBLE_MIN;
+        new->best_fitness = DOUBLE_MIN;
 }
 
 PSO_Parameters_t *PSO_CloneParameters(PSO_Parameters_t *param)
@@ -100,10 +104,37 @@ void PSO_ParametersMultiplyWithFactor(PSO_Parameter_t *A, float f)
         }
 }
 
+PSO_Parameter_t *PSO(PSO_SwarmParams_t *swarm_params,
+                     PSO_Particle_t *particles[])
+{
+        for (int i = 0; i < swarm_params->size; i++) {
+                PSO_Params_t *prev_fittest_particle_params = PSO_CloneParameters(particles[i]->best_location);
+                PSO_Params_t *prev_fittest_informant_params = PSO_CloneParameters(PSO_GetPreviousFittestInformantParams(particles));
+                PSO_Params_t *prev_fittest_of_all_params  = PSO_CloneParameters(PSO_GetPreviousFittestOfAll(particles));
+                float b = (rand() % (int) 10000.0 * swarm_params->beta) / 10000.0;
+                float c = (rand() % (int) 10000.0 * swarm_params->gamma) / 10000.0;
+                float d = (rand() % (int) 10000.0 * swarm_params->delta) / 10000.0;
+                
+                PSO_ParametersSubtractBFromA(prev_fittest_particle_params, particles[i]->params);
+                PSO_ParametersMultiplyWithFactor(prev_fittest_particle_params, b);
 
+                PSO_ParametersSubtractBFromA(prev_fittest_informant_params, particles[i]->params);
+                PSO_ParametersMultiplyWithFactor(prev_fittest_informant_params, c);
 
+                PSO_ParametersSubtractBFromA(prev_fittest_of_all_params, particles[i]->params);
+                PSO_ParametersMultiplyWithFactor(prev_fittest_of_all_params, d);
 
+                PSO_ParametersMultiplyWithFactor(&particles[i]->velocity, swarm_param->alpha);
+                PSO_ParametersAdd(&particles[i]->velocity, prev_fittest_particle_params);
+                PSO_ParametersAdd(&particles[i]->velocity, prev_fittest_informant_params);
+                PSO_ParametersAdd(&particles[i]->velocity, prev_fittest_of_all_params);
 
+                PSO_ParametersAdd(&particles[i]->params, &particles[i]->velocity);
+                
+                
+
+        }
+}
 
 /*-----------------------------------------------------------------------------
  *  ANN SPECIFIC CODE!
