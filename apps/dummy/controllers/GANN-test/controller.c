@@ -48,7 +48,7 @@ bool GANN_Done(GA_individual_t *indv)
 GA_individual_t *GANN_Reproduce(GA_individual_t *parent1, GA_individual_t *parent2)
 {
         ANN_t *ar = ANN_Crossover(parent1->indv, parent2->indv);
-        ANN_Mutate(ar, 0.1);
+        ANN_Mutate(ar, 0.4);
         return GA_New(ar);
 }
 
@@ -61,11 +61,11 @@ void GANN_Delete(GA_individual_t *indv)
 /* The genetic algorithms goal is set to get a float with value 100 (by mutation and reproduction) */
 void controller_init() 
 {
-        int pop_size = 2000;
+        int pop_size = 300;
         GA_individual_t *population[pop_size];
         
         for (int i = 0; i < pop_size; i++) {
-                population[i] = GA_New(ANN_New(1, 1, 5, 0, 0, &ANN_Sigmoid, 0.02, 0.01));
+                population[i] = GA_New(ANN_New(1, 1, 3, 0, 0, &ANN_Sigmoid, 0.02, 0.01));
                 ANN_RandomizeWeights(population[i]->indv);
                 //ANN_DeleteRecurrentConnections(population[i]->indv);
         }
@@ -80,7 +80,7 @@ void controller_init()
                                     GANN_Clone,
                                     true);
                 if (cnt % 200 == 0)
-                        ase_printf("Generation: %i\tFitness: %3.4f\n", cnt, population[0]->fit); 
+                        ase_printf("Generation: %i\tFitness: %3.6f\n", cnt, population[0]->fit); 
                 cnt++;
         } while (!GANN_Done(population[0]));
         ANN_t *ann = (ANN_t*)population[0]->indv;
