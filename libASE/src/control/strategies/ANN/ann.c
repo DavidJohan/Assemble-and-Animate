@@ -396,7 +396,7 @@ ANN_t *ANN_Copy(ANN_t *nn)
         return cpy;
 }
 
-void ANN_Delete(void **n)
+void ANN_Delete(ANN_t **n)
 {
         assert(n != NULL);
 
