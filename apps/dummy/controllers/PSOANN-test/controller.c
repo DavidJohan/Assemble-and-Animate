@@ -86,20 +86,20 @@ void controller_init()
         }
         best = particles[0];
 
-        swarm.inertia = 0.06;
-        swarm.acceleration_local  = 0.05;
-        swarm.acceleration_global = 0.05;
-        swarm.acceleration_random = 0.05;
+        swarm.inertia = 0.8;
+        swarm.acceleration_local  = 0.01;
+        swarm.acceleration_global = 0.01;
+        swarm.acceleration_random = 0.01;
         swarm.nr_informants = n_pop / 3;
         swarm.size = n_pop;
 
         unsigned int cnt = 0;
         do {
-                PSO(&swarm, particles, PSOANN_Fitness, &best);
+                PSO(&swarm, particles, PSOANN_Fitness, 100.0, -100.0, &best);
                 if (cnt % 1000 == 0) {
                         ase_printf("BEST FITNESS: %3.6f BEST: %3.6f\n", best->best_fitness, PSO_GetFittestOfAll(&swarm, particles, PSOANN_Fitness)->best_fitness);
                         for (int i = 0; i < n_pop; i++) {
-                                ase_printf("[%i]: %3.6f %3.6f\n", i, particles[i]->fitness, particles[i]->best_fitness);
+                                ase_printf("[%i]: %3.6f %3.6f %i\n", i, particles[i]->fitness, particles[i]->best_fitness, particles[i]->no_fit_change_cnt);
                         }
                         ase_printf("\n\n\n");
                 }

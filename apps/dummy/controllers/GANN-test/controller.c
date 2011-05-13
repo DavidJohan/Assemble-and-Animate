@@ -54,7 +54,7 @@ GA_individual_t *GANN_Reproduce(GA_individual_t *parent1, GA_individual_t *paren
 
 void GANN_Delete(GA_individual_t *indv)
 {
-        ANN_Delete(&indv->indv);
+        ANN_Delete((ANN_t**)&indv->indv);
         GA_Delete(indv);
 }       
 

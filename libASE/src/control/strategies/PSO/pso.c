@@ -170,6 +170,8 @@ PSO_Particle_t *PSO_GetFittestOfInformants(PSO_SwarmParams_t *swarm_params, PSO_
 void PSO(PSO_SwarmParams_t *swarm_params,
                      PSO_Particle_t *particles[],
                      float (*Fitness)(PSO_Parameters_t*),
+                     float parameter_max,
+                     float parameter_min,
                      PSO_Particle_t **best)
 {
         assert(swarm_params != NULL);
@@ -184,8 +186,8 @@ void PSO(PSO_SwarmParams_t *swarm_params,
                 //PSO_Parameters_t *fittest_of_all_params  = PSO_CloneParameters(PSO_GetFittestOfAll(swarm_params, particles, Fitness)->best_params);
                 PSO_Parameters_t *fittest_of_all_params  = PSO_CloneParameters((*best)->best_params);//PSO_CloneParameters(PSO_GetFittestOfAll(swarm_params, particles, Fitness)->best_params);
                 //PSO_Parameters_t *fittest_of_informants  = PSO_CloneParameters(PSO_GetFittestOfInformants(swarm_params, particles, Fitness)->best_params);
-                float b = (rand() % (int) 10000.0 * swarm_params->acceleration_local) / 10000.0;
-                float c = (rand() % (int) 10000.0 * swarm_params->acceleration_global) / 10000.0;
+                float b = (rand() % (int) 1000000.0 * swarm_params->acceleration_local) / 1000000.0;
+                float c = (rand() % (int) 1000000.0 * swarm_params->acceleration_global) / 1000000.0;
                 //float d = (rand() % (int) 10000.0 * swarm_params->acceleration_random) / 10000.0;
                 //ase_printf("b: %3.4f\nc: %3.4f\nd: %3.4f\n", b, c, d);
                 //exit(0);
@@ -205,16 +207,15 @@ void PSO(PSO_SwarmParams_t *swarm_params,
 
                 PSO_ParametersAdd(particles[i]->params, particles[i]->velocity);
                 
-                if (particles[i]->no_fit_change_cnt > 10000 && particles[i]->fitness < 0.1) {
+                if (particles[i]->no_fit_change_cnt > 5000) {//&& particles[i]->fitness < 0.5) {
                         //ase_printf("Particle %i parameters stuck. Randomizing!\n", i);
+                        /* Randomize parameters within specified intervals */
                         for (int j = 0; j < particles[i]->params->pc; j++) {
-                                particles[i]->params->pv[j] = (rand() % 10000) / 10.0;
-                                if (rand() % 2 == 0)
-                                        particles[i]->params->pv[j] = -particles[i]->params->pv[j];
+                                particles[i]->params->pv[j] = ((rand() % (int)(100000.0  * (fabs(parameter_max) + fabs(parameter_min)))) / 100000.0) - parameter_min;
                         }
                 }
                 float fitness = Fitness(particles[i]->params);
-                if (abs(particles[i]->fitness - fitness) < 0.000001)
+                if (fabs(particles[i]->fitness - fitness) < 0.0001)
                         particles[i]->no_fit_change_cnt++;
                 else 
                         particles[i]->no_fit_change_cnt = 0;

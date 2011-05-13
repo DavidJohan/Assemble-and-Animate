@@ -57,6 +57,8 @@ PSO_Parameters_t *PSO_CloneParameters(PSO_Parameters_t *param);
 void PSO(PSO_SwarmParams_t *swarm_params,
                      PSO_Particle_t *particles[],
                      float (*Fitness)(PSO_Parameters_t*),
+                     float parameter_max,
+                     float parameter_min,
                      PSO_Particle_t **best);
 PSO_Particle_t *PSO_GetFittestOfAll(PSO_SwarmParams_t *swarm_params, PSO_Particle_t *particles[], float (*Fitness)(PSO_Parameters_t*));
 #endif
