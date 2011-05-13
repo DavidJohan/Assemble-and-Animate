@@ -20,8 +20,12 @@
 
 #include <stdbool.h>
 
+#ifndef DOUBLE_MIN
 #define DOUBLE_MIN (-(FLT_MAX / 2))
+#endif
+#ifndef DOUBLE_MAX
 #define DOUBLE_MAX (FLT_MAX / 2)
+#endif
 
 typedef struct ANN_s {
         unsigned int nr_inputs;
