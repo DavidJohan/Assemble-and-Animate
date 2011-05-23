@@ -20,8 +20,12 @@
 
 #include <stdbool.h>
 
+#ifndef DOUBLE_MIN
 #define DOUBLE_MIN (-(FLT_MAX / 2))
+#endif
+#ifndef DOUBLE_MAX
 #define DOUBLE_MAX (FLT_MAX / 2)
+#endif
 
 typedef struct ANN_s {
         unsigned int nr_inputs;
@@ -59,7 +63,7 @@ void ANN_DeleteRecurrentConnections(ANN_t *nn);
 bool ANN_MinimizeNrForwardWeights(ANN_t *nn);
 void ANN_MinimizeNrWeights(ANN_t *nn);
 ANN_t *ANN_Copy(ANN_t *nn);
-void ANN_Delete(void **n);
+void ANN_Delete(ANN_t **n);
 void ANN_Print(ANN_t *nn);
 void ANN_ClearConnections(ANN_t *nn);
 void ANN_Connect(ANN_t *nn, unsigned int n1, unsigned int n2, float w);

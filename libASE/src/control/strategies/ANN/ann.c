@@ -396,7 +396,7 @@ ANN_t *ANN_Copy(ANN_t *nn)
         return cpy;
 }
 
-void ANN_Delete(void **n)
+void ANN_Delete(ANN_t **n)
 {
         assert(n != NULL);
 
@@ -472,6 +472,82 @@ void ANN_Mutate(ANN_t *nn, float probability)
                         if (nn->weights[i][j] > DOUBLE_MIN) {
                                 if (ANN_Mutate_PROB == 0) {
                                         ANN_ResetNeuronState(nn);
+                                        int rnd = rand() % 100 + 1;
+                                        switch(rand() % 23) {
+                                                case 0:
+                                                        nn->weights[i][j] += rnd / 10.0;
+                                                        break;
+                                                case 1:
+                                                        nn->weights[i][j] -= rnd / 10.0;
+                                                        break;
+                                                case 2:
+                                                        nn->weights[i][j] += rnd / 100.0;
+                                                        break;
+                                                case 3:
+                                                        nn->weights[i][j] -= rnd / 100.0;
+                                                        break;
+                                                case 4:
+                                                        nn->weights[i][j] += rnd / 1000.0;
+                                                        break;
+                                                case 5:
+                                                        nn->weights[i][j] -= rnd / 1000.0;
+                                                        break;
+                                                case 6:
+                                                        nn->weights[i][j] += rnd / 10000.0;
+                                                        break;
+                                                case 7:
+                                                        nn->weights[i][j] -= rnd / 10000.0;
+                                                        break;
+                                                case 8:
+                                                        nn->weights[i][j] += rnd / 100000.0;
+                                                        break;
+                                                case 9:
+                                                        nn->weights[i][j] -= rnd / 100000.0;
+                                                        break;
+                                                case 10:
+                                                        nn->weights[i][j] += rnd / 1000000.0;
+                                                        break;
+                                                case 11:
+                                                        nn->weights[i][j] -= rnd / 1000000.0;
+                                                        break;
+                                                case 12:
+                                                        nn->weights[i][j] += rnd / 10000000.0;
+                                                        break;
+                                                case 13:
+                                                        nn->weights[i][j] -= rnd / 10000000.0;
+                                                        break;
+                                                case 14:
+                                                        nn->weights[i][j] += rnd / 100000000.0;
+                                                        break;
+                                                case 15:
+                                                        nn->weights[i][j] -= rnd / 100000000.0;
+                                                        break;
+                                                case 16:
+                                                        nn->weights[i][j] *= rnd / 10000.0;
+                                                        break;
+                                                case 17:
+                                                        nn->weights[i][j] *= -1;
+                                                        break;
+                                                case 18:
+                                                        nn->weights[i][j] /= 1000.0;
+                                                        break;
+                                                case 19: 
+                                                        nn->weights[i][j] /= 100.0;
+                                                        break;
+                                                case 20:
+                                                        nn->weights[i][j] /= 10.0;
+                                                        break;
+                                                case 21: 
+                                                        nn->weights[i][j] = 0.0;
+                                                        break;
+                                                case 22: 
+                                                        nn->weights[i][j] *= (1 - rnd / 1000.0);
+                                                        break;
+                                                default:
+                                                        break;
+
+                                        }
+                                        #if 0
                                         switch (rand() % 22) {
                                                 case 0:
                                                         nn->weights[i][j] += ((rand() % 100) + 1) / 1000.0;
@@ -540,6 +616,7 @@ void ANN_Mutate(ANN_t *nn, float probability)
                                                 default:
                                                         break;
                                         }
+                                        #endif
                                 }
                         }
                 }
@@ -550,7 +627,7 @@ ANN_t *ANN_Crossover(ANN_t *nn1, ANN_t *nn2)
 {
         int n_total = nn1->nr_inputs + nn1->nr_hidden + nn1->nr_outputs;
         ANN_t *cpy = NULL;
-        if (rand() % 10 < 6) /*  Do the crossover */
+        if (rand() % 10 < 8) /*  Do the crossover */
         {
                 switch (rand() % 3) {
                 case 0:

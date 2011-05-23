@@ -23,6 +23,7 @@ SET (FULL_SRCS
         ${REL_PATH}/control/strategies/kNN/kNN.c
         ${REL_PATH}/control/strategies/ANN/ann.c  
         ${REL_PATH}/control/strategies/GA/ga.c  
+        ${REL_PATH}/control/strategies/PSO/pso.c  
         ${REL_PATH}/control/strategies/Playback/Playback.c
         ${REL_PATH}/control/strategies/Consensus/ConsensusAverage.c
         ${REL_PATH}/control/strategies/DistributedStateMachine/DistributedStateManager.c

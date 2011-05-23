@@ -12,4 +12,5 @@ ADD_SUBDIRECTORY (./controllers/ANN-test ./bin/dummy-ANN-test EXCLUDE_FROM_ALL)
 ADD_SUBDIRECTORY (./controllers/GA-test ./bin/dummy-GA-test EXCLUDE_FROM_ALL)
 ADD_SUBDIRECTORY (./controllers/GANN-test ./bin/dummy-GANN-test EXCLUDE_FROM_ALL)
 ADD_SUBDIRECTORY (./controllers/SPSANN-test ./bin/dummy-SPSANN-test EXCLUDE_FROM_ALL)
+ADD_SUBDIRECTORY (./controllers/PSOANN-test ./bin/dummy-PSOANN-test EXCLUDE_FROM_ALL)
 
