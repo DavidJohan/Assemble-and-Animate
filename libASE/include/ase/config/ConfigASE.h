@@ -65,6 +65,11 @@
 #define MAX_DEVICES				25  //is this a local or a global value?
 #endif
 
+#ifdef LMF
+#define MAX_NODE_DEGREE			0	//Max number of communication channels per module
+#define MAX_ACTUATORS			0  //atron=1, mtran=2, roombot=3
+#endif
+
 #ifdef DUMMY
 #define MAX_NODE_DEGREE			0	//Max number of communication channels per module
 #define MAX_ACTUATORS			0  //atron=1, mtran=2, roombot=3

@@ -41,6 +41,10 @@
 #define ase_printf(...) lpf_printf(__VA_ARGS__);
 #endif
 
+#ifdef LMF
+#define ase_printf(...) //lpf_printf(__VA_ARGS__);
+#endif
+
 #ifdef CM510 //Dynamixel controller
 #define ase_printf(format, ...) printf(format, ##__VA_ARGS__);
 #endif

@@ -24,12 +24,7 @@
 #include <ase/control/behaviors/generic/LegoUserInterface/LuiTraining.h>
 #include <ase/control/behaviors/generic/LegoUserInterface/LegoUserInterface.h>
 
-#define LUI_SET_RC_STATE			1
-#define LUI_UPDATE_DEVICELIST		2
-#define LUI_UPDATE_READ_DEVICELIST	3
-#define LUI_SETUP					4
-#define LUI_UPDATE_STATELIST		5
-#define LUI_SELECTED_BEHAVIORS 		6
+
 
 /*#define LPF_READ_DEVICELIST	1
 #define LPF_COUNT_DEVICELIST	2
@@ -57,7 +52,7 @@ static int priority;
 void addtoSubsumption(char behaviorId) {
 	if(behaviorId == 0) return;
 	if(!LuiBehaviorManager_isCompound(behaviorId)) { 		//add simple behavior to subsumption
-	  	ase_printf("%i, ",behaviorId);
+	  	//ase_printf("%i, ",behaviorId);
 		Subsumption_setActive(behaviorId, 1, &SubsumptionProcess);
 		Subsumption_setPriority(behaviorId, priority++, &SubsumptionProcess);
 	}
@@ -119,12 +114,12 @@ void updateKnnStatus(int result) {
 void doSubsumptionBehaviors(signed char* behaviors, unsigned char nBehaviors) {
 	Subsumption_deactivateAll(&SubsumptionProcess);
 	priority = 0;
-	ase_printf("B: ");
+	//ase_printf("B: ");
 	int i;
 	for(i=0;i<nBehaviors;i++) {
 		addtoSubsumption(behaviors[i]);
 	}
-	ase_printf("\n");
+	//ase_printf("\n");
 	int nOutputs = LuiManager_getNumberOfOutputDevices();
 	int nInputs = LuiManager_getNumberOfInputDevices();
 	signed char output[MAX_KNN_OUTPUTS];
@@ -204,7 +199,7 @@ void board_timer_fired(int id) { //10hz
 
 static void handleMessage(char* topic, Event_t* event) {
 	Msg_t* msg = (Msg_t*) event->val_prt;
-    ase_printf("BOT got message of type %i with length %i on channel %i\n",msg->message[0],msg->messageSize,msg->channel);
+    //ase_printf("BOT got message of type %i with length %i on channel %i\n",msg->message[0],msg->messageSize,msg->channel);
     int length = msg->messageSize;
 	int type;
 	if(length>0) type = msg->message[0];

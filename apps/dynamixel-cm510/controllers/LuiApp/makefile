@@ -1,5 +1,5 @@
 
-SOURCES=controller.c CM510Behaviors.c
+SOURCES=controller.c CM510Behaviors.c BeatDetector.c
 OBJECTS=$(SOURCES:.c=.o)
 
 

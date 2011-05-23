@@ -50,9 +50,20 @@ void bee_song_start(void* data);
 void bee_song_stop(void* data);
 void bee_song_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
 
+
 typedef struct {
-	char role[5];
-	long lastChangeTime;
+	bool active;
+	bool cycle;
+	bool phase;
+	int range;
+	int lastPos;
+	long periodTime;
+	long periodStartTime;
+} CM510Behavior_dance_dof_t;
+
+typedef struct {
+	CM510Behavior_dance_dof_t dofs[25];
+	//long nextBeatTime;
 } CM510Behavior_dance_t;
 void dance_start(void* data);
 void dance_stop(void* data);

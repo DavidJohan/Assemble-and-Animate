@@ -515,13 +515,11 @@ static void myDelay(long del) {
 
 
 
-
-
 void dynamixelApi_CM510_buzz() {
-	myDelay(1);
 	PORTB |= 0x20;
 	myDelay(1);
 	PORTB &= ~0x20;
+	myDelay(1);
 }
 
 #define SW_UP 0x10

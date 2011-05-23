@@ -2,12 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <limits.h>
 #include <ase/control/strategies/kNN/kNN.h>
 #include <ase/control/strategies/Playback/Playback.h>
 #include <ase/targets/AbstractModuleApi.h>
 #include <ase/targets/dynamixel.h>
 #include <ase/control/behaviors/generic/LegoUserInterface/LuiTraining.h>
 #include "CM510Behaviors.h"
+#include "BeatDetector.h"
 
 
 void playback_start(void* data){
@@ -129,29 +131,88 @@ void bee_song_stop(void* data) {ase_printf("#play bee.wav 50 0\n");}
 void bee_song_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {}
 
 
-
+int period = 100;
 void dance_start(void* data) {
   CM510Behavior_dance_t* dance_data = (CM510Behavior_dance_t*) data;
   int i;
-  for(i=0;i<5;i++)  dance_data->role[i] = i;
-  dance_data->lastChangeTime = 0;
+  for(i=0;i<getNumberOfActuators();i++)  {
+	  dance_data->dofs[i].active = false;
+	  dance_data->dofs[i].cycle = rand()%2;
+	  dance_data->dofs[i].phase = rand()%2;
+	  dance_data->dofs[i].range = rand()%100;
+	  dance_data->dofs[i].lastPos = 50;
+	  dance_data->dofs[i].periodTime = LONG_MAX;
+	  dance_data->dofs[i].periodStartTime = LONG_MAX;
+  }
+  BeatDetector_init();
+ // dance_data->nextBeatTime = LONG_MAX;
+}
 
+void dance_randomize(CM510Behavior_dance_t* dance_data, int index) {
+	dance_data->dofs[index].active = rand()%2==0;
+	dance_data->dofs[index].cycle = rand()%2+1;
+	dance_data->dofs[index].phase = rand()%2;
+	dance_data->dofs[index].range = rand()%25+25;
 }
 
 void dance_stop(void* data) {}
 void dance_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	//CM510Behavior_dance_t* dance_data = (CM510Behavior_dance_t*) data;
-	float t = getLocalTime();
-	int pos_1x = 75*sin(1.0f*t)+100;
-	int pos_1y = 75*sin(-1.0f*t)+100;
+	CM510Behavior_dance_t* dance_data = (CM510Behavior_dance_t*) data;
+	/*if(dance_data->nextBeatTime==LONG_MAX) {
+		dance_data->nextBeatTime = BeatDetector_nextBeatTime();
+		return;
+	}*/
+	if(BeatDetector_gotBeat()) {
+		BeatDetector_clearBeat();
+		dynamixelApi_CM510_toggleLed(0);
+		long beatPeriod = BeatDetector_getBeatPeriod();
+		bool randomize = rand()%4==0;
+		for(int i=0;i<getNumberOfActuators();i++)  {
+			if(randomize) dance_randomize(dance_data, i);
+			dance_data->dofs[i].periodTime = dance_data->dofs[i].cycle * beatPeriod;
+			dance_data->dofs[i].periodStartTime = getLocalMsTime();
+		}
+	}
 
-	int pos_2x = 75*sin(1.0f*t+1*3.14/3.0f)+100;
-	int pos_2y = 75*sin(-1.0f*t+1*3.14/3.0f)+100;
+	/*long nowT = getLocalMsTime();
+	long goalT = dance_data->nextBeatTime;
+	long nextT = getLocalMsTime()+period;
+	if(nowT>goalT || abs(goalT - nextT)>abs(goalT - nowT)) {
+		ase_printf("******** %li ***********\n",getLocalMsTime());
+		ase_printf("#play drum.wav 50 1\n");
+		dynamixelApi_CM510_toggleLed(0);
+		long beatPeriod = BeatDetector_getBeatPeriod();
+		ase_printf("Beat Period = %li\n", beatPeriod);
+		for(int i=0;i<getNumberOfActuators();i++)  {
+			if((dance_data->dofs[i].periodStartTime + dance_data->dofs[i].periodTime) < nowT) {
+				if(rand()%2==0) dance_data->dofs[i].active = rand()%2==0;
+				if(rand()%2==0) dance_data->dofs[i].cycle = rand()%2+1;
+				if(rand()%2==0) dance_data->dofs[i].phase = rand()%2;
+				if(rand()%2==0) dance_data->dofs[i].range = rand()%25+25;
+				dance_data->dofs[i].periodTime = dance_data->dofs[i].cycle * beatPeriod;
+				dance_data->dofs[i].periodStartTime = nowT;
+			}
+		}
+		dance_data->nextBeatTime = BeatDetector_nextBeatTime();
+	}*/
 
-	int pos_3x = 75*sin(1.0f*t+2*3.14/3.0f)+100;
-	int pos_3y = 75*sin(-1.0f*t+2*3.14/3.0f)+100;
-	output[0] = pos_1x; output[2] = pos_2x; output[4] = pos_3x;
-	output[1] = pos_1y; output[3] = pos_2y; output[5] = pos_3y;
+
+	for(int i=0;i<getNumberOfActuators();i++)  {
+		float A  = (float)dance_data->dofs[i].range;
+		float sign = (dance_data->dofs[i].phase==0)?-1:1;
+		float pi = 3.14159f;
+		float time = (getLocalMsTime() - dance_data->dofs[i].periodStartTime)/1000.0f;
+		float cycle = dance_data->dofs[i].cycle;
+		if(dance_data->dofs[i].active) {
+			if(time/cycle<1.0f) output[i] = (int)(A*sin(2*pi*time/cycle + sign*pi/2)+50.0f);
+			else output[i] = (int)(A*sin(2*pi*1.0f + sign*pi/2)+50.0f);
+		}
+		else {
+			output[i] = 50;
+		}
+		//if(i==0) ase_printf("%i: active = %i cycle=%i phase=%i range=%i output=%i\n", i, dance_data->dofs[i].active, dance_data->dofs[i].cycle, dance_data->dofs[i].phase, dance_data->dofs[i].range,output[i]);
+		dance_data->dofs[i].lastPos = output[i];
+	}
 }
 
 void fly_start(void* data) {

@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <ase/targets/AbstractModuleApi.h>
 #include <ase/targets/AbstractModuleApi.h>
 #include <ase/tools/Timer/TimerManager.h>
@@ -45,13 +47,17 @@ typedef struct {
 	int maxVel;
 } dynaCtrl_t;
 
-dynaCtrl_t dynaCtrl[6] = {
+/*dynaCtrl_t dynaCtrl[6] = {
 		{512, 0, 0, 850, 500},
 		{512, 0, 512, 850, 500},
 		{512, 0, 0, 850, 500},
 		{512, 0, 512, 850, 500},
 		{512, 0, 0, 850, 500},
-		{512, 0, 512, 850, 500}};
+		{512, 0, 512, 850, 500}};*/
+
+dynaCtrl_t dynaCtrl[2] = {
+		{512, 0, 0, 1023, 1023},
+		{512, 0, 0, 1023, 1023}};
 
 
 void applyControlOutput(signed char* outputValues, char nOutput){
@@ -82,9 +88,9 @@ void applyControlOutput(signed char* outputValues, char nOutput){
 		if(dynaCtrl[i].cPos>dynaCtrl[i].maxPos) dynaCtrl[i].cPos = dynaCtrl[i].maxPos;
 		if(dynaCtrl[i].cPos<dynaCtrl[i].minPos) dynaCtrl[i].cPos = dynaCtrl[i].minPos;
 		dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);
-		ase_printf("%i ", dynaCtrl[i].cPos);
+		//ase_printf("%i ", dynaCtrl[i].cPos);
 	}
-	ase_printf("\n");
+	//ase_printf("\n");
 }
 
 int getControlInput(signed char* inputValues, char maxInputs, bool* readSuccess){
@@ -124,17 +130,75 @@ void flowerInit() {
 	}
 }
 
+void carInit() {
+	dynamixelApi_setup(1,NULL); delay_ms(250);
+	dynamixelApi_connect(11); delay_ms(50);
+	dynamixelApi_connect(12); delay_ms(50);
+	int i;
+	for(i=0;i<dynamixelApi_countActuators();i++) {
+		dynamixelApi_setWheelMode(i, false);
+		dynamixelApi_setCompliance(i,1,254);
+	}
+}
+
+void configureLUIBoard(int behaviorID) {
+	char msg[11] = {LUI_SETUP,
+					behaviorID, 0, 0, 0, 0,
+					1, 0, 0, 0, 0};
+	ase_handleMessage(msg, 11, 0);
+}
+
+int intcompare (const void * a, const void * b)
+{
+  return ( *(int*)a - *(int*)b );
+}
+
+void checkForBehaviorBrickTimer(int id) {
+	int values[20];
+	for(int i=0;i<20;i++) {
+		values[i] = dynamixelApi_CM510_getADC(2);
+	}
+	qsort (values, 20, sizeof(int), intcompare);
+	/*for(int i=0;i<20;i++) {
+		ase_printf("%i ", values[i]);
+	}
+	ase_printf("\n");
+	*/
+
+	int brickID, val;
+	val = values[10];
+	if(val> 40 && val< 43) brickID = 5;
+	else if(val> 95 && val< 97) brickID = 7;
+	else if(val> 127 && val< 130) brickID = 102;
+	else if(val> 177 && val< 180) brickID = 99;
+	else if(val> 187 && val< 190) brickID = 104;
+	else if(val> 211 && val< 215) brickID = 2;
+	else if(val> 247 && val< 252) brickID = 6;
+	else if(val> 291 && val< 296) brickID = 97;
+	else if(val> 313 && val< 319) brickID = 3;
+	else if(val> 347 && val< 349) brickID = 4;
+	else if(val> 402 && val< 409) brickID = 103;
+	else if(val> 477 && val < 485) brickID = 1;
+	else if(val> 507&& val< 515) brickID = 98;
+	else brickID = 0;
+	ase_printf("Median ADC value = %i, brickID = %i\n", val, brickID);
+	configureLUIBoard(brickID);
+}
 
 void controller_init() {
   dynamixelApi_CM510_init();
   ase_printf("*************************\n" );
   ase_printf("*Dynamixel-CM510 Started*\n" );
   ase_printf("************************\n" );
-  flowerInit();
+  //flowerInit();
+  carInit();
   LUI_init();
+  TimerManager_createPeriodicTimer(250, 0, checkForBehaviorBrickTimer);
+
   //kNN_init(&kNN_behavior, 1);
   //kNN_init(&kNN_compound, 1);
   //Playback_init(&playback_data);
   installBehaviors(LUI_getSubsumptionProcess());
+  configureLUIBoard(0);
   ase_printf("Init done\n");
 }

@@ -10,6 +10,13 @@
 #ifndef LEGOUSERINTERFACE_
 #define LEGOUSERINTERFACE_
 
+#define LUI_SET_RC_STATE			1
+#define LUI_UPDATE_DEVICELIST		2
+#define LUI_UPDATE_READ_DEVICELIST	3
+#define LUI_SETUP					4
+#define LUI_UPDATE_STATELIST		5
+#define LUI_SELECTED_BEHAVIORS 		6
+
 Subsumption_t* LUI_getSubsumptionProcess();
 void LUI_init();
 
