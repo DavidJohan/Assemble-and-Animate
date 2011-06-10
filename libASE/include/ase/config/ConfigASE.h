@@ -12,9 +12,9 @@
 /**
  * Static memory allocation in ASE
  */
-#define ASE_MEMORY_ALLOCATED		2000	//bytes of ram statically allocated but dynamically assigned at runtime in the initialization phase
+#define ASE_MEMORY_ALLOCATED		500	//bytes of ram statically allocated but dynamically assigned at runtime in the initialization phase
 
-#define PRINTF						//if defined target is assumed to have "printf" avaliable, comment out to reduce ram usage
+//#define PRINTF						//if defined target is assumed to have "printf" avaliable, comment out to reduce ram usage
 
 #ifdef USSR
 #define FPRINTF						//"fprintf" avaliable (load )

@@ -37,6 +37,7 @@ void Playback_init(Playback_t* process);
  */
 void Playback_getOutput(Playback_t* process, signed char* output, int nOutputs);
 
+
 /**
  */
 bool Playback_record(Playback_t* process, signed char* output, int nOutputs);

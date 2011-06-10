@@ -3,6 +3,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <ase/targets/AbstractModuleApi.h>
+#include <ase/tools/Timer/TimerManager.h>
 #include <ase/targets/dynamixel.h>
 #include "BeatDetector.h"
 
@@ -14,6 +15,7 @@ int nBeats = 0;
 bool gotBeat= false;
 void micEvent() {
 	long cTime = getLocalMsTime();
+	//ase_printf(" %li: Mic Event \n",cTime);
 	if(abs(beatHistory[beatHistoryIndex]-cTime)>100) {
 		beatHistoryIndex = (beatHistoryIndex+1)%MAX_BEATS;
 		if(nBeats<MAX_BEATS) nBeats++;
@@ -22,12 +24,16 @@ void micEvent() {
 		gotBeat=true;
 	}
 }
-
-void BeatDetector_init() {
+void BeatDetector_reset() {
 	beatHistoryIndex = 0;
 	beatHistory[0] = getLocalMsTime();
-	nBeats++;
+	nBeats=0;
+
+}
+void BeatDetector_init() {
+	BeatDetector_reset();
 	dynamixelApi_CM510_setMicEventFunction(micEvent);
+	//TimerManager_createPeriodicTimer(750,0,micEvent);
 }
 
 long BeatDetector_lastBeatTime() {

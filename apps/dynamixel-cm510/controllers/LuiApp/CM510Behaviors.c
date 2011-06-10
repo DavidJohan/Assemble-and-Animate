@@ -31,25 +31,29 @@ void knn_behavior_act(signed char* input, char nInputs, signed char* output, cha
 void escape_start(void* data) {
 	CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
 	escape_data->dir=1;
+	escape_data->startTime = getLocalMsTime();
 }
 
 void escape_stop(void* data) {}
 void escape_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-  	//CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
+  	CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
   	int irVal = input[0];
-  	int pos, pos2;
   	if(irVal>10) {
-  		pos = 300;
-  		pos2 = 512;
-  		output[0] = pos; output[2] = pos; output[4] = pos;
-  		output[1] = pos2; output[3] = pos2; output[5] = pos2;
-  		ase_printf("#play escape.wav 50 1\n");
+  		if((escape_data->startTime+750)<getLocalMsTime()) {
+  			if(escape_data->dir==1) escape_data->dir = -1;
+  			else escape_data->dir = 1;
+  			escape_data->startTime = getLocalMsTime();
+  			ase_printf("#play escape.wav 50 1\n");
+  		}
+  		for(int i=0;i<getNumberOfActuators();i++)  {
+  			if(i%2==0) output[i] = -escape_data->dir*100;
+  			if(i%2==1) output[i] = escape_data->dir*100;
+  		}
   	}
   	else {
-  		pos = 450;
-  		pos2 = 850;
-  		output[0] = pos; output[2] = pos; output[4] = pos;
-  		output[1] = pos2; output[3] = pos2; output[5] = pos2;
+  		for(int i=0;i<getNumberOfActuators();i++)  {
+			//output[i] = 0;
+		}
   	}
   	ase_printf("%i\n",irVal);
 }
@@ -63,19 +67,17 @@ void move_start(void* data) {
 
 void move_stop(void* data) {ase_printf("#play running_up_carpeted_stairs.wav 50 0\n");}
 void move_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	/*CM510Behavior_move_t* move_data = (CM510Behavior_move_t*) data;
-  	signed char motors[10];
-	int i, nMotors = selectMotors(motors);
-	float t = getLocalTime();
-	for(i=0;i<nMotors;i++) {
+	CM510Behavior_move_t* move_data = (CM510Behavior_move_t*) data;
+  	float t = getLocalTime();
+	for(int i=0;i<getNumberOfActuators();i++) {
 		int sign = (i%2==0)?-1:1;
-		output[motors[i]] += sin(6.28f*t/(6.0f+i))*sign*50;
-		if(output[motors[i]]>100) output[motors[i]] = 100;
-		if(output[motors[i]]<-100) output[motors[i]] = -100;
+		output[i] += sin(6.28f*t/(6.0f+i))*sign*50;
+		if(output[i]>100) output[i] = 100;
+		if(output[i]<-100) output[i] = -100;
 	}
 	if(move_data->lastSoundTime+5000 < getLocalMsTime()) {
 		move_data->lastSoundTime = getLocalMsTime();
-	}*/
+	}
 }
 
 void geiger_start(void* data) {
@@ -132,93 +134,87 @@ void bee_song_act(signed char* input, char nInputs, signed char* output, char nO
 
 
 int period = 100;
-void dance_start(void* data) {
-  CM510Behavior_dance_t* dance_data = (CM510Behavior_dance_t*) data;
-  int i;
-  for(i=0;i<getNumberOfActuators();i++)  {
-	  dance_data->dofs[i].active = false;
-	  dance_data->dofs[i].cycle = rand()%2;
-	  dance_data->dofs[i].phase = rand()%2;
-	  dance_data->dofs[i].range = rand()%100;
-	  dance_data->dofs[i].lastPos = 50;
-	  dance_data->dofs[i].periodTime = LONG_MAX;
-	  dance_data->dofs[i].periodStartTime = LONG_MAX;
-  }
-  BeatDetector_init();
- // dance_data->nextBeatTime = LONG_MAX;
-}
+
+
+//sound control
+//parameters in need of control: amplitude, frequency, phase, offset or raw POS per DOF
+//parameters in sound:
+//	+ 1 tone controls 1 DOF, how many can we differenciate?
+//	+ the rhythm of the tone control the frequency and phase (implies osscillating control?)
+//  + the loudness controls the amplitude
+//Algorithm:
+//	+ FFT on a small window looking for tones in the interval 100 - 3000 Hz
+//  + Each tone is treated separately (tone, amplitude, time, delta time)
 
 void dance_randomize(CM510Behavior_dance_t* dance_data, int index) {
-	dance_data->dofs[index].active = rand()%2==0;
+	dance_data->dofs[index].active = rand()%4!=0;
 	dance_data->dofs[index].cycle = rand()%2+1;
 	dance_data->dofs[index].phase = rand()%2;
 	dance_data->dofs[index].range = rand()%25+25;
 }
 
+void dance_start(void* data) {
+  CM510Behavior_dance_t* dance_data = (CM510Behavior_dance_t*) data;
+  int i;
+  for(i=0;i<getNumberOfActuators();i++)  {
+	  dance_randomize(dance_data, i);
+	  dance_data->dofs[i].periodTime = 1000;
+	  dance_data->dofs[i].periodStartTime = getLocalMsTime();
+  }
+  BeatDetector_reset();
+  dance_data->started = false;
+ // dance_data->nextBeatTime = LONG_MAX;
+}
+
 void dance_stop(void* data) {}
 void dance_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
 	CM510Behavior_dance_t* dance_data = (CM510Behavior_dance_t*) data;
-	/*if(dance_data->nextBeatTime==LONG_MAX) {
-		dance_data->nextBeatTime = BeatDetector_nextBeatTime();
-		return;
-	}*/
 	if(BeatDetector_gotBeat()) {
 		BeatDetector_clearBeat();
 		dynamixelApi_CM510_toggleLed(0);
 		long beatPeriod = BeatDetector_getBeatPeriod();
+		if(beatPeriod!=LONG_MAX) {
+			dance_data->started = true;
+		}
+		else {
+			return;
+		}
 		bool randomize = rand()%4==0;
 		for(int i=0;i<getNumberOfActuators();i++)  {
 			if(randomize) dance_randomize(dance_data, i);
-			dance_data->dofs[i].periodTime = dance_data->dofs[i].cycle * beatPeriod;
-			dance_data->dofs[i].periodStartTime = getLocalMsTime();
-		}
-	}
-
-	/*long nowT = getLocalMsTime();
-	long goalT = dance_data->nextBeatTime;
-	long nextT = getLocalMsTime()+period;
-	if(nowT>goalT || abs(goalT - nextT)>abs(goalT - nowT)) {
-		ase_printf("******** %li ***********\n",getLocalMsTime());
-		ase_printf("#play drum.wav 50 1\n");
-		dynamixelApi_CM510_toggleLed(0);
-		long beatPeriod = BeatDetector_getBeatPeriod();
-		ase_printf("Beat Period = %li\n", beatPeriod);
-		for(int i=0;i<getNumberOfActuators();i++)  {
-			if((dance_data->dofs[i].periodStartTime + dance_data->dofs[i].periodTime) < nowT) {
-				if(rand()%2==0) dance_data->dofs[i].active = rand()%2==0;
-				if(rand()%2==0) dance_data->dofs[i].cycle = rand()%2+1;
-				if(rand()%2==0) dance_data->dofs[i].phase = rand()%2;
-				if(rand()%2==0) dance_data->dofs[i].range = rand()%25+25;
+			float time = ((float)(getLocalMsTime() - dance_data->dofs[i].periodStartTime))/dance_data->dofs[i].periodTime;
+			if(time>0.9f) {
 				dance_data->dofs[i].periodTime = dance_data->dofs[i].cycle * beatPeriod;
-				dance_data->dofs[i].periodStartTime = nowT;
+				dance_data->dofs[i].periodStartTime = getLocalMsTime();
 			}
 		}
-		dance_data->nextBeatTime = BeatDetector_nextBeatTime();
-	}*/
-
-
-	for(int i=0;i<getNumberOfActuators();i++)  {
-		float A  = (float)dance_data->dofs[i].range;
-		float sign = (dance_data->dofs[i].phase==0)?-1:1;
-		float pi = 3.14159f;
-		float time = (getLocalMsTime() - dance_data->dofs[i].periodStartTime)/1000.0f;
-		float cycle = dance_data->dofs[i].cycle;
-		if(dance_data->dofs[i].active) {
-			if(time/cycle<1.0f) output[i] = (int)(A*sin(2*pi*time/cycle + sign*pi/2)+50.0f);
-			else output[i] = (int)(A*sin(2*pi*1.0f + sign*pi/2)+50.0f);
+	}
+	if(dance_data->started) {
+		for(int i=0;i<getNumberOfActuators();i++)  {
+			float A  = (float)dance_data->dofs[i].range;
+			float sign = (dance_data->dofs[i].phase==0)?-1:1;
+			float pi = 3.14159f;
+			float time = ((float)(getLocalMsTime() - dance_data->dofs[i].periodStartTime))/dance_data->dofs[i].periodTime;
+			if(dance_data->dofs[i].active) {
+				if(time<=1.0f) output[i] = (int)(A*sin(2*pi*time + sign*pi/2));
+				else if(time<=1.5f) output[i] = (int)(A*sin(2*pi*1.0 + sign*pi/2));
+				else output[i] = 0;
+				if(dynamixelApi_isWheelMode(i)) {
+					if(output[i]>0)output[i] = dance_data->dofs[i].range;
+					if(output[i]<0)output[i] = -dance_data->dofs[i].range;
+				}
+			}
+			else {
+				output[i] = 0;
+			}
 		}
-		else {
-			output[i] = 50;
-		}
-		//if(i==0) ase_printf("%i: active = %i cycle=%i phase=%i range=%i output=%i\n", i, dance_data->dofs[i].active, dance_data->dofs[i].cycle, dance_data->dofs[i].phase, dance_data->dofs[i].range,output[i]);
-		dance_data->dofs[i].lastPos = output[i];
 	}
 }
 
 void fly_start(void* data) {
-  /*CM510Behavior_fly_t* fly_data = (CM510Behavior_fly_t*) data;
+  CM510Behavior_fly_t* fly_data = (CM510Behavior_fly_t*) data;
   ase_printf("#play fly0.wav 50 2\n");
-  fly_data->tilt_play = false;*/
+  fly_data->tilt_play = false;
 }
 
 void fly_stop(void* data) {
@@ -228,49 +224,13 @@ void fly_stop(void* data) {
   fly_data->tilt_play = false;
 }
 void fly_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	/*CM510Behavior_fly_t* fly_data = (CM510Behavior_fly_t*) data;
-	signed char motors[10];
-	int i, nMotors = selectMotors(motors);
+	CM510Behavior_fly_t* fly_data = (CM510Behavior_fly_t*) data;
 	float t = getLocalTime();
-	for(i=0;i<nMotors;i++) {
+	for(int i=0;i<getNumberOfActuators();i++) {
 		int sign = (i%2==0)?-1:1;
-		output[motors[i]] += sin(6.28f*t/(3.0f+i))*sign*100;
-		if(output[motors[i]]>100) output[motors[i]] = 100;
-		if(output[motors[i]]<-100) output[motors[i]] = -100;
+		output[i] += sin(6.28f*t/(3.0f+i))*sign*100;
+		if(output[i]>100) output[i] = 100;
+		if(output[i]<-100) output[i] = -100;
 	}
-	//output[motors[0]] = 100; //mund
-	//output[motors[1]] = 100; //vinger
-	//output[motors[2]] = 100; //hals
-
-	signed char tilt[10];
-	bool tilted = false;
-	int maxTilt = 0;
-	int nTilt = selectTilt(tilt);
-	for(i=0;i<nTilt;i++) {
-		ase_printf("Tilt val: %i \n", input[tilt[i]]);
-		if(input[tilt[i]]>=20) {
-			tilted = true;
-		}
-		if(input[tilt[i]]>maxTilt) {
-			maxTilt = input[i];
-		}
-	}
-	if(tilted) {
-		if(!fly_data->tilt_play) {
-			ase_printf("#play comedy_twirly_whirly.wav 50 2\n");
-			fly_data->tilt_play = true;
-		}
-		signed char motors[10];
-		int i, nMotors = selectMotors(motors);
-		for(i=0;i<nMotors;i++) {
-			output[motors[i]] = 0;
-		}
-	}
-	else {
-		if(!fly_data->tilt_play) {
-			ase_printf("#play comedy_twirly_whirly.wav 50 0\n");
-			fly_data->tilt_play = false;
-		}
-	}*/
 }
 

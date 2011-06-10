@@ -14,28 +14,30 @@
 #include <ase/control/behaviors/generic/LegoUserInterface/LegoUserInterface.h>
 #include <ase/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.h>
 #include "CM510Behaviors.h"
+#include "BeatDetector.h"
 //static kNN_t kNN_behavior;
 //static kNN_t kNN_compound;
-//static Playback_t playback_data;
+static Playback_t playback_data;
 
-//static CM510Behavior_fly_t fly_data;
+static CM510Behavior_fly_t fly_data;
 static CM510Behavior_dance_t dance_data;
 static CM510Behavior_bee_song_t bee_data;
 static CM510Behavior_bird_song_t bird_data;
 //static CM510Behavior_geiger_t geiger_data;
-//static CM510Behavior_move_t move_data;
+static CM510Behavior_move_t move_data;
 static CM510Behavior_escape_t escape_data;
+
 
 void installBehaviors(Subsumption_t* subsumption) {
 	LuiBehaviorManager_addBehavior(1, &escape_data, escape_start, escape_act, escape_stop,'s', subsumption);
-	//LuiBehaviorManager_addBehavior(2, &move_data, move_start, move_act, move_stop, 's', subsumption);
+	LuiBehaviorManager_addBehavior(2, &move_data, move_start, move_act, move_stop, 's', subsumption);
 	//LuiBehaviorManager_addBehavior(3, &geiger_data, geiger_start, geiger_act, geiger_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(4, &bird_data, bird_song_start, bird_song_act, bird_song_stop,  's', subsumption);
 	LuiBehaviorManager_addBehavior(5, &bee_data, bee_song_start, bee_song_act, bee_song_stop, 's', subsumption);
-	//LuiBehaviorManager_addBehavior(6, &fly_data, fly_start, fly_act, fly_stop, 's', subsumption);
+	LuiBehaviorManager_addBehavior(6, &fly_data, fly_start, fly_act, fly_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(7, &dance_data, dance_start, dance_act, dance_stop, 's', subsumption);
 	//LuiBehaviorManager_addBehavior(97,&kNN_compound, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 'c', subsumption);
-	//LuiBehaviorManager_addBehavior(98,&playback_data, playback_start, playback_act, playback_stop, 'r', subsumption);
+	LuiBehaviorManager_addBehavior(98,&playback_data, playback_start, playback_act, playback_stop, 'r', subsumption);
 	//LuiBehaviorManager_addBehavior(99,&kNN_behavior, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 't', subsumption);
 }
 
@@ -55,9 +57,16 @@ typedef struct {
 		{512, 0, 0, 850, 500},
 		{512, 0, 512, 850, 500}};*/
 
-dynaCtrl_t dynaCtrl[2] = {
-		{512, 0, 0, 1023, 1023},
-		{512, 0, 0, 1023, 1023}};
+/*dynaCtrl_t dynaCtrl[2] = {
+		{0, 0, -1023, 1023, 1023},
+		{0, 0, -1023, 1023, 1023}};*/
+
+dynaCtrl_t dynaCtrl[4] = {
+		{0, 0, -1023, 1023, 1023},
+		{0, 0, -1023, 1023, 1023},
+		{512, 0, 512+100, 1023-100, 500},
+		{512, 0, 512-200, 512+200, 500}
+};
 
 
 void applyControlOutput(signed char* outputValues, char nOutput){
@@ -82,19 +91,27 @@ void applyControlOutput(signed char* outputValues, char nOutput){
 		ase_printf("%i ", dynaCtrl[i].cPos);*/
 
 		//indirect control within a range
-		float percentage = (float)outputValues[i]/100.0f; //assumed [0,100]
-		dynaCtrl[i].cPos = (int)(percentage*(dynaCtrl[i].maxPos-dynaCtrl[i].minPos)+dynaCtrl[i].minPos);
 
-		if(dynaCtrl[i].cPos>dynaCtrl[i].maxPos) dynaCtrl[i].cPos = dynaCtrl[i].maxPos;
-		if(dynaCtrl[i].cPos<dynaCtrl[i].minPos) dynaCtrl[i].cPos = dynaCtrl[i].minPos;
-		dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);
+		if(dynamixelApi_isWheelMode(i)) {
+			int speed = (int)(10.23f*outputValues[i]);//;(int)((outputValues[i]<50)?2*10.23f*(outputValues[i]) : 2*10.23f*(outputValues[i]-50)+1024);
+			//ase_printf("%i: speed = %i (%i)\n", i, speed, outputValues[i]);
+			if(speed<0) speed = abs(speed) + 1024;
+			dynamixelApi_setMovingSpeed(i, speed);
+		}
+		else {
+			float percentage = ((float)outputValues[i]+100)/200.0f; //assumed [-100,100]
+			dynaCtrl[i].cPos = (int)(percentage*(dynaCtrl[i].maxPos-dynaCtrl[i].minPos)+dynaCtrl[i].minPos);
+			if(dynaCtrl[i].cPos>dynaCtrl[i].maxPos) dynaCtrl[i].cPos = dynaCtrl[i].maxPos;
+			if(dynaCtrl[i].cPos<dynaCtrl[i].minPos) dynaCtrl[i].cPos = dynaCtrl[i].minPos;
+			dynamixelApi_setGoalPos(i, dynaCtrl[i].cPos);
+		}
 		//ase_printf("%i ", dynaCtrl[i].cPos);
 	}
 	//ase_printf("\n");
 }
 
 int getControlInput(signed char* inputValues, char maxInputs, bool* readSuccess){
-	inputValues[0] = dynamixelApi_CM510_getADC(0); //scaled?
+	inputValues[0] = (signed char) dynamixelApi_CM510_getADC(4)/2; //scaled?
 	*readSuccess = true;
 	return 0;
 }
@@ -136,8 +153,28 @@ void carInit() {
 	dynamixelApi_connect(12); delay_ms(50);
 	int i;
 	for(i=0;i<dynamixelApi_countActuators();i++) {
-		dynamixelApi_setWheelMode(i, false);
+		dynamixelApi_setWheelMode(i, true);
 		dynamixelApi_setCompliance(i,1,254);
+	}
+}
+
+void carArmInit() {
+	dynamixelApi_setup(1,NULL); delay_ms(250);
+	dynamixelApi_connect(11); delay_ms(50);
+	dynamixelApi_connect(12); delay_ms(50);
+
+	dynamixelApi_connect(4); delay_ms(50);
+	dynamixelApi_connect(14); delay_ms(50);
+	int i;
+	for(i=0;i<dynamixelApi_countActuators();i++) {
+		if(i<2) {
+			dynamixelApi_setWheelMode(i, true);
+			dynamixelApi_setCompliance(i,1,254);
+		}
+		else {
+			dynamixelApi_setWheelMode(i, false);
+			dynamixelApi_setCompliance(i,1,254);
+		}
 	}
 }
 
@@ -152,21 +189,15 @@ int intcompare (const void * a, const void * b)
 {
   return ( *(int*)a - *(int*)b );
 }
-
+int brickID_old=-1;
 void checkForBehaviorBrickTimer(int id) {
 	int values[20];
 	for(int i=0;i<20;i++) {
 		values[i] = dynamixelApi_CM510_getADC(2);
 	}
 	qsort (values, 20, sizeof(int), intcompare);
-	/*for(int i=0;i<20;i++) {
-		ase_printf("%i ", values[i]);
-	}
-	ase_printf("\n");
-	*/
-
 	int brickID, val;
-	val = values[10];
+	val = values[10]; //median ADC value
 	if(val> 40 && val< 43) brickID = 5;
 	else if(val> 95 && val< 97) brickID = 7;
 	else if(val> 127 && val< 130) brickID = 102;
@@ -181,8 +212,11 @@ void checkForBehaviorBrickTimer(int id) {
 	else if(val> 477 && val < 485) brickID = 1;
 	else if(val> 507&& val< 515) brickID = 98;
 	else brickID = 0;
-	ase_printf("Median ADC value = %i, brickID = %i\n", val, brickID);
-	configureLUIBoard(brickID);
+	if(brickID!=brickID_old) {
+		ase_printf("Median ADC value = %i, brickID = %i\n", val, brickID);
+		configureLUIBoard(brickID);
+		brickID_old = brickID;
+	}
 }
 
 void controller_init() {
@@ -191,13 +225,15 @@ void controller_init() {
   ase_printf("*Dynamixel-CM510 Started*\n" );
   ase_printf("************************\n" );
   //flowerInit();
-  carInit();
+  //carInit();
+  carArmInit();
   LUI_init();
+  BeatDetector_init();
   TimerManager_createPeriodicTimer(250, 0, checkForBehaviorBrickTimer);
 
   //kNN_init(&kNN_behavior, 1);
   //kNN_init(&kNN_compound, 1);
-  //Playback_init(&playback_data);
+  Playback_init(&playback_data);
   installBehaviors(LUI_getSubsumptionProcess());
   configureLUIBoard(0);
   ase_printf("Init done\n");

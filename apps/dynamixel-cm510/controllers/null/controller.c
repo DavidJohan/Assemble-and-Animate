@@ -1,0 +1,2 @@
+void controller_init() {
+}

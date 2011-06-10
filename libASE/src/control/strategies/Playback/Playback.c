@@ -11,6 +11,7 @@ void Playback_init(Playback_t* process) {
 	process->nextSet=0;
 	process->nSets=0;
 	process->startTimeMs = getLocalMsTime();
+
 }
 
 void Playback_startPlayback(Playback_t* process) {
