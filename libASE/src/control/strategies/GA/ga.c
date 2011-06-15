@@ -118,7 +118,7 @@ GA_individual_t *GA_GeneticAlgorithm(GA_individual_t *population[],
         GA_individual_t *parent_2;
         GA_individual_t *pop_new[pop_size];
         int n_elite = 0;
-        static init = 0;
+        static int init = 0;
         if (init == 0) {
                 GA_Sort(population, pop_size, GA_FitnessFunc);
                 init = 1;
