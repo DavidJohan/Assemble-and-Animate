@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <pthread.h>
 #include <ase/utils/socket-tools/SimpleSocket.h>
 #include <ase/utils/socket-tools/CommandSender.h>
 
@@ -39,7 +40,7 @@ int parseReceiveBuffer(char* returnParam) {
 	int tokenCounter = 0;
 	char* token;
 	char* p;
-	for ( token = strtok_r(cs_receiveBuffer," \n",&p);token != NULL; token = strtok_r(NULL, " \n",&p) ) {
+	for ( token = (char*)strtok_r(cs_receiveBuffer," \n",&p);token != NULL; token = (char*)strtok_r(NULL, " \n",&p) ) {
 		if(tokenCounter==0) {
 			if(atoi(token)!=cs_commandCounter) {
 				printf("ERROR: Counter error in CommandSender since %i!=%i\n", atoi(token), cs_commandCounter);

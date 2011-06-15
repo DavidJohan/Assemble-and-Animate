@@ -71,9 +71,9 @@ void *el_listenForEvents() {
 		//printf("el_rec: %s", el_receiveBuffer);
 		if(strlen(el_receiveBuffer)!=0)  {
 			char *p;
-			int id = atoi(strtok_r(el_receiveBuffer," ", &p));
-			char* eventType = strtok_r(NULL," ", &p);
-			char* eventString = strtok_r(NULL,"\n", &p);
+			int id = atoi((char*)strtok_r(el_receiveBuffer," ", &p));
+			char* eventType = (char*)strtok_r(NULL," ", &p);
+			char* eventString = (char*)strtok_r(NULL,"\n", &p);
 		//	printf("Got event %i %s %s\n",id, eventType,eventString);
 			el_signalEvent(eventType, eventString);
 			memset(el_replyBuffer, 0, BUFFER_SIZE);

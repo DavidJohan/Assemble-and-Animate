@@ -3,10 +3,16 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+
+#ifdef __MINGW32__
+//# include <Winsock2.h> //mingw compilation of this target does currently not work use a unix system
+#else
 #include <netdb.h>
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
+#endif
+
 
 #define MAXDATASIZE 100 // max number of bytes we can get at once
 
