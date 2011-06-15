@@ -1,7 +1,7 @@
 CC=gcc
 TARGET=atron-ussr
-CFLAGS=-Wall -I../../../include/$(TARGET)
-LIBFLAGS=-L. -L../../../lib/$(TARGET) -lControl -lASE -lm -lpthread
+CFLAGS=-Wall -I$(ASE_HOME)/include
+LIBFLAGS=-L. -L$(ASE_HOME)/lib/$(TARGET) -lControl -lASE -lm -lpthread
 APPLICATION=-o appX
 FULLSOURCE=startAtron.c
 SOURCES=$(notdir $(FULLSOURCE))

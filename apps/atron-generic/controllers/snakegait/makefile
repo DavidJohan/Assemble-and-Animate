@@ -12,7 +12,7 @@ tos:
 	mv libControl.a ../../tos/libControl.a 
 
 ussr:
-	gcc -c -DUSSR -DATRON  -Wall -I../../../../include/atron-ussr/ $(SOURCES) 
+	gcc -c -DUSSR -DATRON  -Wall -I$(ASE_HOME)/include $(SOURCES) 
 	ar -rcs libControl.a $(OBJECTS) 
 	mv libControl.a ../../ussr/libControl.a 
 

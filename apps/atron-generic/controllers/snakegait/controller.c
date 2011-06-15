@@ -9,14 +9,14 @@
 void act(char* topic, Event_t* event)  { }
 
 void handleMessage(char* topic, Event_t* event) {
-	if(message[0]==DISTRIBUTED_STATE_MESSAGE) {
+	/*if(message[0]==DISTRIBUTED_STATE_MESSAGE) {
 		DSManager_handleMessage(message, messageSize, channel);
-	}
+	}*/
 }
 
 void controller_init() {
 	ase_printf("Running [ ID = %i ]\n",getHardwareID());
-	EventManager_subscribe(MSG_RECV_EVENT, handleMessage);
+	//EventManager_subscribe(MSG_RECV_EVENT, handleMessage);
 	EventManager_subscribe(ACT_EVENT,act);
 	SnakeGait_init(0);
 }
