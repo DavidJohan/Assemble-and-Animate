@@ -58,3 +58,14 @@ Gradient_t* GradientManager_createGradient(short label, float hz) {
 	return gradient;
 }
 
+void GradientManager_startGradient(Gradient_t* gradient) {
+	Strategy_start((Strategy_t*)gradient, NULL);
+}
+
+void GradientManager_stopGradient(Gradient_t* gradient) {
+	Strategy_stop((Strategy_t*)gradient, NULL);
+}
+
+void GradientManager_pauseGradient(Gradient_t* gradient) {
+	Strategy_pause((Strategy_t*)gradient, NULL);
+}

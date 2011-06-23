@@ -7,12 +7,12 @@ all:
 	@echo Legal targets are "ussr" and "tos" and "fpga" 
 
 fpga:
-	mb-gcc -Os -c -DFPGA -Wall -I../../../../include/atron-fpga $(SOURCES)
+	mb-gcc -Os -c -DFPGA -Wall -I$(ASE_HOME)/include $(SOURCES)
 	mb-ar -rcs libControl.a $(OBJECTS)
 	mv libControl.a ../../fpga/libControl.a
 
 tos: 
-	avr-gcc -Os -c -Wall -mmcu=atmega128 -I../../../../include/atron-tinyos $(SOURCES)
+	avr-gcc -Os -c -Wall -mmcu=atmega128 -I$(ASE_HOME)/include $(SOURCES)
 	avr-ar -rcs libControl.a $(OBJECTS)
 	mv libControl.a ../../tos/libControl.a 
 

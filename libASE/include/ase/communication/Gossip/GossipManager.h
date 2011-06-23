@@ -42,7 +42,6 @@ typedef struct GOSSIP_TAG gossip_t;
 
 
 void GossipManager_init();
-int GossipManager_act();
 gossip_t* GossipManager_createGossip(uint8_t label, long msDelay, long msVariance, void (handler)(char*, char, char), void (*updater)(gossip_t*));
 void GossipManager_updateGossip(gossip_t* gossip, char* message, char messageSize);
 int GossipManager_remove(gossip_t* gossip);

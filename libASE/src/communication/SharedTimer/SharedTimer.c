@@ -3,8 +3,13 @@
 #include <ase/communication/Gossip/GossipManager.h>
 #include <ase/targets/AbstractModuleApi.h>
 
-//#define TYPICAL_COMM_DELAY 75  //USSR
-#define TYPICAL_COMM_DELAY 0
+//TODO rewrite SharedTimer to follow new ASE conventions
+
+#ifdef USSR
+ #define TYPICAL_COMM_DELAY 75
+#else
+ #define TYPICAL_COMM_DELAY 0
+#endif
 
 static gossip_t* gossip;
 static sharedTime_t sharedTime;
@@ -41,7 +46,7 @@ long SharedTimer_getSharedMsTime() {
 
 float SharedTimer_getSharedTime() {
 	updateTime();
-	return (float)(sharedTime.timeMs/1000);
+	return (float)(sharedTime.timeMs/1000.0f);
 }
 void SharedTimer_reset() {
 	sharedTime.timeMs = 0;
@@ -49,7 +54,7 @@ void SharedTimer_reset() {
 }
 
 void SharedTimer_init(long msDelay) {
-	gossip = GossipManager_createGossip(2, msDelay, msDelay/10, handleGossip,updateGossip);
+	gossip = GossipManager_createGossip(2, msDelay, 0*msDelay/10, handleGossip, updateGossip);
 	SharedTimer_reset();
 	updateTime();
 	GossipManager_updateGossip(gossip, (char*)&sharedTime, sizeof(sharedTime));

@@ -8,7 +8,7 @@ all:
 
 tos:
 	$(DCRC) --target=ansic -loop --platform=atron completeTest.dcr 
-	avr-gcc -Os -c -DTINYOS -DATRON -Wall -mmcu=atmega128 -I../../../../include/atron-tinyos $(SOURCES)
+	avr-gcc -Os -c -DTINYOS -DATRON -Wall -mmcu=atmega128 -I$(ASE_HOME)/include $(SOURCES)
 	avr-ar -rcs libControl.a $(OBJECTS)
 	mv libControl.a ../../tos/libControl.a
 
@@ -16,7 +16,7 @@ completeTest_gen.c: completeTest.dcr
 	$(DCRC) --target=ansic -loop --platform=atron completeTest.dcr
 
 ussr: completeTest_gen.c
-	gcc -DLOOP -DPENDING_STATES -DATRON -DUSSR -c -Wall -I../../../../include/atron-ussr/ $(SOURCES) 
+	gcc -DLOOP -DPENDING_STATES -DATRON -DUSSR -c -Wall -I$(ASE_HOME)/include $(SOURCES) 
 	ar -rcs libControl.a $(OBJECTS) 
 	mv libControl.a ../../ussr/libControl.a 
 

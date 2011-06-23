@@ -20,7 +20,9 @@ typedef struct {
 } GradientManager_t;
 
 Gradient_t* GradientManager_createGradient(short label, float hz);
-
+void GradientManager_startGradient(Gradient_t* gradient);
+void GradientManager_stopGradient(Gradient_t* gradient);
+void GradientManager_pauseGradient(Gradient_t* gradient);
 #define GRADIENTMANAGER_H_
 
 #endif /* GRADIENTMANAGER_H_ */

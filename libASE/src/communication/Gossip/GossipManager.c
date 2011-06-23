@@ -4,14 +4,13 @@
 #include <stdbool.h>
 #include <ase/communication/Gossip/GossipManager.h>
 #include <ase/targets/AbstractModuleApi.h>
-#include <ase/infrastructure/MsgManager/MsgManager.h>
+#include <ase/Infrastructure.h>
 #include <ase/config/ConfigASE.h>
 #include <ase/communication/CommDefs.h>
 
+//TODO rewrite Gossip manager to follow new ASE conventions
 gossip_t GM_gossip[GOSSIP_MAX];
-
 static int fired;
-
 static void handleMessage(Msg_t* msg) {
 	if(msg->message[0]==GOSSIP_MESSAGE) {
 		if((msg->messageSize-2)>GOSSIP_MAX_MSG_SIZE) {
@@ -35,6 +34,14 @@ static void handleMessage(Msg_t* msg) {
 	}
 }
 
+static void act(char* topic, Event_t* event) {
+	for(int i=0;i<GOSSIP_MAX;i++)  {
+		if(GM_gossip[i].isUsed && GM_gossip[i].heard.isNew) {
+			GM_gossip[i].handler(GM_gossip[i].heard.msg.payload, GM_gossip[i].heard.msgSize-2, GM_gossip[i].heard.msgChannel);
+			GM_gossip[i].heard.isNew = 0;
+		}
+	}
+}
 
 void GossipManager_init() {
 	uint8_t i;
@@ -43,22 +50,17 @@ void GossipManager_init() {
 	}
 	fired = 0;
 	MsgManager_subscribe(GOSSIP_MESSAGE, handleMessage);
-}
-
-int GossipManager_act() {
-	uint8_t i,handleCount=0;
-	for(i=0;i<GOSSIP_MAX;i++)  {
-		if(GM_gossip[i].isUsed && GM_gossip[i].heard.isNew) {
-			GM_gossip[i].handler(GM_gossip[i].heard.msg.payload, GM_gossip[i].heard.msgSize-2, GM_gossip[i].heard.msgChannel);
-			GM_gossip[i].heard.isNew = 0;
-		}
-	}
-	return handleCount;
+	EventManager_subscribe(ACT_EVENT,act);
 }
 
 static long getDelay(long msDelay, long msVariance) {
-	long randomComponent = msVariance-rand()%(2*msVariance);
-	return msDelay+randomComponent;
+	if(msVariance<=0) {
+		return msDelay;
+	}
+	else {
+		long randomComponent = msVariance-rand()%(2*msVariance);
+		return msDelay+randomComponent;
+	}
 }
 
 void GossipManager_timerFired(int index) {

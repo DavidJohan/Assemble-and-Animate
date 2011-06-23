@@ -42,6 +42,7 @@ short Gradient_updateFromValue(Gradient_t *gradient, short value);
 short Gradient_getValue(Gradient_t* gradient);
 void Gradient_setSeed(Gradient_t *gradient, bool seed, short value);
 bool Gradient_isSeed(Gradient_t *gradient);
+short Gradient_getlabel(Gradient_t *gradient);
 
 
 #endif /* GRADIENT_H_ */

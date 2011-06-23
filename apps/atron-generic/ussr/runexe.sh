@@ -1,4 +1,5 @@
 #!/bin/sh
+
 portRC=9900
 portEvent=9901
 increment=2

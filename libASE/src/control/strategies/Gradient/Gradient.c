@@ -50,6 +50,9 @@ short Gradient_updateFromValue(Gradient_t *gradient, short value) {
 bool Gradient_isSeed(Gradient_t *gradient) {
 	return gradient->seed;
 }
+short Gradient_getlabel(Gradient_t *gradient) {
+	return gradient->label;
+}
 
 void Gradient_setSeed(Gradient_t *gradient, bool seed, short value) {
 	gradient->seed = seed;

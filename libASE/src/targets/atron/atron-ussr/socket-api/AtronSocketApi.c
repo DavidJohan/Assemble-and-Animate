@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <ase/Infrastructure.h>
 #include <ase/targets/atron.h>
 #include <ase/utils/socket-tools/CommandSender.h>
 #include <ase/utils/socket-tools/EventListner.h>
@@ -267,18 +269,49 @@ int atronApi_sendMessageToAllExcept(char* message, char messageSize, char except
 	return count;
 }
 
+typedef struct {
+	char message[MAX_MSG_SIZE];
+	char messageSize;
+	char channel;
+} AtronMsg_t;
+AtronMsg_t* msgBuffer[25];
 
-
+static void bufferMessage(char* message, char messageSize, char channel) {
+	AtronMsg_t* msg = malloc(sizeof(message));
+	for(int i=0;i<messageSize;i++) {
+		msg->message[i] = message[i];
+	}
+	msg->messageSize = messageSize;
+	msg->channel = channel;
+	for(int i=0;i<25;i++) {
+		if(msgBuffer[i]==NULL) {
+			msgBuffer[i] = msg;
+			return;
+		}
+	}
+	ase_printf("Atron msg buffer full!\n");
+}
 
 void atronApi_handleMessage(char* eventType, char* messageData) {
 	char* message = strtok(messageData," "); //handleMessage string
 	int messageSize = atoi(strtok(NULL, " "));
 	int channel = atoi(strtok(NULL, " "));
 	stringToCharArray(message, atronApi_msgReceiveBuffer);
-	atronApi_msgHandler(atronApi_msgReceiveBuffer, messageSize, channel);
+	//atronApi_msgHandler(atronApi_msgReceiveBuffer, messageSize, channel);
+	bufferMessage(atronApi_msgReceiveBuffer, messageSize, channel);
 }
 void atronApi_setup() {
 }
+static void atronApi_act(char* topic, Event_t* event) {
+	for(int i=0;i<25;i++) {
+		if(msgBuffer[i]!=NULL) {
+			atronApi_msgHandler(msgBuffer[i]->message, msgBuffer[i]->messageSize, msgBuffer[i]->channel);
+			free(msgBuffer[i]);
+			msgBuffer[i] = NULL;
+		}
+	}
+}
+
 void atronApi_ussrSetup(int portRC, int portEvent, char* host, void (*msgHandler)(char*, char, char)) {
 	/*Initialize Message Handler*/
 	atronApi_msgHandler = msgHandler;
@@ -291,4 +324,5 @@ void atronApi_ussrSetup(int portRC, int portEvent, char* host, void (*msgHandler
 	el_init(portEvent, host);
 	el_installEvent("handleMessage", atronApi_handleMessage);
 	el_startEventListen();
+	EventManager_subscribe(ACT_EVENT, atronApi_act);
 }
