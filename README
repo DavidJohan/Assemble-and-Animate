@@ -1,8 +1,12 @@
 The Assemble and Animate Control Framework for Modular Reconfigurable Robots. 
 
 The objective of ASE is to provide a flexible and extendable control framework, 
-which facilitates rapid development and deployment of modular reconfigurable 
-robots. ASE includes a simple event-driven application framework, a library 
-of common control and adaptation strategies, and a module abstraction layer 
-which allows ASE to be cross-compiled for a number of different modular robotic 
-platforms and easily ported to new platforms. 
+which facilitates rapid development and deployment of modular reconfigurable robots. 
+
+The ASE Control Framework includes: 
++ A simple event-driven application framework
++ A library of common control and adaptation strategies
++ A module abstraction layer which allows ASE to be cross-compiled and ported to new platforms 
++ A number of different modular robotic platforms targets 
+
+ 
