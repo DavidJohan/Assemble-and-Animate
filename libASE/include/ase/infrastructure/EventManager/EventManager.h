@@ -12,7 +12,16 @@ EventManager.h provides a publish/subscribe system of internal events between di
 #include <ase/infrastructure/Entity/Manager/PubSubManager/PubSubManager.h>
 #include <ase/tools/LinkedList/LinkedList.h>
 
-typedef union {
+typedef struct {
+	char* topic;
+	char msgChannel;
+	char dataSize;
+	//char hopcount;
+	//char senderID;
+} EventInfo_t;
+
+typedef struct {
+	EventInfo_t info;
 	char val_char;
 	int val_int;
 	float val_float;
@@ -35,6 +44,18 @@ typedef struct {
 	listnode_t* topics;
 } EventManager_t;
 
+typedef struct {
+	char type;
+	short topicHash;
+} Event_Msg_Header_t;
+
+typedef struct {
+	char type;
+	short topicHash;
+	unsigned short timestamp;
+	//char hopCount;
+} Event_Global_Msg_Header_t;
+
 
 
 /**
@@ -52,6 +73,15 @@ void EventManager_registerTopic(char* topic);
  * Allows a component (a publisher) to signal (or publish) an event
  */
 void EventManager_publish(char* topic, Event_t* event);
+
+void EventManager_publishInternal(char* topic, char* eventData, char eventDataSize);
+void EventManager_publishLocal(char* topic, char* eventData, char eventSize);
+void EventManager_publishGlobal(char* topic, char* eventData, char eventSize);
+
+/**
+ *
+ */
+void EventManager_init();
 
 
 #endif /* EVENTMANAGER_H_ */

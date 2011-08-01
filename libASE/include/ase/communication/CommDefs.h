@@ -19,5 +19,7 @@
 #define DISTRIBUTED_STATE_MESSAGE	7
 #define GOSSIP_MESSAGE				8
 #define CPG_HC_MESSAGE				9
+#define EVENT_LOCAL_MESSAGE			252		//messages send between components through
+#define EVENT_GLOBAL_MESSAGE		253		//messages send between components through
 #define INTERNAL_MESSAGE			254		//messages send between components through
 #define BROADCAST_MESSAGE			255

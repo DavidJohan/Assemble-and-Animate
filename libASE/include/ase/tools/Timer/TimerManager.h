@@ -10,6 +10,8 @@
 
 
 #ifndef TIMERMANAGER_H_
+#define TIMERMANAGER_H_
+
 #include <stdbool.h>
 #include <stdint.h>
 #include <ase/config/ConfigASE.h>
@@ -64,6 +66,5 @@ int TimerManager_pauseTimer(Timer_t* timer);
  * Start timer if it has been paused, will automatically reset the timer
  */
 int TimerManager_startTimer(Timer_t* timer);
-#define TIMERMANAGER_H_
 
 #endif /* TIMERMANAGER_H_ */

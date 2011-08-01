@@ -45,7 +45,11 @@ void *_MemManager_Xmalloc(size_t size, char *filename, int fileline)
         void *mem = malloc(size);
         if (mem == NULL) {
                 ase_printf("xmalloc: Out of memory! (%s:%i)\n", filename, fileline);
+				#ifndef LMF 
                 exit(1);
+				#else
+				while(1);
+				#endif
         }   
 
         return mem;

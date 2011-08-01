@@ -96,7 +96,6 @@ static int broadcaster_sendMsgToNeighborsExcept(int cacheIndex) {
 }
 
 
-
 int broadcaster_broadcast(char* message, char messageSize, char channel) {
 	int seen = broadcaster_checkCache(message, messageSize, channel);
 	if(!seen) {

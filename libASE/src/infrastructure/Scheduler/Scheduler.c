@@ -10,6 +10,7 @@ static Event_t msgRecvEvent;
 static Msg_t msg;
 
 void ase_init(void (*controller_init)()) {
+	EventManager_init();
 	EventManager_registerTopic(INIT_DONE_EVENT);
 	EventManager_registerTopic(ACT_EVENT);
 	EventManager_registerTopic(MSG_RECV_EVENT);

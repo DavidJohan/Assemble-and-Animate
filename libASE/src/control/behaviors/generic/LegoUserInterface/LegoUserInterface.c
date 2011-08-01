@@ -46,7 +46,7 @@ static Timer_t* soundTimer;
 static BoardState_t board;
 
 
-void controller_act(char* topic, Event_t* event)  { }
+//void controller_act(char* topic, Event_t* event)  { }
 
 static int priority;
 void addtoSubsumption(char behaviorId) {
