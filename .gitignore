@@ -1,16 +1,30 @@
+*.a
+*.hex
 *.d
 *.o
 *.bak
 *.hzs
 *.elf
 *.ld
+*.make
+*.marks
+*.internal
 *.map
 *.tex
 *.obj
 tmpa*
 *.cmake
 *.bin
-
+link.txt
+C.includecache
+*.stackdump
+CMakeCache.txt
+apps/dummy/bin/*
+apps/dummy/CMakeFiles/*
+libASE/lib/dynamixel-cm510/CMakeFiles/*
+libASE/lib/dynamixel-cm510/CMakeFiles/*
+libASE/CMakeFiles/*
+*.exe
 **/bin/**/*
 
 
