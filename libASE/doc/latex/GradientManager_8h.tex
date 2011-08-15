@@ -1,29 +1,50 @@
 \hypertarget{GradientManager_8h}{
-\section{/home/david/ASE/src/control/strategies/Gradient/GradientManager.h File Reference}
-\label{GradientManager_8h}\index{/home/david/ASE/src/control/strategies/Gradient/GradientManager.h@{/home/david/ASE/src/control/strategies/Gradient/GradientManager.h}}
+\section{GradientManager.h File Reference}
+\label{GradientManager_8h}\index{GradientManager.h@{GradientManager.h}}
 }
-{\tt \#include \char`\"{}Gradient.h\char`\"{}}\par
-{\tt \#include \char`\"{}Manager.h\char`\"{}}\par
-{\tt \#include \char`\"{}LinkedList.h\char`\"{}}\par
+{\ttfamily \#include $<$ase/control/strategies/Gradient/Gradient.h$>$}\par
+{\ttfamily \#include $<$ase/infrastructure/Entity/Manager/Manager.h$>$}\par
+{\ttfamily \#include $<$ase/tools/LinkedList/LinkedList.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-struct \textbf{GradientManager\_\-t}
-\end{CompactItemize}
+struct \hyperlink{structGradientManager__t}{GradientManager\_\-t}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{GradientManager_8h_5a33821e0fd644f108a7a105be6e8ebb}{
-\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$ \textbf{GradientManager\_\-createGradient} (short label, float hz)}
-\label{GradientManager_8h_5a33821e0fd644f108a7a105be6e8ebb}
+\hypertarget{GradientManager_8h_a5a33821e0fd644f108a7a105be6e8ebb}{
+\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$ {\bfseries GradientManager\_\-createGradient} (short label, float hz)}
+\label{GradientManager_8h_a5a33821e0fd644f108a7a105be6e8ebb}
 
-\end{CompactItemize}
+\item 
+\hypertarget{GradientManager_8h_afd7251b41906ad33aaa3261ddf31ceb5}{
+void {\bfseries GradientManager\_\-startGradient} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient)}
+\label{GradientManager_8h_afd7251b41906ad33aaa3261ddf31ceb5}
+
+\item 
+\hypertarget{GradientManager_8h_ae231b37763887fb0466595f83b96d5cc}{
+void {\bfseries GradientManager\_\-stopGradient} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient)}
+\label{GradientManager_8h_ae231b37763887fb0466595f83b96d5cc}
+
+\item 
+\hypertarget{GradientManager_8h_adb3fb71a8fb8830a53aaf8f2adc1a0f1}{
+void {\bfseries GradientManager\_\-pauseGradient} (\hyperlink{structGradient__t}{Gradient\_\-t} $\ast$gradient)}
+\label{GradientManager_8h_adb3fb71a8fb8830a53aaf8f2adc1a0f1}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{GradientManager_8h}{GradientManager.h} manages simple hop-count gradients.
+\hyperlink{GradientManager_8h}{GradientManager.h} manages simple hop-\/count gradients.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{GradientManager_8h_source}{GradientManager.h}.
+

@@ -1,40 +1,52 @@
 \hypertarget{MsgManager_8h}{
-\section{/home/david/ASE/src/infrastructure/MsgManager/MsgManager.h File Reference}
-\label{MsgManager_8h}\index{/home/david/ASE/src/infrastructure/MsgManager/MsgManager.h@{/home/david/ASE/src/infrastructure/MsgManager/MsgManager.h}}
+\section{MsgManager.h File Reference}
+\label{MsgManager_8h}\index{MsgManager.h@{MsgManager.h}}
 }
-{\tt \#include \char`\"{}Message.h\char`\"{}}\par
-{\tt \#include \char`\"{}Manager.h\char`\"{}}\par
-{\tt \#include \char`\"{}PubSubManager.h\char`\"{}}\par
-{\tt \#include \char`\"{}LinkedList.h\char`\"{}}\par
+{\ttfamily \#include $<$ase/communication/Message.h$>$}\par
+{\ttfamily \#include $<$ase/infrastructure/Entity/Manager/Manager.h$>$}\par
+{\ttfamily \#include $<$ase/infrastructure/Entity/Manager/PubSubManager/PubSubManager.h$>$}\par
+{\ttfamily \#include $<$ase/tools/LinkedList/LinkedList.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-struct \textbf{MsgHandler\_\-t}
+struct \hyperlink{structMsgHandler__t}{MsgHandler\_\-t}
 \item 
 struct \hyperlink{structMsgManager__t}{MsgManager\_\-t}
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{MsgManager_8h_3746a81b3785598b33db71ad7f2eaf05}{MsgManager\_\-subscribe} (char msgType, void($\ast$handler)(\hyperlink{structMsg__t}{Msg\_\-t} $\ast$))
-\end{CompactItemize}
+void \hyperlink{MsgManager_8h_a3746a81b3785598b33db71ad7f2eaf05}{MsgManager\_\-subscribe} (char msgType, void($\ast$handler)(\hyperlink{structMsg__t}{Msg\_\-t} $\ast$))
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{MsgManager_8h}{MsgManager.h} provides a publish/subscribe system of messages for components
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{MsgManager_8h_source}{MsgManager.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{MsgManager_8h_3746a81b3785598b33db71ad7f2eaf05}{
+\hypertarget{MsgManager_8h_a3746a81b3785598b33db71ad7f2eaf05}{
 \index{MsgManager.h@{MsgManager.h}!MsgManager\_\-subscribe@{MsgManager\_\-subscribe}}
 \index{MsgManager\_\-subscribe@{MsgManager\_\-subscribe}!MsgManager.h@{MsgManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void MsgManager\_\-subscribe (char {\em msgType}, \/  void($\ast$)({\bf Msg\_\-t} $\ast$) {\em handler})}}
-\label{MsgManager_8h_3746a81b3785598b33db71ad7f2eaf05}
-
-
+\subsubsection[{MsgManager\_\-subscribe}]{\setlength{\rightskip}{0pt plus 5cm}void MsgManager\_\-subscribe (
+\begin{DoxyParamCaption}
+\item[{char}]{msgType, }
+\item[{void($\ast$)({\bf Msg\_\-t} $\ast$)}]{handler}
+\end{DoxyParamCaption}
+)}}
+\label{MsgManager_8h_a3746a81b3785598b33db71ad7f2eaf05}
 Allows a component to subscribe to specific message types 
+
+Definition at line 63 of file MsgManager.c.
+

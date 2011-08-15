@@ -1,85 +1,130 @@
 \hypertarget{CnoCpg_8h}{
-\section{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpg.h File Reference}
-\label{CnoCpg_8h}\index{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpg.h@{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpg.h}}
+\section{CnoCpg.h File Reference}
+\label{CnoCpg_8h}\index{CnoCpg.h@{CnoCpg.h}}
 }
-{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
-{\tt \#include \char`\"{}CpgSuper.h\char`\"{}}\par
-{\tt \#include $<$stdint.h$>$}\par
-{\tt \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$ase/config/ConfigASE.h$>$}\par
+{\ttfamily \#include $<$ase/control/strategies/Cpg/CpgSuper.h$>$}\par
+{\ttfamily \#include $<$stdint.h$>$}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structCnoCpg__t}{CnoCpg\_\-t}
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{CnoCpg_8h_e756db985f15a661dd2fdb0b2a665243}{CnoCpg\_\-init} ()
+void \hyperlink{CnoCpg_8h_ae756db985f15a661dd2fdb0b2a665243}{CnoCpg\_\-init} ()
 \item 
-void \hyperlink{CnoCpg_8h_7742c9a8f7e4cb87c36ee61c92a611a1}{CnoCpg\_\-initialize} (\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
+void \hyperlink{CnoCpg_8h_a7742c9a8f7e4cb87c36ee61c92a611a1}{CnoCpg\_\-initialize} (\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CnoCpg_8h_f7e2c3c5367e08c7baa83ba8be843110}{CnoCpg\_\-iterate} (\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
+void \hyperlink{CnoCpg_8h_af7e2c3c5367e08c7baa83ba8be843110}{CnoCpg\_\-iterate} (\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CnoCpg_8h_e4689cc7fd5f222c717caa46127a6027}{CnoCpg\_\-resetState} (\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
+void \hyperlink{CnoCpg_8h_ae4689cc7fd5f222c717caa46127a6027}{CnoCpg\_\-resetState} (\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CnoCpg_8h_5ad2b01c18d25f7a5aabb1b4d94be7c9}{CnoCpg\_\-setUpdateRate} (float updatesPerPeriode, \hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
+void \hyperlink{CnoCpg_8h_a5ad2b01c18d25f7a5aabb1b4d94be7c9}{CnoCpg\_\-setUpdateRate} (float updatesPerPeriode, \hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CnoCpg_8h_05f38c5b04019c4d48b9b2fca62650e9}{CnoCpg\_\-addCoupling} (float x1, float v1, \hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, \hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
-\end{CompactItemize}
+void \hyperlink{CnoCpg_8h_a05f38c5b04019c4d48b9b2fca62650e9}{CnoCpg\_\-addCoupling} (float x1, float v1, \hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, \hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$cpg)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{CnoCpg_8h}{CnoCpg.h} provides a simple interface to an implementation of as simple artificial central pattern generator. This is a specific implementation on the abstract CPG implementation \hyperlink{CpgSuper_8h}{CpgSuper.h} The specific CPG is based on coupled non-linear oscillators, as described in:
+\hyperlink{CnoCpg_8h}{CnoCpg.h} provides a simple interface to an implementation of as simple artificial central pattern generator. This is a specific implementation on the abstract CPG implementation \hyperlink{CpgSuper_8h}{CpgSuper.h} The specific CPG is based on coupled non-\/linear oscillators, as described in:
 
-Marbach, D. and Ijspeert, A.J. (2005) Online Optimization of Modular Robot Locomotion. Proceedings of the IEEE Int. Conference on Mechatronics and Automation (ICMA 2005), pp. 248-253
+Marbach, D. and Ijspeert, A.J. (2005) Online Optimization of Modular Robot Locomotion. Proceedings of the IEEE Int. Conference on Mechatronics and Automation (ICMA 2005), pp. 248-\/253
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{CnoCpg_8h_source}{CnoCpg.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{CnoCpg_8h_05f38c5b04019c4d48b9b2fca62650e9}{
+\hypertarget{CnoCpg_8h_a05f38c5b04019c4d48b9b2fca62650e9}{
 \index{CnoCpg.h@{CnoCpg.h}!CnoCpg\_\-addCoupling@{CnoCpg\_\-addCoupling}}
 \index{CnoCpg\_\-addCoupling@{CnoCpg\_\-addCoupling}!CnoCpg.h@{CnoCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-addCoupling (float {\em x1}, \/  float {\em v1}, \/  {\bf CpgSuperCoupling\_\-t} $\ast$ {\em coupling}, \/  {\bf CnoCpg\_\-t} $\ast$ {\em cpg})}}
-\label{CnoCpg_8h_05f38c5b04019c4d48b9b2fca62650e9}
+\subsubsection[{CnoCpg\_\-addCoupling}]{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-addCoupling (
+\begin{DoxyParamCaption}
+\item[{float}]{x1, }
+\item[{float}]{v1, }
+\item[{{\bf CpgSuperCoupling\_\-t} $\ast$}]{coupling, }
+\item[{{\bf CnoCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpg_8h_a05f38c5b04019c4d48b9b2fca62650e9}
+Couple this CPG with another using given coupling parameters 
 
+Definition at line 50 of file CnoCpg.c.
 
-Couple this CPG with another using given coupling parameters \hypertarget{CnoCpg_8h_e756db985f15a661dd2fdb0b2a665243}{
+\hypertarget{CnoCpg_8h_ae756db985f15a661dd2fdb0b2a665243}{
 \index{CnoCpg.h@{CnoCpg.h}!CnoCpg\_\-init@{CnoCpg\_\-init}}
 \index{CnoCpg\_\-init@{CnoCpg\_\-init}!CnoCpg.h@{CnoCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-init ()}}
-\label{CnoCpg_8h_e756db985f15a661dd2fdb0b2a665243}
+\subsubsection[{CnoCpg\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpg_8h_ae756db985f15a661dd2fdb0b2a665243}
+Initialize the class 
 
+Definition at line 57 of file CnoCpg.c.
 
-Initialize the class \hypertarget{CnoCpg_8h_7742c9a8f7e4cb87c36ee61c92a611a1}{
+\hypertarget{CnoCpg_8h_a7742c9a8f7e4cb87c36ee61c92a611a1}{
 \index{CnoCpg.h@{CnoCpg.h}!CnoCpg\_\-initialize@{CnoCpg\_\-initialize}}
 \index{CnoCpg\_\-initialize@{CnoCpg\_\-initialize}!CnoCpg.h@{CnoCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-initialize ({\bf CnoCpg\_\-t} $\ast$ {\em cpg})}}
-\label{CnoCpg_8h_7742c9a8f7e4cb87c36ee61c92a611a1}
+\subsubsection[{CnoCpg\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf CnoCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpg_8h_a7742c9a8f7e4cb87c36ee61c92a611a1}
+Initialize the central pattern generator 
 
+Definition at line 14 of file CnoCpg.c.
 
-Initialize the central pattern generator \hypertarget{CnoCpg_8h_f7e2c3c5367e08c7baa83ba8be843110}{
+\hypertarget{CnoCpg_8h_af7e2c3c5367e08c7baa83ba8be843110}{
 \index{CnoCpg.h@{CnoCpg.h}!CnoCpg\_\-iterate@{CnoCpg\_\-iterate}}
 \index{CnoCpg\_\-iterate@{CnoCpg\_\-iterate}!CnoCpg.h@{CnoCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-iterate ({\bf CnoCpg\_\-t} $\ast$ {\em cpg})}}
-\label{CnoCpg_8h_f7e2c3c5367e08c7baa83ba8be843110}
+\subsubsection[{CnoCpg\_\-iterate}]{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-iterate (
+\begin{DoxyParamCaption}
+\item[{{\bf CnoCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpg_8h_af7e2c3c5367e08c7baa83ba8be843110}
+Performs one itteration (state update) of the CPG is called automatically 
 
+Definition at line 32 of file CnoCpg.c.
 
-Performs one itteration (state update) of the CPG is called automatically \hypertarget{CnoCpg_8h_e4689cc7fd5f222c717caa46127a6027}{
+\hypertarget{CnoCpg_8h_ae4689cc7fd5f222c717caa46127a6027}{
 \index{CnoCpg.h@{CnoCpg.h}!CnoCpg\_\-resetState@{CnoCpg\_\-resetState}}
 \index{CnoCpg\_\-resetState@{CnoCpg\_\-resetState}!CnoCpg.h@{CnoCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-resetState ({\bf CnoCpg\_\-t} $\ast$ {\em cpg})}}
-\label{CnoCpg_8h_e4689cc7fd5f222c717caa46127a6027}
+\subsubsection[{CnoCpg\_\-resetState}]{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-resetState (
+\begin{DoxyParamCaption}
+\item[{{\bf CnoCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpg_8h_ae4689cc7fd5f222c717caa46127a6027}
+Reset the state of the CPG to default/initial values 
 
+Definition at line 27 of file CnoCpg.c.
 
-Reset the state of the CPG to default/initial values \hypertarget{CnoCpg_8h_5ad2b01c18d25f7a5aabb1b4d94be7c9}{
+\hypertarget{CnoCpg_8h_a5ad2b01c18d25f7a5aabb1b4d94be7c9}{
 \index{CnoCpg.h@{CnoCpg.h}!CnoCpg\_\-setUpdateRate@{CnoCpg\_\-setUpdateRate}}
 \index{CnoCpg\_\-setUpdateRate@{CnoCpg\_\-setUpdateRate}!CnoCpg.h@{CnoCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-setUpdateRate (float {\em updatesPerPeriode}, \/  {\bf CnoCpg\_\-t} $\ast$ {\em cpg})}}
-\label{CnoCpg_8h_5ad2b01c18d25f7a5aabb1b4d94be7c9}
-
-
+\subsubsection[{CnoCpg\_\-setUpdateRate}]{\setlength{\rightskip}{0pt plus 5cm}void CnoCpg\_\-setUpdateRate (
+\begin{DoxyParamCaption}
+\item[{float}]{updatesPerPeriode, }
+\item[{{\bf CnoCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpg_8h_a5ad2b01c18d25f7a5aabb1b4d94be7c9}
 Set the number of updates per CPG period, default is 25 
+
+Definition at line 22 of file CnoCpg.c.
+

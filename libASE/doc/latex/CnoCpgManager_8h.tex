@@ -1,15 +1,15 @@
 \hypertarget{CnoCpgManager_8h}{
-\section{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpgManager.h File Reference}
-\label{CnoCpgManager_8h}\index{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpgManager.h@{/home/david/ASE/src/control/strategies/Cpg/CnoCpg/CnoCpgManager.h}}
+\section{CnoCpgManager.h File Reference}
+\label{CnoCpgManager_8h}\index{CnoCpgManager.h@{CnoCpgManager.h}}
 }
-{\tt \#include \char`\"{}CnoCpg.h\char`\"{}}\par
+{\ttfamily \#include $<$ase/control/strategies/Cpg/CnoCpg/CnoCpg.h$>$}\par
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$ \hyperlink{CnoCpgManager_8h_0bd196d4d624891d5d3be6e31fd0738a}{CnoCpgManager\_\-createCpg} (short label, float hz)
+\hyperlink{structCnoCpg__t}{CnoCpg\_\-t} $\ast$ \hyperlink{CnoCpgManager_8h_a0bd196d4d624891d5d3be6e31fd0738a}{CnoCpgManager\_\-createCpg} (short label, float hz)
 \item 
-\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$ \hyperlink{CnoCpgManager_8h_92299c483ba4604d178b019741ac845b}{CnoCpgManager\_\-createCoupling} (short fromLabel, short toLabel, float strength, float phaseDiff)
-\end{CompactItemize}
+\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$ \hyperlink{CnoCpgManager_8h_a92299c483ba4604d178b019741ac845b}{CnoCpgManager\_\-createCoupling} (short fromLabel, short toLabel, float strength, float phaseDiff)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -17,25 +17,46 @@
 
 Uses: \hyperlink{CpgSuperManager_8h}{CpgSuperManager.h} and \hyperlink{CpgSuper_8h}{CpgSuper.h}
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{CnoCpgManager_8h_source}{CnoCpgManager.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{CnoCpgManager_8h_92299c483ba4604d178b019741ac845b}{
+\hypertarget{CnoCpgManager_8h_a92299c483ba4604d178b019741ac845b}{
 \index{CnoCpgManager.h@{CnoCpgManager.h}!CnoCpgManager\_\-createCoupling@{CnoCpgManager\_\-createCoupling}}
 \index{CnoCpgManager\_\-createCoupling@{CnoCpgManager\_\-createCoupling}!CnoCpgManager.h@{CnoCpgManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf CpgSuperCoupling\_\-t}$\ast$ CnoCpgManager\_\-createCoupling (short {\em fromLabel}, \/  short {\em toLabel}, \/  float {\em strength}, \/  float {\em phaseDiff})}}
-\label{CnoCpgManager_8h_92299c483ba4604d178b019741ac845b}
+\subsubsection[{CnoCpgManager\_\-createCoupling}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CpgSuperCoupling\_\-t}$\ast$ CnoCpgManager\_\-createCoupling (
+\begin{DoxyParamCaption}
+\item[{short}]{fromLabel, }
+\item[{short}]{toLabel, }
+\item[{float}]{strength, }
+\item[{float}]{phaseDiff}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpgManager_8h_a92299c483ba4604d178b019741ac845b}
+Create a CPG coupling from 'fromLabel' to 'toLabel' with a specified coupling strength and phase difference. 
 
+Definition at line 28 of file CnoCpgManager.c.
 
-Create a CPG coupling from 'fromLabel' to 'toLabel' with a specified coupling strength and phase difference. \hypertarget{CnoCpgManager_8h_0bd196d4d624891d5d3be6e31fd0738a}{
+\hypertarget{CnoCpgManager_8h_a0bd196d4d624891d5d3be6e31fd0738a}{
 \index{CnoCpgManager.h@{CnoCpgManager.h}!CnoCpgManager\_\-createCpg@{CnoCpgManager\_\-createCpg}}
 \index{CnoCpgManager\_\-createCpg@{CnoCpgManager\_\-createCpg}!CnoCpgManager.h@{CnoCpgManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf CnoCpg\_\-t}$\ast$ CnoCpgManager\_\-createCpg (short {\em label}, \/  float {\em hz})}}
-\label{CnoCpgManager_8h_0bd196d4d624891d5d3be6e31fd0738a}
-
-
+\subsubsection[{CnoCpgManager\_\-createCpg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CnoCpg\_\-t}$\ast$ CnoCpgManager\_\-createCpg (
+\begin{DoxyParamCaption}
+\item[{short}]{label, }
+\item[{float}]{hz}
+\end{DoxyParamCaption}
+)}}
+\label{CnoCpgManager_8h_a0bd196d4d624891d5d3be6e31fd0738a}
 Create a CPG with specified label, frequency and otherwise default parameters 
+
+Definition at line 21 of file CnoCpgManager.c.
+

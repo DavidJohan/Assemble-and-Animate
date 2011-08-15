@@ -1,286 +1,500 @@
 \hypertarget{DynamixelApi_8h}{
-\section{/home/david/ASE/src/targets/dynamixel/DynamixelApi.h File Reference}
-\label{DynamixelApi_8h}\index{/home/david/ASE/src/targets/dynamixel/DynamixelApi.h@{/home/david/ASE/src/targets/dynamixel/DynamixelApi.h}}
+\section{DynamixelApi.h File Reference}
+\label{DynamixelApi_8h}\index{DynamixelApi.h@{DynamixelApi.h}}
 }
-{\tt \#include $<$stdbool.h$>$}\par
-{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
-{\tt \#include \char`\"{}TimerManager.h\char`\"{}}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$ase/config/ConfigASE.h$>$}\par
+{\ttfamily \#include $<$ase/tools/Timer/TimerManager.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-struct \textbf{DynamixelState\_\-t}
+struct \hyperlink{structDynamixelPosEstimate__t}{DynamixelPosEstimate\_\-t}
 \item 
-struct \textbf{Dynamixel\_\-t}
-\end{CompactItemize}
+struct \hyperlink{structDynamixelState__t}{DynamixelState\_\-t}
+\item 
+struct \hyperlink{structDynamixel__t}{Dynamixel\_\-t}
+\end{DoxyCompactItemize}
 \subsection*{Defines}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{DynamixelApi_8h_4604fccedf5cbc8ffe404542faf54528}{
-\#define \textbf{DYNAMIXEL\_\-ROTATION\_\-DONE\_\-EVENT}~\char`\"{}DYNAMIXEL\_\-ROTATION\_\-DONE\_\-EVENT\char`\"{}}
-\label{DynamixelApi_8h_4604fccedf5cbc8ffe404542faf54528}
+\hypertarget{DynamixelApi_8h_a4604fccedf5cbc8ffe404542faf54528}{
+\#define {\bfseries DYNAMIXEL\_\-ROTATION\_\-DONE\_\-EVENT}~\char`\"{}DYNAMIXEL\_\-ROTATION\_\-DONE\_\-EVENT\char`\"{}}
+\label{DynamixelApi_8h_a4604fccedf5cbc8ffe404542faf54528}
 
 \item 
-\hypertarget{DynamixelApi_8h_0a423074e48f46782595fbf4cb79c570}{
-\#define \textbf{DYNAMIXELAPI\_\-H\_\-}}
-\label{DynamixelApi_8h_0a423074e48f46782595fbf4cb79c570}
+\hypertarget{DynamixelApi_8h_acfbe6394d071e162091d77b3de2c6621}{
+\#define {\bfseries DYNAMIXEL\_\-ERROR\_\-EVENT}~\char`\"{}DYNAMIXEL\_\-ERROR\_\-EVENT\char`\"{}}
+\label{DynamixelApi_8h_acfbe6394d071e162091d77b3de2c6621}
 
-\end{CompactItemize}
+\item 
+\hypertarget{DynamixelApi_8h_a0a423074e48f46782595fbf4cb79c570}{
+\#define {\bfseries DYNAMIXELAPI\_\-H\_\-}}
+\label{DynamixelApi_8h_a0a423074e48f46782595fbf4cb79c570}
+
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{DynamixelApi_8h_b6897e900a579199ecd625ba0cfe642f}{dynamixelApi\_\-setup} (int baud, void($\ast$msgHandler)(char $\ast$, char, char))
+bool \hyperlink{DynamixelApi_8h_ab6897e900a579199ecd625ba0cfe642f}{dynamixelApi\_\-setup} (int baud, void($\ast$msgHandler)(char $\ast$, char, char))
 \item 
-void \hyperlink{DynamixelApi_8h_8c2031767415a16b1f1cf879ae4871ff}{dynamixelApi\_\-setBaud} (int baud)
+void \hyperlink{DynamixelApi_8h_a8c2031767415a16b1f1cf879ae4871ff}{dynamixelApi\_\-setBaud} (int baud)
 \item 
-void \hyperlink{DynamixelApi_8h_15b09934698e22697f08229a80ad062e}{dynamixelApi\_\-setWheelMode} (int actuator, bool wheel)
+void \hyperlink{DynamixelApi_8h_a15b09934698e22697f08229a80ad062e}{dynamixelApi\_\-setWheelMode} (int actuator, bool wheel)
 \item 
-bool \hyperlink{DynamixelApi_8h_c7f45a47df466fb992a0e66c50728375}{dynamixelApi\_\-connect} (int actId)
+bool \hyperlink{DynamixelApi_8h_abf730dca44e1607156658085f546930c}{dynamixelApi\_\-isWheelMode} (int actuator)
 \item 
-int \hyperlink{DynamixelApi_8h_3bcd7c93aa3c0a58f062a60c3315b099}{dynamixelApi\_\-countActuators} ()
+void \hyperlink{DynamixelApi_8h_ac28c8268e6fdd308e6df3c4af84a02e1}{dynamixelApi\_\-setIsLoggingPos} (bool isLogging)
 \item 
-void \hyperlink{DynamixelApi_8h_5124fcc4d473e60ee78025fb8fb98c36}{dynamixelApi\_\-setAngleLimits} (int actuator, int minAngle, int maxAngle)
+bool \hyperlink{DynamixelApi_8h_ac7f45a47df466fb992a0e66c50728375}{dynamixelApi\_\-connect} (int actId)
 \item 
-void \hyperlink{DynamixelApi_8h_18797bb2fef540200067f3d7cccdc90d}{dynamixelApi\_\-setTemperatureLimit} (int actuator, int maxTemperature)
+int \hyperlink{DynamixelApi_8h_a3bcd7c93aa3c0a58f062a60c3315b099}{dynamixelApi\_\-countActuators} ()
 \item 
-void \hyperlink{DynamixelApi_8h_ee7fc1e15724dc61d6b6252734a2ae08}{dynamixelApi\_\-setVoltageLimits} (int actuator, int minVoltage, int maxVoltage)
+void \hyperlink{DynamixelApi_8h_a5124fcc4d473e60ee78025fb8fb98c36}{dynamixelApi\_\-setAngleLimits} (int actuator, int minAngle, int maxAngle)
 \item 
-void \hyperlink{DynamixelApi_8h_b90061bb590c4e21be3303fd369f98c0}{dynamixelApi\_\-setMaxTorque} (int actuator, int maxTorque)
+void \hyperlink{DynamixelApi_8h_a18797bb2fef540200067f3d7cccdc90d}{dynamixelApi\_\-setTemperatureLimit} (int actuator, int maxTemperature)
 \item 
-\hypertarget{DynamixelApi_8h_1707679a4a5d3bd40b14092981c45b74}{
-void \textbf{dynamixelApi\_\-setTorqueEnable} (int actuator, bool enable)}
-\label{DynamixelApi_8h_1707679a4a5d3bd40b14092981c45b74}
+void \hyperlink{DynamixelApi_8h_aee7fc1e15724dc61d6b6252734a2ae08}{dynamixelApi\_\-setVoltageLimits} (int actuator, int minVoltage, int maxVoltage)
+\item 
+void \hyperlink{DynamixelApi_8h_ab90061bb590c4e21be3303fd369f98c0}{dynamixelApi\_\-setMaxTorque} (int actuator, int maxTorque)
+\item 
+\hypertarget{DynamixelApi_8h_a1707679a4a5d3bd40b14092981c45b74}{
+void {\bfseries dynamixelApi\_\-setTorqueEnable} (int actuator, bool enable)}
+\label{DynamixelApi_8h_a1707679a4a5d3bd40b14092981c45b74}
 
 \item 
-\hypertarget{DynamixelApi_8h_3eac0e6bbd1d14c9b86c61031f106aba}{
-void \textbf{dynamixelApi\_\-setLed} (int actuator, bool led)}
-\label{DynamixelApi_8h_3eac0e6bbd1d14c9b86c61031f106aba}
+\hypertarget{DynamixelApi_8h_a3eac0e6bbd1d14c9b86c61031f106aba}{
+void {\bfseries dynamixelApi\_\-setLed} (int actuator, bool led)}
+\label{DynamixelApi_8h_a3eac0e6bbd1d14c9b86c61031f106aba}
 
 \item 
-void \hyperlink{DynamixelApi_8h_d41bfbee31fb85c3fb748987f099e307}{dynamixelApi\_\-setCompliance} (int actuator, char margin, char slope)
+void \hyperlink{DynamixelApi_8h_ad41bfbee31fb85c3fb748987f099e307}{dynamixelApi\_\-setCompliance} (int actuator, char margin, char slope)
 \item 
-void \hyperlink{DynamixelApi_8h_2df20bce80df31ac670b423295b78263}{dynamixelApi\_\-setGoalPos} (int actuator, int pos)
+void \hyperlink{DynamixelApi_8h_a2df20bce80df31ac670b423295b78263}{dynamixelApi\_\-setGoalPos} (int actuator, int pos)
 \item 
-\hypertarget{DynamixelApi_8h_9fb9a1de186923ab3e7fe34dd7531565}{
-void \textbf{dynamixelApi\_\-setMovingSpeed} (int actuator, int speed)}
-\label{DynamixelApi_8h_9fb9a1de186923ab3e7fe34dd7531565}
+\hypertarget{DynamixelApi_8h_a9fb9a1de186923ab3e7fe34dd7531565}{
+void {\bfseries dynamixelApi\_\-setMovingSpeed} (int actuator, int speed)}
+\label{DynamixelApi_8h_a9fb9a1de186923ab3e7fe34dd7531565}
 
 \item 
-\hypertarget{DynamixelApi_8h_6d413c02f41bc72a5053bcaa0da6866c}{
-int \textbf{dynamixelApi\_\-getSpeed} (int actuator)}
-\label{DynamixelApi_8h_6d413c02f41bc72a5053bcaa0da6866c}
+\hypertarget{DynamixelApi_8h_a6d413c02f41bc72a5053bcaa0da6866c}{
+int {\bfseries dynamixelApi\_\-getSpeed} (int actuator)}
+\label{DynamixelApi_8h_a6d413c02f41bc72a5053bcaa0da6866c}
 
 \item 
-\hypertarget{DynamixelApi_8h_cf730d25c487a791f7d5c39b532073ef}{
-void \textbf{dynamixelApi\_\-setTorqueLimit} (int actuator, int maxTorque)}
-\label{DynamixelApi_8h_cf730d25c487a791f7d5c39b532073ef}
+\hypertarget{DynamixelApi_8h_acf730d25c487a791f7d5c39b532073ef}{
+void {\bfseries dynamixelApi\_\-setTorqueLimit} (int actuator, int maxTorque)}
+\label{DynamixelApi_8h_acf730d25c487a791f7d5c39b532073ef}
 
 \item 
-int \hyperlink{DynamixelApi_8h_5c9c554b4fb99d14dbb61e3a1acf01bf}{dynamixelApi\_\-getPosition} (int actuator)
+int \hyperlink{DynamixelApi_8h_a5c9c554b4fb99d14dbb61e3a1acf01bf}{dynamixelApi\_\-getPosition} (int actuator)
 \item 
-\hypertarget{DynamixelApi_8h_055b44ea1b9bf88cff86faa5cd509e7b}{
-int \textbf{dynamixelApi\_\-getLoad} (int actuator)}
-\label{DynamixelApi_8h_055b44ea1b9bf88cff86faa5cd509e7b}
+int \hyperlink{DynamixelApi_8h_a2783e2ed9109e7d0d938e336d2d803d1}{dynamixelApi\_\-getPositionEstimate} (int actuator, bool dir)
+\item 
+\hypertarget{DynamixelApi_8h_a4adb8dc92486da3fa6ad1096bfe21c74}{
+bool {\bfseries dynamixelApi\_\-isAtValidAngle} (int actuator, bool dir)}
+\label{DynamixelApi_8h_a4adb8dc92486da3fa6ad1096bfe21c74}
 
 \item 
-\hypertarget{DynamixelApi_8h_e2d70bc26d5be982b85fef116dbb41a6}{
-int \textbf{dynamixelApi\_\-getVoltage} (int actuator)}
-\label{DynamixelApi_8h_e2d70bc26d5be982b85fef116dbb41a6}
+\hypertarget{DynamixelApi_8h_a055b44ea1b9bf88cff86faa5cd509e7b}{
+int {\bfseries dynamixelApi\_\-getLoad} (int actuator)}
+\label{DynamixelApi_8h_a055b44ea1b9bf88cff86faa5cd509e7b}
 
 \item 
-\hypertarget{DynamixelApi_8h_c6f148e8c2fe71da47b27d3a65c397cd}{
-int \textbf{dynamixelApi\_\-getTemperature} (int actuator)}
-\label{DynamixelApi_8h_c6f148e8c2fe71da47b27d3a65c397cd}
+\hypertarget{DynamixelApi_8h_ae2d70bc26d5be982b85fef116dbb41a6}{
+int {\bfseries dynamixelApi\_\-getVoltage} (int actuator)}
+\label{DynamixelApi_8h_ae2d70bc26d5be982b85fef116dbb41a6}
 
 \item 
-bool \hyperlink{DynamixelApi_8h_35d4797c17e27118be9fb6accfc8a8c4}{dynamixelApi\_\-isMoving} (int actuator)
-\item 
-\hypertarget{DynamixelApi_8h_8dc7f5e57db1f8b929c1e53bc73198c8}{
-void \textbf{dynamixelApi\_\-setPunch} (int actuator, int punch)}
-\label{DynamixelApi_8h_8dc7f5e57db1f8b929c1e53bc73198c8}
+\hypertarget{DynamixelApi_8h_ac6f148e8c2fe71da47b27d3a65c397cd}{
+int {\bfseries dynamixelApi\_\-getTemperature} (int actuator)}
+\label{DynamixelApi_8h_ac6f148e8c2fe71da47b27d3a65c397cd}
 
 \item 
-void \hyperlink{DynamixelApi_8h_2e6c5283ef03d4dbeff611ea868fa113}{dynamixelApi\_\-wheelMove} (int actuator, int torque, bool dir)
+bool \hyperlink{DynamixelApi_8h_a35d4797c17e27118be9fb6accfc8a8c4}{dynamixelApi\_\-isMoving} (int actuator)
 \item 
-float \hyperlink{DynamixelApi_8h_a88a9499d1ae040af13a7bf13b0d59b7}{dynamixelApi\_\-getTime} ()
+\hypertarget{DynamixelApi_8h_a8dc7f5e57db1f8b929c1e53bc73198c8}{
+void {\bfseries dynamixelApi\_\-setPunch} (int actuator, int punch)}
+\label{DynamixelApi_8h_a8dc7f5e57db1f8b929c1e53bc73198c8}
+
 \item 
-long \hyperlink{DynamixelApi_8h_2ddd2e532c10ddfdd8f5e3cd53fa6757}{dynamixelApi\_\-getMsTime} ()
+void \hyperlink{DynamixelApi_8h_a2e6c5283ef03d4dbeff611ea868fa113}{dynamixelApi\_\-wheelMove} (int actuator, int torque, bool dir)
 \item 
-int \hyperlink{DynamixelApi_8h_2060d7c4645a1b7a9faa913d3b36eb21}{dynamixelApi\_\-sendMessage} (char $\ast$message, char messageSize, char connector)
+float \hyperlink{DynamixelApi_8h_aa88a9499d1ae040af13a7bf13b0d59b7}{dynamixelApi\_\-getTime} ()
 \item 
-int \hyperlink{DynamixelApi_8h_e590b3271adf0a1a5b58cbec501d58d7}{dynamixelApi\_\-sendMessageToAll} (char $\ast$message, char messageSize)
+long \hyperlink{DynamixelApi_8h_a2ddd2e532c10ddfdd8f5e3cd53fa6757}{dynamixelApi\_\-getMsTime} ()
 \item 
-int \hyperlink{DynamixelApi_8h_0ff7d9d1eae1d274a89491f50b407435}{dynamixelApi\_\-sendMessageToAllExcept} (char $\ast$message, char messageSize, char except)
+int \hyperlink{DynamixelApi_8h_a2060d7c4645a1b7a9faa913d3b36eb21}{dynamixelApi\_\-sendMessage} (char $\ast$message, char messageSize, char connector)
 \item 
-int \hyperlink{DynamixelApi_8h_1aa9c0cb7ed998edfc419286e9ea847b}{dynamixelApi\_\-getHardwareID} ()
+int \hyperlink{DynamixelApi_8h_ae590b3271adf0a1a5b58cbec501d58d7}{dynamixelApi\_\-sendMessageToAll} (char $\ast$message, char messageSize)
 \item 
-long \hyperlink{DynamixelApi_8h_ad294432f5b45091fbec22070e1e56cf}{dynamixelApi\_\-getRandomSeed} ()
+int \hyperlink{DynamixelApi_8h_a0ff7d9d1eae1d274a89491f50b407435}{dynamixelApi\_\-sendMessageToAllExcept} (char $\ast$message, char messageSize, char except)
 \item 
-void \hyperlink{DynamixelApi_8h_83cd71fb7c42834a767aefbab8a7bf52}{dynamixelApi\_\-terminate} ()
-\end{CompactItemize}
+int \hyperlink{DynamixelApi_8h_a1aa9c0cb7ed998edfc419286e9ea847b}{dynamixelApi\_\-getHardwareID} ()
+\item 
+long \hyperlink{DynamixelApi_8h_aad294432f5b45091fbec22070e1e56cf}{dynamixelApi\_\-getRandomSeed} ()
+\item 
+void \hyperlink{DynamixelApi_8h_a83cd71fb7c42834a767aefbab8a7bf52}{dynamixelApi\_\-terminate} ()
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{DynamixelApi_8h}{DynamixelApi.h} provides an interface for an controller, controlling an number of Dynamixel Actuators
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{DynamixelApi_8h_source}{DynamixelApi.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{DynamixelApi_8h_c7f45a47df466fb992a0e66c50728375}{
+\hypertarget{DynamixelApi_8h_ac7f45a47df466fb992a0e66c50728375}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-connect@{dynamixelApi\_\-connect}}
 \index{dynamixelApi\_\-connect@{dynamixelApi\_\-connect}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool dynamixelApi\_\-connect (int {\em actId})}}
-\label{DynamixelApi_8h_c7f45a47df466fb992a0e66c50728375}
+\subsubsection[{dynamixelApi\_\-connect}]{\setlength{\rightskip}{0pt plus 5cm}bool dynamixelApi\_\-connect (
+\begin{DoxyParamCaption}
+\item[{int}]{actId}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_ac7f45a47df466fb992a0e66c50728375}
+Connect to an dyanmixel actuator with a specific ID 
 
+Definition at line 198 of file DynamixelCM510Api.c.
 
-Connect to an dyanmixel actuator with a specific ID \hypertarget{DynamixelApi_8h_3bcd7c93aa3c0a58f062a60c3315b099}{
+\hypertarget{DynamixelApi_8h_a3bcd7c93aa3c0a58f062a60c3315b099}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-countActuators@{dynamixelApi\_\-countActuators}}
 \index{dynamixelApi\_\-countActuators@{dynamixelApi\_\-countActuators}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-countActuators ()}}
-\label{DynamixelApi_8h_3bcd7c93aa3c0a58f062a60c3315b099}
+\subsubsection[{dynamixelApi\_\-countActuators}]{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-countActuators (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a3bcd7c93aa3c0a58f062a60c3315b099}
+Count the number of dynamixel actuators connected to this controller (index 0...n) 
 
+Definition at line 222 of file DynamixelCM510Api.c.
 
-Count the number of dynamixel actuators connected to this controller (index 0...n) \hypertarget{DynamixelApi_8h_1aa9c0cb7ed998edfc419286e9ea847b}{
+\hypertarget{DynamixelApi_8h_a1aa9c0cb7ed998edfc419286e9ea847b}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-getHardwareID@{dynamixelApi\_\-getHardwareID}}
 \index{dynamixelApi\_\-getHardwareID@{dynamixelApi\_\-getHardwareID}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-getHardwareID ()}}
-\label{DynamixelApi_8h_1aa9c0cb7ed998edfc419286e9ea847b}
+\subsubsection[{dynamixelApi\_\-getHardwareID}]{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-getHardwareID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a1aa9c0cb7ed998edfc419286e9ea847b}
+Get \char`\"{}fixed\char`\"{} hardware ID for this controller 
 
+Definition at line 454 of file DynamixelCM510Api.c.
 
-Get \char`\"{}fixed\char`\"{} hardware ID for this controller \hypertarget{DynamixelApi_8h_2ddd2e532c10ddfdd8f5e3cd53fa6757}{
+\hypertarget{DynamixelApi_8h_a2ddd2e532c10ddfdd8f5e3cd53fa6757}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-getMsTime@{dynamixelApi\_\-getMsTime}}
 \index{dynamixelApi\_\-getMsTime@{dynamixelApi\_\-getMsTime}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long dynamixelApi\_\-getMsTime ()}}
-\label{DynamixelApi_8h_2ddd2e532c10ddfdd8f5e3cd53fa6757}
+\subsubsection[{dynamixelApi\_\-getMsTime}]{\setlength{\rightskip}{0pt plus 5cm}long dynamixelApi\_\-getMsTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a2ddd2e532c10ddfdd8f5e3cd53fa6757}
+Get the current real time in milli seconds since the module was turned on 
 
+Definition at line 435 of file DynamixelCM510Api.c.
 
-Get the current real time in milli seconds since the module was turned on \hypertarget{DynamixelApi_8h_5c9c554b4fb99d14dbb61e3a1acf01bf}{
+\hypertarget{DynamixelApi_8h_a5c9c554b4fb99d14dbb61e3a1acf01bf}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-getPosition@{dynamixelApi\_\-getPosition}}
 \index{dynamixelApi\_\-getPosition@{dynamixelApi\_\-getPosition}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-getPosition (int {\em actuator})}}
-\label{DynamixelApi_8h_5c9c554b4fb99d14dbb61e3a1acf01bf}
+\subsubsection[{dynamixelApi\_\-getPosition}]{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-getPosition (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a5c9c554b4fb99d14dbb61e3a1acf01bf}
+Get the position of the actuator in the interval \mbox{[}0;1024\mbox{]} 
 
+Definition at line 338 of file DynamixelCM510Api.c.
 
-Get the position of the actuator in the interval \mbox{[}0;1024\mbox{]} \hypertarget{DynamixelApi_8h_ad294432f5b45091fbec22070e1e56cf}{
+\hypertarget{DynamixelApi_8h_a2783e2ed9109e7d0d938e336d2d803d1}{
+\index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-getPositionEstimate@{dynamixelApi\_\-getPositionEstimate}}
+\index{dynamixelApi\_\-getPositionEstimate@{dynamixelApi\_\-getPositionEstimate}!DynamixelApi.h@{DynamixelApi.h}}
+\subsubsection[{dynamixelApi\_\-getPositionEstimate}]{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-getPositionEstimate (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{bool}]{dir}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a2783e2ed9109e7d0d938e336d2d803d1}
+Get the full 360 degree position estimate in the interval \mbox{[}0;1193\mbox{]} Note: For wheel mode only 
+
+Definition at line 355 of file DynamixelCM510Api.c.
+
+\hypertarget{DynamixelApi_8h_aad294432f5b45091fbec22070e1e56cf}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-getRandomSeed@{dynamixelApi\_\-getRandomSeed}}
 \index{dynamixelApi\_\-getRandomSeed@{dynamixelApi\_\-getRandomSeed}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long dynamixelApi\_\-getRandomSeed ()}}
-\label{DynamixelApi_8h_ad294432f5b45091fbec22070e1e56cf}
+\subsubsection[{dynamixelApi\_\-getRandomSeed}]{\setlength{\rightskip}{0pt plus 5cm}long dynamixelApi\_\-getRandomSeed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_aad294432f5b45091fbec22070e1e56cf}
+Get a random seed 
 
+Definition at line 458 of file DynamixelCM510Api.c.
 
-Get a random seed \hypertarget{DynamixelApi_8h_a88a9499d1ae040af13a7bf13b0d59b7}{
+\hypertarget{DynamixelApi_8h_aa88a9499d1ae040af13a7bf13b0d59b7}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-getTime@{dynamixelApi\_\-getTime}}
 \index{dynamixelApi\_\-getTime@{dynamixelApi\_\-getTime}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float dynamixelApi\_\-getTime ()}}
-\label{DynamixelApi_8h_a88a9499d1ae040af13a7bf13b0d59b7}
+\subsubsection[{dynamixelApi\_\-getTime}]{\setlength{\rightskip}{0pt plus 5cm}float dynamixelApi\_\-getTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_aa88a9499d1ae040af13a7bf13b0d59b7}
+Get the current real time in seconds since the module was turned on 
 
+Definition at line 431 of file DynamixelCM510Api.c.
 
-Get the current real time in seconds since the module was turned on \hypertarget{DynamixelApi_8h_35d4797c17e27118be9fb6accfc8a8c4}{
+\hypertarget{DynamixelApi_8h_a35d4797c17e27118be9fb6accfc8a8c4}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-isMoving@{dynamixelApi\_\-isMoving}}
 \index{dynamixelApi\_\-isMoving@{dynamixelApi\_\-isMoving}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool dynamixelApi\_\-isMoving (int {\em actuator})}}
-\label{DynamixelApi_8h_35d4797c17e27118be9fb6accfc8a8c4}
+\subsubsection[{dynamixelApi\_\-isMoving}]{\setlength{\rightskip}{0pt plus 5cm}bool dynamixelApi\_\-isMoving (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a35d4797c17e27118be9fb6accfc8a8c4}
+If the specific actuator is currently moving 
 
+Definition at line 411 of file DynamixelCM510Api.c.
 
-If the specific actuator is currently moving \hypertarget{DynamixelApi_8h_2060d7c4645a1b7a9faa913d3b36eb21}{
+\hypertarget{DynamixelApi_8h_abf730dca44e1607156658085f546930c}{
+\index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-isWheelMode@{dynamixelApi\_\-isWheelMode}}
+\index{dynamixelApi\_\-isWheelMode@{dynamixelApi\_\-isWheelMode}!DynamixelApi.h@{DynamixelApi.h}}
+\subsubsection[{dynamixelApi\_\-isWheelMode}]{\setlength{\rightskip}{0pt plus 5cm}bool dynamixelApi\_\-isWheelMode (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_abf730dca44e1607156658085f546930c}
+Is actuator set to be a wheel or not? 
+
+Definition at line 227 of file DynamixelCM510Api.c.
+
+\hypertarget{DynamixelApi_8h_a2060d7c4645a1b7a9faa913d3b36eb21}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-sendMessage@{dynamixelApi\_\-sendMessage}}
 \index{dynamixelApi\_\-sendMessage@{dynamixelApi\_\-sendMessage}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-sendMessage (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em connector})}}
-\label{DynamixelApi_8h_2060d7c4645a1b7a9faa913d3b36eb21}
+\subsubsection[{dynamixelApi\_\-sendMessage}]{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-sendMessage (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message, }
+\item[{char}]{messageSize, }
+\item[{char}]{connector}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a2060d7c4645a1b7a9faa913d3b36eb21}
+Send a message on a given connector 
 
+Definition at line 439 of file DynamixelCM510Api.c.
 
-Send a message on a given connector \hypertarget{DynamixelApi_8h_e590b3271adf0a1a5b58cbec501d58d7}{
+\hypertarget{DynamixelApi_8h_ae590b3271adf0a1a5b58cbec501d58d7}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-sendMessageToAll@{dynamixelApi\_\-sendMessageToAll}}
 \index{dynamixelApi\_\-sendMessageToAll@{dynamixelApi\_\-sendMessageToAll}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-sendMessageToAll (char $\ast$ {\em message}, \/  char {\em messageSize})}}
-\label{DynamixelApi_8h_e590b3271adf0a1a5b58cbec501d58d7}
+\subsubsection[{dynamixelApi\_\-sendMessageToAll}]{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-sendMessageToAll (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message, }
+\item[{char}]{messageSize}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_ae590b3271adf0a1a5b58cbec501d58d7}
+Send a message to all others on the same bus? 
 
+Definition at line 444 of file DynamixelCM510Api.c.
 
-Send a message to all others on the same bus? \hypertarget{DynamixelApi_8h_0ff7d9d1eae1d274a89491f50b407435}{
+\hypertarget{DynamixelApi_8h_a0ff7d9d1eae1d274a89491f50b407435}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-sendMessageToAllExcept@{dynamixelApi\_\-sendMessageToAllExcept}}
 \index{dynamixelApi\_\-sendMessageToAllExcept@{dynamixelApi\_\-sendMessageToAllExcept}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-sendMessageToAllExcept (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em except})}}
-\label{DynamixelApi_8h_0ff7d9d1eae1d274a89491f50b407435}
+\subsubsection[{dynamixelApi\_\-sendMessageToAllExcept}]{\setlength{\rightskip}{0pt plus 5cm}int dynamixelApi\_\-sendMessageToAllExcept (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message, }
+\item[{char}]{messageSize, }
+\item[{char}]{except}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a0ff7d9d1eae1d274a89491f50b407435}
+Send a message to all except one 
 
+Definition at line 449 of file DynamixelCM510Api.c.
 
-Send a message to all except one \hypertarget{DynamixelApi_8h_5124fcc4d473e60ee78025fb8fb98c36}{
+\hypertarget{DynamixelApi_8h_a5124fcc4d473e60ee78025fb8fb98c36}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setAngleLimits@{dynamixelApi\_\-setAngleLimits}}
 \index{dynamixelApi\_\-setAngleLimits@{dynamixelApi\_\-setAngleLimits}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setAngleLimits (int {\em actuator}, \/  int {\em minAngle}, \/  int {\em maxAngle})}}
-\label{DynamixelApi_8h_5124fcc4d473e60ee78025fb8fb98c36}
+\subsubsection[{dynamixelApi\_\-setAngleLimits}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setAngleLimits (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{int}]{minAngle, }
+\item[{int}]{maxAngle}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a5124fcc4d473e60ee78025fb8fb98c36}
+NOTE: Careful writes to EEPROM (limited erase/write cycles) 
 
+Definition at line 244 of file DynamixelCM510Api.c.
 
-NOTE: Careful writes to EEPROM (limited erase/write cycles) \hypertarget{DynamixelApi_8h_8c2031767415a16b1f1cf879ae4871ff}{
+\hypertarget{DynamixelApi_8h_a8c2031767415a16b1f1cf879ae4871ff}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setBaud@{dynamixelApi\_\-setBaud}}
 \index{dynamixelApi\_\-setBaud@{dynamixelApi\_\-setBaud}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setBaud (int {\em baud})}}
-\label{DynamixelApi_8h_8c2031767415a16b1f1cf879ae4871ff}
+\subsubsection[{dynamixelApi\_\-setBaud}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setBaud (
+\begin{DoxyParamCaption}
+\item[{int}]{baud}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a8c2031767415a16b1f1cf879ae4871ff}
+Set baud rate of the Dynamixels (note, not in bps -\/ see dynamixel manual) 
 
+Definition at line 169 of file DynamixelD2UApi.c.
 
-Set baud rate of the Dynamixels (note, not in bps - see dynamixel manual) \hypertarget{DynamixelApi_8h_d41bfbee31fb85c3fb748987f099e307}{
+\hypertarget{DynamixelApi_8h_ad41bfbee31fb85c3fb748987f099e307}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setCompliance@{dynamixelApi\_\-setCompliance}}
 \index{dynamixelApi\_\-setCompliance@{dynamixelApi\_\-setCompliance}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setCompliance (int {\em actuator}, \/  char {\em margin}, \/  char {\em slope})}}
-\label{DynamixelApi_8h_d41bfbee31fb85c3fb748987f099e307}
+\subsubsection[{dynamixelApi\_\-setCompliance}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setCompliance (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{char}]{margin, }
+\item[{char}]{slope}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_ad41bfbee31fb85c3fb748987f099e307}
+Compliance Margin are the areas where output torque is 0. Compliance Slope are the areas where output torque is reduced when they are getting close to Goal Position. slope \mbox{[}1,254\mbox{]} margin \mbox{[}0,254\mbox{]} 
 
+Definition at line 292 of file DynamixelCM510Api.c.
 
-Compliance Margin are the areas where output torque is 0. Compliance Slope are the areas where output torque is reduced when they are getting close to Goal Position. slope \mbox{[}1,254\mbox{]} margin \mbox{[}0,254\mbox{]} \hypertarget{DynamixelApi_8h_2df20bce80df31ac670b423295b78263}{
+\hypertarget{DynamixelApi_8h_a2df20bce80df31ac670b423295b78263}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setGoalPos@{dynamixelApi\_\-setGoalPos}}
 \index{dynamixelApi\_\-setGoalPos@{dynamixelApi\_\-setGoalPos}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setGoalPos (int {\em actuator}, \/  int {\em pos})}}
-\label{DynamixelApi_8h_2df20bce80df31ac670b423295b78263}
+\subsubsection[{dynamixelApi\_\-setGoalPos}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setGoalPos (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a2df20bce80df31ac670b423295b78263}
+Rotate a joint to a specific position \mbox{[}0,1024\mbox{]} 
 
+Definition at line 304 of file DynamixelCM510Api.c.
 
-Rotate a joint to a specific position \mbox{[}0,1024\mbox{]} \hypertarget{DynamixelApi_8h_b90061bb590c4e21be3303fd369f98c0}{
+\hypertarget{DynamixelApi_8h_ac28c8268e6fdd308e6df3c4af84a02e1}{
+\index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setIsLoggingPos@{dynamixelApi\_\-setIsLoggingPos}}
+\index{dynamixelApi\_\-setIsLoggingPos@{dynamixelApi\_\-setIsLoggingPos}!DynamixelApi.h@{DynamixelApi.h}}
+\subsubsection[{dynamixelApi\_\-setIsLoggingPos}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setIsLoggingPos (
+\begin{DoxyParamCaption}
+\item[{bool}]{isLogging}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_ac28c8268e6fdd308e6df3c4af84a02e1}
+Log set position to posLog$\ast$.log 
+
+Definition at line 218 of file DynamixelCM510Api.c.
+
+\hypertarget{DynamixelApi_8h_ab90061bb590c4e21be3303fd369f98c0}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setMaxTorque@{dynamixelApi\_\-setMaxTorque}}
 \index{dynamixelApi\_\-setMaxTorque@{dynamixelApi\_\-setMaxTorque}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setMaxTorque (int {\em actuator}, \/  int {\em maxTorque})}}
-\label{DynamixelApi_8h_b90061bb590c4e21be3303fd369f98c0}
+\subsubsection[{dynamixelApi\_\-setMaxTorque}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setMaxTorque (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{int}]{maxTorque}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_ab90061bb590c4e21be3303fd369f98c0}
+NOTE: Careful writes to EEPROM (limited erase/write cycles) 
 
+Definition at line 270 of file DynamixelCM510Api.c.
 
-NOTE: Careful writes to EEPROM (limited erase/write cycles) \hypertarget{DynamixelApi_8h_18797bb2fef540200067f3d7cccdc90d}{
+\hypertarget{DynamixelApi_8h_a18797bb2fef540200067f3d7cccdc90d}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setTemperatureLimit@{dynamixelApi\_\-setTemperatureLimit}}
 \index{dynamixelApi\_\-setTemperatureLimit@{dynamixelApi\_\-setTemperatureLimit}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setTemperatureLimit (int {\em actuator}, \/  int {\em maxTemperature})}}
-\label{DynamixelApi_8h_18797bb2fef540200067f3d7cccdc90d}
+\subsubsection[{dynamixelApi\_\-setTemperatureLimit}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setTemperatureLimit (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{int}]{maxTemperature}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a18797bb2fef540200067f3d7cccdc90d}
+NOTE: Careful writes to EEPROM (limited erase/write cycles) 
 
+Definition at line 254 of file DynamixelCM510Api.c.
 
-NOTE: Careful writes to EEPROM (limited erase/write cycles) \hypertarget{DynamixelApi_8h_b6897e900a579199ecd625ba0cfe642f}{
+\hypertarget{DynamixelApi_8h_ab6897e900a579199ecd625ba0cfe642f}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setup@{dynamixelApi\_\-setup}}
 \index{dynamixelApi\_\-setup@{dynamixelApi\_\-setup}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool dynamixelApi\_\-setup (int {\em baud}, \/  void($\ast$)(char $\ast$, char, char) {\em msgHandler})}}
-\label{DynamixelApi_8h_b6897e900a579199ecd625ba0cfe642f}
+\subsubsection[{dynamixelApi\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}bool dynamixelApi\_\-setup (
+\begin{DoxyParamCaption}
+\item[{int}]{baud, }
+\item[{void($\ast$)(char $\ast$, char, char)}]{msgHandler}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_ab6897e900a579199ecd625ba0cfe642f}
+Setup actuators 
 
+Definition at line 170 of file DynamixelCM510Api.c.
 
-Setup actuators \hypertarget{DynamixelApi_8h_ee7fc1e15724dc61d6b6252734a2ae08}{
+\hypertarget{DynamixelApi_8h_aee7fc1e15724dc61d6b6252734a2ae08}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setVoltageLimits@{dynamixelApi\_\-setVoltageLimits}}
 \index{dynamixelApi\_\-setVoltageLimits@{dynamixelApi\_\-setVoltageLimits}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setVoltageLimits (int {\em actuator}, \/  int {\em minVoltage}, \/  int {\em maxVoltage})}}
-\label{DynamixelApi_8h_ee7fc1e15724dc61d6b6252734a2ae08}
+\subsubsection[{dynamixelApi\_\-setVoltageLimits}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setVoltageLimits (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{int}]{minVoltage, }
+\item[{int}]{maxVoltage}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_aee7fc1e15724dc61d6b6252734a2ae08}
+NOTE: Careful writes to EEPROM (limited erase/write cycles) 
 
+Definition at line 261 of file DynamixelCM510Api.c.
 
-NOTE: Careful writes to EEPROM (limited erase/write cycles) \hypertarget{DynamixelApi_8h_15b09934698e22697f08229a80ad062e}{
+\hypertarget{DynamixelApi_8h_a15b09934698e22697f08229a80ad062e}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-setWheelMode@{dynamixelApi\_\-setWheelMode}}
 \index{dynamixelApi\_\-setWheelMode@{dynamixelApi\_\-setWheelMode}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setWheelMode (int {\em actuator}, \/  bool {\em wheel})}}
-\label{DynamixelApi_8h_15b09934698e22697f08229a80ad062e}
+\subsubsection[{dynamixelApi\_\-setWheelMode}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-setWheelMode (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{bool}]{wheel}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a15b09934698e22697f08229a80ad062e}
+Set if actuator is in wheel mode (unlimited rotation) or in Joint mode (0 to 300 degrees controlled rotation) 
 
+Definition at line 231 of file DynamixelCM510Api.c.
 
-Set if actuator is in wheel mode (unlimited rotation) or in Joint mode (0 to 300 degrees controlled rotation) \hypertarget{DynamixelApi_8h_83cd71fb7c42834a767aefbab8a7bf52}{
+\hypertarget{DynamixelApi_8h_a83cd71fb7c42834a767aefbab8a7bf52}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-terminate@{dynamixelApi\_\-terminate}}
 \index{dynamixelApi\_\-terminate@{dynamixelApi\_\-terminate}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-terminate ()}}
-\label{DynamixelApi_8h_83cd71fb7c42834a767aefbab8a7bf52}
+\subsubsection[{dynamixelApi\_\-terminate}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-terminate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a83cd71fb7c42834a767aefbab8a7bf52}
+Terminate connection to dynamixel actuators 
 
+Definition at line 463 of file DynamixelCM510Api.c.
 
-Terminate connection to dynamixel actuators \hypertarget{DynamixelApi_8h_2e6c5283ef03d4dbeff611ea868fa113}{
+\hypertarget{DynamixelApi_8h_a2e6c5283ef03d4dbeff611ea868fa113}{
 \index{DynamixelApi.h@{DynamixelApi.h}!dynamixelApi\_\-wheelMove@{dynamixelApi\_\-wheelMove}}
 \index{dynamixelApi\_\-wheelMove@{dynamixelApi\_\-wheelMove}!DynamixelApi.h@{DynamixelApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-wheelMove (int {\em actuator}, \/  int {\em torque}, \/  bool {\em dir})}}
-\label{DynamixelApi_8h_2e6c5283ef03d4dbeff611ea868fa113}
-
-
+\subsubsection[{dynamixelApi\_\-wheelMove}]{\setlength{\rightskip}{0pt plus 5cm}void dynamixelApi\_\-wheelMove (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator, }
+\item[{int}]{torque, }
+\item[{bool}]{dir}
+\end{DoxyParamCaption}
+)}}
+\label{DynamixelApi_8h_a2e6c5283ef03d4dbeff611ea868fa113}
 Rotate the main joint continuously in the given direction. 
+
+Definition at line 423 of file DynamixelCM510Api.c.
+

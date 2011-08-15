@@ -1,195 +1,313 @@
 \hypertarget{RoombotApi_8h}{
-\section{/home/david/ASE/src/targets/roombot/roombot-webots/RoombotApi.h File Reference}
-\label{RoombotApi_8h}\index{/home/david/ASE/src/targets/roombot/roombot-webots/RoombotApi.h@{/home/david/ASE/src/targets/roombot/roombot-webots/RoombotApi.h}}
+\section{RoombotApi.h File Reference}
+\label{RoombotApi_8h}\index{RoombotApi.h@{RoombotApi.h}}
 }
-{\tt \#include $<$webots/robot.h$>$}\par
+{\ttfamily \#include $<$webots/robot.h$>$}\par
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{RoombotApi_8h_b8429449b16ac6f6cb25714d697b8f89}{roombotApi\_\-init} (void($\ast$handler)(char $\ast$, char, char))
+void \hyperlink{RoombotApi_8h_ab8429449b16ac6f6cb25714d697b8f89}{roombotApi\_\-init} (void($\ast$handler)(char $\ast$, char, char))
 \item 
-void \hyperlink{RoombotApi_8h_cc55c939066b123cefc062bd4c717b6e}{roombotApi\_\-connect} (int connectorID)
+void \hyperlink{RoombotApi_8h_acc55c939066b123cefc062bd4c717b6e}{roombotApi\_\-connect} (int connectorID)
 \item 
-void \hyperlink{RoombotApi_8h_437e7e0271b532fb9e036aefc59df188}{roombotApi\_\-disconnect} (int connectorID)
+void \hyperlink{RoombotApi_8h_a437e7e0271b532fb9e036aefc59df188}{roombotApi\_\-disconnect} (int connectorID)
 \item 
-int \hyperlink{RoombotApi_8h_316d949c3e73b3cdbda40bd1878a7d50}{roombotApi\_\-isConnected} (int connectorID)
+int \hyperlink{RoombotApi_8h_a316d949c3e73b3cdbda40bd1878a7d50}{roombotApi\_\-isConnected} (int connectorID)
 \item 
-int \hyperlink{RoombotApi_8h_6d1953a24103e6c12d5794a62dc3b7dd}{roombotApi\_\-getConnectorPresence} (int connectorID)
+int \hyperlink{RoombotApi_8h_a6d1953a24103e6c12d5794a62dc3b7dd}{roombotApi\_\-getConnectorPresence} (int connectorID)
 \item 
-double \hyperlink{RoombotApi_8h_a16cacb2bcf45444fba5b8368510b101}{roombotApi\_\-getServoPosition} (int servoID)
+double \hyperlink{RoombotApi_8h_aa16cacb2bcf45444fba5b8368510b101}{roombotApi\_\-getServoPosition} (int servoID)
 \item 
-void \hyperlink{RoombotApi_8h_929da0f93b13ae0c31a1371e06d133bc}{roombotApi\_\-setServoPosition} (int servoID, double goal)
+void \hyperlink{RoombotApi_8h_a929da0f93b13ae0c31a1371e06d133bc}{roombotApi\_\-setServoPosition} (int servoID, double goal)
 \item 
-void \hyperlink{RoombotApi_8h_614aad6d05afc6e989728c7d15b64e76}{roombotApi\_\-sendMessage} (char $\ast$msg, int length, int channel)
+void \hyperlink{RoombotApi_8h_a614aad6d05afc6e989728c7d15b64e76}{roombotApi\_\-sendMessage} (char $\ast$msg, int length, int channel)
 \item 
-void \hyperlink{RoombotApi_8h_3ab90b531a04ac7a26647838a881eae5}{roombotApi\_\-sendMessageToAll} (char $\ast$msg, int length)
+void \hyperlink{RoombotApi_8h_a3ab90b531a04ac7a26647838a881eae5}{roombotApi\_\-sendMessageToAll} (char $\ast$msg, int length)
 \item 
-void \hyperlink{RoombotApi_8h_ea11b23768dacee3958e205daed3c56c}{roombotApi\_\-setMessageHandler} (void($\ast$handler)(char $\ast$, char, char))
+void \hyperlink{RoombotApi_8h_aea11b23768dacee3958e205daed3c56c}{roombotApi\_\-setMessageHandler} (void($\ast$handler)(char $\ast$, char, char))
 \item 
-int \hyperlink{RoombotApi_8h_890a476a75af7f5a94d61e4c94e6685e}{roombotApi\_\-checkForEvents} ()
+int \hyperlink{RoombotApi_8h_a890a476a75af7f5a94d61e4c94e6685e}{roombotApi\_\-checkForEvents} ()
 \item 
-double \hyperlink{RoombotApi_8h_51ce7fd6cf789f0be278710eb4aec51d}{roombotApi\_\-getLocalTime} ()
+double \hyperlink{RoombotApi_8h_a51ce7fd6cf789f0be278710eb4aec51d}{roombotApi\_\-getLocalTime} ()
 \item 
-long \hyperlink{RoombotApi_8h_a3c354c2c9293ec5c904d8b9c950a600}{roombotApi\_\-getLocalMsTime} ()
+long \hyperlink{RoombotApi_8h_aa3c354c2c9293ec5c904d8b9c950a600}{roombotApi\_\-getLocalMsTime} ()
 \item 
-long \hyperlink{RoombotApi_8h_89f255c0c0869d4e07a45e0bea706287}{roombotApi\_\-getRandomSeed} ()
+long \hyperlink{RoombotApi_8h_a89f255c0c0869d4e07a45e0bea706287}{roombotApi\_\-getRandomSeed} ()
 \item 
-int \hyperlink{RoombotApi_8h_eda933fbe6eb29f7c21e9e3006f45e1d}{roombotApi\_\-getID} ()
+int \hyperlink{RoombotApi_8h_aeda933fbe6eb29f7c21e9e3006f45e1d}{roombotApi\_\-getID} ()
 \item 
-void \hyperlink{RoombotApi_8h_d9de3fd7561cb52f9cb9a004040b6240}{roombotApi\_\-runTestProgram} ()
+void \hyperlink{RoombotApi_8h_ad9de3fd7561cb52f9cb9a004040b6240}{roombotApi\_\-runTestProgram} ()
 \item 
-float \hyperlink{RoombotApi_8h_16e3bf0340bd415f873b29010c32b93f}{roombotApi\_\-getEnergyConsumed} ()
+float \hyperlink{RoombotApi_8h_a16e3bf0340bd415f873b29010c32b93f}{roombotApi\_\-getEnergyConsumed} ()
 \item 
-double \hyperlink{RoombotApi_8h_7df3191ac65baf836b40a4f6ac315f31}{roombotApi\_\-getAccelerometerValue} (int axis)
-\end{CompactItemize}
+double \hyperlink{RoombotApi_8h_a7df3191ac65baf836b40a4f6ac315f31}{roombotApi\_\-getAccelerometerValue} (int axis)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 This is an Webots based API for Roombot which should be transferable to the real modules. It abstracts away Webot specific details and provides a clean C interface to controlling a module.
 
-The following notation is used for mapping the Webot tags to integer IDs:\begin{itemize}
-\item Connectors have index 0...9 (starting from C0X,COY,COZ,C1X,...,C3Z)\item IR communication channels index: 0...9 and corrosponds to the connectors\item Radio communication channel have index 10\item Actuators have index s1=0, m1=1, s2=2\end{itemize}
-
+The following notation is used for mapping the Webot tags to integer IDs:
+\begin{DoxyItemize}
+\item Connectors have index 0...9 (starting from C0X,COY,COZ,C1X,...,C3Z)
+\item IR communication channels index: 0...9 and corrosponds to the connectors
+\item Radio communication channel have index 10
+\item Actuators have index s1=0, m1=1, s2=2
+\end{DoxyItemize}
 
 Further it is assumed that the modules name in webots is on the form \char`\"{}module\_\-X\char`\"{} where X is a unique hardware ID of the module.
 
-\begin{Desc}
-\item[See also:]AbstractModuleApi.h\end{Desc}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{AbstractModuleApi_8h}{AbstractModuleApi.h}
+\end{DoxySeeAlso}
 Created on: July, 2009
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{RoombotApi_8h_source}{RoombotApi.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{RoombotApi_8h_890a476a75af7f5a94d61e4c94e6685e}{
+\hypertarget{RoombotApi_8h_a890a476a75af7f5a94d61e4c94e6685e}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-checkForEvents@{roombotApi\_\-checkForEvents}}
 \index{roombotApi\_\-checkForEvents@{roombotApi\_\-checkForEvents}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-checkForEvents ()}}
-\label{RoombotApi_8h_890a476a75af7f5a94d61e4c94e6685e}
+\subsubsection[{roombotApi\_\-checkForEvents}]{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-checkForEvents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a890a476a75af7f5a94d61e4c94e6685e}
+Checks for new messages, must be called often (every step) 
 
+Definition at line 193 of file RoombotApi.c.
 
-Checks for new messages, must be called often (every step) \hypertarget{RoombotApi_8h_cc55c939066b123cefc062bd4c717b6e}{
+\hypertarget{RoombotApi_8h_acc55c939066b123cefc062bd4c717b6e}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-connect@{roombotApi\_\-connect}}
 \index{roombotApi\_\-connect@{roombotApi\_\-connect}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-connect (int {\em connectorID})}}
-\label{RoombotApi_8h_cc55c939066b123cefc062bd4c717b6e}
+\subsubsection[{roombotApi\_\-connect}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-connect (
+\begin{DoxyParamCaption}
+\item[{int}]{connectorID}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_acc55c939066b123cefc062bd4c717b6e}
+Connect connector with ID connectorID 
 
+Definition at line 93 of file RoombotApi.c.
 
-Connect connector with ID connectorID \hypertarget{RoombotApi_8h_437e7e0271b532fb9e036aefc59df188}{
+\hypertarget{RoombotApi_8h_a437e7e0271b532fb9e036aefc59df188}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-disconnect@{roombotApi\_\-disconnect}}
 \index{roombotApi\_\-disconnect@{roombotApi\_\-disconnect}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-disconnect (int {\em connectorID})}}
-\label{RoombotApi_8h_437e7e0271b532fb9e036aefc59df188}
+\subsubsection[{roombotApi\_\-disconnect}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-disconnect (
+\begin{DoxyParamCaption}
+\item[{int}]{connectorID}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a437e7e0271b532fb9e036aefc59df188}
+Disconnect connector with ID connectorID 
 
+Definition at line 97 of file RoombotApi.c.
 
-Disconnect connector with ID connectorID \hypertarget{RoombotApi_8h_7df3191ac65baf836b40a4f6ac315f31}{
+\hypertarget{RoombotApi_8h_a7df3191ac65baf836b40a4f6ac315f31}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getAccelerometerValue@{roombotApi\_\-getAccelerometerValue}}
 \index{roombotApi\_\-getAccelerometerValue@{roombotApi\_\-getAccelerometerValue}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double roombotApi\_\-getAccelerometerValue (int {\em axis})}}
-\label{RoombotApi_8h_7df3191ac65baf836b40a4f6ac315f31}
+\subsubsection[{roombotApi\_\-getAccelerometerValue}]{\setlength{\rightskip}{0pt plus 5cm}double roombotApi\_\-getAccelerometerValue (
+\begin{DoxyParamCaption}
+\item[{int}]{axis}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a7df3191ac65baf836b40a4f6ac315f31}
+Get acceleration on a given axis 
 
+Definition at line 112 of file RoombotApi.c.
 
-Get acceleration on a given axis \hypertarget{RoombotApi_8h_6d1953a24103e6c12d5794a62dc3b7dd}{
+\hypertarget{RoombotApi_8h_a6d1953a24103e6c12d5794a62dc3b7dd}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getConnectorPresence@{roombotApi\_\-getConnectorPresence}}
 \index{roombotApi\_\-getConnectorPresence@{roombotApi\_\-getConnectorPresence}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-getConnectorPresence (int {\em connectorID})}}
-\label{RoombotApi_8h_6d1953a24103e6c12d5794a62dc3b7dd}
+\subsubsection[{roombotApi\_\-getConnectorPresence}]{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-getConnectorPresence (
+\begin{DoxyParamCaption}
+\item[{int}]{connectorID}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a6d1953a24103e6c12d5794a62dc3b7dd}
+If another connnector on another module is nearby the specific connector 
 
+Definition at line 101 of file RoombotApi.c.
 
-If another connnector on another module is nearby the specific connector \hypertarget{RoombotApi_8h_16e3bf0340bd415f873b29010c32b93f}{
+\hypertarget{RoombotApi_8h_a16e3bf0340bd415f873b29010c32b93f}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getEnergyConsumed@{roombotApi\_\-getEnergyConsumed}}
 \index{roombotApi\_\-getEnergyConsumed@{roombotApi\_\-getEnergyConsumed}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float roombotApi\_\-getEnergyConsumed ()}}
-\label{RoombotApi_8h_16e3bf0340bd415f873b29010c32b93f}
+\subsubsection[{roombotApi\_\-getEnergyConsumed}]{\setlength{\rightskip}{0pt plus 5cm}float roombotApi\_\-getEnergyConsumed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a16e3bf0340bd415f873b29010c32b93f}
+Get an estimate of the energy consumed by actuators since the module were started. Disclamer: very uncertain 
 
+Definition at line 180 of file RoombotApi.c.
 
-Get an estimate of the energy consumed by actuators since the module were started. Disclamer: very uncertain \hypertarget{RoombotApi_8h_eda933fbe6eb29f7c21e9e3006f45e1d}{
+\hypertarget{RoombotApi_8h_aeda933fbe6eb29f7c21e9e3006f45e1d}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getID@{roombotApi\_\-getID}}
 \index{roombotApi\_\-getID@{roombotApi\_\-getID}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-getID ()}}
-\label{RoombotApi_8h_eda933fbe6eb29f7c21e9e3006f45e1d}
+\subsubsection[{roombotApi\_\-getID}]{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-getID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_aeda933fbe6eb29f7c21e9e3006f45e1d}
+Get the hardware ID of the module 
 
+Definition at line 155 of file RoombotApi.c.
 
-Get the hardware ID of the module \hypertarget{RoombotApi_8h_a3c354c2c9293ec5c904d8b9c950a600}{
+\hypertarget{RoombotApi_8h_aa3c354c2c9293ec5c904d8b9c950a600}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getLocalMsTime@{roombotApi\_\-getLocalMsTime}}
 \index{roombotApi\_\-getLocalMsTime@{roombotApi\_\-getLocalMsTime}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long roombotApi\_\-getLocalMsTime ()}}
-\label{RoombotApi_8h_a3c354c2c9293ec5c904d8b9c950a600}
+\subsubsection[{roombotApi\_\-getLocalMsTime}]{\setlength{\rightskip}{0pt plus 5cm}long roombotApi\_\-getLocalMsTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_aa3c354c2c9293ec5c904d8b9c950a600}
+Get the time (in milli-\/seconds) since the module were started. Not will be different on different modules (at least in hardware) 
 
+Definition at line 145 of file RoombotApi.c.
 
-Get the time (in milli-seconds) since the module were started. Not will be different on different modules (at least in hardware) \hypertarget{RoombotApi_8h_51ce7fd6cf789f0be278710eb4aec51d}{
+\hypertarget{RoombotApi_8h_a51ce7fd6cf789f0be278710eb4aec51d}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getLocalTime@{roombotApi\_\-getLocalTime}}
 \index{roombotApi\_\-getLocalTime@{roombotApi\_\-getLocalTime}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double roombotApi\_\-getLocalTime ()}}
-\label{RoombotApi_8h_51ce7fd6cf789f0be278710eb4aec51d}
+\subsubsection[{roombotApi\_\-getLocalTime}]{\setlength{\rightskip}{0pt plus 5cm}double roombotApi\_\-getLocalTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a51ce7fd6cf789f0be278710eb4aec51d}
+Get the time (in seconds) since the module were started. Not will be different on different modules (at least in hardware) 
 
+Definition at line 141 of file RoombotApi.c.
 
-Get the time (in seconds) since the module were started. Not will be different on different modules (at least in hardware) \hypertarget{RoombotApi_8h_89f255c0c0869d4e07a45e0bea706287}{
+\hypertarget{RoombotApi_8h_a89f255c0c0869d4e07a45e0bea706287}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getRandomSeed@{roombotApi\_\-getRandomSeed}}
 \index{roombotApi\_\-getRandomSeed@{roombotApi\_\-getRandomSeed}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long roombotApi\_\-getRandomSeed ()}}
-\label{RoombotApi_8h_89f255c0c0869d4e07a45e0bea706287}
+\subsubsection[{roombotApi\_\-getRandomSeed}]{\setlength{\rightskip}{0pt plus 5cm}long roombotApi\_\-getRandomSeed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a89f255c0c0869d4e07a45e0bea706287}
+Get a random seed which is different on each module 
 
+Definition at line 149 of file RoombotApi.c.
 
-Get a random seed which is different on each module \hypertarget{RoombotApi_8h_a16cacb2bcf45444fba5b8368510b101}{
+\hypertarget{RoombotApi_8h_aa16cacb2bcf45444fba5b8368510b101}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-getServoPosition@{roombotApi\_\-getServoPosition}}
 \index{roombotApi\_\-getServoPosition@{roombotApi\_\-getServoPosition}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double roombotApi\_\-getServoPosition (int {\em servoID})}}
-\label{RoombotApi_8h_a16cacb2bcf45444fba5b8368510b101}
+\subsubsection[{roombotApi\_\-getServoPosition}]{\setlength{\rightskip}{0pt plus 5cm}double roombotApi\_\-getServoPosition (
+\begin{DoxyParamCaption}
+\item[{int}]{servoID}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_aa16cacb2bcf45444fba5b8368510b101}
+Get position of the actuator with id \mbox{[}0,1,2\mbox{]} 
 
+Definition at line 105 of file RoombotApi.c.
 
-Get position of the actuator with id \mbox{[}0,1,2\mbox{]} \hypertarget{RoombotApi_8h_b8429449b16ac6f6cb25714d697b8f89}{
+\hypertarget{RoombotApi_8h_ab8429449b16ac6f6cb25714d697b8f89}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-init@{roombotApi\_\-init}}
 \index{roombotApi\_\-init@{roombotApi\_\-init}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-init (void($\ast$)(char $\ast$, char, char) {\em handler})}}
-\label{RoombotApi_8h_b8429449b16ac6f6cb25714d697b8f89}
+\subsubsection[{roombotApi\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-init (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(char $\ast$, char, char)}]{handler}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_ab8429449b16ac6f6cb25714d697b8f89}
+Initilizes the API 
 
+Definition at line 204 of file RoombotApi.c.
 
-Initilizes the API \hypertarget{RoombotApi_8h_316d949c3e73b3cdbda40bd1878a7d50}{
+\hypertarget{RoombotApi_8h_a316d949c3e73b3cdbda40bd1878a7d50}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-isConnected@{roombotApi\_\-isConnected}}
 \index{roombotApi\_\-isConnected@{roombotApi\_\-isConnected}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-isConnected (int {\em connectorID})}}
-\label{RoombotApi_8h_316d949c3e73b3cdbda40bd1878a7d50}
+\subsubsection[{roombotApi\_\-isConnected}]{\setlength{\rightskip}{0pt plus 5cm}int roombotApi\_\-isConnected (
+\begin{DoxyParamCaption}
+\item[{int}]{connectorID}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a316d949c3e73b3cdbda40bd1878a7d50}
+If the module is connected on a specific connector 
 
+Definition at line 87 of file RoombotApi.c.
 
-If the module is connected on a specific connector \hypertarget{RoombotApi_8h_d9de3fd7561cb52f9cb9a004040b6240}{
+\hypertarget{RoombotApi_8h_ad9de3fd7561cb52f9cb9a004040b6240}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-runTestProgram@{roombotApi\_\-runTestProgram}}
 \index{roombotApi\_\-runTestProgram@{roombotApi\_\-runTestProgram}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-runTestProgram ()}}
-\label{RoombotApi_8h_d9de3fd7561cb52f9cb9a004040b6240}
+\subsubsection[{roombotApi\_\-runTestProgram}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-runTestProgram (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_ad9de3fd7561cb52f9cb9a004040b6240}
+Run a test program, testing this API 
 
+Definition at line 213 of file RoombotApi.c.
 
-Run a test program, testing this API \hypertarget{RoombotApi_8h_614aad6d05afc6e989728c7d15b64e76}{
+\hypertarget{RoombotApi_8h_a614aad6d05afc6e989728c7d15b64e76}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-sendMessage@{roombotApi\_\-sendMessage}}
 \index{roombotApi\_\-sendMessage@{roombotApi\_\-sendMessage}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-sendMessage (char $\ast$ {\em msg}, \/  int {\em length}, \/  int {\em channel})}}
-\label{RoombotApi_8h_614aad6d05afc6e989728c7d15b64e76}
+\subsubsection[{roombotApi\_\-sendMessage}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-sendMessage (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{int}]{length, }
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a614aad6d05afc6e989728c7d15b64e76}
+Send a message on a given communication channel IR(0-\/9) Wifi (10) 
 
+Definition at line 116 of file RoombotApi.c.
 
-Send a message on a given communication channel IR(0-9) Wifi (10) \hypertarget{RoombotApi_8h_3ab90b531a04ac7a26647838a881eae5}{
+\hypertarget{RoombotApi_8h_a3ab90b531a04ac7a26647838a881eae5}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-sendMessageToAll@{roombotApi\_\-sendMessageToAll}}
 \index{roombotApi\_\-sendMessageToAll@{roombotApi\_\-sendMessageToAll}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-sendMessageToAll (char $\ast$ {\em msg}, \/  int {\em length})}}
-\label{RoombotApi_8h_3ab90b531a04ac7a26647838a881eae5}
+\subsubsection[{roombotApi\_\-sendMessageToAll}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-sendMessageToAll (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a3ab90b531a04ac7a26647838a881eae5}
+Send the same message to all neighbor channels IR (0-\/9)
 
+Note: this method only sends to neighbors (not all in robot) 
 
-Send the same message to all neighbor channels IR (0-9)
+Definition at line 134 of file RoombotApi.c.
 
-Note: this method only sends to neighbors (not all in robot) \hypertarget{RoombotApi_8h_ea11b23768dacee3958e205daed3c56c}{
+\hypertarget{RoombotApi_8h_aea11b23768dacee3958e205daed3c56c}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-setMessageHandler@{roombotApi\_\-setMessageHandler}}
 \index{roombotApi\_\-setMessageHandler@{roombotApi\_\-setMessageHandler}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-setMessageHandler (void($\ast$)(char $\ast$, char, char) {\em handler})}}
-\label{RoombotApi_8h_ea11b23768dacee3958e205daed3c56c}
-
-
-Set the callback function which will be called each time a message is received \hypertarget{RoombotApi_8h_929da0f93b13ae0c31a1371e06d133bc}{
+\subsubsection[{roombotApi\_\-setMessageHandler}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-setMessageHandler (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(char $\ast$, char, char)}]{handler}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_aea11b23768dacee3958e205daed3c56c}
+Set the callback function which will be called each time a message is received \hypertarget{RoombotApi_8h_a929da0f93b13ae0c31a1371e06d133bc}{
 \index{RoombotApi.h@{RoombotApi.h}!roombotApi\_\-setServoPosition@{roombotApi\_\-setServoPosition}}
 \index{roombotApi\_\-setServoPosition@{roombotApi\_\-setServoPosition}!RoombotApi.h@{RoombotApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-setServoPosition (int {\em servoID}, \/  double {\em goal})}}
-\label{RoombotApi_8h_929da0f93b13ae0c31a1371e06d133bc}
+\subsubsection[{roombotApi\_\-setServoPosition}]{\setlength{\rightskip}{0pt plus 5cm}void roombotApi\_\-setServoPosition (
+\begin{DoxyParamCaption}
+\item[{int}]{servoID, }
+\item[{double}]{goal}
+\end{DoxyParamCaption}
+)}}
+\label{RoombotApi_8h_a929da0f93b13ae0c31a1371e06d133bc}
+Set the position that the underlying p-\/controller will move the actuator towards 
 
+Definition at line 109 of file RoombotApi.c.
 
-Set the position that the underlying p-controller will move the actuator towards 

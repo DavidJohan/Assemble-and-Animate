@@ -1,31 +1,47 @@
 \hypertarget{RK4_8h}{
-\section{/home/david/ASE/src/tools/Runge-Kutta/RK4.h File Reference}
-\label{RK4_8h}\index{/home/david/ASE/src/tools/Runge-Kutta/RK4.h@{/home/david/ASE/src/tools/Runge-Kutta/RK4.h}}
+\section{RK4.h File Reference}
+\label{RK4_8h}\index{RK4.h@{RK4.h}}
 }
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-float \hyperlink{RK4_8h_ce9cec76c965bb3842d09b0a45bfe1af}{RK4\_\-itterate} (float t, float y, float h, void $\ast$params, float($\ast$function)(float, float, void $\ast$))
-\end{CompactItemize}
+float \hyperlink{RK4_8h_ace9cec76c965bb3842d09b0a45bfe1af}{RK4\_\-itterate} (float t, float y, float h, void $\ast$params, float($\ast$function)(float, float, void $\ast$))
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{RK4_8h}{RK4.h} provides the Runge-Kutta (RTK4) method for numerical solving of differential equations. It is used by \hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h}
+\hyperlink{RK4_8h}{RK4.h} provides the Runge-\/Kutta (RTK4) method for numerical solving of differential equations. It is used by \hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h}
 
-\begin{Desc}
-\item[Date:]July 3, 2009 \end{Desc}
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyDate}{Date}
+July 3, 2009 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{RK4_8h_source}{RK4.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{RK4_8h_ce9cec76c965bb3842d09b0a45bfe1af}{
+\hypertarget{RK4_8h_ace9cec76c965bb3842d09b0a45bfe1af}{
 \index{RK4.h@{RK4.h}!RK4\_\-itterate@{RK4\_\-itterate}}
 \index{RK4\_\-itterate@{RK4\_\-itterate}!RK4.h@{RK4.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float RK4\_\-itterate (float {\em t}, \/  float {\em y}, \/  float {\em h}, \/  void $\ast$ {\em params}, \/  float($\ast$)(float, float, void $\ast$) {\em function})}}
-\label{RK4_8h_ce9cec76c965bb3842d09b0a45bfe1af}
+\subsubsection[{RK4\_\-itterate}]{\setlength{\rightskip}{0pt plus 5cm}float RK4\_\-itterate (
+\begin{DoxyParamCaption}
+\item[{float}]{t, }
+\item[{float}]{y, }
+\item[{float}]{h, }
+\item[{void $\ast$}]{params, }
+\item[{float($\ast$)(float, float, void $\ast$)}]{function}
+\end{DoxyParamCaption}
+)}}
+\label{RK4_8h_ace9cec76c965bb3842d09b0a45bfe1af}
+Computes an estimation of y(t+h) given y(t) by using the Runge-\/Kutta (RTK4) method. Needed parameters are: time t, estimation of y(t), a step size h, a function pointer to compute y'(t, y, $\ast$params). Use a void pointer to pass other parameters to call-\/back function. 
 
+Definition at line 4 of file RK4.c.
 
-Computes an estimation of y(t+h) given y(t) by using the Runge-Kutta (RTK4) method. Needed parameters are: time t, estimation of y(t), a step size h, a function pointer to compute y'(t, y, $\ast$params). Use a void pointer to pass other parameters to call-back function. 

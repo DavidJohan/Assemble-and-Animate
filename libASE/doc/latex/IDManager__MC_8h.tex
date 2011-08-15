@@ -1,33 +1,45 @@
 \hypertarget{IDManager__MC_8h}{
-\section{/home/david/ASE/src/control/behaviors/generic/IDManager\_\-MC/IDManager\_\-MC.h File Reference}
-\label{IDManager__MC_8h}\index{/home/david/ASE/src/control/behaviors/generic/IDManager\_\-MC/IDManager\_\-MC.h@{/home/david/ASE/src/control/behaviors/generic/IDManager\_\-MC/IDManager\_\-MC.h}}
+\section{IDManager\_\-MC.h File Reference}
+\label{IDManager__MC_8h}\index{IDManager\_\-MC.h@{IDManager\_\-MC.h}}
 }
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{IDManager__MC_8h_140d7a5d2fc6cf21f23fa924b1fde713}{IDManager\_\-MC\_\-init} ()
-\end{CompactItemize}
+void \hyperlink{IDManager__MC_8h_a140d7a5d2fc6cf21f23fa924b1fde713}{IDManager\_\-MC\_\-init} ()
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{IDManager__MC_8h}{IDManager\_\-MC.h} enables a remote PC running ModularCommander to set a sofware ID on modules, by making the mapping hardwareID-$>$softwareID. This is done in a transparent way from the application.
+\hyperlink{IDManager__MC_8h}{IDManager\_\-MC.h} enables a remote PC running ModularCommander to set a sofware ID on modules, by making the mapping hardwareID-\/$>$softwareID. This is done in a transparent way from the application.
 
-\begin{Desc}
-\item[See also:]\hyperlink{IDContainer_8h}{IDContainer.h} 
+\begin{DoxySeeAlso}{See also}
+\hyperlink{IDContainer_8h}{IDContainer.h} 
 
-\hyperlink{MCManager_8h}{MCManager.h} \end{Desc}
-\begin{Desc}
-\item[Date:]June 11, 2009 \end{Desc}
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
+\hyperlink{MCManager_8h}{MCManager.h} 
+\end{DoxySeeAlso}
+\begin{DoxyDate}{Date}
+June 11, 2009 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{IDManager__MC_8h_source}{IDManager\_\-MC.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{IDManager__MC_8h_140d7a5d2fc6cf21f23fa924b1fde713}{
+\hypertarget{IDManager__MC_8h_a140d7a5d2fc6cf21f23fa924b1fde713}{
 \index{IDManager\_\-MC.h@{IDManager\_\-MC.h}!IDManager\_\-MC\_\-init@{IDManager\_\-MC\_\-init}}
 \index{IDManager\_\-MC\_\-init@{IDManager\_\-MC\_\-init}!IDManager_MC.h@{IDManager\_\-MC.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void IDManager\_\-MC\_\-init ()}}
-\label{IDManager__MC_8h_140d7a5d2fc6cf21f23fa924b1fde713}
+\subsubsection[{IDManager\_\-MC\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void IDManager\_\-MC\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{IDManager__MC_8h_a140d7a5d2fc6cf21f23fa924b1fde713}
+Installs an call-\/back function, which listens for messages from ModularCommander (MC) which contains an sofware ID. The ID received from MC is put in \hyperlink{IDContainer_8h}{IDContainer.h} 
 
+Definition at line 35 of file IDManager\_\-MC.c.
 
-Installs an call-back function, which listens for messages from ModularCommander (MC) which contains an sofware ID. The ID received from MC is put in \hyperlink{IDContainer_8h}{IDContainer.h} 

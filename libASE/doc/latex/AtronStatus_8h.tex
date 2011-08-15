@@ -1,38 +1,65 @@
 \hypertarget{AtronStatus_8h}{
-\section{/home/david/ASE/src/tools/atron/AtronStatus/AtronStatus.h File Reference}
-\label{AtronStatus_8h}\index{/home/david/ASE/src/tools/atron/AtronStatus/AtronStatus.h@{/home/david/ASE/src/tools/atron/AtronStatus/AtronStatus.h}}
+\section{AtronStatus.h File Reference}
+\label{AtronStatus_8h}\index{AtronStatus.h@{AtronStatus.h}}
 }
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{AtronStatus_8h_4c5d26cfe4aad1527af5d564253c21ab}{AtronStatus\_\-init} ()
+void \hyperlink{AtronStatus_8h_a4c5d26cfe4aad1527af5d564253c21ab}{AtronStatus\_\-init} ()
 \item 
-void \hyperlink{AtronStatus_8h_78e9625814299d6545e7dd5eca9303a4}{AtronStatus\_\-print} ()
-\end{CompactItemize}
+void \hyperlink{AtronStatus_8h_a78e9625814299d6545e7dd5eca9303a4}{AtronStatus\_\-print} ()
+\item 
+\hypertarget{AtronStatus_8h_a296168b8f7b65ee74694197a674918c7}{
+int {\bfseries AtronStatus\_\-getTotalIRMsgCount} ()}
+\label{AtronStatus_8h_a296168b8f7b65ee74694197a674918c7}
+
+\item 
+\hypertarget{AtronStatus_8h_afee15362a6de8eed5af6833993cb24b4}{
+int {\bfseries AtronStatus\_\-getTotalXbeeMsgCount} ()}
+\label{AtronStatus_8h_afee15362a6de8eed5af6833993cb24b4}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{AtronStatus_8h}{AtronStatus.h} monitors the status of an ATRON module and can print it for simplified debugging
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{AtronStatus_8h_source}{AtronStatus.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{AtronStatus_8h_4c5d26cfe4aad1527af5d564253c21ab}{
+\hypertarget{AtronStatus_8h_a4c5d26cfe4aad1527af5d564253c21ab}{
 \index{AtronStatus.h@{AtronStatus.h}!AtronStatus\_\-init@{AtronStatus\_\-init}}
 \index{AtronStatus\_\-init@{AtronStatus\_\-init}!AtronStatus.h@{AtronStatus.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void AtronStatus\_\-init ()}}
-\label{AtronStatus_8h_4c5d26cfe4aad1527af5d564253c21ab}
+\subsubsection[{AtronStatus\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void AtronStatus\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AtronStatus_8h_a4c5d26cfe4aad1527af5d564253c21ab}
+Initialize the status (must be called before print) 
 
+Definition at line 53 of file AtronStatus.c.
 
-Initialize the status (must be called before print) \hypertarget{AtronStatus_8h_78e9625814299d6545e7dd5eca9303a4}{
+\hypertarget{AtronStatus_8h_a78e9625814299d6545e7dd5eca9303a4}{
 \index{AtronStatus.h@{AtronStatus.h}!AtronStatus\_\-print@{AtronStatus\_\-print}}
 \index{AtronStatus\_\-print@{AtronStatus\_\-print}!AtronStatus.h@{AtronStatus.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void AtronStatus\_\-print ()}}
-\label{AtronStatus_8h_78e9625814299d6545e7dd5eca9303a4}
-
-
+\subsubsection[{AtronStatus\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}void AtronStatus\_\-print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AtronStatus_8h_a78e9625814299d6545e7dd5eca9303a4}
 Print on serial interface or zig bee a status of the state of the module 
+
+Definition at line 20 of file AtronStatus.c.
+

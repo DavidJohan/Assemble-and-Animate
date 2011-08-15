@@ -1,49 +1,39 @@
 \hypertarget{SPSACpgGait_8h}{
-\section{/home/david/ASE/src/control/behaviors/generic/SPSACpgGait/SPSACpgGait.h File Reference}
-\label{SPSACpgGait_8h}\index{/home/david/ASE/src/control/behaviors/generic/SPSACpgGait/SPSACpgGait.h@{/home/david/ASE/src/control/behaviors/generic/SPSACpgGait/SPSACpgGait.h}}
+\section{SPSACpgGait.h File Reference}
+\label{SPSACpgGait_8h}\index{SPSACpgGait.h@{SPSACpgGait.h}}
 }
-\subsection*{Classes}
-\begin{CompactItemize}
-\item 
-struct \textbf{SPSAInterval\_\-t}
-\end{CompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{SPSACpgGait_8h_b65e10e7ab9d238d10c8ac20af18b5ac}{SPSACpgGait\_\-init} ()
+void \hyperlink{SPSACpgGait_8h_ab65e10e7ab9d238d10c8ac20af18b5ac}{SPSACpgGait\_\-init} ()
 \item 
-int \hyperlink{SPSACpgGait_8h_2729adcd92b9589df0676b0156145d5f}{SPSACpgGait\_\-act} ()
+int \hyperlink{SPSACpgGait_8h_a2729adcd92b9589df0676b0156145d5f}{SPSACpgGait\_\-act} ()
 \item 
-void \hyperlink{SPSACpgGait_8h_0e40ca33c93dc6fd478a58da0cf8cb94}{SPSACpgGait\_\-reset} (int randInit)
+void \hyperlink{SPSACpgGait_8h_a0e40ca33c93dc6fd478a58da0cf8cb94}{SPSACpgGait\_\-reset} (int randInit)
 \item 
-void \hyperlink{SPSACpgGait_8h_13444612f319002168e675d25232316d}{SPSACpgGait\_\-handleMessage} (char $\ast$message, char messageSize, char channel)
+void \hyperlink{SPSACpgGait_8h_a13444612f319002168e675d25232316d}{SPSACpgGait\_\-handleMessage} (char $\ast$message, char messageSize, char channel)
 \item 
-void \hyperlink{SPSACpgGait_8h_9933e4f98e2e8c50a1f7303c210a36e4}{SPSACpgGait\_\-setStateExploit} ()
+void \hyperlink{SPSACpgGait_8h_a37863c9067bee96ef5b16cb5d9de83ea}{SPSACpgGait\_\-updateGait} ()
 \item 
-void \hyperlink{SPSACpgGait_8h_5938bf89b6cbe8c8ea2f7dc1d92bacc8}{SPSACpgGait\_\-setStateRandom} ()
+void \hyperlink{SPSACpgGait_8h_afd9329e884cdb756cde3e9a31cfd06ba}{SPSACpgGait\_\-setLearningParameters} (float ak\_\-new, float ck\_\-new)
 \item 
-void \hyperlink{SPSACpgGait_8h_be7f59b649081088efd0284bf5247412}{SPSACpgGait\_\-setStateLearning} ()
+void \hyperlink{SPSACpgGait_8h_a9933e4f98e2e8c50a1f7303c210a36e4}{SPSACpgGait\_\-setStateExploit} ()
 \item 
-void \hyperlink{SPSACpgGait_8h_3623a34acc7da60973f8cc008c153b59}{SPSACpgGait\_\-setStateHome} ()
+void \hyperlink{SPSACpgGait_8h_abe7f59b649081088efd0284bf5247412}{SPSACpgGait\_\-setStateLearning} ()
 \item 
-void \hyperlink{SPSACpgGait_8h_37863c9067bee96ef5b16cb5d9de83ea}{SPSACpgGait\_\-updateGait} ()
+void \hyperlink{SPSACpgGait_8h_a3623a34acc7da60973f8cc008c153b59}{SPSACpgGait\_\-setStateHome} ()
 \item 
-void \hyperlink{SPSACpgGait_8h_ffa8c338548d2b5674748cf49022bcfd}{SPSACpgGait\_\-setFrequencyInterval} (float lowerlimit, float home, float upperlimit)
+void \hyperlink{SPSACpgGait_8h_a5938bf89b6cbe8c8ea2f7dc1d92bacc8}{SPSACpgGait\_\-setStateRandom} ()
 \item 
-void \hyperlink{SPSACpgGait_8h_d0cfea0a8fc6b595c619ddb8c2b79979}{SPSACpgGait\_\-setAmplitudeInterval} (float lowerlimit, float home, float upperlimit, int index)
+void \hyperlink{SPSACpgGait_8h_a46e9dacd11963ebf63fde7ff47175c81}{SPSACpgGait\_\-setThetaFromCpgGait} ()
 \item 
-void \hyperlink{SPSACpgGait_8h_63c3eda5f998a351be47aa6c7e08ce30}{SPSACpgGait\_\-setPhaseshiftInterval} (float lowerlimit, float home, float upperlimit, int index)
+void \hyperlink{SPSACpgGait_8h_ae3c5aa57665ee2a0d16ce460d99af448}{SPSACpgGait\_\-logLearningParameters} (int id, FILE $\ast$log)
 \item 
-void \hyperlink{SPSACpgGait_8h_afe529bc3be2054e3eb4ff64dad72347}{SPSACpgGait\_\-setOffsetInterval} (float lowerlimit, float home, float upperlimit, int index)
-\item 
-void \hyperlink{SPSACpgGait_8h_8a8eb889f1c2fccffe6a2a6f4245b2e5}{SPSACpgGait\_\-setFeedbackTermInterval} (float lowerlimit, float home, float upperlimit, int nr, int index)
-\item 
-void \hyperlink{SPSACpgGait_8h_fd9329e884cdb756cde3e9a31cfd06ba}{SPSACpgGait\_\-setLearningParameters} (float ak\_\-new, float ck\_\-new)
-\item 
-void \hyperlink{SPSACpgGait_8h_064838cec2f967ee11cccd392567a1a9}{SPSACpgGait\_\-logController} (int id, FILE $\ast$log)
-\item 
-void \hyperlink{SPSACpgGait_8h_e3c5aa57665ee2a0d16ce460d99af448}{SPSACpgGait\_\-logLearningParameters} (int id, FILE $\ast$log)
-\end{CompactItemize}
+\hypertarget{SPSACpgGait_8h_a064838cec2f967ee11cccd392567a1a9}{
+void {\bfseries SPSACpgGait\_\-logController} (int id, FILE $\ast$log)}
+\label{SPSACpgGait_8h_a064838cec2f967ee11cccd392567a1a9}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -51,134 +41,172 @@ This file provides a generic online learning system of gaits for any actuated mo
 
 Created on: July 5, 2009
 
-\begin{Desc}
-\item[See also:]\hyperlink{SPSALearning_8h}{SPSALearning.h} 
+\begin{DoxySeeAlso}{See also}
+\hyperlink{SPSALearning_8h}{SPSALearning.h} 
 
 \hyperlink{CpgGait_8h}{CpgGait.h} 
 
-\hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h} \end{Desc}
-\begin{Desc}
-\item[Author:]David Johan Christensen \end{Desc}
+\hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{SPSACpgGait_8h_source}{SPSACpgGait.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{SPSACpgGait_8h_2729adcd92b9589df0676b0156145d5f}{
+\hypertarget{SPSACpgGait_8h_a2729adcd92b9589df0676b0156145d5f}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-act@{SPSACpgGait\_\-act}}
 \index{SPSACpgGait\_\-act@{SPSACpgGait\_\-act}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int SPSACpgGait\_\-act ()}}
-\label{SPSACpgGait_8h_2729adcd92b9589df0676b0156145d5f}
-
-
-When a new reward message has been received it will update the gait. Must be called often. \hypertarget{SPSACpgGait_8h_13444612f319002168e675d25232316d}{
+\subsubsection[{SPSACpgGait\_\-act}]{\setlength{\rightskip}{0pt plus 5cm}int SPSACpgGait\_\-act (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a2729adcd92b9589df0676b0156145d5f}
+When a new reward message has been received it will update the gait. Must be called often. \hypertarget{SPSACpgGait_8h_a13444612f319002168e675d25232316d}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-handleMessage@{SPSACpgGait\_\-handleMessage}}
 \index{SPSACpgGait\_\-handleMessage@{SPSACpgGait\_\-handleMessage}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-handleMessage (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em channel})}}
-\label{SPSACpgGait_8h_13444612f319002168e675d25232316d}
-
-
-Handles messages of the type LEARNING\_\-MESSAGE, which contains a rewards signal (any) \hypertarget{SPSACpgGait_8h_b65e10e7ab9d238d10c8ac20af18b5ac}{
+\subsubsection[{SPSACpgGait\_\-handleMessage}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-handleMessage (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message, }
+\item[{char}]{messageSize, }
+\item[{char}]{channel}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a13444612f319002168e675d25232316d}
+Handles messages of the type LEARNING\_\-MESSAGE, which contains a rewards signal (any) \hypertarget{SPSACpgGait_8h_ab65e10e7ab9d238d10c8ac20af18b5ac}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-init@{SPSACpgGait\_\-init}}
 \index{SPSACpgGait\_\-init@{SPSACpgGait\_\-init}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-init ()}}
-\label{SPSACpgGait_8h_b65e10e7ab9d238d10c8ac20af18b5ac}
+\subsubsection[{SPSACpgGait\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_ab65e10e7ab9d238d10c8ac20af18b5ac}
+Initialize the gait with default parameters 
 
+Definition at line 142 of file SPSACpgGait.c.
 
-Initialize the gait with default parameters \hypertarget{SPSACpgGait_8h_064838cec2f967ee11cccd392567a1a9}{
-\index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-logController@{SPSACpgGait\_\-logController}}
-\index{SPSACpgGait\_\-logController@{SPSACpgGait\_\-logController}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-logController (int {\em id}, \/  FILE $\ast$ {\em log})}}
-\label{SPSACpgGait_8h_064838cec2f967ee11cccd392567a1a9}
-
-
-Log controller (parameters optimized using SPSA) to given file (must be opened) \hypertarget{SPSACpgGait_8h_e3c5aa57665ee2a0d16ce460d99af448}{
+\hypertarget{SPSACpgGait_8h_ae3c5aa57665ee2a0d16ce460d99af448}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-logLearningParameters@{SPSACpgGait\_\-logLearningParameters}}
 \index{SPSACpgGait\_\-logLearningParameters@{SPSACpgGait\_\-logLearningParameters}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-logLearningParameters (int {\em id}, \/  FILE $\ast$ {\em log})}}
-\label{SPSACpgGait_8h_e3c5aa57665ee2a0d16ce460d99af448}
+\subsubsection[{SPSACpgGait\_\-logLearningParameters}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-logLearningParameters (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{FILE $\ast$}]{log}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_ae3c5aa57665ee2a0d16ce460d99af448}
+Write learning parameters ak and ck to a given log file. 
 
+Definition at line 93 of file SPSACpgGait.c.
 
-Write learning parameters ak and ck to a given log file. \hypertarget{SPSACpgGait_8h_0e40ca33c93dc6fd478a58da0cf8cb94}{
+\hypertarget{SPSACpgGait_8h_a0e40ca33c93dc6fd478a58da0cf8cb94}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-reset@{SPSACpgGait\_\-reset}}
 \index{SPSACpgGait\_\-reset@{SPSACpgGait\_\-reset}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-reset (int {\em randInit})}}
-\label{SPSACpgGait_8h_0e40ca33c93dc6fd478a58da0cf8cb94}
+\subsubsection[{SPSACpgGait\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-reset (
+\begin{DoxyParamCaption}
+\item[{int}]{randInit}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a0e40ca33c93dc6fd478a58da0cf8cb94}
+Resets the underlying SPSA parameter optimization (forget all) either with initial conditions randomized or at the home position 
 
+Definition at line 68 of file SPSACpgGait.c.
 
-Resets the underlying SPSA parameter optimization (forget all) either with initial conditions randomized or at the home position \hypertarget{SPSACpgGait_8h_d0cfea0a8fc6b595c619ddb8c2b79979}{
-\index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setAmplitudeInterval@{SPSACpgGait\_\-setAmplitudeInterval}}
-\index{SPSACpgGait\_\-setAmplitudeInterval@{SPSACpgGait\_\-setAmplitudeInterval}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setAmplitudeInterval (float {\em lowerlimit}, \/  float {\em home}, \/  float {\em upperlimit}, \/  int {\em index})}}
-\label{SPSACpgGait_8h_d0cfea0a8fc6b595c619ddb8c2b79979}
-
-
-Set the interval (upper and lower limit) and home (initial value) of the amplitude for a specific actuator given with a index \hypertarget{SPSACpgGait_8h_8a8eb889f1c2fccffe6a2a6f4245b2e5}{
-\index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setFeedbackTermInterval@{SPSACpgGait\_\-setFeedbackTermInterval}}
-\index{SPSACpgGait\_\-setFeedbackTermInterval@{SPSACpgGait\_\-setFeedbackTermInterval}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setFeedbackTermInterval (float {\em lowerlimit}, \/  float {\em home}, \/  float {\em upperlimit}, \/  int {\em nr}, \/  int {\em index})}}
-\label{SPSACpgGait_8h_8a8eb889f1c2fccffe6a2a6f4245b2e5}
-
-
-Set the interval (upper and lower limit) and home (initial value) of the feedback term with number nr used in \hyperlink{CpgGait_8h}{CpgGait.h} for a specific actuator given with a index \hypertarget{SPSACpgGait_8h_ffa8c338548d2b5674748cf49022bcfd}{
-\index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setFrequencyInterval@{SPSACpgGait\_\-setFrequencyInterval}}
-\index{SPSACpgGait\_\-setFrequencyInterval@{SPSACpgGait\_\-setFrequencyInterval}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setFrequencyInterval (float {\em lowerlimit}, \/  float {\em home}, \/  float {\em upperlimit})}}
-\label{SPSACpgGait_8h_ffa8c338548d2b5674748cf49022bcfd}
-
-
-Set the interval (upper and lower limit) and home (initial value) of the frequency (for all cpg's in module) \hypertarget{SPSACpgGait_8h_fd9329e884cdb756cde3e9a31cfd06ba}{
+\hypertarget{SPSACpgGait_8h_afd9329e884cdb756cde3e9a31cfd06ba}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setLearningParameters@{SPSACpgGait\_\-setLearningParameters}}
 \index{SPSACpgGait\_\-setLearningParameters@{SPSACpgGait\_\-setLearningParameters}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setLearningParameters (float {\em ak\_\-new}, \/  float {\em ck\_\-new})}}
-\label{SPSACpgGait_8h_fd9329e884cdb756cde3e9a31cfd06ba}
+\subsubsection[{SPSACpgGait\_\-setLearningParameters}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setLearningParameters (
+\begin{DoxyParamCaption}
+\item[{float}]{ak\_\-new, }
+\item[{float}]{ck\_\-new}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_afd9329e884cdb756cde3e9a31cfd06ba}
+Set learning parameters, ak and ck, used in the SPSA learning algorithm 
 
+Definition at line 34 of file SPSACpgGait.c.
 
-Set learning parameters, ak and ck, used in the SPSA learning algorithm \hypertarget{SPSACpgGait_8h_afe529bc3be2054e3eb4ff64dad72347}{
-\index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setOffsetInterval@{SPSACpgGait\_\-setOffsetInterval}}
-\index{SPSACpgGait\_\-setOffsetInterval@{SPSACpgGait\_\-setOffsetInterval}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setOffsetInterval (float {\em lowerlimit}, \/  float {\em home}, \/  float {\em upperlimit}, \/  int {\em index})}}
-\label{SPSACpgGait_8h_afe529bc3be2054e3eb4ff64dad72347}
-
-
-Set the interval (upper and lower limit) and home (initial value) of the offset for a specific actuator given with a index \hypertarget{SPSACpgGait_8h_63c3eda5f998a351be47aa6c7e08ce30}{
-\index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setPhaseshiftInterval@{SPSACpgGait\_\-setPhaseshiftInterval}}
-\index{SPSACpgGait\_\-setPhaseshiftInterval@{SPSACpgGait\_\-setPhaseshiftInterval}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setPhaseshiftInterval (float {\em lowerlimit}, \/  float {\em home}, \/  float {\em upperlimit}, \/  int {\em index})}}
-\label{SPSACpgGait_8h_63c3eda5f998a351be47aa6c7e08ce30}
-
-
-Set the interval (upper and lower limit) and home (initial value) of the phase difference to the global clock for a specific actuator given with a index \hypertarget{SPSACpgGait_8h_9933e4f98e2e8c50a1f7303c210a36e4}{
+\hypertarget{SPSACpgGait_8h_a9933e4f98e2e8c50a1f7303c210a36e4}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setStateExploit@{SPSACpgGait\_\-setStateExploit}}
 \index{SPSACpgGait\_\-setStateExploit@{SPSACpgGait\_\-setStateExploit}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateExploit ()}}
-\label{SPSACpgGait_8h_9933e4f98e2e8c50a1f7303c210a36e4}
+\subsubsection[{SPSACpgGait\_\-setStateExploit}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateExploit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a9933e4f98e2e8c50a1f7303c210a36e4}
+Exploit state makes the robot move with be so far best found gait 
 
+Definition at line 87 of file SPSACpgGait.c.
 
-Exploit state makes the robot move with be so far best found gait \hypertarget{SPSACpgGait_8h_3623a34acc7da60973f8cc008c153b59}{
+\hypertarget{SPSACpgGait_8h_a3623a34acc7da60973f8cc008c153b59}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setStateHome@{SPSACpgGait\_\-setStateHome}}
 \index{SPSACpgGait\_\-setStateHome@{SPSACpgGait\_\-setStateHome}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateHome ()}}
-\label{SPSACpgGait_8h_3623a34acc7da60973f8cc008c153b59}
+\subsubsection[{SPSACpgGait\_\-setStateHome}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateHome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a3623a34acc7da60973f8cc008c153b59}
+Make the module go to its home position and stop 
 
+Definition at line 90 of file SPSACpgGait.c.
 
-Make the module go to its home position and stop \hypertarget{SPSACpgGait_8h_be7f59b649081088efd0284bf5247412}{
+\hypertarget{SPSACpgGait_8h_abe7f59b649081088efd0284bf5247412}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setStateLearning@{SPSACpgGait\_\-setStateLearning}}
 \index{SPSACpgGait\_\-setStateLearning@{SPSACpgGait\_\-setStateLearning}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateLearning ()}}
-\label{SPSACpgGait_8h_be7f59b649081088efd0284bf5247412}
+\subsubsection[{SPSACpgGait\_\-setStateLearning}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateLearning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_abe7f59b649081088efd0284bf5247412}
+The robot will be exploring its gait parameters to optimize its gait based on received reward. 
 
+Definition at line 88 of file SPSACpgGait.c.
 
-The robot will be exploring its gait parameters to optimize its gait based on received reward. \hypertarget{SPSACpgGait_8h_5938bf89b6cbe8c8ea2f7dc1d92bacc8}{
+\hypertarget{SPSACpgGait_8h_a5938bf89b6cbe8c8ea2f7dc1d92bacc8}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setStateRandom@{SPSACpgGait\_\-setStateRandom}}
 \index{SPSACpgGait\_\-setStateRandom@{SPSACpgGait\_\-setStateRandom}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateRandom ()}}
-\label{SPSACpgGait_8h_5938bf89b6cbe8c8ea2f7dc1d92bacc8}
+\subsubsection[{SPSACpgGait\_\-setStateRandom}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setStateRandom (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a5938bf89b6cbe8c8ea2f7dc1d92bacc8}
+Makes the robot change to another random gait each time a reward message is received. 
 
+Definition at line 89 of file SPSACpgGait.c.
 
-Makes the robot change to another random gait each time a reward message is received. \hypertarget{SPSACpgGait_8h_37863c9067bee96ef5b16cb5d9de83ea}{
+\hypertarget{SPSACpgGait_8h_a46e9dacd11963ebf63fde7ff47175c81}{
+\index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-setThetaFromCpgGait@{SPSACpgGait\_\-setThetaFromCpgGait}}
+\index{SPSACpgGait\_\-setThetaFromCpgGait@{SPSACpgGait\_\-setThetaFromCpgGait}!SPSACpgGait.h@{SPSACpgGait.h}}
+\subsubsection[{SPSACpgGait\_\-setThetaFromCpgGait}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-setThetaFromCpgGait (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a46e9dacd11963ebf63fde7ff47175c81}
+Set theta from current gait in underlying CpgGait 
+
+Definition at line 73 of file SPSACpgGait.c.
+
+\hypertarget{SPSACpgGait_8h_a37863c9067bee96ef5b16cb5d9de83ea}{
 \index{SPSACpgGait.h@{SPSACpgGait.h}!SPSACpgGait\_\-updateGait@{SPSACpgGait\_\-updateGait}}
 \index{SPSACpgGait\_\-updateGait@{SPSACpgGait\_\-updateGait}!SPSACpgGait.h@{SPSACpgGait.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-updateGait ()}}
-\label{SPSACpgGait_8h_37863c9067bee96ef5b16cb5d9de83ea}
-
-
+\subsubsection[{SPSACpgGait\_\-updateGait}]{\setlength{\rightskip}{0pt plus 5cm}void SPSACpgGait\_\-updateGait (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{SPSACpgGait_8h_a37863c9067bee96ef5b16cb5d9de83ea}
 Force update of gait e.g. after changing parameters 
+
+Definition at line 62 of file SPSACpgGait.c.
+

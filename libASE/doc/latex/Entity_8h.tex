@@ -1,71 +1,102 @@
 \hypertarget{Entity_8h}{
-\section{/home/david/ASE/src/infrastructure/Entity/Entity.h File Reference}
-\label{Entity_8h}\index{/home/david/ASE/src/infrastructure/Entity/Entity.h@{/home/david/ASE/src/infrastructure/Entity/Entity.h}}
+\section{Entity.h File Reference}
+\label{Entity_8h}\index{Entity.h@{Entity.h}}
 }
-{\tt \#include $<$stdbool.h$>$}\par
-{\tt \#include $<$stdint.h$>$}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$stdint.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structEntity__t}{Entity\_\-t}
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Defines}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{Entity_8h_656701d3e780d6e6bd991aac853c0433}{
-\#define \textbf{NO\_\-LABEL}~1024}
-\label{Entity_8h_656701d3e780d6e6bd991aac853c0433}
+\hypertarget{Entity_8h_a656701d3e780d6e6bd991aac853c0433}{
+\#define {\bfseries NO\_\-LABEL}~1024}
+\label{Entity_8h_a656701d3e780d6e6bd991aac853c0433}
 
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{Entity_8h_108a0b90b455fa3b980c604cc6a1279f}{Entity\_\-init} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity, short label)
+void \hyperlink{Entity_8h_a108a0b90b455fa3b980c604cc6a1279f}{Entity\_\-init} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity, short label)
 \item 
-short \hyperlink{Entity_8h_8fcd8b189af3dd4c381b3f47f7a9d04d}{Entity\_\-getLabel} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity)
+short \hyperlink{Entity_8h_a8fcd8b189af3dd4c381b3f47f7a9d04d}{Entity\_\-getLabel} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity)
 \item 
-void \hyperlink{Entity_8h_3800cb91c490186ac41429459c1b4f9b}{Entity\_\-setLabel} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity, short label)
+void \hyperlink{Entity_8h_a3800cb91c490186ac41429459c1b4f9b}{Entity\_\-setLabel} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity, short label)
 \item 
-bool \hyperlink{Entity_8h_8fc559f980885c7b3ac3ebb25102b07a}{Entity\_\-isInitialized} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity)
-\end{CompactItemize}
+bool \hyperlink{Entity_8h_a8fc559f980885c7b3ac3ebb25102b07a}{Entity\_\-isInitialized} (\hyperlink{structEntity__t}{Entity\_\-t} $\ast$entity)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{Entity_8h}{Entity.h} is a top-level construct for ASE. Most strategies extend it. It contains a label.
+\hyperlink{Entity_8h}{Entity.h} is a top-\/level construct for ASE. Most strategies extend it. It contains a label.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maersk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maersk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{Entity_8h_source}{Entity.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{Entity_8h_8fcd8b189af3dd4c381b3f47f7a9d04d}{
+\hypertarget{Entity_8h_a8fcd8b189af3dd4c381b3f47f7a9d04d}{
 \index{Entity.h@{Entity.h}!Entity\_\-getLabel@{Entity\_\-getLabel}}
 \index{Entity\_\-getLabel@{Entity\_\-getLabel}!Entity.h@{Entity.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}short Entity\_\-getLabel ({\bf Entity\_\-t} $\ast$ {\em entity})}}
-\label{Entity_8h_8fcd8b189af3dd4c381b3f47f7a9d04d}
+\subsubsection[{Entity\_\-getLabel}]{\setlength{\rightskip}{0pt plus 5cm}short Entity\_\-getLabel (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\_\-t} $\ast$}]{entity}
+\end{DoxyParamCaption}
+)}}
+\label{Entity_8h_a8fcd8b189af3dd4c381b3f47f7a9d04d}
+Get the label of this entity 
 
+Definition at line 15 of file Entity.c.
 
-Get the label of this entity \hypertarget{Entity_8h_108a0b90b455fa3b980c604cc6a1279f}{
+\hypertarget{Entity_8h_a108a0b90b455fa3b980c604cc6a1279f}{
 \index{Entity.h@{Entity.h}!Entity\_\-init@{Entity\_\-init}}
 \index{Entity\_\-init@{Entity\_\-init}!Entity.h@{Entity.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Entity\_\-init ({\bf Entity\_\-t} $\ast$ {\em entity}, \/  short {\em label})}}
-\label{Entity_8h_108a0b90b455fa3b980c604cc6a1279f}
+\subsubsection[{Entity\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\_\-t} $\ast$}]{entity, }
+\item[{short}]{label}
+\end{DoxyParamCaption}
+)}}
+\label{Entity_8h_a108a0b90b455fa3b980c604cc6a1279f}
+Initialize this entity 
 
+Definition at line 6 of file Entity.c.
 
-Initialize this entity \hypertarget{Entity_8h_8fc559f980885c7b3ac3ebb25102b07a}{
+\hypertarget{Entity_8h_a8fc559f980885c7b3ac3ebb25102b07a}{
 \index{Entity.h@{Entity.h}!Entity\_\-isInitialized@{Entity\_\-isInitialized}}
 \index{Entity\_\-isInitialized@{Entity\_\-isInitialized}!Entity.h@{Entity.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Entity\_\-isInitialized ({\bf Entity\_\-t} $\ast$ {\em entity})}}
-\label{Entity_8h_8fc559f980885c7b3ac3ebb25102b07a}
+\subsubsection[{Entity\_\-isInitialized}]{\setlength{\rightskip}{0pt plus 5cm}bool Entity\_\-isInitialized (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\_\-t} $\ast$}]{entity}
+\end{DoxyParamCaption}
+)}}
+\label{Entity_8h_a8fc559f980885c7b3ac3ebb25102b07a}
+If the entity has been initialized 
 
+Definition at line 11 of file Entity.c.
 
-If the entity has been initialized \hypertarget{Entity_8h_3800cb91c490186ac41429459c1b4f9b}{
+\hypertarget{Entity_8h_a3800cb91c490186ac41429459c1b4f9b}{
 \index{Entity.h@{Entity.h}!Entity\_\-setLabel@{Entity\_\-setLabel}}
 \index{Entity\_\-setLabel@{Entity\_\-setLabel}!Entity.h@{Entity.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Entity\_\-setLabel ({\bf Entity\_\-t} $\ast$ {\em entity}, \/  short {\em label})}}
-\label{Entity_8h_3800cb91c490186ac41429459c1b4f9b}
-
-
+\subsubsection[{Entity\_\-setLabel}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\_\-setLabel (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\_\-t} $\ast$}]{entity, }
+\item[{short}]{label}
+\end{DoxyParamCaption}
+)}}
+\label{Entity_8h_a3800cb91c490186ac41429459c1b4f9b}
 Set the label of this entity 
+
+Definition at line 19 of file Entity.c.
+

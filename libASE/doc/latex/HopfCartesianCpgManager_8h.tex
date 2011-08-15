@@ -1,39 +1,60 @@
 \hypertarget{HopfCartesianCpgManager_8h}{
-\section{/home/david/ASE/src/control/strategies/Cpg/HopfCartesianCpg/HopfCartesianCpgManager.h File Reference}
-\label{HopfCartesianCpgManager_8h}\index{/home/david/ASE/src/control/strategies/Cpg/HopfCartesianCpg/HopfCartesianCpgManager.h@{/home/david/ASE/src/control/strategies/Cpg/HopfCartesianCpg/HopfCartesianCpgManager.h}}
+\section{HopfCartesianCpgManager.h File Reference}
+\label{HopfCartesianCpgManager_8h}\index{HopfCartesianCpgManager.h@{HopfCartesianCpgManager.h}}
 }
-{\tt \#include \char`\"{}HopfCartesianCpg.h\char`\"{}}\par
+{\ttfamily \#include $<$ase/control/strategies/Cpg/HopfCartesianCpg/HopfCartesianCpg.h$>$}\par
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$ \hyperlink{HopfCartesianCpgManager_8h_a600c18987750e0d29e6541505deadb8}{HCCpgManager\_\-createCpg} (short label, float hz)
+\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$ \hyperlink{HopfCartesianCpgManager_8h_aa600c18987750e0d29e6541505deadb8}{HCCpgManager\_\-createCpg} (short label, float hz)
 \item 
-\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$ \hyperlink{HopfCartesianCpgManager_8h_1925e9cac95585eaa622819b35dabc2e}{HCCpgManager\_\-createCoupling} (short fromLabel, short toLabel, float strength, float phaseDiff)
-\end{CompactItemize}
+\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$ \hyperlink{HopfCartesianCpgManager_8h_a1925e9cac95585eaa622819b35dabc2e}{HCCpgManager\_\-createCoupling} (short fromLabel, short toLabel, float strength, float phaseDiff)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{HopfCartesianCpgManager_8h}{HopfCartesianCpgManager.h} manages a number of Hopf CPGs. Takes care of timing, memory management, parsing of messages, couplings, etc.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, University of Southern Denmark \end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, University of Southern Denmark 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{HopfCartesianCpgManager_8h_source}{HopfCartesianCpgManager.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{HopfCartesianCpgManager_8h_1925e9cac95585eaa622819b35dabc2e}{
+\hypertarget{HopfCartesianCpgManager_8h_a1925e9cac95585eaa622819b35dabc2e}{
 \index{HopfCartesianCpgManager.h@{HopfCartesianCpgManager.h}!HCCpgManager\_\-createCoupling@{HCCpgManager\_\-createCoupling}}
 \index{HCCpgManager\_\-createCoupling@{HCCpgManager\_\-createCoupling}!HopfCartesianCpgManager.h@{HopfCartesianCpgManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf CpgSuperCoupling\_\-t}$\ast$ HCCpgManager\_\-createCoupling (short {\em fromLabel}, \/  short {\em toLabel}, \/  float {\em strength}, \/  float {\em phaseDiff})}}
-\label{HopfCartesianCpgManager_8h_1925e9cac95585eaa622819b35dabc2e}
+\subsubsection[{HCCpgManager\_\-createCoupling}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CpgSuperCoupling\_\-t}$\ast$ HCCpgManager\_\-createCoupling (
+\begin{DoxyParamCaption}
+\item[{short}]{fromLabel, }
+\item[{short}]{toLabel, }
+\item[{float}]{strength, }
+\item[{float}]{phaseDiff}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpgManager_8h_a1925e9cac95585eaa622819b35dabc2e}
+Creates a coupling from cpgs with label \char`\"{}fromLabel\char`\"{} to \char`\"{}toLabel\char`\"{} with a coupling strength and desired phase difference. 
 
+Definition at line 28 of file HopfCartesianCpgManager.c.
 
-Creates a coupling from cpgs with label \char`\"{}fromLabel\char`\"{} to \char`\"{}toLabel\char`\"{} with a coupling strength and desired phase difference. \hypertarget{HopfCartesianCpgManager_8h_a600c18987750e0d29e6541505deadb8}{
+\hypertarget{HopfCartesianCpgManager_8h_aa600c18987750e0d29e6541505deadb8}{
 \index{HopfCartesianCpgManager.h@{HopfCartesianCpgManager.h}!HCCpgManager\_\-createCpg@{HCCpgManager\_\-createCpg}}
 \index{HCCpgManager\_\-createCpg@{HCCpgManager\_\-createCpg}!HopfCartesianCpgManager.h@{HopfCartesianCpgManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf HCCpg\_\-t}$\ast$ HCCpgManager\_\-createCpg (short {\em label}, \/  float {\em hz})}}
-\label{HopfCartesianCpgManager_8h_a600c18987750e0d29e6541505deadb8}
-
-
+\subsubsection[{HCCpgManager\_\-createCpg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf HCCpg\_\-t}$\ast$ HCCpgManager\_\-createCpg (
+\begin{DoxyParamCaption}
+\item[{short}]{label, }
+\item[{float}]{hz}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpgManager_8h_aa600c18987750e0d29e6541505deadb8}
 Create a Hopf CPG with default parameters. hz specify the frequency of the created CPG The label specify the 
+
+Definition at line 21 of file HopfCartesianCpgManager.c.
+

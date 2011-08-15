@@ -1,71 +1,77 @@
 \hypertarget{Learning_8h}{
-\section{/home/david/ASE/src/control/strategies/Learning/Learning.h File Reference}
-\label{Learning_8h}\index{/home/david/ASE/src/control/strategies/Learning/Learning.h@{/home/david/ASE/src/control/strategies/Learning/Learning.h}}
+\section{Learning.h File Reference}
+\label{Learning_8h}\index{Learning.h@{Learning.h}}
 }
-{\tt \#include \char`\"{}Message.h\char`\"{}}\par
-{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
-{\tt \#include \char`\"{}RewardCollector.h\char`\"{}}\par
+{\ttfamily \#include $<$ase/communication/Message.h$>$}\par
+{\ttfamily \#include $<$ase/config/ConfigASE.h$>$}\par
+{\ttfamily \#include $<$ase/tools/RewardCollector/RewardCollector.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structLearningMsg__t}{LearningMsg\_\-t}
 \item 
-struct \textbf{Learning\_\-t}
-\end{CompactItemize}
+struct \hyperlink{structLearning__t}{Learning\_\-t}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{Learning_8h_9265585b7f401adaf2854a543579aa3c}{
-void \textbf{learning\_\-init} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_9265585b7f401adaf2854a543579aa3c}
+\hypertarget{Learning_8h_a9265585b7f401adaf2854a543579aa3c}{
+void {\bfseries learning\_\-init} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_a9265585b7f401adaf2854a543579aa3c}
 
 \item 
-\hypertarget{Learning_8h_b99907a1e56c2620d36f3c665cf9de6c}{
-void \textbf{learning\_\-reset} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_b99907a1e56c2620d36f3c665cf9de6c}
+\hypertarget{Learning_8h_ab99907a1e56c2620d36f3c665cf9de6c}{
+void {\bfseries learning\_\-reset} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_ab99907a1e56c2620d36f3c665cf9de6c}
 
 \item 
-\hypertarget{Learning_8h_892d70a11bb87d8549612463865824f6}{
-void \textbf{learning\_\-update} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_892d70a11bb87d8549612463865824f6}
+\hypertarget{Learning_8h_a892d70a11bb87d8549612463865824f6}{
+void {\bfseries learning\_\-update} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_a892d70a11bb87d8549612463865824f6}
 
 \item 
-\hypertarget{Learning_8h_5c534e0eabdbce66457fa9d7ad36680a}{
-int \textbf{learning\_\-accelerateNow} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_5c534e0eabdbce66457fa9d7ad36680a}
+\hypertarget{Learning_8h_a5c534e0eabdbce66457fa9d7ad36680a}{
+int {\bfseries learning\_\-accelerateNow} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_a5c534e0eabdbce66457fa9d7ad36680a}
 
 \item 
-\hypertarget{Learning_8h_d9baf51a9c72b2170cc302c994549961}{
-int \textbf{learning\_\-getAction} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_d9baf51a9c72b2170cc302c994549961}
+\hypertarget{Learning_8h_ad9baf51a9c72b2170cc302c994549961}{
+int {\bfseries learning\_\-getAction} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_ad9baf51a9c72b2170cc302c994549961}
 
 \item 
-\hypertarget{Learning_8h_f5588b26357fce7be7eb02e2b289ff76}{
-float \textbf{learning\_\-getReward} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_f5588b26357fce7be7eb02e2b289ff76}
+\hypertarget{Learning_8h_af5588b26357fce7be7eb02e2b289ff76}{
+float {\bfseries learning\_\-getReward} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_af5588b26357fce7be7eb02e2b289ff76}
 
 \item 
-\hypertarget{Learning_8h_c072920bee41880c69ad6d5187edd720}{
-int \textbf{learning\_\-isReady} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_c072920bee41880c69ad6d5187edd720}
+\hypertarget{Learning_8h_ac072920bee41880c69ad6d5187edd720}{
+int {\bfseries learning\_\-isReady} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_ac072920bee41880c69ad6d5187edd720}
 
 \item 
-\hypertarget{Learning_8h_cf5fc0c1beb94b612d70babccaf2ed05}{
-int \textbf{learning\_\-getBestAction} (Learning\_\-t $\ast$process)}
-\label{Learning_8h_cf5fc0c1beb94b612d70babccaf2ed05}
+\hypertarget{Learning_8h_acf5fc0c1beb94b612d70babccaf2ed05}{
+int {\bfseries learning\_\-getBestAction} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process)}
+\label{Learning_8h_acf5fc0c1beb94b612d70babccaf2ed05}
 
 \item 
-\hypertarget{Learning_8h_2dfd94d154d7133d0b1f9b57e6fe29da}{
-void \textbf{learning\_\-collectReward} (Learning\_\-t $\ast$process, float reward)}
-\label{Learning_8h_2dfd94d154d7133d0b1f9b57e6fe29da}
+\hypertarget{Learning_8h_a2dfd94d154d7133d0b1f9b57e6fe29da}{
+void {\bfseries learning\_\-collectReward} (\hyperlink{structLearning__t}{Learning\_\-t} $\ast$process, float reward)}
+\label{Learning_8h_a2dfd94d154d7133d0b1f9b57e6fe29da}
 
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{Learning_8h}{Learning.h} a simple reinforcement learning algoritm for modular robots. Following the algorithm described in: D.J.Christensen et al. \char`\"{}Morphology Independent Learning for Modular robots\char`\"{} DARS2008 Basically each module is independently optimizing it own reward using an exponential moving average.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{Learning_8h_source}{Learning.h}.
+

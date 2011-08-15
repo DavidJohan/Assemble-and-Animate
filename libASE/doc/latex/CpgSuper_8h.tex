@@ -1,216 +1,349 @@
 \hypertarget{CpgSuper_8h}{
-\section{/home/david/ASE/src/control/strategies/Cpg/CpgSuper.h File Reference}
-\label{CpgSuper_8h}\index{/home/david/ASE/src/control/strategies/Cpg/CpgSuper.h@{/home/david/ASE/src/control/strategies/Cpg/CpgSuper.h}}
+\section{CpgSuper.h File Reference}
+\label{CpgSuper_8h}\index{CpgSuper.h@{CpgSuper.h}}
 }
-{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
-{\tt \#include \char`\"{}PeriodicStrategy.h\char`\"{}}\par
-{\tt \#include \char`\"{}Message.h\char`\"{}}\par
-{\tt \#include $<$stdint.h$>$}\par
-{\tt \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$ase/config/ConfigASE.h$>$}\par
+{\ttfamily \#include $<$ase/infrastructure/Entity/Strategy/PeriodicStrategy/PeriodicStrategy.h$>$}\par
+{\ttfamily \#include $<$ase/communication/Message.h$>$}\par
+{\ttfamily \#include $<$stdint.h$>$}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structCpgSuper__t}{CpgSuper\_\-t}
 \item 
 struct \hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t}
 \item 
 struct \hyperlink{structCpgSuperMsg__t}{CpgSuperMsg\_\-t}
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Defines}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{CpgSuper_8h_5f443139cadf02e8283776732677dcb9}{
-\#define \textbf{CPG\_\-UPDATED\_\-EVENT}~\char`\"{}CPG\_\-UPDATED\_\-EVENT\char`\"{}}
-\label{CpgSuper_8h_5f443139cadf02e8283776732677dcb9}
+\hypertarget{CpgSuper_8h_a5f443139cadf02e8283776732677dcb9}{
+\#define {\bfseries CPG\_\-UPDATED\_\-EVENT}~\char`\"{}CPG\_\-UPDATED\_\-EVENT\char`\"{}}
+\label{CpgSuper_8h_a5f443139cadf02e8283776732677dcb9}
 
 \item 
-\hypertarget{CpgSuper_8h_c9c4187f91effff9c23bc48d46baca5a}{
-\#define \textbf{CPGSUPER\_\-H\_\-}}
-\label{CpgSuper_8h_c9c4187f91effff9c23bc48d46baca5a}
+\hypertarget{CpgSuper_8h_ac9c4187f91effff9c23bc48d46baca5a}{
+\#define {\bfseries CPGSUPER\_\-H\_\-}}
+\label{CpgSuper_8h_ac9c4187f91effff9c23bc48d46baca5a}
 
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{CpgSuper_8h_19c1e45535d43bf0bb1497214eaade89}{CpgSuper\_\-setState} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, float new\_\-x, float new\_\-y)
+void \hyperlink{CpgSuper_8h_a19c1e45535d43bf0bb1497214eaade89}{CpgSuper\_\-setState} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, float new\_\-x, float new\_\-y)
 \item 
-void \hyperlink{CpgSuper_8h_0e463d386f56117841390253360afc8e}{CpgSuper\_\-setOffset} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, float xOffset, float yOffset)
+void \hyperlink{CpgSuper_8h_a0e463d386f56117841390253360afc8e}{CpgSuper\_\-setOffset} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, float xOffset, float yOffset)
 \item 
-float \hyperlink{CpgSuper_8h_3ebba2c3e56362179b1ffc1adb732c91}{CpgSuper\_\-getOffsetX} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+float \hyperlink{CpgSuper_8h_a3ebba2c3e56362179b1ffc1adb732c91}{CpgSuper\_\-getOffsetX} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-float \hyperlink{CpgSuper_8h_a5f22ab11b4f7f451f5a86633317f699}{CpgSuper\_\-getOffsetY} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+float \hyperlink{CpgSuper_8h_aa5f22ab11b4f7f451f5a86633317f699}{CpgSuper\_\-getOffsetY} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-float \hyperlink{CpgSuper_8h_156fed7b0c4990d2136273aee61cdebb}{CpgSuper\_\-getAmplitude} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+float \hyperlink{CpgSuper_8h_a156fed7b0c4990d2136273aee61cdebb}{CpgSuper\_\-getAmplitude} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CpgSuper_8h_0ee3725a5ac8b1715022063464ee543f}{CpgSuper\_\-setAmplitude} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, float amplitude)
+void \hyperlink{CpgSuper_8h_a0ee3725a5ac8b1715022063464ee543f}{CpgSuper\_\-setAmplitude} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, float amplitude)
 \item 
-float \hyperlink{CpgSuper_8h_015c62e41007188f8ba2a12cc0f6edee}{CpgSuper\_\-getY} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+float \hyperlink{CpgSuper_8h_a015c62e41007188f8ba2a12cc0f6edee}{CpgSuper\_\-getY} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-float \hyperlink{CpgSuper_8h_234492b734ac9ec622267c710f73cfc5}{CpgSuper\_\-getX} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+float \hyperlink{CpgSuper_8h_a234492b734ac9ec622267c710f73cfc5}{CpgSuper\_\-getX} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CpgSuper_8h_28bc40e7e257684f98aace5fd9a49fa3}{CpgSuper\_\-sendState} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, \hyperlink{structCpgSuperMsg__t}{CpgSuperMsg\_\-t} $\ast$msg)
+void \hyperlink{CpgSuper_8h_a28bc40e7e257684f98aace5fd9a49fa3}{CpgSuper\_\-sendState} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, \hyperlink{structCpgSuperMsg__t}{CpgSuperMsg\_\-t} $\ast$msg)
 \item 
-void \hyperlink{CpgSuper_8h_ae0702c191ae56afbf62a84f8bbf25ef}{CpgSuper\_\-resetState} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+void \hyperlink{CpgSuper_8h_aae0702c191ae56afbf62a84f8bbf25ef}{CpgSuper\_\-resetState} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-float \hyperlink{CpgSuper_8h_25b90abb1a4c8fe5b8ff75f747d51f49}{CpgSuper\_\-getFrequency} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+float \hyperlink{CpgSuper_8h_a25b90abb1a4c8fe5b8ff75f747d51f49}{CpgSuper\_\-getFrequency} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CpgSuper_8h_922bdc83972d18e1e6a2f18bdf7fa507}{CpgSuper\_\-setFrequency} (float hz, \hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
+void \hyperlink{CpgSuper_8h_a922bdc83972d18e1e6a2f18bdf7fa507}{CpgSuper\_\-setFrequency} (float hz, \hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{CpgSuper_8h_52ec4b7399d678202e38236c06c7dbbc}{CpgSuper\_\-initialize} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, uint8\_\-t label, float hz)
+void \hyperlink{CpgSuper_8h_a52ec4b7399d678202e38236c06c7dbbc}{CpgSuper\_\-initialize} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, uint8\_\-t label, float hz)
 \item 
-bool \hyperlink{CpgSuper_8h_f035fe0e53dc1fcf7ebbf0f065c6cc42}{CpgSuper\_\-updateIfTime} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, void($\ast$iterate)(\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$))
+bool \hyperlink{CpgSuper_8h_af035fe0e53dc1fcf7ebbf0f065c6cc42}{CpgSuper\_\-updateIfTime} (\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$cpg, void($\ast$iterate)(\hyperlink{structCpgSuper__t}{CpgSuper\_\-t} $\ast$))
 \item 
-void \hyperlink{CpgSuper_8h_de9ffc9a59c26fc8f2afcf92358764d6}{CpgSuper\_\-setApplyToChannel} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, int channel, int applyTo)
+void \hyperlink{CpgSuper_8h_ade9ffc9a59c26fc8f2afcf92358764d6}{CpgSuper\_\-setApplyToChannel} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, int channel, int applyTo)
 \item 
-void \hyperlink{CpgSuper_8h_e6f0a5483f493426e0aa597715c130a4}{CpgSuper\_\-setStrength} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, float strength)
+void \hyperlink{CpgSuper_8h_ae6f0a5483f493426e0aa597715c130a4}{CpgSuper\_\-setStrength} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, float strength)
 \item 
-float \hyperlink{CpgSuper_8h_18e4c8439b417498f55bb42153f389a2}{CpgSuper\_\-getStrength} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling)
+float \hyperlink{CpgSuper_8h_a18e4c8439b417498f55bb42153f389a2}{CpgSuper\_\-getStrength} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling)
 \item 
-void \hyperlink{CpgSuper_8h_5cbafa4cc5c92d82ba861ab6aaa05f06}{CpgSuper\_\-setPhaseDifference} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, float phaseDifference)
+void \hyperlink{CpgSuper_8h_a5cbafa4cc5c92d82ba861ab6aaa05f06}{CpgSuper\_\-setPhaseDifference} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, float phaseDifference)
 \item 
-float \hyperlink{CpgSuper_8h_de85f42957a35b827707cf0d0a2d00bf}{CpgSuper\_\-getPhaseDifference} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling)
-\end{CompactItemize}
+float \hyperlink{CpgSuper_8h_ade85f42957a35b827707cf0d0a2d00bf}{CpgSuper\_\-getPhaseDifference} (\hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Generic, super class for CPG implementation. Not to be instantiated directly, but is used by sub-classes. Known sub-classes: \hyperlink{CnoCpg_8h}{CnoCpg.h} and \hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h} \begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+Generic, super class for CPG implementation. Not to be instantiated directly, but is used by sub-\/classes. Known sub-\/classes: \hyperlink{CnoCpg_8h}{CnoCpg.h} and \hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h} \begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{CpgSuper_8h_source}{CpgSuper.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{CpgSuper_8h_156fed7b0c4990d2136273aee61cdebb}{
+\hypertarget{CpgSuper_8h_a156fed7b0c4990d2136273aee61cdebb}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getAmplitude@{CpgSuper\_\-getAmplitude}}
 \index{CpgSuper\_\-getAmplitude@{CpgSuper\_\-getAmplitude}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getAmplitude ({\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_156fed7b0c4990d2136273aee61cdebb}
+\subsubsection[{CpgSuper\_\-getAmplitude}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getAmplitude (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a156fed7b0c4990d2136273aee61cdebb}
+Get the amplitude of the CPG 
 
+Definition at line 66 of file CpgSuper.c.
 
-Get the amplitude of the CPG \hypertarget{CpgSuper_8h_25b90abb1a4c8fe5b8ff75f747d51f49}{
+\hypertarget{CpgSuper_8h_a25b90abb1a4c8fe5b8ff75f747d51f49}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getFrequency@{CpgSuper\_\-getFrequency}}
 \index{CpgSuper\_\-getFrequency@{CpgSuper\_\-getFrequency}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getFrequency ({\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_25b90abb1a4c8fe5b8ff75f747d51f49}
+\subsubsection[{CpgSuper\_\-getFrequency}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getFrequency (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a25b90abb1a4c8fe5b8ff75f747d51f49}
+Get the frequency of the CPG in oscillations per second. 
 
+Definition at line 36 of file CpgSuper.c.
 
-Get the frequency of the CPG in oscillations per second. \hypertarget{CpgSuper_8h_3ebba2c3e56362179b1ffc1adb732c91}{
+\hypertarget{CpgSuper_8h_a3ebba2c3e56362179b1ffc1adb732c91}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getOffsetX@{CpgSuper\_\-getOffsetX}}
 \index{CpgSuper\_\-getOffsetX@{CpgSuper\_\-getOffsetX}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getOffsetX ({\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_3ebba2c3e56362179b1ffc1adb732c91}
+\subsubsection[{CpgSuper\_\-getOffsetX}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getOffsetX (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a3ebba2c3e56362179b1ffc1adb732c91}
+Get the offset on the 'x' component 
 
+Definition at line 70 of file CpgSuper.c.
 
-Get the offset on the 'x' component \hypertarget{CpgSuper_8h_a5f22ab11b4f7f451f5a86633317f699}{
+\hypertarget{CpgSuper_8h_aa5f22ab11b4f7f451f5a86633317f699}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getOffsetY@{CpgSuper\_\-getOffsetY}}
 \index{CpgSuper\_\-getOffsetY@{CpgSuper\_\-getOffsetY}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getOffsetY ({\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_a5f22ab11b4f7f451f5a86633317f699}
+\subsubsection[{CpgSuper\_\-getOffsetY}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getOffsetY (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_aa5f22ab11b4f7f451f5a86633317f699}
+Get the offset on the 'y' component 
 
+Definition at line 74 of file CpgSuper.c.
 
-Get the offset on the 'y' component \hypertarget{CpgSuper_8h_de85f42957a35b827707cf0d0a2d00bf}{
+\hypertarget{CpgSuper_8h_ade85f42957a35b827707cf0d0a2d00bf}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getPhaseDifference@{CpgSuper\_\-getPhaseDifference}}
 \index{CpgSuper\_\-getPhaseDifference@{CpgSuper\_\-getPhaseDifference}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getPhaseDifference ({\bf CpgSuperCoupling\_\-t} $\ast$ {\em coupling})}}
-\label{CpgSuper_8h_de85f42957a35b827707cf0d0a2d00bf}
+\subsubsection[{CpgSuper\_\-getPhaseDifference}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getPhaseDifference (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuperCoupling\_\-t} $\ast$}]{coupling}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_ade85f42957a35b827707cf0d0a2d00bf}
+Get the phase difference in radians 
 
+Definition at line 99 of file CpgSuper.c.
 
-Get the phase difference in radians \hypertarget{CpgSuper_8h_18e4c8439b417498f55bb42153f389a2}{
+\hypertarget{CpgSuper_8h_a18e4c8439b417498f55bb42153f389a2}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getStrength@{CpgSuper\_\-getStrength}}
 \index{CpgSuper\_\-getStrength@{CpgSuper\_\-getStrength}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getStrength ({\bf CpgSuperCoupling\_\-t} $\ast$ {\em coupling})}}
-\label{CpgSuper_8h_18e4c8439b417498f55bb42153f389a2}
+\subsubsection[{CpgSuper\_\-getStrength}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getStrength (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuperCoupling\_\-t} $\ast$}]{coupling}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a18e4c8439b417498f55bb42153f389a2}
+Get the coupling strength 
 
+Definition at line 102 of file CpgSuper.c.
 
-Get the coupling strength \hypertarget{CpgSuper_8h_234492b734ac9ec622267c710f73cfc5}{
+\hypertarget{CpgSuper_8h_a234492b734ac9ec622267c710f73cfc5}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getX@{CpgSuper\_\-getX}}
 \index{CpgSuper\_\-getX@{CpgSuper\_\-getX}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getX ({\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_234492b734ac9ec622267c710f73cfc5}
+\subsubsection[{CpgSuper\_\-getX}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getX (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a234492b734ac9ec622267c710f73cfc5}
+Get the 'X' state variable: X = amplitude$\ast$x+xOffset 
 
+Definition at line 54 of file CpgSuper.c.
 
-Get the 'X' state variable: X = amplitude$\ast$x+xOffset \hypertarget{CpgSuper_8h_015c62e41007188f8ba2a12cc0f6edee}{
+\hypertarget{CpgSuper_8h_a015c62e41007188f8ba2a12cc0f6edee}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-getY@{CpgSuper\_\-getY}}
 \index{CpgSuper\_\-getY@{CpgSuper\_\-getY}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getY ({\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_015c62e41007188f8ba2a12cc0f6edee}
+\subsubsection[{CpgSuper\_\-getY}]{\setlength{\rightskip}{0pt plus 5cm}float CpgSuper\_\-getY (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a015c62e41007188f8ba2a12cc0f6edee}
+Get the 'Y' state variable: Y = amplitude$\ast$y+yOffset 
 
+Definition at line 58 of file CpgSuper.c.
 
-Get the 'Y' state variable: Y = amplitude$\ast$y+yOffset \hypertarget{CpgSuper_8h_52ec4b7399d678202e38236c06c7dbbc}{
+\hypertarget{CpgSuper_8h_a52ec4b7399d678202e38236c06c7dbbc}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-initialize@{CpgSuper\_\-initialize}}
 \index{CpgSuper\_\-initialize@{CpgSuper\_\-initialize}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-initialize ({\bf CpgSuper\_\-t} $\ast$ {\em cpg}, \/  uint8\_\-t {\em label}, \/  float {\em hz})}}
-\label{CpgSuper_8h_52ec4b7399d678202e38236c06c7dbbc}
+\subsubsection[{CpgSuper\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg, }
+\item[{uint8\_\-t}]{label, }
+\item[{float}]{hz}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a52ec4b7399d678202e38236c06c7dbbc}
+Initialize the CPG with default parameters 
 
+Definition at line 110 of file CpgSuper.c.
 
-Initialize the CPG with default parameters \hypertarget{CpgSuper_8h_ae0702c191ae56afbf62a84f8bbf25ef}{
+\hypertarget{CpgSuper_8h_aae0702c191ae56afbf62a84f8bbf25ef}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-resetState@{CpgSuper\_\-resetState}}
 \index{CpgSuper\_\-resetState@{CpgSuper\_\-resetState}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-resetState ({\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_ae0702c191ae56afbf62a84f8bbf25ef}
+\subsubsection[{CpgSuper\_\-resetState}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-resetState (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_aae0702c191ae56afbf62a84f8bbf25ef}
+Reset the generic part of the CPG state 
 
+Definition at line 41 of file CpgSuper.c.
 
-Reset the generic part of the CPG state \hypertarget{CpgSuper_8h_28bc40e7e257684f98aace5fd9a49fa3}{
+\hypertarget{CpgSuper_8h_a28bc40e7e257684f98aace5fd9a49fa3}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-sendState@{CpgSuper\_\-sendState}}
 \index{CpgSuper\_\-sendState@{CpgSuper\_\-sendState}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-sendState ({\bf CpgSuper\_\-t} $\ast$ {\em cpg}, \/  {\bf CpgSuperMsg\_\-t} $\ast$ {\em msg})}}
-\label{CpgSuper_8h_28bc40e7e257684f98aace5fd9a49fa3}
+\subsubsection[{CpgSuper\_\-sendState}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-sendState (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg, }
+\item[{{\bf CpgSuperMsg\_\-t} $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a28bc40e7e257684f98aace5fd9a49fa3}
+Send the state of the CPG to all neighbors 
 
+Definition at line 47 of file CpgSuper.c.
 
-Send the state of the CPG to all neighbors \hypertarget{CpgSuper_8h_0ee3725a5ac8b1715022063464ee543f}{
+\hypertarget{CpgSuper_8h_a0ee3725a5ac8b1715022063464ee543f}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-setAmplitude@{CpgSuper\_\-setAmplitude}}
 \index{CpgSuper\_\-setAmplitude@{CpgSuper\_\-setAmplitude}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setAmplitude ({\bf CpgSuper\_\-t} $\ast$ {\em cpg}, \/  float {\em amplitude})}}
-\label{CpgSuper_8h_0ee3725a5ac8b1715022063464ee543f}
+\subsubsection[{CpgSuper\_\-setAmplitude}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setAmplitude (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg, }
+\item[{float}]{amplitude}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a0ee3725a5ac8b1715022063464ee543f}
+Set the amplitude of the CPG 
 
+Definition at line 62 of file CpgSuper.c.
 
-Set the amplitude of the CPG \hypertarget{CpgSuper_8h_de9ffc9a59c26fc8f2afcf92358764d6}{
+\hypertarget{CpgSuper_8h_ade9ffc9a59c26fc8f2afcf92358764d6}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-setApplyToChannel@{CpgSuper\_\-setApplyToChannel}}
 \index{CpgSuper\_\-setApplyToChannel@{CpgSuper\_\-setApplyToChannel}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setApplyToChannel ({\bf CpgSuperCoupling\_\-t} $\ast$ {\em coupling}, \/  int {\em channel}, \/  int {\em applyTo})}}
-\label{CpgSuper_8h_de9ffc9a59c26fc8f2afcf92358764d6}
+\subsubsection[{CpgSuper\_\-setApplyToChannel}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setApplyToChannel (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuperCoupling\_\-t} $\ast$}]{coupling, }
+\item[{int}]{channel, }
+\item[{int}]{applyTo}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_ade9ffc9a59c26fc8f2afcf92358764d6}
+Set if this coupling should accept (apply) coupling messages from specific channels. Function can be used to make a CPG affected by a local CPG only and not by CPG (using the same id) on neighbour modules 
 
+Definition at line 88 of file CpgSuper.c.
 
-Set if this coupling should accept (apply) coupling messages from specific channels. Function can be used to make a CPG affected by a local CPG only and not by CPG (using the same id) on neighbour modules \hypertarget{CpgSuper_8h_922bdc83972d18e1e6a2f18bdf7fa507}{
+\hypertarget{CpgSuper_8h_a922bdc83972d18e1e6a2f18bdf7fa507}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-setFrequency@{CpgSuper\_\-setFrequency}}
 \index{CpgSuper\_\-setFrequency@{CpgSuper\_\-setFrequency}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setFrequency (float {\em hz}, \/  {\bf CpgSuper\_\-t} $\ast$ {\em cpg})}}
-\label{CpgSuper_8h_922bdc83972d18e1e6a2f18bdf7fa507}
+\subsubsection[{CpgSuper\_\-setFrequency}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setFrequency (
+\begin{DoxyParamCaption}
+\item[{float}]{hz, }
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a922bdc83972d18e1e6a2f18bdf7fa507}
+Set frequency of the CPG in oscillations per second. 
 
+Definition at line 30 of file CpgSuper.c.
 
-Set frequency of the CPG in oscillations per second. \hypertarget{CpgSuper_8h_0e463d386f56117841390253360afc8e}{
+\hypertarget{CpgSuper_8h_a0e463d386f56117841390253360afc8e}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-setOffset@{CpgSuper\_\-setOffset}}
 \index{CpgSuper\_\-setOffset@{CpgSuper\_\-setOffset}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setOffset ({\bf CpgSuper\_\-t} $\ast$ {\em cpg}, \/  float {\em xOffset}, \/  float {\em yOffset})}}
-\label{CpgSuper_8h_0e463d386f56117841390253360afc8e}
+\subsubsection[{CpgSuper\_\-setOffset}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setOffset (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg, }
+\item[{float}]{xOffset, }
+\item[{float}]{yOffset}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a0e463d386f56117841390253360afc8e}
+Set the offset of the CPG 
 
+Definition at line 78 of file CpgSuper.c.
 
-Set the offset of the CPG \hypertarget{CpgSuper_8h_5cbafa4cc5c92d82ba861ab6aaa05f06}{
+\hypertarget{CpgSuper_8h_a5cbafa4cc5c92d82ba861ab6aaa05f06}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-setPhaseDifference@{CpgSuper\_\-setPhaseDifference}}
 \index{CpgSuper\_\-setPhaseDifference@{CpgSuper\_\-setPhaseDifference}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setPhaseDifference ({\bf CpgSuperCoupling\_\-t} $\ast$ {\em coupling}, \/  float {\em phaseDifference})}}
-\label{CpgSuper_8h_5cbafa4cc5c92d82ba861ab6aaa05f06}
+\subsubsection[{CpgSuper\_\-setPhaseDifference}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setPhaseDifference (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuperCoupling\_\-t} $\ast$}]{coupling, }
+\item[{float}]{phaseDifference}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a5cbafa4cc5c92d82ba861ab6aaa05f06}
+Set the phase difference of a coupling in radians 
 
+Definition at line 96 of file CpgSuper.c.
 
-Set the phase difference of a coupling in radians \hypertarget{CpgSuper_8h_19c1e45535d43bf0bb1497214eaade89}{
+\hypertarget{CpgSuper_8h_a19c1e45535d43bf0bb1497214eaade89}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-setState@{CpgSuper\_\-setState}}
 \index{CpgSuper\_\-setState@{CpgSuper\_\-setState}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setState ({\bf CpgSuper\_\-t} $\ast$ {\em cpg}, \/  float {\em new\_\-x}, \/  float {\em new\_\-y})}}
-\label{CpgSuper_8h_19c1e45535d43bf0bb1497214eaade89}
+\subsubsection[{CpgSuper\_\-setState}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setState (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg, }
+\item[{float}]{new\_\-x, }
+\item[{float}]{new\_\-y}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_a19c1e45535d43bf0bb1497214eaade89}
+Set the state (x,y) of the CPG 
 
+Definition at line 83 of file CpgSuper.c.
 
-Set the state (x,y) of the CPG \hypertarget{CpgSuper_8h_e6f0a5483f493426e0aa597715c130a4}{
+\hypertarget{CpgSuper_8h_ae6f0a5483f493426e0aa597715c130a4}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-setStrength@{CpgSuper\_\-setStrength}}
 \index{CpgSuper\_\-setStrength@{CpgSuper\_\-setStrength}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setStrength ({\bf CpgSuperCoupling\_\-t} $\ast$ {\em coupling}, \/  float {\em strength})}}
-\label{CpgSuper_8h_e6f0a5483f493426e0aa597715c130a4}
+\subsubsection[{CpgSuper\_\-setStrength}]{\setlength{\rightskip}{0pt plus 5cm}void CpgSuper\_\-setStrength (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuperCoupling\_\-t} $\ast$}]{coupling, }
+\item[{float}]{strength}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_ae6f0a5483f493426e0aa597715c130a4}
+Set the coupling strength parameter 
 
+Definition at line 92 of file CpgSuper.c.
 
-Set the coupling strength parameter \hypertarget{CpgSuper_8h_f035fe0e53dc1fcf7ebbf0f065c6cc42}{
+\hypertarget{CpgSuper_8h_af035fe0e53dc1fcf7ebbf0f065c6cc42}{
 \index{CpgSuper.h@{CpgSuper.h}!CpgSuper\_\-updateIfTime@{CpgSuper\_\-updateIfTime}}
 \index{CpgSuper\_\-updateIfTime@{CpgSuper\_\-updateIfTime}!CpgSuper.h@{CpgSuper.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool CpgSuper\_\-updateIfTime ({\bf CpgSuper\_\-t} $\ast$ {\em cpg}, \/  void($\ast$)({\bf CpgSuper\_\-t} $\ast$) {\em iterate})}}
-\label{CpgSuper_8h_f035fe0e53dc1fcf7ebbf0f065c6cc42}
-
-
+\subsubsection[{CpgSuper\_\-updateIfTime}]{\setlength{\rightskip}{0pt plus 5cm}bool CpgSuper\_\-updateIfTime (
+\begin{DoxyParamCaption}
+\item[{{\bf CpgSuper\_\-t} $\ast$}]{cpg, }
+\item[{void($\ast$)({\bf CpgSuper\_\-t} $\ast$)}]{iterate}
+\end{DoxyParamCaption}
+)}}
+\label{CpgSuper_8h_af035fe0e53dc1fcf7ebbf0f065c6cc42}
 Update the CPG if it is time to do so, will also send the state to neighbors 
+
+Definition at line 14 of file CpgSuper.c.
+

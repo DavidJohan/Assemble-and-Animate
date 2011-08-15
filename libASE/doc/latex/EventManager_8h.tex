@@ -1,58 +1,83 @@
 \hypertarget{EventManager_8h}{
-\section{/home/david/ASE/src/infrastructure/EventManager/EventManager.h File Reference}
-\label{EventManager_8h}\index{/home/david/ASE/src/infrastructure/EventManager/EventManager.h@{/home/david/ASE/src/infrastructure/EventManager/EventManager.h}}
+\section{EventManager.h File Reference}
+\label{EventManager_8h}\index{EventManager.h@{EventManager.h}}
 }
-{\tt \#include \char`\"{}PubSubManager.h\char`\"{}}\par
-{\tt \#include \char`\"{}LinkedList.h\char`\"{}}\par
+{\ttfamily \#include $<$ase/infrastructure/Entity/Manager/PubSubManager/PubSubManager.h$>$}\par
+{\ttfamily \#include $<$ase/tools/LinkedList/LinkedList.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-union \textbf{Event\_\-t}
+union \hyperlink{unionEvent__t}{Event\_\-t}
 \item 
-struct \textbf{EventHandler\_\-t}
+struct \hyperlink{structEventHandler__t}{EventHandler\_\-t}
 \item 
 struct \hyperlink{structEventManager__t}{EventManager\_\-t}
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{EventManager_8h_2bcb572d38ec6cc20845b598fb25352e}{EventManager\_\-subscribe} (char $\ast$topic, void($\ast$handler)(char $\ast$, Event\_\-t $\ast$))
+void \hyperlink{EventManager_8h_a2bcb572d38ec6cc20845b598fb25352e}{EventManager\_\-subscribe} (char $\ast$topic, void($\ast$handler)(char $\ast$, \hyperlink{unionEvent__t}{Event\_\-t} $\ast$))
 \item 
-void \hyperlink{EventManager_8h_77fd502b67fdd3cac706ca7c008c4b40}{EventManager\_\-registerTopic} (char $\ast$topic)
+void \hyperlink{EventManager_8h_a77fd502b67fdd3cac706ca7c008c4b40}{EventManager\_\-registerTopic} (char $\ast$topic)
 \item 
-void \hyperlink{EventManager_8h_afc06f6e106e93757e422492f6cd31e5}{EventManager\_\-publish} (char $\ast$topic, Event\_\-t $\ast$event)
-\end{CompactItemize}
+void \hyperlink{EventManager_8h_aafc06f6e106e93757e422492f6cd31e5}{EventManager\_\-publish} (char $\ast$topic, \hyperlink{unionEvent__t}{Event\_\-t} $\ast$event)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{EventManager_8h}{EventManager.h} provides a publish/subscribe system of internal events between different components
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{EventManager_8h_source}{EventManager.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{EventManager_8h_afc06f6e106e93757e422492f6cd31e5}{
+\hypertarget{EventManager_8h_aafc06f6e106e93757e422492f6cd31e5}{
 \index{EventManager.h@{EventManager.h}!EventManager\_\-publish@{EventManager\_\-publish}}
 \index{EventManager\_\-publish@{EventManager\_\-publish}!EventManager.h@{EventManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-publish (char $\ast$ {\em topic}, \/  Event\_\-t $\ast$ {\em event})}}
-\label{EventManager_8h_afc06f6e106e93757e422492f6cd31e5}
+\subsubsection[{EventManager\_\-publish}]{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-publish (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{topic, }
+\item[{{\bf Event\_\-t} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}}
+\label{EventManager_8h_aafc06f6e106e93757e422492f6cd31e5}
+Allows a component (a publisher) to signal (or publish) an event 
 
+Definition at line 86 of file EventManager.c.
 
-Allows a component (a publisher) to signal (or publish) an event \hypertarget{EventManager_8h_77fd502b67fdd3cac706ca7c008c4b40}{
+\hypertarget{EventManager_8h_a77fd502b67fdd3cac706ca7c008c4b40}{
 \index{EventManager.h@{EventManager.h}!EventManager\_\-registerTopic@{EventManager\_\-registerTopic}}
 \index{EventManager\_\-registerTopic@{EventManager\_\-registerTopic}!EventManager.h@{EventManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-registerTopic (char $\ast$ {\em topic})}}
-\label{EventManager_8h_77fd502b67fdd3cac706ca7c008c4b40}
+\subsubsection[{EventManager\_\-registerTopic}]{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-registerTopic (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{topic}
+\end{DoxyParamCaption}
+)}}
+\label{EventManager_8h_a77fd502b67fdd3cac706ca7c008c4b40}
+Allows an component (publisher) to make an topic available for publication 
 
+Definition at line 25 of file EventManager.c.
 
-Allows an component (publisher) to make an topic available for publication \hypertarget{EventManager_8h_2bcb572d38ec6cc20845b598fb25352e}{
+\hypertarget{EventManager_8h_a2bcb572d38ec6cc20845b598fb25352e}{
 \index{EventManager.h@{EventManager.h}!EventManager\_\-subscribe@{EventManager\_\-subscribe}}
 \index{EventManager\_\-subscribe@{EventManager\_\-subscribe}!EventManager.h@{EventManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-subscribe (char $\ast$ {\em topic}, \/  void($\ast$)(char $\ast$, Event\_\-t $\ast$) {\em handler})}}
-\label{EventManager_8h_2bcb572d38ec6cc20845b598fb25352e}
-
-
+\subsubsection[{EventManager\_\-subscribe}]{\setlength{\rightskip}{0pt plus 5cm}void EventManager\_\-subscribe (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{topic, }
+\item[{void($\ast$)(char $\ast$, {\bf Event\_\-t} $\ast$)}]{handler}
+\end{DoxyParamCaption}
+)}}
+\label{EventManager_8h_a2bcb572d38ec6cc20845b598fb25352e}
 Allows a component (a subscriber) to subscribe to specific event topics char$\ast$ topic should point to a global variable 
+
+Definition at line 50 of file EventManager.c.
+

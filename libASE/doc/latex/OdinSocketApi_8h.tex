@@ -1,128 +1,210 @@
 \hypertarget{OdinSocketApi_8h}{
-\section{/home/david/ASE/src/targets/odin/odin-ussr/socket-api/OdinSocketApi.h File Reference}
-\label{OdinSocketApi_8h}\index{/home/david/ASE/src/targets/odin/odin-ussr/socket-api/OdinSocketApi.h@{/home/david/ASE/src/targets/odin/odin-ussr/socket-api/OdinSocketApi.h}}
+\section{OdinSocketApi.h File Reference}
+\label{OdinSocketApi_8h}\index{OdinSocketApi.h@{OdinSocketApi.h}}
 }
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{OdinSocketApi_8h_20fd8bd5868383c2e20579a64d540dc3}{odinApi\_\-setup} (int portRC, int portEvent, char $\ast$host, void($\ast$msgHandler)(char $\ast$, char, char))
+void \hyperlink{OdinSocketApi_8h_a20fd8bd5868383c2e20579a64d540dc3}{odinApi\_\-setup} (int portRC, int portEvent, char $\ast$host, void($\ast$msgHandler)(char $\ast$, char, char))
 \item 
-int \hyperlink{OdinSocketApi_8h_03cb397b9498d13771754ccf302738db}{odinApi\_\-wasSend} ()
+int \hyperlink{OdinSocketApi_8h_a03cb397b9498d13771754ccf302738db}{odinApi\_\-wasSend} ()
 \item 
-char $\ast$ \hyperlink{OdinSocketApi_8h_8956172e77faecf7a374a101812ea05e}{odinApi\_\-getName} (char $\ast$returnString)
+char $\ast$ \hyperlink{OdinSocketApi_8h_a8956172e77faecf7a374a101812ea05e}{odinApi\_\-getName} (char $\ast$returnString)
 \item 
-int \hyperlink{OdinSocketApi_8h_5c455f0de159bc0f39cf42ed3848e96c}{odinApi\_\-isActuating} ()
+int \hyperlink{OdinSocketApi_8h_a5c455f0de159bc0f39cf42ed3848e96c}{odinApi\_\-isActuating} ()
 \item 
-void \hyperlink{OdinSocketApi_8h_aa6818a9c8c95dea765002e7595c2497}{odinApi\_\-actuate} (float pos)
+void \hyperlink{OdinSocketApi_8h_aaa6818a9c8c95dea765002e7595c2497}{odinApi\_\-actuate} (float pos)
 \item 
-void \hyperlink{OdinSocketApi_8h_fab7b7c53d85fc9aeadbb18513c84176}{odinApi\_\-disactivate} ()
+void \hyperlink{OdinSocketApi_8h_afab7b7c53d85fc9aeadbb18513c84176}{odinApi\_\-disactivate} ()
 \item 
-float \hyperlink{OdinSocketApi_8h_05a9155e6e14b8d01e92bdd0bed6651a}{odinApi\_\-getTime} ()
+float \hyperlink{OdinSocketApi_8h_a05a9155e6e14b8d01e92bdd0bed6651a}{odinApi\_\-getTime} ()
 \item 
-float \hyperlink{OdinSocketApi_8h_fcb1b42ca760f9e367c1104ae64db378}{odinApi\_\-getActuatorPosition} ()
+float \hyperlink{OdinSocketApi_8h_afcb1b42ca760f9e367c1104ae64db378}{odinApi\_\-getActuatorPosition} ()
 \item 
-int \hyperlink{OdinSocketApi_8h_1d286bb8a2c8dcc71fb08470fe39d22a}{odinApi\_\-isConnected} (int i)
+int \hyperlink{OdinSocketApi_8h_a1d286bb8a2c8dcc71fb08470fe39d22a}{odinApi\_\-isConnected} (int i)
 \item 
-void \hyperlink{OdinSocketApi_8h_0aefba9b629dd1f12c58b9bdb83f21cc}{odinApi\_\-yield} ()
+void \hyperlink{OdinSocketApi_8h_a0aefba9b629dd1f12c58b9bdb83f21cc}{odinApi\_\-yield} ()
 \item 
-void \hyperlink{OdinSocketApi_8h_0c85058d4369300af1acd9701cc5e74c}{odinApi\_\-delay} (long ms)
+void \hyperlink{OdinSocketApi_8h_a0c85058d4369300af1acd9701cc5e74c}{odinApi\_\-delay} (long ms)
 \item 
-int \hyperlink{OdinSocketApi_8h_b08e868e2aa05705a1456b82cc273fdf}{odinApi\_\-sendMessage} (char $\ast$message, char messageSize, char connector)
-\end{CompactItemize}
+int \hyperlink{OdinSocketApi_8h_ab08e868e2aa05705a1456b82cc273fdf}{odinApi\_\-sendMessage} (char $\ast$message, char messageSize, char connector)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{OdinSocketApi_8h}{OdinSocketApi.h} provides an interface for an Odin module simulated in the Unified Simulator for Self-Reconfigurable Robots (USSR). API calls to the modules are communicated to USSR though a socket. Similar messages (asynchronous events) to the moduels are send from USSR to the module controller through a seperate socket. In total two sockets are used per module. Initially a call to odinApi\_\-setup(...) must be made. This API builds on top of CommandSender.h and EventListner.h.
+\hyperlink{OdinSocketApi_8h}{OdinSocketApi.h} provides an interface for an Odin module simulated in the Unified Simulator for Self-\/Reconfigurable Robots (USSR). API calls to the modules are communicated to USSR though a socket. Similar messages (asynchronous events) to the moduels are send from USSR to the module controller through a seperate socket. In total two sockets are used per module. Initially a call to odinApi\_\-setup(...) must be made. This API builds on top of \hyperlink{CommandSender_8h}{CommandSender.h} and \hyperlink{EventListner_8h}{EventListner.h}.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{OdinSocketApi_8h_source}{OdinSocketApi.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{OdinSocketApi_8h_aa6818a9c8c95dea765002e7595c2497}{
+\hypertarget{OdinSocketApi_8h_aaa6818a9c8c95dea765002e7595c2497}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-actuate@{odinApi\_\-actuate}}
 \index{odinApi\_\-actuate@{odinApi\_\-actuate}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-actuate (float {\em pos})}}
-\label{OdinSocketApi_8h_aa6818a9c8c95dea765002e7595c2497}
+\subsubsection[{odinApi\_\-actuate}]{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-actuate (
+\begin{DoxyParamCaption}
+\item[{float}]{pos}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_aaa6818a9c8c95dea765002e7595c2497}
+Actuate actuator towards a goal, from 0 to 1 
 
+Definition at line 27 of file OdinSocketApi.c.
 
-Actuate actuator towards a goal, from 0 to 1 \hypertarget{OdinSocketApi_8h_0c85058d4369300af1acd9701cc5e74c}{
+\hypertarget{OdinSocketApi_8h_a0c85058d4369300af1acd9701cc5e74c}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-delay@{odinApi\_\-delay}}
 \index{odinApi\_\-delay@{odinApi\_\-delay}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-delay (long {\em ms})}}
-\label{OdinSocketApi_8h_0c85058d4369300af1acd9701cc5e74c}
+\subsubsection[{odinApi\_\-delay}]{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-delay (
+\begin{DoxyParamCaption}
+\item[{long}]{ms}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a0c85058d4369300af1acd9701cc5e74c}
+Wait ms milliseconds in the USSR simulator 
 
+Definition at line 58 of file OdinSocketApi.c.
 
-Wait ms milliseconds in the USSR simulator \hypertarget{OdinSocketApi_8h_fab7b7c53d85fc9aeadbb18513c84176}{
+\hypertarget{OdinSocketApi_8h_afab7b7c53d85fc9aeadbb18513c84176}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-disactivate@{odinApi\_\-disactivate}}
 \index{odinApi\_\-disactivate@{odinApi\_\-disactivate}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-disactivate ()}}
-\label{OdinSocketApi_8h_fab7b7c53d85fc9aeadbb18513c84176}
+\subsubsection[{odinApi\_\-disactivate}]{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-disactivate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_afab7b7c53d85fc9aeadbb18513c84176}
+Turn off actuator (make it passive) 
 
+Definition at line 32 of file OdinSocketApi.c.
 
-Turn off actuator (make it passive) \hypertarget{OdinSocketApi_8h_fcb1b42ca760f9e367c1104ae64db378}{
+\hypertarget{OdinSocketApi_8h_afcb1b42ca760f9e367c1104ae64db378}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-getActuatorPosition@{odinApi\_\-getActuatorPosition}}
 \index{odinApi\_\-getActuatorPosition@{odinApi\_\-getActuatorPosition}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float odinApi\_\-getActuatorPosition ()}}
-\label{OdinSocketApi_8h_fcb1b42ca760f9e367c1104ae64db378}
+\subsubsection[{odinApi\_\-getActuatorPosition}]{\setlength{\rightskip}{0pt plus 5cm}float odinApi\_\-getActuatorPosition (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_afcb1b42ca760f9e367c1104ae64db378}
+Get the position of the main actuator 
 
+Definition at line 44 of file OdinSocketApi.c.
 
-Get the position of the main actuator \hypertarget{OdinSocketApi_8h_8956172e77faecf7a374a101812ea05e}{
+\hypertarget{OdinSocketApi_8h_a8956172e77faecf7a374a101812ea05e}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-getName@{odinApi\_\-getName}}
 \index{odinApi\_\-getName@{odinApi\_\-getName}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ odinApi\_\-getName (char $\ast$ {\em returnString})}}
-\label{OdinSocketApi_8h_8956172e77faecf7a374a101812ea05e}
+\subsubsection[{odinApi\_\-getName}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ odinApi\_\-getName (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{returnString}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a8956172e77faecf7a374a101812ea05e}
+Gets the name of the module is such a label has been set in USSR 
 
+Definition at line 19 of file OdinSocketApi.c.
 
-Gets the name of the module is such a label has been set in USSR \hypertarget{OdinSocketApi_8h_05a9155e6e14b8d01e92bdd0bed6651a}{
+\hypertarget{OdinSocketApi_8h_a05a9155e6e14b8d01e92bdd0bed6651a}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-getTime@{odinApi\_\-getTime}}
 \index{odinApi\_\-getTime@{odinApi\_\-getTime}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float odinApi\_\-getTime ()}}
-\label{OdinSocketApi_8h_05a9155e6e14b8d01e92bdd0bed6651a}
+\subsubsection[{odinApi\_\-getTime}]{\setlength{\rightskip}{0pt plus 5cm}float odinApi\_\-getTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a05a9155e6e14b8d01e92bdd0bed6651a}
+Get the current simulation (USSR) real time in seconds since the simulation started 
 
+Definition at line 36 of file OdinSocketApi.c.
 
-Get the current simulation (USSR) real time in seconds since the simulation started \hypertarget{OdinSocketApi_8h_5c455f0de159bc0f39cf42ed3848e96c}{
+\hypertarget{OdinSocketApi_8h_a5c455f0de159bc0f39cf42ed3848e96c}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-isActuating@{odinApi\_\-isActuating}}
 \index{odinApi\_\-isActuating@{odinApi\_\-isActuating}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-isActuating ()}}
-\label{OdinSocketApi_8h_5c455f0de159bc0f39cf42ed3848e96c}
+\subsubsection[{odinApi\_\-isActuating}]{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-isActuating (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a5c455f0de159bc0f39cf42ed3848e96c}
+If the actuator is currently actuating or if it is disactivated 
 
+Definition at line 23 of file OdinSocketApi.c.
 
-If the actuator is currently actuating or if it is disactivated \hypertarget{OdinSocketApi_8h_1d286bb8a2c8dcc71fb08470fe39d22a}{
+\hypertarget{OdinSocketApi_8h_a1d286bb8a2c8dcc71fb08470fe39d22a}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-isConnected@{odinApi\_\-isConnected}}
 \index{odinApi\_\-isConnected@{odinApi\_\-isConnected}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-isConnected (int {\em i})}}
-\label{OdinSocketApi_8h_1d286bb8a2c8dcc71fb08470fe39d22a}
+\subsubsection[{odinApi\_\-isConnected}]{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-isConnected (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a1d286bb8a2c8dcc71fb08470fe39d22a}
+Test if a specific connector is currently connected 
 
+Definition at line 49 of file OdinSocketApi.c.
 
-Test if a specific connector is currently connected \hypertarget{OdinSocketApi_8h_b08e868e2aa05705a1456b82cc273fdf}{
+\hypertarget{OdinSocketApi_8h_ab08e868e2aa05705a1456b82cc273fdf}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-sendMessage@{odinApi\_\-sendMessage}}
 \index{odinApi\_\-sendMessage@{odinApi\_\-sendMessage}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-sendMessage (char $\ast$ {\em message}, \/  char {\em messageSize}, \/  char {\em connector})}}
-\label{OdinSocketApi_8h_b08e868e2aa05705a1456b82cc273fdf}
+\subsubsection[{odinApi\_\-sendMessage}]{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-sendMessage (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message, }
+\item[{char}]{messageSize, }
+\item[{char}]{connector}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_ab08e868e2aa05705a1456b82cc273fdf}
+Send a message on a given connector 
 
+Definition at line 90 of file OdinSocketApi.c.
 
-Send a message on a given connector \hypertarget{OdinSocketApi_8h_20fd8bd5868383c2e20579a64d540dc3}{
+\hypertarget{OdinSocketApi_8h_a20fd8bd5868383c2e20579a64d540dc3}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-setup@{odinApi\_\-setup}}
 \index{odinApi\_\-setup@{odinApi\_\-setup}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-setup (int {\em portRC}, \/  int {\em portEvent}, \/  char $\ast$ {\em host}, \/  void($\ast$)(char $\ast$, char, char) {\em msgHandler})}}
-\label{OdinSocketApi_8h_20fd8bd5868383c2e20579a64d540dc3}
+\subsubsection[{odinApi\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-setup (
+\begin{DoxyParamCaption}
+\item[{int}]{portRC, }
+\item[{int}]{portEvent, }
+\item[{char $\ast$}]{host, }
+\item[{void($\ast$)(char $\ast$, char, char)}]{msgHandler}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a20fd8bd5868383c2e20579a64d540dc3}
+Setup the API, two free socket ports portRC and portEvent must be provided for commands and events respectively. Also a host (usually LOCALHOST) and a pointer to a function (e.g. handleMessage(char$\ast$ message, char messageSize, char channel)) that will handle messages received from other modules. 
 
+Definition at line 104 of file OdinSocketApi.c.
 
-Setup the API, two free socket ports portRC and portEvent must be provided for commands and events respectively. Also a host (usually LOCALHOST) and a pointer to a function (e.g. handleMessage(char$\ast$ message, char messageSize, char channel)) that will handle messages received from other modules. \hypertarget{OdinSocketApi_8h_03cb397b9498d13771754ccf302738db}{
+\hypertarget{OdinSocketApi_8h_a03cb397b9498d13771754ccf302738db}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-wasSend@{odinApi\_\-wasSend}}
 \index{odinApi\_\-wasSend@{odinApi\_\-wasSend}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-wasSend ()}}
-\label{OdinSocketApi_8h_03cb397b9498d13771754ccf302738db}
+\subsubsection[{odinApi\_\-wasSend}]{\setlength{\rightskip}{0pt plus 5cm}int odinApi\_\-wasSend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a03cb397b9498d13771754ccf302738db}
+If the last request to send a command was send correctly 
 
+Definition at line 15 of file OdinSocketApi.c.
 
-If the last request to send a command was send correctly \hypertarget{OdinSocketApi_8h_0aefba9b629dd1f12c58b9bdb83f21cc}{
+\hypertarget{OdinSocketApi_8h_a0aefba9b629dd1f12c58b9bdb83f21cc}{
 \index{OdinSocketApi.h@{OdinSocketApi.h}!odinApi\_\-yield@{odinApi\_\-yield}}
 \index{odinApi\_\-yield@{odinApi\_\-yield}!OdinSocketApi.h@{OdinSocketApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-yield ()}}
-\label{OdinSocketApi_8h_0aefba9b629dd1f12c58b9bdb83f21cc}
-
-
+\subsubsection[{odinApi\_\-yield}]{\setlength{\rightskip}{0pt plus 5cm}void odinApi\_\-yield (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{OdinSocketApi_8h_a0aefba9b629dd1f12c58b9bdb83f21cc}
 Yield the module, that is wait one physicstimestep in the USSR simulator 
+
+Definition at line 54 of file OdinSocketApi.c.
+

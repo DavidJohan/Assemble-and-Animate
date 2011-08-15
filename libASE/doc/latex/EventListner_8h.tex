@@ -1,67 +1,106 @@
 \hypertarget{EventListner_8h}{
-\section{/home/david/ASE/src/targets/utils/socket-tools/EventListner.h File Reference}
-\label{EventListner_8h}\index{/home/david/ASE/src/targets/utils/socket-tools/EventListner.h@{/home/david/ASE/src/targets/utils/socket-tools/EventListner.h}}
+\section{EventListner.h File Reference}
+\label{EventListner_8h}\index{EventListner.h@{EventListner.h}}
 }
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{EventListner_8h_155671300cab5b635a4153c054b24756}{el\_\-init} (int portEvent, char $\ast$host)
+void \hyperlink{EventListner_8h_a155671300cab5b635a4153c054b24756}{el\_\-init} (int portEvent, char $\ast$host)
 \item 
-void \hyperlink{EventListner_8h_be65a02a21e07be8d6315d08f66c9a28}{el\_\-startEventListen} ()
+void \hyperlink{EventListner_8h_abe65a02a21e07be8d6315d08f66c9a28}{el\_\-startEventListen} ()
 \item 
-void \hyperlink{EventListner_8h_c1c6cde4ad1fbe2357ed389cc30001b3}{el\_\-signalEvent} (char $\ast$eventType, char $\ast$eventParameters)
+void \hyperlink{EventListner_8h_ac1c6cde4ad1fbe2357ed389cc30001b3}{el\_\-signalEvent} (char $\ast$eventType, char $\ast$eventParameters)
 \item 
-void \hyperlink{EventListner_8h_49b8c52b3390c44cad9bf72cf3a51528}{el\_\-removeEvent} (char $\ast$eventType, void(event\_\-routine)(char $\ast$, char $\ast$))
+void \hyperlink{EventListner_8h_a49b8c52b3390c44cad9bf72cf3a51528}{el\_\-removeEvent} (char $\ast$eventType, void(event\_\-routine)(char $\ast$, char $\ast$))
 \item 
-void \hyperlink{EventListner_8h_922aa3f5e4ad1103576ccddd5f465574}{el\_\-installEvent} (char $\ast$eventType, void(event\_\-routine)(char $\ast$, char $\ast$))
-\end{CompactItemize}
+void \hyperlink{EventListner_8h_a922aa3f5e4ad1103576ccddd5f465574}{el\_\-installEvent} (char $\ast$eventType, void(event\_\-routine)(char $\ast$, char $\ast$))
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{EventListner_8h}{EventListner.h} provides together with \hyperlink{CommandSender_8h}{CommandSender.h} an generic socket based interface to the Unified Simulator for Self-Reconfigurable Robots (USSR). Events triggered in USSR are send to this EventListner through a socket. For example an event could be \char`\"{}HandleMessage 123,32,10, 3 1\char`\"{} which means the the module in USSR has received a message (\{123,32,10\}) of length 3 on channel 1. \hyperlink{EventListner_8h}{EventListner.h} provides an observer based interface for handlers to be notified of such events.
+\hyperlink{EventListner_8h}{EventListner.h} provides together with \hyperlink{CommandSender_8h}{CommandSender.h} an generic socket based interface to the Unified Simulator for Self-\/Reconfigurable Robots (USSR). Events triggered in USSR are send to this EventListner through a socket. For example an event could be \char`\"{}HandleMessage 123,32,10, 3 1\char`\"{} which means the the module in USSR has received a message (\{123,32,10\}) of length 3 on channel 1. \hyperlink{EventListner_8h}{EventListner.h} provides an observer based interface for handlers to be notified of such events.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{EventListner_8h_source}{EventListner.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{EventListner_8h_155671300cab5b635a4153c054b24756}{
+\hypertarget{EventListner_8h_a155671300cab5b635a4153c054b24756}{
 \index{EventListner.h@{EventListner.h}!el\_\-init@{el\_\-init}}
 \index{el\_\-init@{el\_\-init}!EventListner.h@{EventListner.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-init (int {\em portEvent}, \/  char $\ast$ {\em host})}}
-\label{EventListner_8h_155671300cab5b635a4153c054b24756}
+\subsubsection[{el\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void el\_\-init (
+\begin{DoxyParamCaption}
+\item[{int}]{portEvent, }
+\item[{char $\ast$}]{host}
+\end{DoxyParamCaption}
+)}}
+\label{EventListner_8h_a155671300cab5b635a4153c054b24756}
+Initialize the event listner with a free socket port and a host (typically LOCALHOST) 
 
+Definition at line 106 of file EventListner.c.
 
-Initialize the event listner with a free socket port and a host (typically LOCALHOST) \hypertarget{EventListner_8h_922aa3f5e4ad1103576ccddd5f465574}{
+\hypertarget{EventListner_8h_a922aa3f5e4ad1103576ccddd5f465574}{
 \index{EventListner.h@{EventListner.h}!el\_\-installEvent@{el\_\-installEvent}}
 \index{el\_\-installEvent@{el\_\-installEvent}!EventListner.h@{EventListner.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-installEvent (char $\ast$ {\em eventType}, \/  void(event\_\-routine)(char $\ast$, char $\ast$))}}
-\label{EventListner_8h_922aa3f5e4ad1103576ccddd5f465574}
+\subsubsection[{el\_\-installEvent}]{\setlength{\rightskip}{0pt plus 5cm}void el\_\-installEvent (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{eventType, }
+\item[{void(event\_\-routine)(char $\ast$, char $\ast$)}]{}
+\end{DoxyParamCaption}
+)}}
+\label{EventListner_8h_a922aa3f5e4ad1103576ccddd5f465574}
+This function installs an handler for a given event type (e.g. \char`\"{}HandleMessage\char`\"{}). A function pointer must be provided to the handler the parameters given to the handler are eventType and eventParameters 
 
+Definition at line 30 of file EventListner.c.
 
-This function installs an handler for a given event type (e.g. \char`\"{}HandleMessage\char`\"{}). A function pointer must be provided to the handler the parameters given to the handler are eventType and eventParameters \hypertarget{EventListner_8h_49b8c52b3390c44cad9bf72cf3a51528}{
+\hypertarget{EventListner_8h_a49b8c52b3390c44cad9bf72cf3a51528}{
 \index{EventListner.h@{EventListner.h}!el\_\-removeEvent@{el\_\-removeEvent}}
 \index{el\_\-removeEvent@{el\_\-removeEvent}!EventListner.h@{EventListner.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-removeEvent (char $\ast$ {\em eventType}, \/  void(event\_\-routine)(char $\ast$, char $\ast$))}}
-\label{EventListner_8h_49b8c52b3390c44cad9bf72cf3a51528}
-
-
+\subsubsection[{el\_\-removeEvent}]{\setlength{\rightskip}{0pt plus 5cm}void el\_\-removeEvent (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{eventType, }
+\item[{void(event\_\-routine)(char $\ast$, char $\ast$)}]{}
+\end{DoxyParamCaption}
+)}}
+\label{EventListner_8h_a49b8c52b3390c44cad9bf72cf3a51528}
 This will remove an installed event handler \begin{Desc}
-\item[\hyperlink{todo__todo000006}{Todo}]Test this function \end{Desc}
-\hypertarget{EventListner_8h_c1c6cde4ad1fbe2357ed389cc30001b3}{
+\item[\hyperlink{todo__todo000007}{Todo}]Test this function \end{Desc}
+
+
+Definition at line 42 of file EventListner.c.
+
+\hypertarget{EventListner_8h_ac1c6cde4ad1fbe2357ed389cc30001b3}{
 \index{EventListner.h@{EventListner.h}!el\_\-signalEvent@{el\_\-signalEvent}}
 \index{el\_\-signalEvent@{el\_\-signalEvent}!EventListner.h@{EventListner.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-signalEvent (char $\ast$ {\em eventType}, \/  char $\ast$ {\em eventParameters})}}
-\label{EventListner_8h_c1c6cde4ad1fbe2357ed389cc30001b3}
+\subsubsection[{el\_\-signalEvent}]{\setlength{\rightskip}{0pt plus 5cm}void el\_\-signalEvent (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{eventType, }
+\item[{char $\ast$}]{eventParameters}
+\end{DoxyParamCaption}
+)}}
+\label{EventListner_8h_ac1c6cde4ad1fbe2357ed389cc30001b3}
+This function will signal an event of the provided type and given parameters to all installed handlers for the given typs. 
 
+Definition at line 55 of file EventListner.c.
 
-This function will signal an event of the provided type and given parameters to all installed handlers for the given typs. \hypertarget{EventListner_8h_be65a02a21e07be8d6315d08f66c9a28}{
+\hypertarget{EventListner_8h_abe65a02a21e07be8d6315d08f66c9a28}{
 \index{EventListner.h@{EventListner.h}!el\_\-startEventListen@{el\_\-startEventListen}}
 \index{el\_\-startEventListen@{el\_\-startEventListen}!EventListner.h@{EventListner.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void el\_\-startEventListen ()}}
-\label{EventListner_8h_be65a02a21e07be8d6315d08f66c9a28}
-
-
+\subsubsection[{el\_\-startEventListen}]{\setlength{\rightskip}{0pt plus 5cm}void el\_\-startEventListen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{EventListner_8h_abe65a02a21e07be8d6315d08f66c9a28}
 Starts a pthread that will listen for events recieved from USSR 
+
+Definition at line 100 of file EventListner.c.
+

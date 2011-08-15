@@ -1,153 +1,253 @@
 \hypertarget{Strategy_8h}{
-\section{/home/david/ASE/src/infrastructure/Entity/Strategy/Strategy.h File Reference}
-\label{Strategy_8h}\index{/home/david/ASE/src/infrastructure/Entity/Strategy/Strategy.h@{/home/david/ASE/src/infrastructure/Entity/Strategy/Strategy.h}}
+\section{Strategy.h File Reference}
+\label{Strategy_8h}\index{Strategy.h@{Strategy.h}}
 }
-{\tt \#include $<$stdbool.h$>$}\par
-{\tt \#include \char`\"{}Entity.h\char`\"{}}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$ase/infrastructure/Entity/Entity.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structStrategy__t}{Strategy\_\-t}
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{Strategy_8h_8f6c6030bf22821979d832235e8631f7}{Strategy\_\-init} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, short label)
+void \hyperlink{Strategy_8h_a8f6c6030bf22821979d832235e8631f7}{Strategy\_\-init} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, short label)
 \item 
-void \hyperlink{Strategy_8h_5c5467aed4c7c6ffa5f3c95dce8aea82}{Strategy\_\-stop} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
+void \hyperlink{Strategy_8h_a5c5467aed4c7c6ffa5f3c95dce8aea82}{Strategy\_\-stop} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
 \item 
-void \hyperlink{Strategy_8h_8974dc19679197f25c951604ce4ee5a6}{Strategy\_\-start} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
+void \hyperlink{Strategy_8h_a8974dc19679197f25c951604ce4ee5a6}{Strategy\_\-start} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
 \item 
-void \hyperlink{Strategy_8h_1a8033333e25ded88411d1d3695e0189}{Strategy\_\-pause} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
+void \hyperlink{Strategy_8h_a1a8033333e25ded88411d1d3695e0189}{Strategy\_\-pause} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
 \item 
-void \hyperlink{Strategy_8h_d1d2a4efb86e45ac625c9c23200b92a4}{Strategy\_\-resume} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
+void \hyperlink{Strategy_8h_ad1d2a4efb86e45ac625c9c23200b92a4}{Strategy\_\-resume} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
 \item 
-void \hyperlink{Strategy_8h_21caf76cac00d357cd7a8bc18b12775a}{Strategy\_\-restart} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
+void \hyperlink{Strategy_8h_a21caf76cac00d357cd7a8bc18b12775a}{Strategy\_\-restart} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void $\ast$data)
 \item 
-bool \hyperlink{Strategy_8h_6b1e1d28112d4cbfff195ea0d839b868}{Strategy\_\-isInitialized} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy)
+bool \hyperlink{Strategy_8h_a6b1e1d28112d4cbfff195ea0d839b868}{Strategy\_\-isInitialized} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy)
 \item 
-bool \hyperlink{Strategy_8h_8da8b6f15154b135adc4c783fedcd38a}{Strategy\_\-isStarted} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy)
+bool \hyperlink{Strategy_8h_a8da8b6f15154b135adc4c783fedcd38a}{Strategy\_\-isStarted} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy)
 \item 
-bool \hyperlink{Strategy_8h_921bd077b2aae8ba4cc4a50eef716c26}{Strategy\_\-isPaused} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy)
+bool \hyperlink{Strategy_8h_a921bd077b2aae8ba4cc4a50eef716c26}{Strategy\_\-isPaused} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy)
 \item 
-void \hyperlink{Strategy_8h_633bea0c1ea0e679f7efbf1f5ef787c0}{Strategy\_\-setStartHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$start)(void $\ast$))
+void \hyperlink{Strategy_8h_a633bea0c1ea0e679f7efbf1f5ef787c0}{Strategy\_\-setStartHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$start)(void $\ast$))
 \item 
-void \hyperlink{Strategy_8h_eaf2e7ebddcf31585d7dbecb5f3c993f}{Strategy\_\-setPauseHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$pause)(void $\ast$))
+void \hyperlink{Strategy_8h_aeaf2e7ebddcf31585d7dbecb5f3c993f}{Strategy\_\-setPauseHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$pause)(void $\ast$))
 \item 
-void \hyperlink{Strategy_8h_7396c4bf1277f0225a3360e2e3d4cabc}{Strategy\_\-setResumeHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$resume)(void $\ast$))
+void \hyperlink{Strategy_8h_a7396c4bf1277f0225a3360e2e3d4cabc}{Strategy\_\-setResumeHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$resume)(void $\ast$))
 \item 
-void \hyperlink{Strategy_8h_71b0380f40cf3e3555673e2dca153cc1}{Strategy\_\-setStopHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$stop)(void $\ast$))
+void \hyperlink{Strategy_8h_a71b0380f40cf3e3555673e2dca153cc1}{Strategy\_\-setStopHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$stop)(void $\ast$))
 \item 
-void \hyperlink{Strategy_8h_c83c8365376a77a0a466ee3c2e39f3e0}{Strategy\_\-setRestartHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$restart)(void $\ast$))
-\end{CompactItemize}
+void \hyperlink{Strategy_8h_ac83c8365376a77a0a466ee3c2e39f3e0}{Strategy\_\-setRestartHandler} (\hyperlink{structStrategy__t}{Strategy\_\-t} $\ast$strategy, void($\ast$restart)(void $\ast$))
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{Strategy_8h}{Strategy.h} is a top-level construct for ASE. Most strategies extend it. It contains methods and variables to start, stop, pause, resume and restart the strategy.
+\hyperlink{Strategy_8h}{Strategy.h} is a top-\/level construct for ASE. Most strategies extend it. It contains methods and variables to start, stop, pause, resume and restart the strategy.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maersk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maersk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{Strategy_8h_source}{Strategy.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{Strategy_8h_8f6c6030bf22821979d832235e8631f7}{
+\hypertarget{Strategy_8h_a8f6c6030bf22821979d832235e8631f7}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-init@{Strategy\_\-init}}
 \index{Strategy\_\-init@{Strategy\_\-init}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-init ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  short {\em label})}}
-\label{Strategy_8h_8f6c6030bf22821979d832235e8631f7}
+\subsubsection[{Strategy\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{short}]{label}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a8f6c6030bf22821979d832235e8631f7}
+Initialize the Strategy 
 
+Definition at line 6 of file Strategy.c.
 
-Initialize the Strategy \hypertarget{Strategy_8h_6b1e1d28112d4cbfff195ea0d839b868}{
+\hypertarget{Strategy_8h_a6b1e1d28112d4cbfff195ea0d839b868}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-isInitialized@{Strategy\_\-isInitialized}}
 \index{Strategy\_\-isInitialized@{Strategy\_\-isInitialized}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Strategy\_\-isInitialized ({\bf Strategy\_\-t} $\ast$ {\em strategy})}}
-\label{Strategy_8h_6b1e1d28112d4cbfff195ea0d839b868}
+\subsubsection[{Strategy\_\-isInitialized}]{\setlength{\rightskip}{0pt plus 5cm}bool Strategy\_\-isInitialized (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a6b1e1d28112d4cbfff195ea0d839b868}
+Is the Strategy initialized? 
 
+Definition at line 54 of file Strategy.c.
 
-Is the Strategy initialized? \hypertarget{Strategy_8h_921bd077b2aae8ba4cc4a50eef716c26}{
+\hypertarget{Strategy_8h_a921bd077b2aae8ba4cc4a50eef716c26}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-isPaused@{Strategy\_\-isPaused}}
 \index{Strategy\_\-isPaused@{Strategy\_\-isPaused}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Strategy\_\-isPaused ({\bf Strategy\_\-t} $\ast$ {\em strategy})}}
-\label{Strategy_8h_921bd077b2aae8ba4cc4a50eef716c26}
+\subsubsection[{Strategy\_\-isPaused}]{\setlength{\rightskip}{0pt plus 5cm}bool Strategy\_\-isPaused (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a921bd077b2aae8ba4cc4a50eef716c26}
+Is the Strategy paused or running? 
 
+Definition at line 62 of file Strategy.c.
 
-Is the Strategy paused or running? \hypertarget{Strategy_8h_8da8b6f15154b135adc4c783fedcd38a}{
+\hypertarget{Strategy_8h_a8da8b6f15154b135adc4c783fedcd38a}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-isStarted@{Strategy\_\-isStarted}}
 \index{Strategy\_\-isStarted@{Strategy\_\-isStarted}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Strategy\_\-isStarted ({\bf Strategy\_\-t} $\ast$ {\em strategy})}}
-\label{Strategy_8h_8da8b6f15154b135adc4c783fedcd38a}
+\subsubsection[{Strategy\_\-isStarted}]{\setlength{\rightskip}{0pt plus 5cm}bool Strategy\_\-isStarted (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a8da8b6f15154b135adc4c783fedcd38a}
+Is the Strategy started or stopped? 
 
+Definition at line 58 of file Strategy.c.
 
-Is the Strategy started or stopped? \hypertarget{Strategy_8h_1a8033333e25ded88411d1d3695e0189}{
+\hypertarget{Strategy_8h_a1a8033333e25ded88411d1d3695e0189}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-pause@{Strategy\_\-pause}}
 \index{Strategy\_\-pause@{Strategy\_\-pause}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-pause ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void $\ast$ {\em data})}}
-\label{Strategy_8h_1a8033333e25ded88411d1d3695e0189}
+\subsubsection[{Strategy\_\-pause}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-pause (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a1a8033333e25ded88411d1d3695e0189}
+Pause the Strategy 
 
+Definition at line 31 of file Strategy.c.
 
-Pause the Strategy \hypertarget{Strategy_8h_21caf76cac00d357cd7a8bc18b12775a}{
+\hypertarget{Strategy_8h_a21caf76cac00d357cd7a8bc18b12775a}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-restart@{Strategy\_\-restart}}
 \index{Strategy\_\-restart@{Strategy\_\-restart}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-restart ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void $\ast$ {\em data})}}
-\label{Strategy_8h_21caf76cac00d357cd7a8bc18b12775a}
+\subsubsection[{Strategy\_\-restart}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-restart (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a21caf76cac00d357cd7a8bc18b12775a}
+Restart the Strategy 
 
+Definition at line 46 of file Strategy.c.
 
-Restart the Strategy \hypertarget{Strategy_8h_d1d2a4efb86e45ac625c9c23200b92a4}{
+\hypertarget{Strategy_8h_ad1d2a4efb86e45ac625c9c23200b92a4}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-resume@{Strategy\_\-resume}}
 \index{Strategy\_\-resume@{Strategy\_\-resume}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-resume ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void $\ast$ {\em data})}}
-\label{Strategy_8h_d1d2a4efb86e45ac625c9c23200b92a4}
+\subsubsection[{Strategy\_\-resume}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-resume (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_ad1d2a4efb86e45ac625c9c23200b92a4}
+Resume the Strategy 
 
+Definition at line 38 of file Strategy.c.
 
-Resume the Strategy \hypertarget{Strategy_8h_eaf2e7ebddcf31585d7dbecb5f3c993f}{
+\hypertarget{Strategy_8h_aeaf2e7ebddcf31585d7dbecb5f3c993f}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-setPauseHandler@{Strategy\_\-setPauseHandler}}
 \index{Strategy\_\-setPauseHandler@{Strategy\_\-setPauseHandler}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setPauseHandler ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void($\ast$)(void $\ast$) {\em pause})}}
-\label{Strategy_8h_eaf2e7ebddcf31585d7dbecb5f3c993f}
+\subsubsection[{Strategy\_\-setPauseHandler}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setPauseHandler (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void($\ast$)(void $\ast$)}]{pause}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_aeaf2e7ebddcf31585d7dbecb5f3c993f}
+Set the handler that is called when strategy is paused 
 
+Definition at line 70 of file Strategy.c.
 
-Set the handler that is called when strategy is paused \hypertarget{Strategy_8h_c83c8365376a77a0a466ee3c2e39f3e0}{
+\hypertarget{Strategy_8h_ac83c8365376a77a0a466ee3c2e39f3e0}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-setRestartHandler@{Strategy\_\-setRestartHandler}}
 \index{Strategy\_\-setRestartHandler@{Strategy\_\-setRestartHandler}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setRestartHandler ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void($\ast$)(void $\ast$) {\em restart})}}
-\label{Strategy_8h_c83c8365376a77a0a466ee3c2e39f3e0}
+\subsubsection[{Strategy\_\-setRestartHandler}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setRestartHandler (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void($\ast$)(void $\ast$)}]{restart}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_ac83c8365376a77a0a466ee3c2e39f3e0}
+Set the handler that is called when strategy is restarted 
 
+Definition at line 82 of file Strategy.c.
 
-Set the handler that is called when strategy is restarted \hypertarget{Strategy_8h_7396c4bf1277f0225a3360e2e3d4cabc}{
+\hypertarget{Strategy_8h_a7396c4bf1277f0225a3360e2e3d4cabc}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-setResumeHandler@{Strategy\_\-setResumeHandler}}
 \index{Strategy\_\-setResumeHandler@{Strategy\_\-setResumeHandler}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setResumeHandler ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void($\ast$)(void $\ast$) {\em resume})}}
-\label{Strategy_8h_7396c4bf1277f0225a3360e2e3d4cabc}
+\subsubsection[{Strategy\_\-setResumeHandler}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setResumeHandler (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void($\ast$)(void $\ast$)}]{resume}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a7396c4bf1277f0225a3360e2e3d4cabc}
+Set the handler that is called when strategy is resumed 
 
+Definition at line 74 of file Strategy.c.
 
-Set the handler that is called when strategy is resumed \hypertarget{Strategy_8h_633bea0c1ea0e679f7efbf1f5ef787c0}{
+\hypertarget{Strategy_8h_a633bea0c1ea0e679f7efbf1f5ef787c0}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-setStartHandler@{Strategy\_\-setStartHandler}}
 \index{Strategy\_\-setStartHandler@{Strategy\_\-setStartHandler}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setStartHandler ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void($\ast$)(void $\ast$) {\em start})}}
-\label{Strategy_8h_633bea0c1ea0e679f7efbf1f5ef787c0}
+\subsubsection[{Strategy\_\-setStartHandler}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setStartHandler (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void($\ast$)(void $\ast$)}]{start}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a633bea0c1ea0e679f7efbf1f5ef787c0}
+Set the handler that is called when strategy is started 
 
+Definition at line 66 of file Strategy.c.
 
-Set the handler that is called when strategy is started \hypertarget{Strategy_8h_71b0380f40cf3e3555673e2dca153cc1}{
+\hypertarget{Strategy_8h_a71b0380f40cf3e3555673e2dca153cc1}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-setStopHandler@{Strategy\_\-setStopHandler}}
 \index{Strategy\_\-setStopHandler@{Strategy\_\-setStopHandler}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setStopHandler ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void($\ast$)(void $\ast$) {\em stop})}}
-\label{Strategy_8h_71b0380f40cf3e3555673e2dca153cc1}
+\subsubsection[{Strategy\_\-setStopHandler}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-setStopHandler (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void($\ast$)(void $\ast$)}]{stop}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a71b0380f40cf3e3555673e2dca153cc1}
+Set the handler that is called when strategy is stopped 
 
+Definition at line 78 of file Strategy.c.
 
-Set the handler that is called when strategy is stopped \hypertarget{Strategy_8h_8974dc19679197f25c951604ce4ee5a6}{
+\hypertarget{Strategy_8h_a8974dc19679197f25c951604ce4ee5a6}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-start@{Strategy\_\-start}}
 \index{Strategy\_\-start@{Strategy\_\-start}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-start ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void $\ast$ {\em data})}}
-\label{Strategy_8h_8974dc19679197f25c951604ce4ee5a6}
+\subsubsection[{Strategy\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a8974dc19679197f25c951604ce4ee5a6}
+Start the Strategy 
 
+Definition at line 24 of file Strategy.c.
 
-Start the Strategy \hypertarget{Strategy_8h_5c5467aed4c7c6ffa5f3c95dce8aea82}{
+\hypertarget{Strategy_8h_a5c5467aed4c7c6ffa5f3c95dce8aea82}{
 \index{Strategy.h@{Strategy.h}!Strategy\_\-stop@{Strategy\_\-stop}}
 \index{Strategy\_\-stop@{Strategy\_\-stop}!Strategy.h@{Strategy.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-stop ({\bf Strategy\_\-t} $\ast$ {\em strategy}, \/  void $\ast$ {\em data})}}
-\label{Strategy_8h_5c5467aed4c7c6ffa5f3c95dce8aea82}
-
-
+\subsubsection[{Strategy\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void Strategy\_\-stop (
+\begin{DoxyParamCaption}
+\item[{{\bf Strategy\_\-t} $\ast$}]{strategy, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{Strategy_8h_a5c5467aed4c7c6ffa5f3c95dce8aea82}
 Stop the Strategy 
+
+Definition at line 17 of file Strategy.c.
+

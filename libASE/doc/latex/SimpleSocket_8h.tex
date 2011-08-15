@@ -1,89 +1,133 @@
 \hypertarget{SimpleSocket_8h}{
-\section{/home/david/ASE/src/targets/utils/socket-tools/SimpleSocket.h File Reference}
-\label{SimpleSocket_8h}\index{/home/david/ASE/src/targets/utils/socket-tools/SimpleSocket.h@{/home/david/ASE/src/targets/utils/socket-tools/SimpleSocket.h}}
+\section{SimpleSocket.h File Reference}
+\label{SimpleSocket_8h}\index{SimpleSocket.h@{SimpleSocket.h}}
 }
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{SimpleSocket_8h_a53e5f3f349488dc96e9affb30734496}{
-void \textbf{sprintf\_\-take} ()}
-\label{SimpleSocket_8h_a53e5f3f349488dc96e9affb30734496}
+\hypertarget{SimpleSocket_8h_aa53e5f3f349488dc96e9affb30734496}{
+void {\bfseries sprintf\_\-take} ()}
+\label{SimpleSocket_8h_aa53e5f3f349488dc96e9affb30734496}
 
 \item 
-\hypertarget{SimpleSocket_8h_de1ee8969782eb52c0495bdfce237b67}{
-void \textbf{sprintf\_\-release} ()}
-\label{SimpleSocket_8h_de1ee8969782eb52c0495bdfce237b67}
+\hypertarget{SimpleSocket_8h_ade1ee8969782eb52c0495bdfce237b67}{
+void {\bfseries sprintf\_\-release} ()}
+\label{SimpleSocket_8h_ade1ee8969782eb52c0495bdfce237b67}
 
 \item 
-int \hyperlink{SimpleSocket_8h_562345133c9358d376065f37e8e139ee}{ss\_\-connect} (char $\ast$host, int port)
+int \hyperlink{SimpleSocket_8h_a562345133c9358d376065f37e8e139ee}{ss\_\-connect} (char $\ast$host, int port)
 \item 
-int \hyperlink{SimpleSocket_8h_a324d89ae319d838c2fe87e1096dc5e5}{ss\_\-receive} (char $\ast$buffer, int sockfd)
+int \hyperlink{SimpleSocket_8h_aa324d89ae319d838c2fe87e1096dc5e5}{ss\_\-receive} (char $\ast$buffer, int sockfd)
 \item 
-void \hyperlink{SimpleSocket_8h_507491c0c5323aa9f0b0234667789188}{ss\_\-send} (char $\ast$data, int length, int sockfd)
+void \hyperlink{SimpleSocket_8h_a507491c0c5323aa9f0b0234667789188}{ss\_\-send} (char $\ast$data, int length, int sockfd)
 \item 
-void \hyperlink{SimpleSocket_8h_96e35f7d80fe4dcc7d6b558859c24443}{ss\_\-close} (int sockfd)
-\end{CompactItemize}
+void \hyperlink{SimpleSocket_8h_a96e35f7d80fe4dcc7d6b558859c24443}{ss\_\-close} (int sockfd)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{SimpleSocket_8h}{SimpleSocket.h} provides simple socket interface as needed by \hyperlink{CommandSender_8h}{CommandSender.h} and \hyperlink{EventListner_8h}{EventListner.h} to interface with the Unified Simulator for Self-Reconfigurable Robots (USSR).
+\hyperlink{SimpleSocket_8h}{SimpleSocket.h} provides simple socket interface as needed by \hyperlink{CommandSender_8h}{CommandSender.h} and \hyperlink{EventListner_8h}{EventListner.h} to interface with the Unified Simulator for Self-\/Reconfigurable Robots (USSR).
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{SimpleSocket_8h_source}{SimpleSocket.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{SimpleSocket_8h_96e35f7d80fe4dcc7d6b558859c24443}{
+\hypertarget{SimpleSocket_8h_a96e35f7d80fe4dcc7d6b558859c24443}{
 \index{SimpleSocket.h@{SimpleSocket.h}!ss\_\-close@{ss\_\-close}}
 \index{ss\_\-close@{ss\_\-close}!SimpleSocket.h@{SimpleSocket.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ss\_\-close (int {\em sockfd})}}
-\label{SimpleSocket_8h_96e35f7d80fe4dcc7d6b558859c24443}
+\subsubsection[{ss\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}void ss\_\-close (
+\begin{DoxyParamCaption}
+\item[{int}]{sockfd}
+\end{DoxyParamCaption}
+)}}
+\label{SimpleSocket_8h_a96e35f7d80fe4dcc7d6b558859c24443}
+Close the socket. 
+\begin{DoxyParams}{Parameters}
+{\em sockfd} & the id of the socket to close. \\
+\hline
+\end{DoxyParams}
 
 
-Close the socket. \begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em sockfd}]the id of the socket to close. \end{description}
-\end{Desc}
-\hypertarget{SimpleSocket_8h_562345133c9358d376065f37e8e139ee}{
+Definition at line 88 of file SimpleSocket.c.
+
+\hypertarget{SimpleSocket_8h_a562345133c9358d376065f37e8e139ee}{
 \index{SimpleSocket.h@{SimpleSocket.h}!ss\_\-connect@{ss\_\-connect}}
 \index{ss\_\-connect@{ss\_\-connect}!SimpleSocket.h@{SimpleSocket.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int ss\_\-connect (char $\ast$ {\em host}, \/  int {\em port})}}
-\label{SimpleSocket_8h_562345133c9358d376065f37e8e139ee}
+\subsubsection[{ss\_\-connect}]{\setlength{\rightskip}{0pt plus 5cm}int ss\_\-connect (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}
+\label{SimpleSocket_8h_a562345133c9358d376065f37e8e139ee}
+Connect to a socket, blocks until connection is made, terminates process is no connection is achieved. 
+\begin{DoxyParams}{Parameters}
+{\em host} & typically LOCALHOST \\
+\hline
+{\em port} & any free socket port e.g. 1234 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sockfd the id of the socket which was connected to. 
+\end{DoxyReturn}
 
 
-Connect to a socket, blocks until connection is made, terminates process is no connection is achieved. \begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em host}]typically LOCALHOST \item[{\em port}]any free socket port e.g. 1234 \end{description}
-\end{Desc}
-\begin{Desc}
-\item[Returns:]sockfd the id of the socket which was connected to. \end{Desc}
-\hypertarget{SimpleSocket_8h_a324d89ae319d838c2fe87e1096dc5e5}{
+Definition at line 29 of file SimpleSocket.c.
+
+\hypertarget{SimpleSocket_8h_aa324d89ae319d838c2fe87e1096dc5e5}{
 \index{SimpleSocket.h@{SimpleSocket.h}!ss\_\-receive@{ss\_\-receive}}
 \index{ss\_\-receive@{ss\_\-receive}!SimpleSocket.h@{SimpleSocket.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int ss\_\-receive (char $\ast$ {\em buffer}, \/  int {\em sockfd})}}
-\label{SimpleSocket_8h_a324d89ae319d838c2fe87e1096dc5e5}
+\subsubsection[{ss\_\-receive}]{\setlength{\rightskip}{0pt plus 5cm}int ss\_\-receive (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{int}]{sockfd}
+\end{DoxyParamCaption}
+)}}
+\label{SimpleSocket_8h_aa324d89ae319d838c2fe87e1096dc5e5}
+Receive data from a socket, blocks until data received (newline terminated). 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & the buffer to put received data into. \\
+\hline
+{\em sockfd} & the id of the socket to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+numbytes the number of bytes received. 
+\end{DoxyReturn}
 
 
-Receive data from a socket, blocks until data received (newline terminated). \begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em buffer}]the buffer to put received data into. \item[{\em sockfd}]the id of the socket to read from. \end{description}
-\end{Desc}
-\begin{Desc}
-\item[Returns:]numbytes the number of bytes received. \end{Desc}
-\hypertarget{SimpleSocket_8h_507491c0c5323aa9f0b0234667789188}{
+Definition at line 54 of file SimpleSocket.c.
+
+\hypertarget{SimpleSocket_8h_a507491c0c5323aa9f0b0234667789188}{
 \index{SimpleSocket.h@{SimpleSocket.h}!ss\_\-send@{ss\_\-send}}
 \index{ss\_\-send@{ss\_\-send}!SimpleSocket.h@{SimpleSocket.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void ss\_\-send (char $\ast$ {\em data}, \/  int {\em length}, \/  int {\em sockfd})}}
-\label{SimpleSocket_8h_507491c0c5323aa9f0b0234667789188}
+\subsubsection[{ss\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}void ss\_\-send (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{int}]{length, }
+\item[{int}]{sockfd}
+\end{DoxyParamCaption}
+)}}
+\label{SimpleSocket_8h_a507491c0c5323aa9f0b0234667789188}
+Send data to a socket, blocks until data send. Data must be terminated with newline. 
+\begin{DoxyParams}{Parameters}
+{\em data} & the data to be send. \\
+\hline
+{\em length} & the number of bytes to be send. \\
+\hline
+{\em sockfd} & the id of the socket to send data to. \\
+\hline
+\end{DoxyParams}
 
 
-Send data to a socket, blocks until data send. Data must be terminated with newline. \begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em data}]the data to be send. \item[{\em length}]the number of bytes to be send. \item[{\em sockfd}]the id of the socket to send data to. \end{description}
-\end{Desc}
+Definition at line 74 of file SimpleSocket.c.
+

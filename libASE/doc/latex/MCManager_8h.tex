@@ -1,41 +1,44 @@
 \hypertarget{MCManager_8h}{
-\section{/home/david/ASE/src/communication/RemoteControl/ModularCommander/MCManager.h File Reference}
-\label{MCManager_8h}\index{/home/david/ASE/src/communication/RemoteControl/ModularCommander/MCManager.h@{/home/david/ASE/src/communication/RemoteControl/ModularCommander/MCManager.h}}
+\section{MCManager.h File Reference}
+\label{MCManager_8h}\index{MCManager.h@{MCManager.h}}
 }
-{\tt \#include $<$stdint.h$>$}\par
-{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
+{\ttfamily \#include $<$stdint.h$>$}\par
+{\ttfamily \#include $<$ase/config/ConfigASE.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structMCManager__msg}{MCManager\_\-msg}
 \item 
-struct \textbf{MCManager\_\-command}
+struct \hyperlink{structMCManager__command}{MCManager\_\-command}
 \item 
-struct \textbf{MCManager\_\-handler}
-\end{CompactItemize}
+struct \hyperlink{structMCManager__handler}{MCManager\_\-handler}
+\end{DoxyCompactItemize}
 \subsection*{Defines}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{MCManager_8h_edbcb75749ebeffda41260e68332c6ac}{MC\_\-BROADCAST}~255
+\#define \hyperlink{MCManager_8h_aedbcb75749ebeffda41260e68332c6ac}{MC\_\-BROADCAST}~255
 \item 
-\#define \hyperlink{MCManager_8h_7197e26ac16444ac8bdc1431cef7644d}{MC\_\-WILDCARD}~254
+\#define \hyperlink{MCManager_8h_a7197e26ac16444ac8bdc1431cef7644d}{MC\_\-WILDCARD}~254
 \item 
-\hypertarget{MCManager_8h_5367dbd63b0b1c30df6c7e66ba9c52ed}{
-\#define \textbf{MCMANAGER\_\-H\_\-}}
-\label{MCManager_8h_5367dbd63b0b1c30df6c7e66ba9c52ed}
+\hypertarget{MCManager_8h_a5367dbd63b0b1c30df6c7e66ba9c52ed}{
+\#define {\bfseries MCMANAGER\_\-H\_\-}}
+\label{MCManager_8h_a5367dbd63b0b1c30df6c7e66ba9c52ed}
 
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{MCManager_8h_2d21ef2bf2bb92ac32e0396cca17c279}{MCManager\_\-init} ()
+void \hyperlink{MCManager_8h_a2d21ef2bf2bb92ac32e0396cca17c279}{MCManager\_\-init} ()
 \item 
-uint8\_\-t \hyperlink{MCManager_8h_4e7f9feb182740c6f553e3cbfeba56c8}{MCManager\_\-act} ()
+void \hyperlink{MCManager_8h_acc30485cf13609edfbd77308171052e6}{MCManager\_\-setID} (uint8\_\-t ID)
 \item 
-void \hyperlink{MCManager_8h_cc30485cf13609edfbd77308171052e6}{MCManager\_\-setID} (uint8\_\-t ID)
+\hypertarget{MCManager_8h_af1e62b257d744bff718f486ca1091dda}{
+int {\bfseries MCManager\_\-getID} ()}
+\label{MCManager_8h_af1e62b257d744bff718f486ca1091dda}
+
 \item 
-void \hyperlink{MCManager_8h_3bfc7073f391c052103e624ab016c59f}{MCManager\_\-installHandler} (uint8\_\-t mcType, void(handler)(uint8\_\-t, uint8\_\-t $\ast$, uint8\_\-t, uint8\_\-t))
-\end{CompactItemize}
+void \hyperlink{MCManager_8h_a3bfc7073f391c052103e624ab016c59f}{MCManager\_\-installHandler} (uint8\_\-t mcType, void(handler)(uint8\_\-t, uint8\_\-t $\ast$, uint8\_\-t, uint8\_\-t))
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -43,52 +46,72 @@ void \hyperlink{MCManager_8h_3bfc7073f391c052103e624ab016c59f}{MCManager\_\-inst
 
 Created on: March 8, 2009 Author: David Johan Christensen 
 
+Definition in file \hyperlink{MCManager_8h_source}{MCManager.h}.
+
+
+
 \subsection{Define Documentation}
-\hypertarget{MCManager_8h_edbcb75749ebeffda41260e68332c6ac}{
+\hypertarget{MCManager_8h_aedbcb75749ebeffda41260e68332c6ac}{
 \index{MCManager.h@{MCManager.h}!MC\_\-BROADCAST@{MC\_\-BROADCAST}}
 \index{MC\_\-BROADCAST@{MC\_\-BROADCAST}!MCManager.h@{MCManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MC\_\-BROADCAST~255}}
-\label{MCManager_8h_edbcb75749ebeffda41260e68332c6ac}
+\subsubsection[{MC\_\-BROADCAST}]{\setlength{\rightskip}{0pt plus 5cm}\#define MC\_\-BROADCAST~255}}
+\label{MCManager_8h_aedbcb75749ebeffda41260e68332c6ac}
+If receiver ID, recID, is set to MC\_\-BROADCAST, the message will be broadcasted to all other modules in the robot. 
 
+Definition at line 19 of file MCManager.h.
 
-If receiver ID, recID, is set to MC\_\-BROADCAST, the message will be broadcasted to all other modules in the robot. \hypertarget{MCManager_8h_7197e26ac16444ac8bdc1431cef7644d}{
+\hypertarget{MCManager_8h_a7197e26ac16444ac8bdc1431cef7644d}{
 \index{MCManager.h@{MCManager.h}!MC\_\-WILDCARD@{MC\_\-WILDCARD}}
 \index{MC\_\-WILDCARD@{MC\_\-WILDCARD}!MCManager.h@{MCManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MC\_\-WILDCARD~254}}
-\label{MCManager_8h_7197e26ac16444ac8bdc1431cef7644d}
-
-
+\subsubsection[{MC\_\-WILDCARD}]{\setlength{\rightskip}{0pt plus 5cm}\#define MC\_\-WILDCARD~254}}
+\label{MCManager_8h_a7197e26ac16444ac8bdc1431cef7644d}
 If receiver ID, recID, is set to MC\_\-WILDCARD, the message will be received by any module but will not be transmitted further to other modules. 
 
+Definition at line 25 of file MCManager.h.
+
+
+
 \subsection{Function Documentation}
-\hypertarget{MCManager_8h_4e7f9feb182740c6f553e3cbfeba56c8}{
-\index{MCManager.h@{MCManager.h}!MCManager\_\-act@{MCManager\_\-act}}
-\index{MCManager\_\-act@{MCManager\_\-act}!MCManager.h@{MCManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t MCManager\_\-act ()}}
-\label{MCManager_8h_4e7f9feb182740c6f553e3cbfeba56c8}
-
-
-Checks for new messages and generates call-back events to application code. \hypertarget{MCManager_8h_2d21ef2bf2bb92ac32e0396cca17c279}{
+\hypertarget{MCManager_8h_a2d21ef2bf2bb92ac32e0396cca17c279}{
 \index{MCManager.h@{MCManager.h}!MCManager\_\-init@{MCManager\_\-init}}
 \index{MCManager\_\-init@{MCManager\_\-init}!MCManager.h@{MCManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void MCManager\_\-init ()}}
-\label{MCManager_8h_2d21ef2bf2bb92ac32e0396cca17c279}
+\subsubsection[{MCManager\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void MCManager\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{MCManager_8h_a2d21ef2bf2bb92ac32e0396cca17c279}
+Initialize the Modular Commander Manager. 
 
+Definition at line 119 of file MCManager.c.
 
-Initialize the Modular Commander Manager. \hypertarget{MCManager_8h_3bfc7073f391c052103e624ab016c59f}{
+\hypertarget{MCManager_8h_a3bfc7073f391c052103e624ab016c59f}{
 \index{MCManager.h@{MCManager.h}!MCManager\_\-installHandler@{MCManager\_\-installHandler}}
 \index{MCManager\_\-installHandler@{MCManager\_\-installHandler}!MCManager.h@{MCManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void MCManager\_\-installHandler (uint8\_\-t {\em mcType}, \/  void(handler)(uint8\_\-t, uint8\_\-t $\ast$, uint8\_\-t, uint8\_\-t))}}
-\label{MCManager_8h_3bfc7073f391c052103e624ab016c59f}
+\subsubsection[{MCManager\_\-installHandler}]{\setlength{\rightskip}{0pt plus 5cm}void MCManager\_\-installHandler (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{mcType, }
+\item[{void(handler)(uint8\_\-t, uint8\_\-t $\ast$, uint8\_\-t, uint8\_\-t)}]{}
+\end{DoxyParamCaption}
+)}}
+\label{MCManager_8h_a3bfc7073f391c052103e624ab016c59f}
+Install a handler (call-\/back function) which will subscribe to events generated by a message being received on the module. The handler should take the following arguments:
+\begin{DoxyItemize}
+\item handler(uint8\_\-t mcType, uint8\_\-t$\ast$ payload, uint8\_\-t payloadLength, uint8\_\-t channel); 
+\end{DoxyItemize}
 
+Definition at line 70 of file MCManager.c.
 
-Install a handler (call-back function) which will subscribe to events generated by a message being received on the module. The handler should take the following arguments:\begin{itemize}
-\item handler(uint8\_\-t mcType, uint8\_\-t$\ast$ payload, uint8\_\-t payloadLength, uint8\_\-t channel); \end{itemize}
-\hypertarget{MCManager_8h_cc30485cf13609edfbd77308171052e6}{
+\hypertarget{MCManager_8h_acc30485cf13609edfbd77308171052e6}{
 \index{MCManager.h@{MCManager.h}!MCManager\_\-setID@{MCManager\_\-setID}}
 \index{MCManager\_\-setID@{MCManager\_\-setID}!MCManager.h@{MCManager.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void MCManager\_\-setID (uint8\_\-t {\em ID})}}
-\label{MCManager_8h_cc30485cf13609edfbd77308171052e6}
-
-
+\subsubsection[{MCManager\_\-setID}]{\setlength{\rightskip}{0pt plus 5cm}void MCManager\_\-setID (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID}
+\end{DoxyParamCaption}
+)}}
+\label{MCManager_8h_acc30485cf13609edfbd77308171052e6}
 Set the ID used by Modular Commander in this module. 
+
+Definition at line 19 of file MCManager.c.
+

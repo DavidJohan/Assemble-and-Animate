@@ -1,128 +1,233 @@
 \hypertarget{AbstractModuleApi_8h}{
-\section{/home/david/ASE/src/targets/AbstractModuleApi.h File Reference}
-\label{AbstractModuleApi_8h}\index{/home/david/ASE/src/targets/AbstractModuleApi.h@{/home/david/ASE/src/targets/AbstractModuleApi.h}}
+\section{AbstractModuleApi.h File Reference}
+\label{AbstractModuleApi_8h}\index{AbstractModuleApi.h@{AbstractModuleApi.h}}
 }
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-float \hyperlink{AbstractModuleApi_8h_fa779da25d7ca900125dbb41bff7add9}{getLocalTime} ()
+float \hyperlink{AbstractModuleApi_8h_afa779da25d7ca900125dbb41bff7add9}{getLocalTime} ()
 \item 
-long \hyperlink{AbstractModuleApi_8h_4fff0449d189512a67c3a1e166391ff1}{getLocalMsTime} ()
+long \hyperlink{AbstractModuleApi_8h_a4fff0449d189512a67c3a1e166391ff1}{getLocalMsTime} ()
 \item 
-long \hyperlink{AbstractModuleApi_8h_98b8d19c9e8ffbe01bef7affa1fcdc1b}{getRandomSeed} ()
+long \hyperlink{AbstractModuleApi_8h_a98b8d19c9e8ffbe01bef7affa1fcdc1b}{getRandomSeed} ()
 \item 
-int \hyperlink{AbstractModuleApi_8h_ba91360a1a75ca8f2445999d28569671}{sendMessageToAllNeighbors} (char $\ast$msg, int length)
+int \hyperlink{AbstractModuleApi_8h_aba91360a1a75ca8f2445999d28569671}{sendMessageToAllNeighbors} (char $\ast$msg, int length)
 \item 
-int \hyperlink{AbstractModuleApi_8h_a220bb3946eef4dccf9b0cafca94aa45}{sendMessageToNeighbor} (char $\ast$msg, int length, int channel)
+int \hyperlink{AbstractModuleApi_8h_aa220bb3946eef4dccf9b0cafca94aa45}{sendMessageToNeighbor} (char $\ast$msg, int length, int channel)
 \item 
-int \hyperlink{AbstractModuleApi_8h_7d484ee7b4c513e20b37fb43b54d4b5d}{sendMessageToAllExcept} (char $\ast$msg, char length, char except)
+int \hyperlink{AbstractModuleApi_8h_a7d484ee7b4c513e20b37fb43b54d4b5d}{sendMessageToAllExcept} (char $\ast$msg, char length, char except)
 \item 
-int \hyperlink{AbstractModuleApi_8h_d571898008be35538b3e1b7aadd8d069}{getNumberOfNeighborChannels} ()
+int \hyperlink{AbstractModuleApi_8h_ad571898008be35538b3e1b7aadd8d069}{getNumberOfNeighborChannels} ()
 \item 
-int \hyperlink{AbstractModuleApi_8h_1143937a8f166b7a4228b2f5c741a1e1}{hasNeighbor} (int channel)
+int \hyperlink{AbstractModuleApi_8h_a1143937a8f166b7a4228b2f5c741a1e1}{hasNeighbor} (int channel)
 \item 
-int \hyperlink{AbstractModuleApi_8h_c0951aa7038ccd41b18943548d872400}{getHardwareID} ()
+int \hyperlink{AbstractModuleApi_8h_ac0951aa7038ccd41b18943548d872400}{getHardwareID} ()
 \item 
-int \hyperlink{AbstractModuleApi_8h_305980a50d43b765d40c4b090c8b73c0}{setActuatorPosition} (float position, int actuator)
+int \hyperlink{AbstractModuleApi_8h_a305980a50d43b765d40c4b090c8b73c0}{setActuatorPosition} (float position, int actuator)
 \item 
-float \hyperlink{AbstractModuleApi_8h_26f8144b57449c1b495539c3fca5c71c}{getActuatorPosition} (int actuator)
+float \hyperlink{AbstractModuleApi_8h_a26f8144b57449c1b495539c3fca5c71c}{getActuatorPosition} (int actuator)
 \item 
-int \hyperlink{AbstractModuleApi_8h_f73c00c7229cc8c9556aa906a716b630}{getNumberOfActuators} ()
-\end{CompactItemize}
+int \hyperlink{AbstractModuleApi_8h_af73c00c7229cc8c9556aa906a716b630}{getNumberOfActuators} ()
+\item 
+int \hyperlink{AbstractModuleApi_8h_a6221465f276f48ad37b528b8a89bd0ba}{getNumberOfSensors} ()
+\item 
+float \hyperlink{AbstractModuleApi_8h_a0ebbce69b714069146b1bed568446c60}{getSensorValue} (int sensor)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{AbstractModuleApi_8h}{AbstractModuleApi.h} provides a generic interface or hardware abstraction layer to control many aspects of most modules.The goal is provide a method to write generic control code which can be run on different platforms. All control strategies included in the ASE library uses only this interface to access the modules.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, University of Southern Denmark \end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, University of Southern Denmark 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{AbstractModuleApi_8h_source}{AbstractModuleApi.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{AbstractModuleApi_8h_26f8144b57449c1b495539c3fca5c71c}{
+\hypertarget{AbstractModuleApi_8h_a26f8144b57449c1b495539c3fca5c71c}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!getActuatorPosition@{getActuatorPosition}}
 \index{getActuatorPosition@{getActuatorPosition}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float getActuatorPosition (int {\em actuator})}}
-\label{AbstractModuleApi_8h_26f8144b57449c1b495539c3fca5c71c}
+\subsubsection[{getActuatorPosition}]{\setlength{\rightskip}{0pt plus 5cm}float getActuatorPosition (
+\begin{DoxyParamCaption}
+\item[{int}]{actuator}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a26f8144b57449c1b495539c3fca5c71c}
+Get the current position (scaled 0.0-\/1.0) of the actuator with an index (0, 1, 2,...) 
 
+Definition at line 60 of file AbstractAtronSocketApi.c.
 
-Get the current position (scaled 0.0-1.0) of the actuator with an index (0, 1, 2,...) \hypertarget{AbstractModuleApi_8h_c0951aa7038ccd41b18943548d872400}{
+\hypertarget{AbstractModuleApi_8h_ac0951aa7038ccd41b18943548d872400}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!getHardwareID@{getHardwareID}}
 \index{getHardwareID@{getHardwareID}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int getHardwareID ()}}
-\label{AbstractModuleApi_8h_c0951aa7038ccd41b18943548d872400}
+\subsubsection[{getHardwareID}]{\setlength{\rightskip}{0pt plus 5cm}int getHardwareID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_ac0951aa7038ccd41b18943548d872400}
+Returns the modules hardware ID. Note that for some system it might not always be present or it might not be globally unique. 
 
+Definition at line 53 of file AbstractAtronTosApi.c.
 
-Returns the modules hardware ID. Note that for some system it might not always be present or it might not be globally unique. \hypertarget{AbstractModuleApi_8h_4fff0449d189512a67c3a1e166391ff1}{
+\hypertarget{AbstractModuleApi_8h_a4fff0449d189512a67c3a1e166391ff1}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!getLocalMsTime@{getLocalMsTime}}
 \index{getLocalMsTime@{getLocalMsTime}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long getLocalMsTime ()}}
-\label{AbstractModuleApi_8h_4fff0449d189512a67c3a1e166391ff1}
+\subsubsection[{getLocalMsTime}]{\setlength{\rightskip}{0pt plus 5cm}long getLocalMsTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a4fff0449d189512a67c3a1e166391ff1}
+Get the time in milliseconds since the module was started 
 
+Definition at line 7 of file AbstractAtronTosApi.c.
 
-Get the time in milliseconds since the module was started \hypertarget{AbstractModuleApi_8h_fa779da25d7ca900125dbb41bff7add9}{
+\hypertarget{AbstractModuleApi_8h_afa779da25d7ca900125dbb41bff7add9}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!getLocalTime@{getLocalTime}}
 \index{getLocalTime@{getLocalTime}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float getLocalTime ()}}
-\label{AbstractModuleApi_8h_fa779da25d7ca900125dbb41bff7add9}
+\subsubsection[{getLocalTime}]{\setlength{\rightskip}{0pt plus 5cm}float getLocalTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_afa779da25d7ca900125dbb41bff7add9}
+Get the time in seconds since the module was started 
 
+Definition at line 3 of file AbstractAtronTosApi.c.
 
-Get the time in seconds since the module was started \hypertarget{AbstractModuleApi_8h_f73c00c7229cc8c9556aa906a716b630}{
+\hypertarget{AbstractModuleApi_8h_af73c00c7229cc8c9556aa906a716b630}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!getNumberOfActuators@{getNumberOfActuators}}
 \index{getNumberOfActuators@{getNumberOfActuators}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int getNumberOfActuators ()}}
-\label{AbstractModuleApi_8h_f73c00c7229cc8c9556aa906a716b630}
+\subsubsection[{getNumberOfActuators}]{\setlength{\rightskip}{0pt plus 5cm}int getNumberOfActuators (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_af73c00c7229cc8c9556aa906a716b630}
+Returns the number of actuators on the module. 
 
+Definition at line 68 of file AbstractAtronSocketApi.c.
 
-Returns the number of actuators on the module. \hypertarget{AbstractModuleApi_8h_d571898008be35538b3e1b7aadd8d069}{
+\hypertarget{AbstractModuleApi_8h_ad571898008be35538b3e1b7aadd8d069}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!getNumberOfNeighborChannels@{getNumberOfNeighborChannels}}
 \index{getNumberOfNeighborChannels@{getNumberOfNeighborChannels}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int getNumberOfNeighborChannels ()}}
-\label{AbstractModuleApi_8h_d571898008be35538b3e1b7aadd8d069}
+\subsubsection[{getNumberOfNeighborChannels}]{\setlength{\rightskip}{0pt plus 5cm}int getNumberOfNeighborChannels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_ad571898008be35538b3e1b7aadd8d069}
+Returns the number of \char`\"{}local\char`\"{} channels. Neighbor channels can be assumed to run from 0 to \hyperlink{AbstractModuleApi_8h_ad571898008be35538b3e1b7aadd8d069}{getNumberOfNeighborChannels()}-\/1. 
 
+Definition at line 34 of file AbstractAtronTosApi.c.
 
-Returns the number of \char`\"{}local\char`\"{} channels. Neighbor channels can be assumed to run from 0 to \hyperlink{AbstractModuleApi_8h_d571898008be35538b3e1b7aadd8d069}{getNumberOfNeighborChannels()}-1. \hypertarget{AbstractModuleApi_8h_98b8d19c9e8ffbe01bef7affa1fcdc1b}{
+\hypertarget{AbstractModuleApi_8h_a6221465f276f48ad37b528b8a89bd0ba}{
+\index{AbstractModuleApi.h@{AbstractModuleApi.h}!getNumberOfSensors@{getNumberOfSensors}}
+\index{getNumberOfSensors@{getNumberOfSensors}!AbstractModuleApi.h@{AbstractModuleApi.h}}
+\subsubsection[{getNumberOfSensors}]{\setlength{\rightskip}{0pt plus 5cm}int getNumberOfSensors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a6221465f276f48ad37b528b8a89bd0ba}
+Returns the number of sensors on the module. \hypertarget{AbstractModuleApi_8h_a98b8d19c9e8ffbe01bef7affa1fcdc1b}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!getRandomSeed@{getRandomSeed}}
 \index{getRandomSeed@{getRandomSeed}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long getRandomSeed ()}}
-\label{AbstractModuleApi_8h_98b8d19c9e8ffbe01bef7affa1fcdc1b}
+\subsubsection[{getRandomSeed}]{\setlength{\rightskip}{0pt plus 5cm}long getRandomSeed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a98b8d19c9e8ffbe01bef7affa1fcdc1b}
+Get a random number seed, which is not the same on every module 
 
+Definition at line 16 of file AbstractAtronTosApi.c.
 
-Get a random number seed, which is not the same on every module \hypertarget{AbstractModuleApi_8h_1143937a8f166b7a4228b2f5c741a1e1}{
+\hypertarget{AbstractModuleApi_8h_a0ebbce69b714069146b1bed568446c60}{
+\index{AbstractModuleApi.h@{AbstractModuleApi.h}!getSensorValue@{getSensorValue}}
+\index{getSensorValue@{getSensorValue}!AbstractModuleApi.h@{AbstractModuleApi.h}}
+\subsubsection[{getSensorValue}]{\setlength{\rightskip}{0pt plus 5cm}float getSensorValue (
+\begin{DoxyParamCaption}
+\item[{int}]{sensor}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a0ebbce69b714069146b1bed568446c60}
+Get current/lates sensor (scaled 0.0-\/1.0) of the sensor with an index (0, 1, 2,...) \hypertarget{AbstractModuleApi_8h_a1143937a8f166b7a4228b2f5c741a1e1}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!hasNeighbor@{hasNeighbor}}
 \index{hasNeighbor@{hasNeighbor}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int hasNeighbor (int {\em channel})}}
-\label{AbstractModuleApi_8h_1143937a8f166b7a4228b2f5c741a1e1}
+\subsubsection[{hasNeighbor}]{\setlength{\rightskip}{0pt plus 5cm}int hasNeighbor (
+\begin{DoxyParamCaption}
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a1143937a8f166b7a4228b2f5c741a1e1}
+Returns if a modules can communication with another module using a given channel. The type of returns can be: 0-\/no other, 1-\/yes (one or several other modules), 2-\/undefined (e.g. channel does not exist or it is impossible for the module to know). 
 
+Definition at line 38 of file AbstractAtronTosApi.c.
 
-Returns if a modules can communication with another module using a given channel. The type of returns can be: 0-no other, 1-yes (one or several other modules), 2-undefined (e.g. channel does not exist or it is impossible for the module to know). \hypertarget{AbstractModuleApi_8h_7d484ee7b4c513e20b37fb43b54d4b5d}{
+\hypertarget{AbstractModuleApi_8h_a7d484ee7b4c513e20b37fb43b54d4b5d}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!sendMessageToAllExcept@{sendMessageToAllExcept}}
 \index{sendMessageToAllExcept@{sendMessageToAllExcept}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int sendMessageToAllExcept (char $\ast$ {\em msg}, \/  char {\em length}, \/  char {\em except})}}
-\label{AbstractModuleApi_8h_7d484ee7b4c513e20b37fb43b54d4b5d}
+\subsubsection[{sendMessageToAllExcept}]{\setlength{\rightskip}{0pt plus 5cm}int sendMessageToAllExcept (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{char}]{length, }
+\item[{char}]{except}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a7d484ee7b4c513e20b37fb43b54d4b5d}
+Send a message to all neighbor module(s) except one on a given channel. Returns the number of messages send. 
 
+Definition at line 30 of file AbstractAtronTosApi.c.
 
-Send a message to all neighbor module(s) except one on a given channel. Returns the number of messages send. \hypertarget{AbstractModuleApi_8h_ba91360a1a75ca8f2445999d28569671}{
+\hypertarget{AbstractModuleApi_8h_aba91360a1a75ca8f2445999d28569671}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!sendMessageToAllNeighbors@{sendMessageToAllNeighbors}}
 \index{sendMessageToAllNeighbors@{sendMessageToAllNeighbors}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int sendMessageToAllNeighbors (char $\ast$ {\em msg}, \/  int {\em length})}}
-\label{AbstractModuleApi_8h_ba91360a1a75ca8f2445999d28569671}
+\subsubsection[{sendMessageToAllNeighbors}]{\setlength{\rightskip}{0pt plus 5cm}int sendMessageToAllNeighbors (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_aba91360a1a75ca8f2445999d28569671}
+Send a message to all neighbor modules. Returns the number of messages send. 
 
+Definition at line 11 of file AbstractAtronTosApi.c.
 
-Send a message to all neighbor modules. Returns the number of messages send. \hypertarget{AbstractModuleApi_8h_a220bb3946eef4dccf9b0cafca94aa45}{
+\hypertarget{AbstractModuleApi_8h_aa220bb3946eef4dccf9b0cafca94aa45}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!sendMessageToNeighbor@{sendMessageToNeighbor}}
 \index{sendMessageToNeighbor@{sendMessageToNeighbor}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int sendMessageToNeighbor (char $\ast$ {\em msg}, \/  int {\em length}, \/  int {\em channel})}}
-\label{AbstractModuleApi_8h_a220bb3946eef4dccf9b0cafca94aa45}
+\subsubsection[{sendMessageToNeighbor}]{\setlength{\rightskip}{0pt plus 5cm}int sendMessageToNeighbor (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{int}]{length, }
+\item[{int}]{channel}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_aa220bb3946eef4dccf9b0cafca94aa45}
+Send a message to neighbor module(s) on a given channel. Returns the number of messages send. 
 
+Definition at line 20 of file AbstractAtronTosApi.c.
 
-Send a message to neighbor module(s) on a given channel. Returns the number of messages send. \hypertarget{AbstractModuleApi_8h_305980a50d43b765d40c4b090c8b73c0}{
+\hypertarget{AbstractModuleApi_8h_a305980a50d43b765d40c4b090c8b73c0}{
 \index{AbstractModuleApi.h@{AbstractModuleApi.h}!setActuatorPosition@{setActuatorPosition}}
 \index{setActuatorPosition@{setActuatorPosition}!AbstractModuleApi.h@{AbstractModuleApi.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int setActuatorPosition (float {\em position}, \/  int {\em actuator})}}
-\label{AbstractModuleApi_8h_305980a50d43b765d40c4b090c8b73c0}
+\subsubsection[{setActuatorPosition}]{\setlength{\rightskip}{0pt plus 5cm}int setActuatorPosition (
+\begin{DoxyParamCaption}
+\item[{float}]{position, }
+\item[{int}]{actuator}
+\end{DoxyParamCaption}
+)}}
+\label{AbstractModuleApi_8h_a305980a50d43b765d40c4b090c8b73c0}
+Set the target position (scaled 0.0-\/1.0) of the actuator with an index (0, 1, 2,...) returns 1 if successful 
 
+Definition at line 53 of file AbstractAtronSocketApi.c.
 
-Set the target position (scaled 0.0-1.0) of the actuator with an index (0, 1, 2,...) returns 1 if successful 

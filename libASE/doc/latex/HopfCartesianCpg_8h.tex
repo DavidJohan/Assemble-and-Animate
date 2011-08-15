@@ -1,101 +1,160 @@
 \hypertarget{HopfCartesianCpg_8h}{
-\section{/home/david/ASE/src/control/strategies/Cpg/HopfCartesianCpg/HopfCartesianCpg.h File Reference}
-\label{HopfCartesianCpg_8h}\index{/home/david/ASE/src/control/strategies/Cpg/HopfCartesianCpg/HopfCartesianCpg.h@{/home/david/ASE/src/control/strategies/Cpg/HopfCartesianCpg/HopfCartesianCpg.h}}
+\section{HopfCartesianCpg.h File Reference}
+\label{HopfCartesianCpg_8h}\index{HopfCartesianCpg.h@{HopfCartesianCpg.h}}
 }
-{\tt \#include \char`\"{}ConfigASE.h\char`\"{}}\par
-{\tt \#include \char`\"{}CpgSuper.h\char`\"{}}\par
-{\tt \#include $<$stdint.h$>$}\par
-{\tt \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$ase/config/ConfigASE.h$>$}\par
+{\ttfamily \#include $<$ase/control/strategies/Cpg/CpgSuper.h$>$}\par
+{\ttfamily \#include $<$stdint.h$>$}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
 \subsection*{Classes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structHCCpg__t}{HCCpg\_\-t}
-\end{CompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-void \hyperlink{HopfCartesianCpg_8h_1fa53f6212dbb7344b672b88c802258c}{HCCpg\_\-init} ()
+void \hyperlink{HopfCartesianCpg_8h_a1fa53f6212dbb7344b672b88c802258c}{HCCpg\_\-init} ()
 \item 
-void \hyperlink{HopfCartesianCpg_8h_db9cb04e1b3d3dc3631016e5dba7193c}{HCCpg\_\-initialize} (\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
+void \hyperlink{HopfCartesianCpg_8h_adb9cb04e1b3d3dc3631016e5dba7193c}{HCCpg\_\-initialize} (\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{HopfCartesianCpg_8h_944b30f2db1d3160c309a7b49f569d41}{HCCpg\_\-iterate} (\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
+void \hyperlink{HopfCartesianCpg_8h_a944b30f2db1d3160c309a7b49f569d41}{HCCpg\_\-iterate} (\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{HopfCartesianCpg_8h_f7ef066d67e8ed4c5a48221f31ec8e4d}{HCCpg\_\-resetState} (\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
+void \hyperlink{HopfCartesianCpg_8h_af7ef066d67e8ed4c5a48221f31ec8e4d}{HCCpg\_\-resetState} (\hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{HopfCartesianCpg_8h_c3c571a51675b9784518e6d76a66ef12}{HCCpg\_\-setUpdateRate} (float updatesPerPeriode, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
+void \hyperlink{HopfCartesianCpg_8h_ac3c571a51675b9784518e6d76a66ef12}{HCCpg\_\-setUpdateRate} (float updatesPerPeriode, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{HopfCartesianCpg_8h_9541fe7f1793480466b920ce9825bd04}{HCCpg\_\-addCoupling} (float x1, float y1, \hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
+void \hyperlink{HopfCartesianCpg_8h_a9541fe7f1793480466b920ce9825bd04}{HCCpg\_\-addCoupling} (float x1, float y1, \hyperlink{structCpgSuperCoupling__t}{CpgSuperCoupling\_\-t} $\ast$coupling, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{HopfCartesianCpg_8h_99f3df2ccdd307d736173dd765682335}{HCCpg\_\-coupleDirectlyX} (float signal, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
+void \hyperlink{HopfCartesianCpg_8h_a99f3df2ccdd307d736173dd765682335}{HCCpg\_\-coupleDirectlyX} (float signal, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
 \item 
-void \hyperlink{HopfCartesianCpg_8h_edd8bef63e8eb6d7e55ccd092b111f6b}{HCCpg\_\-coupleDirectlyY} (float signal, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
-\end{CompactItemize}
+void \hyperlink{HopfCartesianCpg_8h_aedd8bef63e8eb6d7e55ccd092b111f6b}{HCCpg\_\-coupleDirectlyY} (float signal, \hyperlink{structHCCpg__t}{HCCpg\_\-t} $\ast$cpg)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{HopfCartesianCpg_8h}{HopfCartesianCpg.h} provides a simple interface to an implementation of Hopf Central Pattern Generator (CPG) in polar coordinates.
 
-\begin{Desc}
-\item[Author:]David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark\end{Desc}
-\begin{Desc}
-\item[Note:]This software is distributed under the BSD open-source license. \end{Desc}
+\begin{DoxyAuthor}{Author}
+David Johan Christensen, Modular Robotics Lab, AdapTronics Group, Maresk Institute, University of Southern Denmark
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+This software is distributed under the BSD open-\/source license. 
+\end{DoxyNote}
+
+
+Definition in file \hyperlink{HopfCartesianCpg_8h_source}{HopfCartesianCpg.h}.
+
 
 
 \subsection{Function Documentation}
-\hypertarget{HopfCartesianCpg_8h_9541fe7f1793480466b920ce9825bd04}{
+\hypertarget{HopfCartesianCpg_8h_a9541fe7f1793480466b920ce9825bd04}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-addCoupling@{HCCpg\_\-addCoupling}}
 \index{HCCpg\_\-addCoupling@{HCCpg\_\-addCoupling}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-addCoupling (float {\em x1}, \/  float {\em y1}, \/  {\bf CpgSuperCoupling\_\-t} $\ast$ {\em coupling}, \/  {\bf HCCpg\_\-t} $\ast$ {\em cpg})}}
-\label{HopfCartesianCpg_8h_9541fe7f1793480466b920ce9825bd04}
+\subsubsection[{HCCpg\_\-addCoupling}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-addCoupling (
+\begin{DoxyParamCaption}
+\item[{float}]{x1, }
+\item[{float}]{y1, }
+\item[{{\bf CpgSuperCoupling\_\-t} $\ast$}]{coupling, }
+\item[{{\bf HCCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_a9541fe7f1793480466b920ce9825bd04}
+Add coupling to cpg from another CPG, x1 and y1 are the state variables of the other CPG, coupling specifies the coupling strength and desired phase difference 
 
+Definition at line 92 of file HopfCartesianCpg.c.
 
-Add coupling to cpg from another CPG, x1 and y1 are the state variables of the other CPG, coupling specifies the coupling strength and desired phase difference \hypertarget{HopfCartesianCpg_8h_99f3df2ccdd307d736173dd765682335}{
+\hypertarget{HopfCartesianCpg_8h_a99f3df2ccdd307d736173dd765682335}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-coupleDirectlyX@{HCCpg\_\-coupleDirectlyX}}
 \index{HCCpg\_\-coupleDirectlyX@{HCCpg\_\-coupleDirectlyX}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-coupleDirectlyX (float {\em signal}, \/  {\bf HCCpg\_\-t} $\ast$ {\em cpg})}}
-\label{HopfCartesianCpg_8h_99f3df2ccdd307d736173dd765682335}
+\subsubsection[{HCCpg\_\-coupleDirectlyX}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-coupleDirectlyX (
+\begin{DoxyParamCaption}
+\item[{float}]{signal, }
+\item[{{\bf HCCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_a99f3df2ccdd307d736173dd765682335}
+Add a coupling directly to the X equation (e.g. feedback from a sensor) 
 
+Definition at line 61 of file HopfCartesianCpg.c.
 
-Add a coupling directly to the X equation (e.g. feedback from a sensor) \hypertarget{HopfCartesianCpg_8h_edd8bef63e8eb6d7e55ccd092b111f6b}{
+\hypertarget{HopfCartesianCpg_8h_aedd8bef63e8eb6d7e55ccd092b111f6b}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-coupleDirectlyY@{HCCpg\_\-coupleDirectlyY}}
 \index{HCCpg\_\-coupleDirectlyY@{HCCpg\_\-coupleDirectlyY}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-coupleDirectlyY (float {\em signal}, \/  {\bf HCCpg\_\-t} $\ast$ {\em cpg})}}
-\label{HopfCartesianCpg_8h_edd8bef63e8eb6d7e55ccd092b111f6b}
+\subsubsection[{HCCpg\_\-coupleDirectlyY}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-coupleDirectlyY (
+\begin{DoxyParamCaption}
+\item[{float}]{signal, }
+\item[{{\bf HCCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_aedd8bef63e8eb6d7e55ccd092b111f6b}
+Add a coupling directly to the Y equation (e.g. feedback from a sensor) 
 
+Definition at line 65 of file HopfCartesianCpg.c.
 
-Add a coupling directly to the Y equation (e.g. feedback from a sensor) \hypertarget{HopfCartesianCpg_8h_1fa53f6212dbb7344b672b88c802258c}{
+\hypertarget{HopfCartesianCpg_8h_a1fa53f6212dbb7344b672b88c802258c}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-init@{HCCpg\_\-init}}
 \index{HCCpg\_\-init@{HCCpg\_\-init}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-init ()}}
-\label{HopfCartesianCpg_8h_1fa53f6212dbb7344b672b88c802258c}
+\subsubsection[{HCCpg\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_a1fa53f6212dbb7344b672b88c802258c}
+Initialize the Component 
 
+Definition at line 10 of file HopfCartesianCpg.c.
 
-Initialize the Component \hypertarget{HopfCartesianCpg_8h_db9cb04e1b3d3dc3631016e5dba7193c}{
+\hypertarget{HopfCartesianCpg_8h_adb9cb04e1b3d3dc3631016e5dba7193c}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-initialize@{HCCpg\_\-initialize}}
 \index{HCCpg\_\-initialize@{HCCpg\_\-initialize}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-initialize ({\bf HCCpg\_\-t} $\ast$ {\em cpg})}}
-\label{HopfCartesianCpg_8h_db9cb04e1b3d3dc3631016e5dba7193c}
+\subsubsection[{HCCpg\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf HCCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_adb9cb04e1b3d3dc3631016e5dba7193c}
+Initialize the Hopf central pattern generator with default parameters 
 
+Definition at line 18 of file HopfCartesianCpg.c.
 
-Initialize the Hopf central pattern generator with default parameters \hypertarget{HopfCartesianCpg_8h_944b30f2db1d3160c309a7b49f569d41}{
+\hypertarget{HopfCartesianCpg_8h_a944b30f2db1d3160c309a7b49f569d41}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-iterate@{HCCpg\_\-iterate}}
 \index{HCCpg\_\-iterate@{HCCpg\_\-iterate}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-iterate ({\bf HCCpg\_\-t} $\ast$ {\em cpg})}}
-\label{HopfCartesianCpg_8h_944b30f2db1d3160c309a7b49f569d41}
+\subsubsection[{HCCpg\_\-iterate}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-iterate (
+\begin{DoxyParamCaption}
+\item[{{\bf HCCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_a944b30f2db1d3160c309a7b49f569d41}
+Performs one itteration (Runge-\/Kutta based) of the CPG which will update the state of the CPG 
 
+Definition at line 69 of file HopfCartesianCpg.c.
 
-Performs one itteration (Runge-Kutta based) of the CPG which will update the state of the CPG \hypertarget{HopfCartesianCpg_8h_f7ef066d67e8ed4c5a48221f31ec8e4d}{
+\hypertarget{HopfCartesianCpg_8h_af7ef066d67e8ed4c5a48221f31ec8e4d}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-resetState@{HCCpg\_\-resetState}}
 \index{HCCpg\_\-resetState@{HCCpg\_\-resetState}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-resetState ({\bf HCCpg\_\-t} $\ast$ {\em cpg})}}
-\label{HopfCartesianCpg_8h_f7ef066d67e8ed4c5a48221f31ec8e4d}
+\subsubsection[{HCCpg\_\-resetState}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-resetState (
+\begin{DoxyParamCaption}
+\item[{{\bf HCCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_af7ef066d67e8ed4c5a48221f31ec8e4d}
+Set state to x=1 and y=0 and clears all couplings 
 
+Definition at line 28 of file HopfCartesianCpg.c.
 
-Set state to x=1 and y=0 and clears all couplings \hypertarget{HopfCartesianCpg_8h_c3c571a51675b9784518e6d76a66ef12}{
+\hypertarget{HopfCartesianCpg_8h_ac3c571a51675b9784518e6d76a66ef12}{
 \index{HopfCartesianCpg.h@{HopfCartesianCpg.h}!HCCpg\_\-setUpdateRate@{HCCpg\_\-setUpdateRate}}
 \index{HCCpg\_\-setUpdateRate@{HCCpg\_\-setUpdateRate}!HopfCartesianCpg.h@{HopfCartesianCpg.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-setUpdateRate (float {\em updatesPerPeriode}, \/  {\bf HCCpg\_\-t} $\ast$ {\em cpg})}}
-\label{HopfCartesianCpg_8h_c3c571a51675b9784518e6d76a66ef12}
-
-
+\subsubsection[{HCCpg\_\-setUpdateRate}]{\setlength{\rightskip}{0pt plus 5cm}void HCCpg\_\-setUpdateRate (
+\begin{DoxyParamCaption}
+\item[{float}]{updatesPerPeriode, }
+\item[{{\bf HCCpg\_\-t} $\ast$}]{cpg}
+\end{DoxyParamCaption}
+)}}
+\label{HopfCartesianCpg_8h_ac3c571a51675b9784518e6d76a66ef12}
 Set the number of times HCCpg\_\-iterate(.) will be called in one CPG period. 
+
+Definition at line 110 of file HopfCartesianCpg.c.
+
