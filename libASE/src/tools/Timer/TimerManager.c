@@ -21,10 +21,14 @@ static void act(char* topic, Event_t* event) {
 
 		if(timer->isUsed && timer->isRunning) {
 			if(currentTime>=timer->timeOutTime) {
-				timer->handler(timer->id); //call back, signal fired event
+                                timer->handler(timer->id); //call back, signal fired event
 				if(timer->isPeriodic)  {
 					timer->timeOutTime += timer->timeDelay;
 				}
+                                else if(timer->isNShots && timer->nShots>0) {
+                                        timer->timeOutTime += timer->timeDelay;
+                                        timer->nShots--;
+                                }
 				else {
 					timer->isRunning = 0;
 				}
@@ -62,6 +66,8 @@ Timer_t* TimerManager_createPeriodicTimer(long msDelay,  int id, void (handler)(
 	timer->isUsed = 1;
 	timer->isRunning = 1;
 	timer->isPeriodic = 1;
+        timer->isNShots = 0;
+        timer->nShots = 0;
 	timer->id = id;
 	timer->handler = handler;
 	timer->timeDelay = msDelay;
@@ -80,10 +86,37 @@ Timer_t* TimerManager_createOneShotTimer(long msDelay, int id,  void (handler)(i
 	return timer;
 }
 
+Timer_t* TimerManager_createNShotTimer(long msDelay, int nShots, int id,  void (handler)(int)) {
+	if(initialized==false) init();
+	Timer_t* timer = TimerManager_createPeriodicTimer(msDelay, id, handler);
+	if(timer!=NULL) {
+                timer->isPeriodic = 0;
+		timer->isNShots = 1;
+                timer->nShots = nShots-1;
+	}
+	return timer;
+}
+
+
 int TimerManager_setDelay(Timer_t* timer, long msDelay) {
 	if(timer->isUsed) {
 		timer->timeDelay = msDelay;
 		return 1;
+	}
+	return 0;
+}
+
+int TimerManager_setNShots(Timer_t* timer, int nShots) {
+	if(timer->isUsed) {
+		timer->nShots = nShots-1;
+		return 1;
+	}
+	return 0;
+}
+
+int TimerManager_getRemaningShots(Timer_t* timer) {
+	if(timer->isUsed) {
+		return timer->nShots;
 	}
 	return 0;
 }

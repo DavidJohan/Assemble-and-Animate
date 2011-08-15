@@ -21,8 +21,10 @@
 typedef struct {
 	uint8_t isUsed : 1;
 	uint8_t isPeriodic : 1;
+        uint8_t isNShots : 1;
 	uint8_t isRunning : 1;
 	int id;
+        int nShots;
 	long timeDelay;
 	long timeOutTime;
 	void (*handler)(int);
@@ -41,10 +43,28 @@ Timer_t* TimerManager_createPeriodicTimer(long msDelay, int id, void (handler)(i
 Timer_t* TimerManager_createOneShotTimer(long msDelay, int id, void (handler)(int));
 
 /**
+ * Create a N shots timer which will call the handler after a delay of msDelay in milliseconds for N times.
+ * The argument for the handler is the id parameter.
+ */
+Timer_t* TimerManager_createNShotTimer(long msDelay, int nShots, int id,  void (handler)(int));
+
+/**
  * Set the delay of the timer to fire after msDelay.
  * \return 1 if timer is in use
  */
 int TimerManager_setDelay(Timer_t* timer, long msDelay);
+
+/**
+ * Set the number of shots for an N shot timer.
+ * \return 1 if timer is in use
+ */
+int TimerManager_setNShots(Timer_t* timer, int nShots);
+
+/**
+ * Get number of remaning shots in an N-shot timer
+ */
+int TimerManager_getRemaningShots(Timer_t* timer);
+
 
 /**
  * Remove a timer.

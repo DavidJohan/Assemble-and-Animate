@@ -27,8 +27,8 @@ static listnode_t* findTopic(char* topic) {
 
 //Java's hash algorithm from http://en.wikipedia.org/wiki/Java_hashCode%28%29
 static short topicToHash(char* topic) {
-	short hash =0;
-	for(int i=0;i<sizeof(topic);i++) {
+	short hash = 0;
+	for(int i=0;i<strlen(topic);i++) {
 		hash = 31 * hash + topic[i];
 	}
 	return hash;
@@ -61,7 +61,7 @@ void EventManager_registerTopic(char* topic) {
 	else {
 		LinkedList_insertAfter(manager.topics, topic);
 	}
-	ase_printf("Topic %s now registered\n",topic);
+	ase_printf("Topic %s now registered, hash =%i\n",topic, topicToHash(topic));
 }
 
 static bool equals(void* s1, void* s2) {
@@ -179,7 +179,8 @@ void event_global_msg_handler(Msg_t* msg) {
 		char* topic = hashToTopic(header->topicHash);
 		if(topic!=NULL) {
 			Event_t event;
-			event.val_prt = &(msg->message[sizeof(Event_Global_Msg_Header_t)]); //looses info about channel!			event.info.msgChannel = msg->channel;
+			event.val_prt = &(msg->message[sizeof(Event_Global_Msg_Header_t)]); //looses info about channel!
+			event.info.msgChannel = msg->channel;
 			event.info.dataSize = msg->messageSize - sizeof(Event_Global_Msg_Header_t);
 			EventManager_publish(topic, &event);
 			//header->hopCount++; //this will corrupt cache
