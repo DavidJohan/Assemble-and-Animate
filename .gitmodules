@@ -1,0 +1,3 @@
+[submodule "test-sub-modules"]
+	path = test-sub-modules
+	url = https://DavidJohan@github.com/Playware/ASE-non-public.git
