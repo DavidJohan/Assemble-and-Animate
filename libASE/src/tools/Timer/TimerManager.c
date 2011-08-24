@@ -121,6 +121,13 @@ int TimerManager_getRemaningShots(Timer_t* timer) {
 	return 0;
 }
 
+int TimerManager_isRunning(Timer_t* timer) {
+	if(timer->isUsed) {
+          return timer->isRunning;
+	}
+	return 0;
+}
+
 int TimerManager_removeTimer(Timer_t* timer) {
 	if(timer->isUsed) {
 		timer->isUsed = 0;

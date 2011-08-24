@@ -67,6 +67,11 @@ int TimerManager_getRemaningShots(Timer_t* timer);
 
 
 /**
+ * Is timer running?
+ */
+int TimerManager_isRunning(Timer_t* timer);
+
+/**
  * Remove a timer.
  * \return 1 if successful
  */
