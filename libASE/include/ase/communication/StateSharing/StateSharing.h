@@ -7,9 +7,9 @@ typedef struct {
 } state_t;
 
 void StateSharing_init();
-int getTimeStamp();
-void setTimeStamp(uint8_t timeStamp);
-int getState();
-void setState(uint8_t state);
-void setPaused(uint8_t paused);
-int isPaused();
+int StateSharing_getTimeStamp();
+void StateSharing_setTimeStamp(uint8_t timeStamp);
+int StateSharing_getState();
+void StateSharing_setState(uint8_t state);
+void StateSharing_setPaused(uint8_t paused);
+int StateSharing_isPaused();

@@ -5,8 +5,8 @@
 
 //TODO generalise and clean up code
 
-gossip_t* gossip;
-state_t myState;
+static gossip_t* gossip;
+static state_t myState;
 
 
 void StateSharing_handleGossip(char* message, char messageSize, char channel) {
@@ -45,28 +45,28 @@ void StateSharing_init() {
 	GossipManager_start(gossip);
 
 }
-int getTimeStamp() {
+int StateSharing_getTimeStamp() {
 	return myState.timeStamp;
 }
-void setTimeStamp(uint8_t timeStamp) {
+void StateSharing_setTimeStamp(uint8_t timeStamp) {
 	myState.timeStamp = timeStamp;
 	GossipManager_updateGossip(gossip, (char*)&myState, sizeof(myState));
 }
 
-int getState() {
+int StateSharing_getState() {
 	return myState.state;
 }
 
-void setState(uint8_t state) {
+void StateSharing_setState(uint8_t state) {
 	myState.state = state;
 	GossipManager_updateGossip(gossip, (char*)&myState, sizeof(myState));
 }
 
-void setPaused(uint8_t paused) {
+void StateSharing_setPaused(uint8_t paused) {
 	myState.paused = paused;
 	GossipManager_updateGossip(gossip, (char*)&myState, sizeof(myState));
 }
 
-int isPaused() {
+int StateSharing_isPaused() {
 	return myState.paused;
 }
