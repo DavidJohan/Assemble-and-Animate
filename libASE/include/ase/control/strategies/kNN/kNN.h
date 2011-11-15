@@ -10,13 +10,17 @@
 #ifndef KNN_H_
 #include <ase/config/ConfigASE.h>
 #define MAX_KNN_SETS		100
-#define MAX_KNN_INPUTS		4
-#define MAX_KNN_OUTPUTS		5
+#define MAX_KNN_INPUTS		5
+#define MAX_KNN_OUTPUTS		4
+
+#define KNN_MODE_MEAN 					0
+#define KNN_MODE_MOST_FREQUENT_SET		1
+#define KNN_MODE_MOST_FREQUENT_OUT		2
 
 typedef struct {
 	signed char input[MAX_KNN_INPUTS]; //better data structure nessecary
 	signed char output[MAX_KNN_OUTPUTS];
-	long dist;
+	int dist; //long dist
 	//long timeMs;
 	bool isTaken;
 } kNNTSet_t;
@@ -54,6 +58,7 @@ bool kNN_addTraningSet(kNN_t* process, signed char* input, int nInputs, signed c
  * be saved.
  */
 char kNN_trainingSetInformation(kNN_t* process, signed char* input, int nInputs, signed char* output, int nOutputs);
+
 
 /**
  * Set k - number of neighbors to consider

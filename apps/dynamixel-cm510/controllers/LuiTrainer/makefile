@@ -4,9 +4,9 @@ OBJECTS=$(SOURCES:.c=.o)
 
 
 all:
-	gcc -c -DDUMMY -Wall -I$(ASE_HOME)/include/ $(SOURCES) 
+	gcc -std=gnu99 -c -DDYNAMIXEL -DCM510 -Wall -I$(ASE_HOME)/include/ $(SOURCES) 
 	ar -rcs libControl.a $(OBJECTS) 
-	mv libControl.a ../../dummy/libControl.a 
+	mv libControl.a ../../local/libControl.a 
 
 .PHONY: clean
 clean:

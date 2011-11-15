@@ -56,6 +56,7 @@ bool Playback_record(Playback_t* process, signed char* output, int nOutputs){
 	#ifdef PRINTF
 	ase_printf("Recording index %i at time %li ms -> (%i,%i) [%i/%i] \n", process->nextSet, getLocalMsTime()-process->startTimeMs, output[0], output[1], process->nSets, MAX_PLAYBACK_SETS);
 	#endif
+	ase_printf("Recording index %i at time %li ms -> (%i,%i) [%i/%i] \n", process->nextSet, getLocalMsTime()-process->startTimeMs, output[0], output[1], process->nSets, MAX_PLAYBACK_SETS);
 	for(i=0;i<MAX_PLAYBACK_OUTPUTS;i++) {
 		if(i<nOutputs) {
 			process->sets[process->nextSet].output[i] = output[i];

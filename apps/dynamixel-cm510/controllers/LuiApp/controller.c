@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <ase/infrastructure.h>
 #include <ase/targets/AbstractModuleApi.h>
-#include <ase/targets/AbstractModuleApi.h>
-#include <ase/tools/Timer/TimerManager.h>
-#include <ase/infrastructure/Scheduler/Scheduler.h>
-#include <ase/infrastructure/EventManager/EventManager.h>
-#include <ase/communication/Message.h>
 #include <ase/targets/dynamixel.h>
+#include <ase/communication/Message.h>
+#include <ase/tools/Timer/TimerManager.h>
+
 #include <ase/control/strategies/kNN/kNN.h>
 #include <ase/control/strategies/Playback/Playback.h>
 #include <ase/control/arbitration/Subsumption/Subsumption.h>
@@ -15,9 +15,9 @@
 #include <ase/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.h>
 #include "CM510Behaviors.h"
 #include "BeatDetector.h"
-//static kNN_t kNN_behavior;
-//static kNN_t kNN_compound;
-static Playback_t playback_data;
+static kNN_t* kNN_behavior;
+static kNN_t* kNN_compound;
+static Playback_t* playback_data;
 
 static CM510Behavior_fly_t fly_data;
 static CM510Behavior_dance_t dance_data;
@@ -28,17 +28,19 @@ static CM510Behavior_move_t move_data;
 static CM510Behavior_escape_t escape_data;
 
 
+
 void installBehaviors(Subsumption_t* subsumption) {
-	LuiBehaviorManager_addBehavior(1, &escape_data, escape_start, escape_act, escape_stop,'s', subsumption);
+	//LuiBehaviorManager_addBehavior(1, &escape_data, escape_start, escape_act, escape_stop,'s', subsumption);
+	LuiBehaviorManager_addBehavior(104, &escape_data, escape_start, escape_act, escape_stop,'s', subsumption);
 	LuiBehaviorManager_addBehavior(2, &move_data, move_start, move_act, move_stop, 's', subsumption);
 	//LuiBehaviorManager_addBehavior(3, &geiger_data, geiger_start, geiger_act, geiger_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(4, &bird_data, bird_song_start, bird_song_act, bird_song_stop,  's', subsumption);
 	LuiBehaviorManager_addBehavior(5, &bee_data, bee_song_start, bee_song_act, bee_song_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(6, &fly_data, fly_start, fly_act, fly_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(7, &dance_data, dance_start, dance_act, dance_stop, 's', subsumption);
-	//LuiBehaviorManager_addBehavior(97,&kNN_compound, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 'c', subsumption);
-	LuiBehaviorManager_addBehavior(98,&playback_data, playback_start, playback_act, playback_stop, 'r', subsumption);
-	//LuiBehaviorManager_addBehavior(99,&kNN_behavior, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 't', subsumption);
+	LuiBehaviorManager_addBehavior(97, kNN_compound, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 'c', subsumption);
+	LuiBehaviorManager_addBehavior(98, playback_data, playback_start, playback_act, playback_stop, 'r', subsumption);
+	LuiBehaviorManager_addBehavior(99, kNN_behavior, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 't', subsumption);
 }
 
 typedef struct {
@@ -111,13 +113,16 @@ void applyControlOutput(signed char* outputValues, char nOutput){
 }
 
 int getControlInput(signed char* inputValues, char maxInputs, bool* readSuccess){
-	inputValues[0] = (signed char) dynamixelApi_CM510_getADC(4)/2; //scaled?
+	inputValues[0] = (signed char) abs(dynamixelApi_CM510_getADC(4)/4); //top dist
+	inputValues[1] = (signed char) abs(dynamixelApi_CM510_getADC(5)/4); //left dist
+	inputValues[2] = (signed char) abs(dynamixelApi_CM510_getADC(0)/4); //right dist
+	inputValues[3] = (signed char) (dynamixelApi_CM510_getMicEventCount()%2); //mic
 	*readSuccess = true;
 	return 0;
 }
 
 int getNumberOfInputs() {
-	return 1;
+	return 4;
 }
 
 int getNumberOfOutputs(){
@@ -128,7 +133,6 @@ void delay_ms(long delay_ms) {
 	long startTime = dynamixelApi_getMsTime();
 	while((startTime+delay_ms)>dynamixelApi_getMsTime());
 }
-
 
 void flowerInit() {
 	dynamixelApi_setup(1,NULL); delay_ms(250);
@@ -189,6 +193,7 @@ int intcompare (const void * a, const void * b)
 {
   return ( *(int*)a - *(int*)b );
 }
+
 int brickID_old=-1;
 void checkForBehaviorBrickTimer(int id) {
 	int values[20];
@@ -213,28 +218,60 @@ void checkForBehaviorBrickTimer(int id) {
 	else if(val> 507&& val< 515) brickID = 98;
 	else brickID = 0;
 	if(brickID!=brickID_old) {
-		ase_printf("Median ADC value = %i, brickID = %i\n", val, brickID);
+		//ase_printf("Median ADC value = %i, brickID = %i\n", val, brickID);
 		configureLUIBoard(brickID);
 		brickID_old = brickID;
 	}
+
+	signed char sensorVal[5]; bool success;
+	getControlInput(sensorVal, 5, &success);
+	//ase_printf("%i %i %i \n", sensorVal[0],sensorVal[1],sensorVal[2]);
+	if(sensorVal[0]	>5||sensorVal[1]>5||sensorVal[2]>5) {
+		for(int i=1;i<=6;i++) {
+			dynamixelApi_CM510_setLed(i);
+		}
+	}
+	else {
+		for(int i=1;i<=6;i++) {
+			dynamixelApi_CM510_clearLed(i);
+		}
+	}
+}
+
+void aliveTimer(int id) {
+	ase_printf("alive...\n");
 }
 
 void controller_init() {
   dynamixelApi_CM510_init();
-  ase_printf("*************************\n" );
-  ase_printf("*Dynamixel-CM510 Started*\n" );
-  ase_printf("************************\n" );
+  //ase_printf("*************************\n" );
+  //ase_printf("*Dynamixel-CM510 Started*\n" );
+  //ase_printf("************************\n" );
   //flowerInit();
   //carInit();
   carArmInit();
   LUI_init();
   BeatDetector_init();
-  TimerManager_createPeriodicTimer(250, 0, checkForBehaviorBrickTimer);
+  TimerManager_createPeriodicTimer(250, 0, checkForBehaviorBrickTimer); //reads behavior brick directly
+  TimerManager_createPeriodicTimer(1000, 0, aliveTimer); //reads behavior brick directly
 
-  //kNN_init(&kNN_behavior, 1);
-  //kNN_init(&kNN_compound, 1);
-  Playback_init(&playback_data);
+  ase_printf("size of knn %i\n",sizeof(kNN_t));
+  ase_printf("size of playback %i\n",sizeof(Playback_t));
+
+  kNN_behavior = (kNN_t*) MemManager_malloc(sizeof(kNN_t));
+  kNN_compound = (kNN_t*) MemManager_malloc(sizeof(kNN_t));
+  playback_data = (Playback_t*) MemManager_malloc(sizeof(Playback_t));
+  if(kNN_behavior == NULL || kNN_compound == NULL || playback_data == NULL) {
+	  ase_printf("Out of memory! \n");
+  }
+  kNN_init(kNN_behavior, 1);
+  kNN_setMode(kNN_behavior, KNN_MODE_MEAN);
+  kNN_init(kNN_compound, 1);
+  kNN_setMode(kNN_compound, KNN_MODE_MOST_FREQUENT_OUT);
+  Playback_init(playback_data);
   installBehaviors(LUI_getSubsumptionProcess());
   configureLUIBoard(0);
-  ase_printf("Init done\n");
+
+
+  //ase_printf("Init done\n");
 }

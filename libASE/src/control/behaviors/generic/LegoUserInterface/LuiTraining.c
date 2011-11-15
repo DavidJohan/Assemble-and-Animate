@@ -19,8 +19,18 @@ int LuiTraining_createKnnInput(signed char* input, char nInputs, signed char* kn
 int LuiTraining_knn_train(kNN_t* kNN_process, signed char* outputs, char nOutput) {
 	signed char knnInput[10];
 	int nKnnInput  = LuiTraining_createKnnInput(LuiManager_getDeviceReadList(),  (char) LuiManager_getNumberOfInputDevices(), knnInput);
-	int information = kNN_trainingSetInformation(kNN_process,  knnInput, nKnnInput, outputs, nOutput); 
-	if(information>0) {
+	int information = kNN_trainingSetInformation(kNN_process,  knnInput, nKnnInput, outputs, nOutput);
+
+	ase_printf("#log data_sets.log %li, ",getLocalMsTime());
+	for(int i=0;i<nKnnInput;i++) {
+		ase_printf("%i, ",knnInput[i]);
+	}
+	for(int i=0;i<nOutput-1;i++) {
+		ase_printf("%i, ",outputs[i]);
+	}
+	ase_printf("%i\n",outputs[nOutput-1]);
+
+	if(true || information>0) {
 		if(kNN_addTraningSet(kNN_process, knnInput, nKnnInput, outputs, nOutput) == true) {
 			ase_printf("kNN added traning (info = %i)\n", information);
 			//ase_printf("#play learning.wav 50 1\n");

@@ -15,17 +15,43 @@
 void playback_start(void* data){
 	Playback_startPlayback(data);
 }
+
 void playback_stop(void* data){};
 void playback_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	Playback_getOutput((Playback_t*) data, output, nOutputs);
+	signed char playbackOutput[nOutputs];
+	Playback_getOutput((Playback_t*) data, playbackOutput, nOutputs);
+	bool applyControl = false;
+	for(int i=0;i<nOutputs;i++) {
+		if(playbackOutput[i]!=0) {
+			applyControl = true;
+		}
+	}
+	if(applyControl) {
+		for(int i=0;i<nOutputs;i++) {
+			output[i] = playbackOutput[i];
+		}
+	}
 }
 
 void knn_behavior_start(void* data){};
 void knn_behavior_stop(void* data){};
 void knn_behavior_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	signed char knnInput[10];
+	signed char knnInput[nInputs+1];
+	signed char knnOutput[nOutputs];
 	int nKnnInput  = LuiTraining_createKnnInput(input, nInputs, knnInput);
-	kNN_getOutput((kNN_t*) data, knnInput, nKnnInput, output, nOutputs);
+	kNN_getOutput((kNN_t*) data, knnInput, nKnnInput, knnOutput, nOutputs);
+	//only apply control output if it is non-zero (subsumption friendly)
+	bool applyControl = false;
+	for(int i=0;i<nOutputs;i++) {
+		if(knnOutput[i]!=0) {
+			applyControl = true;
+		}
+	}
+	if(applyControl) {
+		for(int i=0;i<nOutputs;i++) {
+			output[i] = knnOutput[i];
+		}
+	}
 }
 
 void escape_start(void* data) {

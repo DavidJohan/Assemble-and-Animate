@@ -11,7 +11,7 @@
 void kNN_init(kNN_t* process, int k) {
   	process->nSets=0;
 	process->k = k;
-	process->mode =0;
+	process->mode =KNN_MODE_MEAN;
 	int i;
 	for(i=0;i<MAX_KNN_SETS;i++) {
 		process->sets[i].isTaken= false;
@@ -54,6 +54,11 @@ static int myCmp(kNNTSet_t* set1, kNNTSet_t* set2 ) {
 	else return -1;
 }
 
+static bool equals(signed char* s1, signed char* s2, int nElements) {
+	return false;
+}
+
+
 void kNN_getOutput(kNN_t* process, signed char* input, int nInputs, signed char* output, int nOutputs) {
 	if(nInputs==0) {
 	  	int i;
@@ -63,9 +68,7 @@ void kNN_getOutput(kNN_t* process, signed char* input, int nInputs, signed char*
 		return;
 	}
 	
-	long lOutput[MAX_KNN_SETS]; //stor fejl her!
-	int i,k;
-	for(i=0;i<MAX_KNN_SETS;i++) {
+	for(int i=0;i<MAX_KNN_SETS;i++) {
 		if(process->sets[i].isTaken) {
 			process->sets[i].dist = dist(input, process->sets[i].input, nInputs);
 		}
@@ -73,56 +76,72 @@ void kNN_getOutput(kNN_t* process, signed char* input, int nInputs, signed char*
 			process->sets[i].dist = 10001;
 		}
 	}
-	/*ase_printf("\n********BEFORE********\n");
-	for(i=0;i<10;i++) {
-		ase_printf("%li ,",process->sets[i].dist);
-		if(i%5==4) ase_printf("\n");
-	}*/
+
 	qsort(process->sets, process->nSets, sizeof(kNNTSet_t), (int(*)(const void*, const void*))myCmp);
+	int K = (process->k<=process->nSets)?process->k:process->nSets;
 
-	/*ase_printf("\n********AFTER********\n");
-	for(i=0;i<10;i++) {
-		ase_printf("%li ,",process->sets[i].dist);
-		if(i%5==4) ase_printf("\n");
-	}*/
-	//printf("Sample (%i,%i)->%i\n",input[0],input[1],output[0]);
-	//printf("kNN    (%i,%i)->%i\n",process->sets[0].input[0],process->sets[0].input[1],process->sets[0].output[0]);
-	//printf("Dist = %f\n", process->sets[0].dist);
-	int n = (process->k<=process->nSets)?process->k:process->nSets;
-
-	//long dist = process->sets[n].dist; 
-	//while(dist>=process->sets[n].dist && n<=process->nSets) n++;
-	//ase_printf("kNN: adaptive k = %i\n", n);
-	
-	for(i=0;i<nOutputs;i++) {
-		lOutput[i]= 0;
-		for(k=0;k<n;k++) {
-			lOutput[i] += process->sets[k].output[i];
-		}
-	}
-
-	if(process->mode==0) {//possibilities: average, median, map to categories, ...
-		for(i=0;i<nOutputs;i++) {
+	if(process->mode==KNN_MODE_MEAN) {
+		//selects the mean output amongst the k sets
+		long lOutput[MAX_KNN_OUTPUTS];
+		for(int i=0;i<nOutputs;i++) {
 			lOutput[i]= 0;
-			for(k=0;k<n;k++) {
+			for(int k=0;k<K;k++) {
 				lOutput[i] += process->sets[k].output[i];
 			}
 		}
-		for(i=0;i<nOutputs;i++) {
-		  	output[i]= lOutput[i]/n;
+		for(int i=0;i<nOutputs;i++) {
+		  	output[i]= lOutput[i]/K;
 		}
 	}
-	ase_printf("kNN output: (");
-	for(i=0;i<nInputs;i++) {
-	  ase_printf("%i ", input[i]);
+	else if(process->mode==KNN_MODE_MOST_FREQUENT_SET) {
+		//selects the most frequent category amongst the k sets (considering the whole output)
+		char freq[K];
+		for(int i=0;i<K;i++) {
+			freq[i]=0;
+		}
+		int maxVotesIndex=0, maxVotes=0;
+		for(int i=0;i<K;i++) {
+			int votes = 0;
+			for(int j=0;j<K;j++) {
+				if(i!=j) {
+					if(equals(process->sets[i].output, process->sets[j].output, nOutputs)) {
+						votes++;
+					}
+				}
+			}
+			if(votes>maxVotes) {
+				maxVotes = votes;
+				maxVotesIndex = i;
+			}
+		}
+		if(maxVotes == 0) { //all sets are different (should be a redundant check)
+			maxVotesIndex = 0; //select nearest
+		}
+		for(int i=0;i<nOutputs;i++) {
+			output[i] = process->sets[maxVotesIndex].output[i];
+		}
 	}
-	ase_printf(") -> (");
-	for(i=0;i<nOutputs;i++) {
-	  ase_printf("%i ", output[i]);
+	else if(process->mode==KNN_MODE_MOST_FREQUENT_OUT) {
+		//selects the most frequent category for each individual output amongst the k sets
+		unsigned char freq[255];
+		for(int i=0;i<nOutputs;i++) {
+			for(int i=0;i<256;i++) {
+				freq[i]=0;
+			}
+			for(int k=0;k<K;k++) {
+				int index = process->sets[k].output[i] + 128;
+				freq[index]++;
+			}
+			unsigned char maxIndex = 0, maxFreq = 0;
+			for(int i=0;i<256;i++) {
+				if(freq[i]>maxFreq) {
+					maxIndex = i;
+					maxFreq = freq[i];
+				}
+			}
+			output[i] = maxIndex - 128;
+		}
 	}
-	ase_printf(")\n");
-	
-	//ase_printf("kNN output: %i -> (%i, %i)\n", input[0], output[0], output[1]);
 }
 
 int findFreeIndex(kNN_t* process) {
@@ -159,7 +178,7 @@ bool kNN_addTraningSet(kNN_t* process, signed char* input, int nInputs, signed c
 			process->sets[index].output[i] = 0;
 		}
 	}
-	ase_printf("kNN (nSets = %i): (",process->nSets);
+	/*ase_printf("kNN (nSets = %i): (",process->nSets);
 	for(i=0;i<nInputs;i++) {
 	  ase_printf("%i ", input[i]);
 	}
@@ -167,7 +186,7 @@ bool kNN_addTraningSet(kNN_t* process, signed char* input, int nInputs, signed c
 	for(i=0;i<nOutputs;i++) {
 	  ase_printf("%i ", output[i]);
 	}
-	ase_printf(")\n");
+	ase_printf(")\n");*/
 	return true;
   	
 }

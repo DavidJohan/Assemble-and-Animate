@@ -16,6 +16,7 @@
 typedef struct {
 	signed char output[MAX_PLAYBACK_OUTPUTS];
 	long timeMs;
+	//int timeMs;
 } PlaybackSet_t;
 
 

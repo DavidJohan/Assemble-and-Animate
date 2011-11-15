@@ -60,7 +60,8 @@ void addtoSubsumption(char behaviorId) {
 		signed char selectedBehaviors[5];
 		signed char knnInput[10];
 		int nKnnInput  = LuiTraining_createKnnInput(LuiManager_getDeviceReadList(), LuiManager_getNumberOfInputDevices(), knnInput);
-		kNN_getOutput(LuiBehaviorManager_getData(behaviorId), knnInput, nKnnInput, selectedBehaviors, 5); 
+		kNN_t* knn = (kNN_t*) LuiBehaviorManager_getData(behaviorId);
+		kNN_getOutput(knn, knnInput, nKnnInput, selectedBehaviors, 5);
 		int i;
 		for(i=0;i<5;i++) {
 			addtoSubsumption(selectedBehaviors[i]);
@@ -312,6 +313,7 @@ static void handleMessage(char* topic, Event_t* event) {
 		}
 	}
 }
+
 Subsumption_t* LUI_getSubsumptionProcess() {
 	return  &SubsumptionProcess;
 }

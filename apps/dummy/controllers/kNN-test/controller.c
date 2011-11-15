@@ -2,12 +2,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <ase/AbstractModuleApi.h>
 #include <ase/tools/Timer/TimerManager.h>
-#include <ase/Scheduler.h>
-#include <ase/infrastructure/EventManager/EventManager.h>
-#include <ase/Message.h>
-#include <ase/kNN.h>
+#include <ase/infrastructure/Scheduler/Scheduler.h>
+#include <ase/control/strategies/kNN/kNN.h>
+#include <ase/targets/AbstractModuleApi.h>
 
 #define N_TRAIN		25
 static kNN_t kNNprocess;
