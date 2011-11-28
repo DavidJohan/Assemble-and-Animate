@@ -9,7 +9,7 @@
 
 #ifndef PLAYBACK_H_
 #include <ase/config/ConfigASE.h>
-#define MAX_PLAYBACK_SETS		100
+#define MAX_PLAYBACK_SETS		75
 #define MAX_PLAYBACK_INPUTS		4
 #define MAX_PLAYBACK_OUTPUTS	4
 

@@ -31,7 +31,7 @@ void* MemManager_malloc(int size) {
                 //ase_printf("...using dynamic memory instead\n");
                 void* mem = malloc(size);
                 if (mem == NULL) {
-                	while(1) ase_printf("Out of memory...\n");
+                	while(1) ase_printf("Out of memory... %i\n", size);
                 }
                 manager.index += size;
                 return mem;

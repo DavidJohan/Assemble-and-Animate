@@ -37,6 +37,7 @@ int LuiTraining_knn_train(kNN_t* kNN_process, signed char* outputs, char nOutput
 			return  1;
 		}
 		else {
+			ase_printf("kNN full\n\n");
 		  	return  2;
 		}
 	}

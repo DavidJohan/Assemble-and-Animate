@@ -32,6 +32,7 @@ void Playback_clearRecordings(Playback_t* process) {
 }
 
 void Playback_getOutput(Playback_t* process, signed char* output, int nOutputs) {
+	if(process->nSets<=0) return;
   	int deliminator = (int)(process->sets[process->nSets-1].timeMs+1);
 	long time = (getLocalMsTime() - process->startTimeMs)%deliminator;
 	int i,j;
@@ -46,7 +47,9 @@ void Playback_getOutput(Playback_t* process, signed char* output, int nOutputs) 
 			#ifdef PRINTF
 		 	ase_printf("Playback index %i at time %li ms (vs %li) -> (%i,%i) \n", i, time, process->sets[i].timeMs, output[0],output[1]);
 			#endif
-			return;
+		 	ase_printf("X %li %li\n",process->sets[i].timeMs, time);
+		 	//ase_printf("Playback index %i at time %li ms (vs %li) -> (%i,%i) \n", i, time, process->sets[i].timeMs, output[0],output[1]);
+		 	return;
 		}
 	}
 }
@@ -56,23 +59,31 @@ bool Playback_record(Playback_t* process, signed char* output, int nOutputs){
 	#ifdef PRINTF
 	ase_printf("Recording index %i at time %li ms -> (%i,%i) [%i/%i] \n", process->nextSet, getLocalMsTime()-process->startTimeMs, output[0], output[1], process->nSets, MAX_PLAYBACK_SETS);
 	#endif
-	ase_printf("Recording index %i at time %li ms -> (%i,%i) [%i/%i] \n", process->nextSet, getLocalMsTime()-process->startTimeMs, output[0], output[1], process->nSets, MAX_PLAYBACK_SETS);
-	for(i=0;i<MAX_PLAYBACK_OUTPUTS;i++) {
-		if(i<nOutputs) {
-			process->sets[process->nextSet].output[i] = output[i];
+	if(process->nSets<MAX_PLAYBACK_SETS-1) {
+		ase_printf("Recording index %i at time %li ms -> (%i,%i) [%i/%i] \n", process->nextSet, getLocalMsTime()-process->startTimeMs, output[0], output[1], process->nSets, MAX_PLAYBACK_SETS);
+		for(i=0;i<MAX_PLAYBACK_OUTPUTS;i++) {
+			if(i<nOutputs) {
+				process->sets[process->nextSet].output[i] = output[i];
+			}
+			else {
+				process->sets[process->nextSet].output[i] = 0;
+			}
+		}
+		process->sets[process->nextSet].timeMs = getLocalMsTime()-process->startTimeMs;
+		//process->nextSet = (process->nSets+1)%MAX_PLAYBACK_SETS;
+		process->nextSet = process->nSets+1;
+		if(process->nSets>=MAX_PLAYBACK_SETS) {
+			return false;
 		}
 		else {
-			process->sets[process->nextSet].output[i] = 0;
+			process->nSets++;
+			return true;
 		}
 	}
-	process->sets[process->nextSet].timeMs = getLocalMsTime()-process->startTimeMs;
-	process->nextSet = (process->nSets+1)%MAX_PLAYBACK_SETS;
-  	if(process->nSets==MAX_PLAYBACK_SETS) {
+	else {
+		ase_printf("Record full! %i\n",process->nSets);
 		return false;
 	}
-	else {
-	  	process->nSets++;
-		return true;
-	}
+
 }
 

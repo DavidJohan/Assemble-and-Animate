@@ -33,7 +33,7 @@ static void checkForEvents() {
 	}
 	
 	if(event) {
-		if(time_since_last_event==-1) ase_printf("#play escape.wav 50 1\n")
+		if(time_since_last_event==-1) ase_printf("#play escape.wav 50 1\n");
 		time_since_last_event = 0;
 	}
 	else {

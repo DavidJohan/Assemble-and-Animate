@@ -145,7 +145,6 @@ void board_timer_fired(int id) { //10hz
 					int result = LuiTraining_knn_train(LuiBehaviorManager_getData(board.cTrain), LuiManager_getSelectedBehaviorList(), 5);
 					updateKnnStatus(result);
 					doSubsumptionBehaviors(LuiManager_getSelectedBehaviorList(), 5);
-					
 				}
 				else {
 					Subsumption_deactivateAll(&SubsumptionProcess);
@@ -164,6 +163,7 @@ void board_timer_fired(int id) { //10hz
 					LuiManager_applyControlOutput(LuiManager_getDeviceRCList(), nOutputs);
 				}
 				else {
+					ase_printf("Waiting...\n");
 					Subsumption_deactivateAll(&SubsumptionProcess);
 					Subsumption_act(LuiManager_getDeviceReadList(), nInputs, output, nOutputs, &SubsumptionProcess);
 				}
@@ -235,18 +235,33 @@ static void handleMessage(char* topic, Event_t* event) {
 		  }
 		}
 		LuiManager_setSelectedBehaviorList(behaviors);
-		
 	}
 	else if(type==LUI_SETUP) {
 		if(msg->messageSize>=11) {
 			int i;
 			for(i=0;i<5;i++) {
-				board.behaviors[i] = msg->message[i+1];
+				//board.behaviors[i] = msg->message[i+1];
+				if(LuiBoard_setBehavior(msg->message[i+1],i, &board)) {
+					if(board.behaviors[i]!=0) {
+						ase_printf("#play brickOn.wav 50 1\n");
+					}
+					else {
+						ase_printf("#play brickOff.wav 50 1\n");
+					}
+				}
 			}
 			
 			char start = msg->message[6];
 			if(start!=board.start ) {
-				board.start = start;
+				//board.start = start;
+				if(LuiBoard_setStart(start, &board)) {
+					if(board.start!=0) {
+						ase_printf("#play brickOn.wav 50 1\n");
+					}
+					else {
+						ase_printf("#play brickOff.wav 50 1\n");
+					}
+				}
 				if(start) {
 					ase_printf("Board Started\n");
 				}
@@ -257,7 +272,15 @@ static void handleMessage(char* topic, Event_t* event) {
 			
 			char clear = msg->message[7];
 			if(clear!=board.clear) {
-			  	board.clear = clear;
+			  	//board.clear = clear;
+				if(LuiBoard_setClear(clear, &board)) {
+					if(board.clear!=0) {
+						ase_printf("#play brickOn.wav 50 1\n");
+					}
+					else {
+						ase_printf("#play brickOff.wav 50 1\n");
+					}
+				}
 				if(LuiBehaviorManager_isTrain(board.clear))  {
 					kNN_clearMemory(LuiBehaviorManager_getData(board.clear));
 					ase_printf("kNN memory cleared\n");
@@ -277,7 +300,15 @@ static void handleMessage(char* topic, Event_t* event) {
 			
 			char record = msg->message[8];
 			if(record!=board.record) {
-			  	board.record = record;
+			  	//board.record = record;
+				if(LuiBoard_setRecord(record, &board)) {
+					if(board.record!=0) {
+						ase_printf("#play brickOn.wav 50 1\n");
+					}
+					else {
+						ase_printf("#play brickOff.wav 50 1\n");
+					}
+				}
 				if(LuiBehaviorManager_isRecord(board.record)) {
 					ase_printf("Playback started recording\n");
 					Playback_startRecording(LuiBehaviorManager_getData(board.record));
@@ -289,7 +320,15 @@ static void handleMessage(char* topic, Event_t* event) {
 			
 			char train = msg->message[9];
 			if(train!=board.train) {
-			  	board.train = train;
+			  	//board.train = train;
+				if(LuiBoard_setTrain(train, &board)) {
+					if(board.train!=0) {
+						ase_printf("#play brickOn.wav 50 1\n");
+					}
+					else {
+						ase_printf("#play brickOff.wav 50 1\n");
+					}
+				}
 				if(LuiBehaviorManager_isTrain(board.train)) {
 					ase_printf("Simple Behavior Training Started (kNN)\n");
 				  	LuiEventManager_waitForEvent();
@@ -300,8 +339,17 @@ static void handleMessage(char* topic, Event_t* event) {
 			}
 			char cTrain = msg->message[10];
 			if(cTrain!=board.cTrain) {
-			  	board.cTrain = cTrain;
-				if(LuiBehaviorManager_isTrain(board.cTrain)) {
+			  	//board.cTrain = cTrain;
+			  	if(LuiBoard_setCTrain(cTrain, &board)) {
+					if(board.cTrain!=0) {
+						ase_printf("#play brickOn.wav 50 1\n");
+					}
+					else {
+						ase_printf("#play brickOff.wav 50 1\n");
+					}
+				}
+				//if(LuiBehaviorManager_isTrain(board.cTrain)) {
+			  	if(LuiBehaviorManager_isCompound(board.cTrain)) {
 					ase_printf("Compound Behavior Training Started (kNN)\n");
 				  	LuiEventManager_waitForEvent();
 				}
