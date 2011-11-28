@@ -14,31 +14,37 @@
 #include <ase/control/behaviors/generic/LegoUserInterface/LegoUserInterface.h>
 #include <ase/control/behaviors/generic/LegoUserInterface/LuiBehaviorManager.h>
 #include "CM510Behaviors.h"
+#include "controller.h"
 #include "BeatDetector.h"
 static kNN_t* kNN_behavior;
 static kNN_t* kNN_compound;
 static Playback_t* playback_data;
 
-static CM510Behavior_fly_t fly_data;
 static CM510Behavior_dance_t dance_data;
-static CM510Behavior_bee_song_t bee_data;
+static CM510Behavior_monkey_song_t monkey_data;
 static CM510Behavior_bird_song_t bird_data;
-//static CM510Behavior_geiger_t geiger_data;
-static CM510Behavior_move_t move_data;
+static CM510Behavior_seek_t seek_data;
 static CM510Behavior_escape_t escape_data;
-
+static CM510Behavior_play_dead_t play_dead_data;
+static CM510Behavior_attack_t attack_data;
+static CM510Behavior_play_t play_data;
+static CM510Behavior_hide_t hide_data;
+static CM510Behavior_follow_t follow_data;
 
 
 void installBehaviors(Subsumption_t* subsumption) {
-	//LuiBehaviorManager_addBehavior(1, &escape_data, escape_start, escape_act, escape_stop,'s', subsumption);
-	LuiBehaviorManager_addBehavior(104, &escape_data, escape_start, escape_act, escape_stop,'s', subsumption);
-	LuiBehaviorManager_addBehavior(2, &move_data, move_start, move_act, move_stop, 's', subsumption);
-	//LuiBehaviorManager_addBehavior(3, &geiger_data, geiger_start, geiger_act, geiger_stop, 's', subsumption);
+	LuiBehaviorManager_addBehavior(1, &escape_data, escape_start, escape_act, escape_stop,'s', subsumption);
+	LuiBehaviorManager_addBehavior(2, &seek_data, seek_start, seek_act, seek_stop, 's', subsumption);
+	LuiBehaviorManager_addBehavior(3, &play_data, play_start, play_act, play_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(4, &bird_data, bird_song_start, bird_song_act, bird_song_stop,  's', subsumption);
-	LuiBehaviorManager_addBehavior(5, &bee_data, bee_song_start, bee_song_act, bee_song_stop, 's', subsumption);
-	LuiBehaviorManager_addBehavior(6, &fly_data, fly_start, fly_act, fly_stop, 's', subsumption);
+	LuiBehaviorManager_addBehavior(5, &monkey_data, monkey_song_start, monkey_song_act, monkey_song_stop, 's', subsumption);
+	LuiBehaviorManager_addBehavior(6, &attack_data, attack_start, attack_act, attack_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(7, &dance_data, dance_start, dance_act, dance_stop, 's', subsumption);
-	LuiBehaviorManager_addBehavior(97, kNN_compound, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 'c', subsumption);
+	LuiBehaviorManager_addBehavior(104, &play_dead_data, play_dead_start, play_dead_act, play_dead_stop,'s', subsumption);
+	LuiBehaviorManager_addBehavior(103, &hide_data, hide_start, hide_act, hide_stop,'s', subsumption);
+	LuiBehaviorManager_addBehavior(97, &follow_data, follow_start, follow_act, follow_stop,'s', subsumption);
+
+	//LuiBehaviorManager_addBehavior(97, kNN_compound, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 'c', subsumption);
 	LuiBehaviorManager_addBehavior(98, playback_data, playback_start, playback_act, playback_stop, 'r', subsumption);
 	LuiBehaviorManager_addBehavior(99, kNN_behavior, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 't', subsumption);
 }
@@ -110,6 +116,19 @@ void applyControlOutput(signed char* outputValues, char nOutput){
 		//ase_printf("%i ", dynaCtrl[i].cPos);
 	}
 	//ase_printf("\n");
+}
+
+int getInputType(int index) {
+	if(index==0) return DISTANCE;
+	else if(index==1) return DISTANCE;
+	else if(index==2) return DISTANCE;
+	else if(index==3) return NOISE;
+	else return NONE;
+}
+
+int getOutputType(int index) {
+	if(dynamixelApi_isWheelMode(index)) return WHEEL;
+	else return JOINT;
 }
 
 int getControlInput(signed char* inputValues, char maxInputs, bool* readSuccess){
@@ -249,6 +268,7 @@ void controller_init() {
   //ase_printf("************************\n" );
   //flowerInit();
   //carInit();
+  srand(10);
   carArmInit();
   LUI_init();
   BeatDetector_init();

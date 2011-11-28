@@ -8,9 +8,21 @@
 #include <ase/targets/AbstractModuleApi.h>
 #include <ase/targets/dynamixel.h>
 #include <ase/control/behaviors/generic/LegoUserInterface/LuiTraining.h>
+#include "controller.h"
 #include "CM510Behaviors.h"
 #include "BeatDetector.h"
 
+static bool isSomeThingNearby(signed char* input, char nInputs) {
+	bool near = false;
+	for(int i=0;i<nInputs;i++) {
+		if(getInputType(i)==DISTANCE) {
+			if(input[i]>10) {
+				near = true;
+			}
+		}
+	}
+	return near;
+}
 
 void playback_start(void* data){
 	Playback_startPlayback(data);
@@ -63,8 +75,7 @@ void escape_start(void* data) {
 void escape_stop(void* data) {}
 void escape_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
   	CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
-  	int irVal = input[0];
-  	if(irVal>10) {
+  	if(isSomeThingNearby(input, nInputs)) {
   		if((escape_data->startTime+750)<getLocalMsTime()) {
   			if(escape_data->dir==1) escape_data->dir = -1;
   			else escape_data->dir = 1;
@@ -76,24 +87,18 @@ void escape_act(signed char* input, char nInputs, signed char* output, char nOut
   			if(i%2==1) output[i] = escape_data->dir*100;
   		}
   	}
-  	else {
-  		for(int i=0;i<getNumberOfActuators();i++)  {
-			//output[i] = 0;
-		}
-  	}
-  	ase_printf("%i\n",irVal);
 }
 
 
+
 void move_start(void* data) {
-	CM510Behavior_move_t* move_data = (CM510Behavior_move_t*) data;
-	move_data->lastSoundTime=0;
+	//CM510Behavior_move_t* move_data = (CM510Behavior_move_t*) data;
 	ase_printf("#play running_up_carpeted_stairs.wav 50 2\n");
 }
 
 void move_stop(void* data) {ase_printf("#play running_up_carpeted_stairs.wav 50 0\n");}
 void move_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	CM510Behavior_move_t* move_data = (CM510Behavior_move_t*) data;
+	//CM510Behavior_move_t* move_data = (CM510Behavior_move_t*) data;
   	float t = getLocalTime();
 	for(int i=0;i<getNumberOfActuators();i++) {
 		int sign = (i%2==0)?-1:1;
@@ -101,54 +106,61 @@ void move_act(signed char* input, char nInputs, signed char* output, char nOutpu
 		if(output[i]>100) output[i] = 100;
 		if(output[i]<-100) output[i] = -100;
 	}
-	if(move_data->lastSoundTime+5000 < getLocalMsTime()) {
-		move_data->lastSoundTime = getLocalMsTime();
+	if(isSomeThingNearby(input, nInputs)) {
+		for(int i=0;i<getNumberOfActuators();i++) {
+			output[i] = -1*output[i];
+		}
 	}
 }
 
-void geiger_start(void* data) {
-	CM510Behavior_geiger_t* geiger_data = (CM510Behavior_geiger_t*) data;
-	geiger_data->lastSoundTime=0;
-	geiger_data->delay=500;
-	geiger_data->lastIntensity=0;
+void seek_start(void* _data) {
+	CM510Behavior_seek_t* data = (CM510Behavior_seek_t*) _data;
+	ase_printf("#play running_up_carpeted_stairs.wav 50 2\n");
+	data->playingSound = true;
 }
-void geiger_stop(void* data) {}
-void geiger_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	/*CM510Behavior_geiger_t* geiger_data = (CM510Behavior_geiger_t*) data;
-  	signed char detectSensors[10];
-	int max_intensity = 0;
-  	int i, nDetectSensors = selectDetectSensors(detectSensors);
-  	for(i=0;i<nDetectSensors;i++) {
-		ase_printf("detect sensor = %i\n", input[detectSensors[i]]);
-		int intensity;
-		if(input[detectSensors[i]]<0) intensity = 0;
-		else if(input[detectSensors[i]]<11) intensity = 8;
-		else if(input[detectSensors[i]]<22) intensity = 7;
-		else if(input[detectSensors[i]]<33) intensity = 6;
-		else if(input[detectSensors[i]]<44) intensity = 5;
-		else if(input[detectSensors[i]]<55) intensity = 4;
-		else if(input[detectSensors[i]]<66) intensity = 3;
-		else if(input[detectSensors[i]]<77) intensity = 2;
-		else if(input[detectSensors[i]]<88) intensity = 1;
-		else intensity = 0;
-		if(intensity>max_intensity) max_intensity = intensity;
-	}
 
-	if(geiger_data->lastSoundTime+geiger_data->delay < getLocalMsTime()|| geiger_data->lastIntensity!=max_intensity) {
-		geiger_data->lastSoundTime = getLocalMsTime();
-		geiger_data->delay = rand()%1000+1000;
-		geiger_data->lastIntensity = max_intensity;
-		if(max_intensity==0)	;
-		if(max_intensity==1)	ase_printf("#play geiger1.wav 50 1\n");
-		if(max_intensity==2)	ase_printf("#play geiger1.wav 50 1\n");
-		if(max_intensity==3)	ase_printf("#play geiger2.wav 50 1\n");
-		if(max_intensity==4)	ase_printf("#play geiger2.wav 50 1\n");
-		if(max_intensity==5)	ase_printf("#play geiger3.wav 50 1\n");
-		if(max_intensity==6)	ase_printf("#play geiger3.wav 50 1\n");
-		if(max_intensity==7)	ase_printf("#play geiger4.wav 50 1\n");
-		if(max_intensity==8)	ase_printf("#play geiger4.wav 50 1\n");
-	}*/
+void seek_stop(void* _data) {
+	CM510Behavior_seek_t* data = (CM510Behavior_seek_t*) _data;
+	ase_printf("#play running_up_carpeted_stairs.wav 50 0\n");
+	data->playingSound = false;
 }
+void seek_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* _data) {
+	CM510Behavior_seek_t* data = (CM510Behavior_seek_t*) _data;
+  	float t = getLocalTime();
+	for(int i=0;i<getNumberOfActuators();i++) {
+		int sign = (i%2==0)?-1:1;
+		output[i] += sin(6.28f*t/(6.0f+i))*sign*50;
+		if(output[i]>100) output[i] = 100;
+		if(output[i]<-100) output[i] = -100;
+	}
+	if(isSomeThingNearby(input, nInputs) || (getLocalMsTime()-data->detectTime)<2000) {
+		//found someting behavior
+		if(isSomeThingNearby(input, nInputs)) {
+			data->detectTime = getLocalMsTime();
+		}
+		for(int i=0;i<getNumberOfActuators();i++) {
+			output[i] = -1*output[i];
+			if(getOutputType(i) == WHEEL)  {
+				if(output[i]>0) output[i] = 90;
+				if(output[i]<0) output[i] = -90;
+			}
+		}
+		if(data->playingSound) {
+			ase_printf("#play running_up_carpeted_stairs.wav 50 0\n");
+			ase_printf("#play found.wav 50 0\n");
+			data->playingSound = false;
+		}
+	}
+	else {
+		//nothing found
+		if(!data->playingSound) {
+			ase_printf("#play running_up_carpeted_stairs.wav 50 2\n");
+			data->playingSound = true;
+		}
+	}
+}
+
+
 
 void bird_song_start(void* data) {ase_printf("#play papegoje.wav 50 2\n");}
 void bird_song_stop(void* data) {ase_printf("#play papegoje.wav 50 0\n");}
@@ -159,7 +171,9 @@ void bee_song_stop(void* data) {ase_printf("#play bee.wav 50 0\n");}
 void bee_song_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {}
 
 
-int period = 100;
+void monkey_song_start(void* data) {ase_printf("#play abe.wav 50 2\n");}
+void monkey_song_stop(void* data) {ase_printf("#play abe.wav 50 0\n");}
+void monkey_song_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {}
 
 
 //sound control
@@ -224,14 +238,18 @@ void dance_act(signed char* input, char nInputs, signed char* output, char nOutp
 			if(dance_data->dofs[i].active) {
 				if(time<=1.0f) output[i] = (int)(A*sin(2*pi*time + sign*pi/2));
 				else if(time<=1.5f) output[i] = (int)(A*sin(2*pi*1.0 + sign*pi/2));
-				else output[i] = 0;
+				else {
+					//no sound, stop dancing
+					dance_data->started = false;
+					//output[i] = 0;
+				}
 				if(dynamixelApi_isWheelMode(i)) {
 					if(output[i]>0)output[i] = dance_data->dofs[i].range;
 					if(output[i]<0)output[i] = -dance_data->dofs[i].range;
 				}
 			}
 			else {
-				output[i] = 0;
+				//output[i] = 0;
 			}
 		}
 	}
@@ -250,13 +268,246 @@ void fly_stop(void* data) {
   fly_data->tilt_play = false;
 }
 void fly_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
-	CM510Behavior_fly_t* fly_data = (CM510Behavior_fly_t*) data;
 	float t = getLocalTime();
 	for(int i=0;i<getNumberOfActuators();i++) {
 		int sign = (i%2==0)?-1:1;
 		output[i] += sin(6.28f*t/(3.0f+i))*sign*100;
 		if(output[i]>100) output[i] = 100;
 		if(output[i]<-100) output[i] = -100;
+	}
+}
+
+void play_dead_start(void* _data) {
+	CM510Behavior_play_dead_t* data = (CM510Behavior_play_dead_t*) _data;
+	data->started = false;
+	data->ended = false;
+	BeatDetector_clearBeat();
+}
+void play_dead_stop(void* _data){}
+void play_dead_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* _data){
+	CM510Behavior_play_dead_t* data = (CM510Behavior_play_dead_t*) _data;
+	if(BeatDetector_gotBeat() && !data->started) {
+		data->startTime = getLocalMsTime();
+		data->started = true;
+		data->ended = false;
+		ase_printf("#play playdead.wav 50 1\n");
+	}
+	if(data->started) {
+		long deadTime = 5000-(getLocalMsTime()-data->startTime);
+		if(deadTime>0) {
+			output[0] = 100*((float)deadTime)/5000.0f;
+			for(int i=1;i<getNumberOfActuators();i++) {
+				output[i] = 0;
+			}
+		}
+		else {
+			if(!data->ended)  {
+				ase_printf("#play theEnd.wav 50 1\n");
+				data->ended = true;
+			}
+			if(deadTime>-5000) {
+				for(int i=0;i<getNumberOfActuators();i++) {
+					if(getOutputType(i)==WHEEL) output[i] = 0;
+					else output[i] = 100;
+				}
+			}
+			else if(deadTime>-7000) { //come to live
+				for(int i=0;i<getNumberOfActuators();i++) {
+					output[i] = 0;
+				}
+			}
+			else { //ready to die again
+				data->started = false;
+				BeatDetector_clearBeat();
+			}
+		}
+	}
+}
+
+void attack_start(void* _data){
+	CM510Behavior_attack_t* data = (CM510Behavior_attack_t*) _data;
+	data->startTime = getLocalMsTime();
+	data->itteration = 0;
+	data->playingAngrySound = false;
+}
+void attack_stop(void* _data){
+	ase_printf("#play attack.wav 50 0\n");
+	ase_printf("#play angry.wav 50 0\n");
+}
+void attack_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* _data){
+	CM510Behavior_attack_t* data = (CM510Behavior_attack_t*) _data;
+	if(isSomeThingNearby(input, nInputs)) { //then attack
+		if((getLocalMsTime()-data->startTime)<2000) {
+			if(!data->playingAngrySound) {
+				ase_printf("#play angry.wav 50 2\n");
+				data->playingAngrySound = true;
+			}
+			for(int i=0;i<getNumberOfActuators();i++) {
+				int sign = (i%2==0)?1:-1; //forward
+				int dir = (data->itteration%2==0)?1:-1;
+				output[i] = sign*dir*100;
+			}
+		}
+		else if((getLocalMsTime()-data->startTime)<2600) {
+			if(data->playingAngrySound) {
+				ase_printf("#play attack.wav 50 1\n");
+				ase_printf("#play angry.wav 50 0\n");
+				data->playingAngrySound = false;
+			}
+			for(int i=0;i<getNumberOfActuators();i++) {
+				int sign = (i%2==0)?1:-1; //forward
+				if(i<2) output[i] = sign*100;
+				else output[i] = 0;
+			}
+		}
+		else if((getLocalMsTime()-data->startTime)<2800) {
+			for(int i=0;i<getNumberOfActuators();i++) {
+				int sign = (i%2==0)?1:-1; //backward
+				if(i<2) output[i] = -sign*100;
+				else output[i] = 0;
+			}
+		}
+		else if((getLocalMsTime()-data->startTime)<3300) {
+			for(int i=0;i<getNumberOfActuators();i++) {
+				output[i] = 0;
+			}
+		}
+		else {
+			data->startTime = getLocalMsTime(); //restart
+		}
+	}
+	else {
+		data->startTime = getLocalMsTime();
+		if(data->playingAngrySound) {
+			ase_printf("#play angry.wav 50 0\n");
+			data->playingAngrySound = false;
+		}
+	}
+	data->itteration++;
+}
+
+void hide_start(void* _data){
+	CM510Behavior_hide_t* data = (CM510Behavior_hide_t*) _data;
+	data->playingSound = false;
+}
+void hide_stop(void* _data){
+	CM510Behavior_hide_t* data = (CM510Behavior_hide_t*) _data;
+	ase_printf("#play playDrum.wav 50 0\n");
+	data->playingSound = false;
+}
+void hide_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* _data){
+	CM510Behavior_hide_t* data = (CM510Behavior_hide_t*) _data;
+	if(!isSomeThingNearby(input, nInputs)) { //then hide
+		for(int i=0;i<getNumberOfActuators();i++) {
+			int sign = (i%2==0)?1:-1; //forward
+			if(getOutputType(i)==WHEEL) output[i] = sign*100;
+			else output[i] = sin(6.28f*getLocalTime())*sign*20;
+		}
+		if(!data->playingSound) {
+			ase_printf("#play playDrum.wav 50 2\n");
+			data->playingSound = true;
+		}
+	}
+	else {
+		if(data->playingSound) {
+			ase_printf("#play playDrum.wav 50 0\n");
+			data->playingSound = false;
+		}
+		for(int i=0;i<getNumberOfActuators();i++) {
+			if(getOutputType(i)==WHEEL) output[i] = 0;
+			else output[i] = 100;
+		}
+	}
+}
+int crop(int val, int min, int max) {
+	if(val<min) return min;
+	if(val>max) return max;
+	return val;
+}
+void follow_start(void* data) {
+
+}
+void follow_stop(void* data) {
+
+}
+void follow_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
+	bool follow = false;
+	for(int i=0;i<nInputs;i++) {
+		if(getInputType(i)==DISTANCE) {
+			if(input[i]>5) {
+				follow = true;
+			}
+		}
+	}
+	if(follow) {
+		int sIndex=1;
+		for(int i=nOutputs;i>=0;i--) {
+			if(getOutputType(i)==WHEEL) {
+				bool found = false;
+				int sign = (i%2==0)?1:-1; //forward
+				while(!found && sIndex<nInputs) {
+					if(getInputType(sIndex)==DISTANCE) {
+						if(input[sIndex]>5 && input[sIndex]<30) { //if there is someting
+							output[i] = crop(7*sign*(50-input[sIndex]), -50, 50);
+						}
+						else {
+							output[i] = 0;
+						}
+						found = true;
+						//ase_printf("%i -> %i (%i)\n", i, output[i],input[sIndex]);
+					}
+					sIndex++;
+				}
+			}
+			else {
+				//slow movemet with head;
+				output[i] = 0;
+			}
+		}
+	}
+}
+
+
+void play_start(void* _data){
+	CM510Behavior_play_t* data = (CM510Behavior_play_t*) _data;
+	data->startTime = getLocalMsTime();
+}
+void play_stop(void* _data){}
+void play_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* _data){
+	CM510Behavior_play_t* data = (CM510Behavior_play_t*) _data;
+	if(data->actSurprised) {
+		for(int i=0;i<getNumberOfActuators();i++) {
+			int inputIndex = (i+1)%(nInputs-1);
+			output[i] = 10*input[inputIndex]*data->randomDirs[i];
+			output[i] = (output[i]>100)?100:output[i];
+		}
+		if(isSomeThingNearby(input, nInputs)) {
+			data->startTime = getLocalMsTime();
+			if((rand()%100)>80) ase_printf("#play laught.wav 50 1\n");
+		}
+		if((getLocalMsTime()-data->startTime)>2000) {
+			data->actSurprised = false;
+		}
+	}
+	else {
+		if(isSomeThingNearby(input, nInputs)) {
+			ase_printf("#play laught.wav 50 1\n");
+			data->actSurprised = true;
+			data->startTime = getLocalMsTime();
+			for(int i=0;i<nOutputs;i++) {
+				data->randomDirs[i] = (rand()%2==0)?-1:1;
+			}
+		}
+		/*if(BeatDetector_gotBeat()) {
+			BeatDetector_clearBeat();
+			ase_printf("#play laught.wav 50 1\n");
+			data->actSurprised = true;
+			data->startTime = getLocalMsTime();
+			BeatDetector_clearBeat();
+			for(int i=0;i<nOutputs;i++) {
+				data->randomDirs[i] = (rand()%2==0)?-1:1;
+			}
+		}*/
 	}
 }
 

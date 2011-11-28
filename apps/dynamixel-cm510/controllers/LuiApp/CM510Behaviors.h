@@ -27,13 +27,12 @@ void move_stop(void* data);
 void move_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
 
 typedef struct {
-	long lastSoundTime;
-	long delay;
-	int lastIntensity;
-} CM510Behavior_geiger_t;
-void geiger_start(void* data);
-void geiger_stop(void* data);
-void geiger_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+	long detectTime;
+	bool playingSound;
+} CM510Behavior_seek_t;
+void seek_start(void* data);
+void seek_stop(void* data);
+void seek_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
 
 typedef struct {
   char dummy;
@@ -49,6 +48,14 @@ typedef struct {
 void bee_song_start(void* data);
 void bee_song_stop(void* data);
 void bee_song_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
+typedef struct {
+  char dummy;
+} CM510Behavior_monkey_song_t;
+void monkey_song_start(void* data);
+void monkey_song_stop(void* data);
+void monkey_song_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
 
 
 typedef struct {
@@ -75,6 +82,49 @@ typedef struct {
 void fly_start(void* data);
 void fly_stop(void* data);
 void fly_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
+typedef struct {
+	long startTime;
+	bool ended;
+	bool started;
+}CM510Behavior_play_dead_t;
+void play_dead_start(void* data);
+void play_dead_stop(void* data);
+void play_dead_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
+typedef struct {
+	long startTime;
+}CM510Behavior_follow_t;
+void follow_start(void* data);
+void follow_stop(void* data);
+void follow_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
+
+typedef struct {
+	long startTime;
+	long itteration;
+	bool playingAngrySound;
+}CM510Behavior_attack_t;
+void attack_start(void* data);
+void attack_stop(void* data);
+void attack_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
+typedef struct {
+	bool playingSound;
+}CM510Behavior_hide_t;
+void hide_start(void* data);
+void hide_stop(void* data);
+void hide_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
+typedef struct {
+	long startTime;
+	bool actSurprised;
+	char randomDirs[20];
+}CM510Behavior_play_t;
+void play_start(void* data);
+void play_stop(void* data);
+void play_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data);
+
 
 #endif 
 
