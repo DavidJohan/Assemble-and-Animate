@@ -66,40 +66,106 @@ float ANN_Tanh(float x)
  */
 void ANN_Execute(ANN_t *nn, float *inputs, float *output)
 {
-
-        int neurons_total = nn->nr_inputs + nn->nr_hidden + nn->nr_outputs;
-        float temp_neuron_outputs[neurons_total];
         float sum = 0;
-        for (int i = 0; i < neurons_total; i++) {
-                if (i < nn->nr_inputs) { /* Its an input neuron */
-                        sum = inputs[i]; //nn->neuron_outputs[i] = inputs[i];
-                } else { /* Its a hidden neuron or an output neuron */
-                        sum = 0;
-                }
-
-                for (int j = 0; j < neurons_total; j++) {
-                        if (nn->weights[j][i] > DOUBLE_MIN && nn->weights[j][i] < DOUBLE_MAX) {
-                                sum += nn->weights[j][i] * nn->neuron_outputs[j];
-                        }
-                }
-
-                /* Now that we have summed all inputs to the neuron, we can get its output */
-                //nn->neuron_outputs[i] = nn->ActivationFunction(sum); //ANN_sigmoid(sum);
-                temp_neuron_outputs[i] = nn->ActivationFunction(sum);
-                if (nn->neuron_outputs[i] > 2) {
-                        ase_printf("OUTPUT NEURON HAS VALUE LARGER THAN 1: %3.2f  SUM: %3.2f\n", nn->neuron_outputs[i], sum);
-                        exit(EXIT_FAILURE);
-                }
+        for (int i = 0; i < nn->nr_inputs; i++) {/* Its an input neuron */
+			nn->neuron_outputs[i] = inputs[i];
+		}
+        for (int i = nn->nr_inputs; i < nn->nr_inputs+nn->nr_hidden; i++) {
+        	sum = 0;
+        	for (int j = 0; j < nn->nr_inputs; j++) {
+            	if (nn->weights[j][i] > DOUBLE_MIN && nn->weights[j][i] < DOUBLE_MAX) {
+            		sum += nn->weights[j][i] * nn->neuron_outputs[j];
+            	}
+            }
+            nn->neuron_outputs[i] = nn->ActivationFunction(sum); //(sum>=1)?1:0;
+            if (nn->neuron_outputs[i] > 2) {
+            	ase_printf("OUTPUT NEURON HAS VALUE LARGER THAN 1: %3.2f  SUM: %3.2f\n", nn->neuron_outputs[i], sum);
+                exit(EXIT_FAILURE);
+            }
         }
-        for (int i = 0; i < neurons_total; i++) {
-        		nn->neuron_outputs[i] = temp_neuron_outputs[i];
-        }
+        for (int i = nn->nr_inputs + nn->nr_hidden; i < nn->nr_inputs + nn->nr_hidden+nn->nr_outputs; i++) {
+			sum = 0;
+			for (int j = nn->nr_inputs; j < nn->nr_inputs + nn->nr_hidden; j++) {
+				if (nn->weights[j][i] > DOUBLE_MIN && nn->weights[j][i] < DOUBLE_MAX) {
+					sum += nn->weights[j][i] * nn->neuron_outputs[j];
+				}
+			}
+			nn->neuron_outputs[i] = nn->ActivationFunction(sum); //(sum>=1)?1:0;
+			if (nn->neuron_outputs[i] > 2) {
+				ase_printf("OUTPUT NEURON HAS VALUE LARGER THAN 1: %3.2f  SUM: %3.2f\n", nn->neuron_outputs[i], sum);
+				exit(EXIT_FAILURE);
+			}
+		}
+
         for (int i = 0; i < nn->nr_outputs; i++) {
-                /* The output neurons are offset by nn->nr_inputs nn->nr_hidden in the neuron_output */
                 output[i] = nn->neuron_outputs[nn->nr_inputs + nn->nr_hidden + i];
         }
+}
 
-        //ase_printf("O: %3.2f\n", output[nn->nr_outputs - 1]);
+float ANN_TrainBackProp(ANN_t *nn, float *tinputs, float *tOut)
+{
+	//based on http://www.codeproject.com/KB/recipes/BP.aspx
+	float beta = 0.1f;
+	double sum;
+	float error=0;
+	float out[nn->nr_outputs];
+	float delta_in[nn->nr_inputs];
+	float delta_hid[nn->nr_hidden];
+	float delta_out[nn->nr_outputs];
+	ANN_Execute(nn, tinputs, out);
+
+	//compute delta for output layer
+	for(int i=0;i < nn->nr_outputs;i++){
+		float n_out = nn->neuron_outputs[nn->nr_inputs + nn->nr_hidden + i];
+		delta_out[i]=n_out*(1-n_out)*(tOut[i]-n_out);
+		error += fabs(tOut[i]-n_out);
+	}
+
+	//compute delta for hidden layer
+	for(int i=0;i<nn->nr_hidden;i++){
+		sum=0.0;
+		int hIndex = nn->nr_inputs +  i;
+		float n_out = nn->neuron_outputs[hIndex];
+		for(int j=0;j<nn->nr_outputs;j++){
+			int oIndex = nn->nr_inputs + nn->nr_hidden + j;
+			sum+=delta_out[j]*nn->weights[hIndex][oIndex];
+		}
+		delta_hid[i]=n_out*(1-n_out)*sum;
+	}
+
+	//compute delta for input layer
+	for(int i=0;i<nn->nr_inputs;i++){
+		sum=0.0;
+		int iIndex = i;
+		float n_out = nn->neuron_outputs[iIndex];
+		for(int j=0;j<nn->nr_hidden;j++){
+			int hIndex = nn->nr_inputs + j;
+			sum+=delta_hid[j]*nn->weights[iIndex][hIndex];
+		}
+		delta_in[i]=n_out*(1-n_out)*sum;
+	}
+
+	//update weights from input to hidden layer
+	for(int i=0;i<nn->nr_inputs;i++){
+		int iIndex = i;
+		for(int j=0;j<nn->nr_hidden;j++){
+			int hIndex = nn->nr_inputs + j;
+			float deltaW = beta*delta_hid[j]*nn->neuron_outputs[iIndex];
+			//float deltaW = beta*delta_in[i]*nn->neuron_outputs[hIndex];
+			nn->weights[iIndex][hIndex] += deltaW;
+		}
+	}
+	//update weights from hidden to output layer
+	for(int i=0;i<nn->nr_hidden;i++){
+		int hIndex = nn->nr_inputs + i;
+		for(int j=0;j<nn->nr_outputs;j++){
+			int oIndex = nn->nr_inputs + nn->nr_hidden + j;
+			float deltaW = beta*delta_out[j]*nn->neuron_outputs[hIndex];
+			//float deltaW = beta*delta_hid[i]*nn->neuron_outputs[oIndex];
+			nn->weights[hIndex][oIndex] += deltaW;
+		}
+	}
+	return error;
 }
 
 void ANN_RandomizeWeights(ANN_t *nn)
@@ -307,6 +373,58 @@ void ANN_MinimizeNrRecurrentWeights(ANN_t *nn)
         }
 }
 
+void ANN_MakeFeedForward(ANN_t *nn)
+{
+	int nI = nn->nr_inputs;
+	int nH = nn->nr_hidden;
+	int nO = nn->nr_outputs;
+
+	//delete in2in
+	for (int i = 0; i < nI; i++) {
+		for (int j = 0; j < nI; j++) {
+			nn->weights[i][j] = DOUBLE_MIN;
+		}
+	}
+	//delete hid2hid
+	for (int i = nI; i < nI+nH; i++) {
+		for (int j = nI; j < nI+nH; j++) {
+			nn->weights[i][j] = DOUBLE_MIN;
+		}
+	}
+	//delete out2out
+	for (int i = nI+nH; i < nI+nH+nO; i++) {
+		for (int j = nI+nH; j < nI+nH+nO; j++) {
+			nn->weights[i][j] = DOUBLE_MIN;
+		}
+	}
+	//delete in2out
+	for (int i = 0; i < nI; i++) {
+		for (int j = nI+nH; j < nI+nH+nO; j++) {
+			nn->weights[i][j] = DOUBLE_MIN;
+		}
+	}
+	//delete out2in
+	for (int i = nI+nH; i < nI+nH+nO; i++) {
+		for (int j = 0; j < nI; j++) {
+			nn->weights[i][j] = DOUBLE_MIN;
+		}
+	}
+	//delete out2hid
+	for (int i = nI+nH; i < nI+nH+nO; i++) {
+		for (int j = nI; j < nI+nH; j++) {
+			nn->weights[i][j] = DOUBLE_MIN;
+		}
+	}
+	//delete hid2in
+	for (int i = nI; i < nI+nH; i++) {
+		for (int j = 0; j < nI; j++) {
+			nn->weights[i][j] = DOUBLE_MIN;
+		}
+	}
+}
+
+
+//TODO: this function has a bug does not fx allow output to output connections
 void ANN_DeleteRecurrentConnections(ANN_t *nn)
 {
         int neurons_total = nn->nr_inputs + nn->nr_hidden + nn->nr_outputs;

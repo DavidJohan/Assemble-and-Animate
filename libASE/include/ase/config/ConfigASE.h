@@ -12,7 +12,7 @@
 /**
  * Static memory allocation in ASE
  */
-#define ASE_MEMORY_ALLOCATED		0	//bytes of ram statically allocated but dynamically assigned at runtime in the initialization phase
+#define ASE_MEMORY_ALLOCATED		1000	//bytes of ram statically allocated but dynamically assigned at runtime in the initialization phase
 
 //#define PRINTF						//if defined target is assumed to have "printf" avaliable, comment out to reduce ram usage
 

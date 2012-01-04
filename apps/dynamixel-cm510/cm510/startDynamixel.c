@@ -11,6 +11,7 @@ static int bufferIndex = 0;
 void handleSerialMessages() {
 	if(serial_get_qstate()>0) {
 		serial_read(&buffer[bufferIndex], 1);
+		//ase_printf("%c", buffer[bufferIndex]); //ecco
 		if(buffer[bufferIndex]=='\n'||buffer[bufferIndex]=='\r') {
 			buffer[bufferIndex+1] = 0;
 		//	ase_printf("Echo Line: %s \n", buffer);

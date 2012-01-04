@@ -45,6 +45,7 @@ void ANN_ResetNeuronState(ANN_t *n);
 float ANN_Sigmoid(float x);
 float ANN_Tanh(float x);
 void ANN_Execute(ANN_t *nn, float *inputs, float *output);
+float ANN_TrainBackProp(ANN_t *nn, float *inputs, float *output);
 void ANN_RandomizeWeights(ANN_t *nn);
 ANN_t *ANN_New(unsigned int nr_inputs,
                 unsigned int nr_outputs,
@@ -60,6 +61,7 @@ void ANN_RandomizeRecurrentWeights(ANN_t *nn);
 void ANN_RandomizeForwardWeights(ANN_t *nn);
 void ANN_MinimizeNrRecurrentWeights(ANN_t *nn);
 void ANN_DeleteRecurrentConnections(ANN_t *nn);
+void ANN_MakeFeedForward(ANN_t *nn);
 bool ANN_MinimizeNrForwardWeights(ANN_t *nn);
 void ANN_MinimizeNrWeights(ANN_t *nn);
 ANN_t *ANN_Copy(ANN_t *nn);

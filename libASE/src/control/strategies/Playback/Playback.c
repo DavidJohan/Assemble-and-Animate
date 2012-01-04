@@ -11,7 +11,6 @@ void Playback_init(Playback_t* process) {
 	process->nextSet=0;
 	process->nSets=0;
 	process->startTimeMs = getLocalMsTime();
-
 }
 
 void Playback_startPlayback(Playback_t* process) {
@@ -53,6 +52,19 @@ void Playback_getOutput(Playback_t* process, signed char* output, int nOutputs) 
 		}
 	}
 }
+bool Playback_isFull(Playback_t* process) {
+	return process->nSets>=(MAX_PLAYBACK_SETS-1);
+}
+bool Playback_record_if_novel(Playback_t* process, signed char* output, int nOutputs) {
+	int index = (process->nextSet-1);
+	if(index<0) return Playback_record(process, output, nOutputs);;
+	for(int i=0;i<nOutputs;i++) {
+		if(process->sets[index].output[i] != output[i]) {
+			return Playback_record(process, output, nOutputs);
+		}
+	}
+	return false;
+}
 
 bool Playback_record(Playback_t* process, signed char* output, int nOutputs){
 	int i;
@@ -70,7 +82,6 @@ bool Playback_record(Playback_t* process, signed char* output, int nOutputs){
 			}
 		}
 		process->sets[process->nextSet].timeMs = getLocalMsTime()-process->startTimeMs;
-		//process->nextSet = (process->nSets+1)%MAX_PLAYBACK_SETS;
 		process->nextSet = process->nSets+1;
 		if(process->nSets>=MAX_PLAYBACK_SETS) {
 			return false;

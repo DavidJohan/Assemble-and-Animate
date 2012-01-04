@@ -9,9 +9,9 @@
 
 #ifndef KNN_H_
 #include <ase/config/ConfigASE.h>
-#define MAX_KNN_SETS		100
+#define MAX_KNN_SETS		50
 #define MAX_KNN_INPUTS		5
-#define MAX_KNN_OUTPUTS		4
+#define MAX_KNN_OUTPUTS		5
 
 #define KNN_MODE_MEAN 					0
 #define KNN_MODE_MOST_FREQUENT_SET		1
@@ -21,6 +21,7 @@ typedef struct {
 	signed char input[MAX_KNN_INPUTS]; //better data structure nessecary
 	signed char output[MAX_KNN_OUTPUTS];
 	int dist; //long dist
+	unsigned char nSamples;
 	//long timeMs;
 	bool isTaken;
 } kNNTSet_t;
@@ -59,6 +60,11 @@ bool kNN_addTraningSet(kNN_t* process, signed char* input, int nInputs, signed c
  */
 char kNN_trainingSetInformation(kNN_t* process, signed char* input, int nInputs, signed char* output, int nOutputs);
 
+/**
+ * If two sets has different outputs for identical inputs they contradicts. This function removes the contradicting
+ * set with fewest samples.
+ */
+void kNN_removeContradictions(kNN_t* process, int nInputs, int nOutputs);
 
 /**
  * Set k - number of neighbors to consider

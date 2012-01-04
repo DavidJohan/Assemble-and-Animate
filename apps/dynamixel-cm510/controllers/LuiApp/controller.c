@@ -42,9 +42,9 @@ void installBehaviors(Subsumption_t* subsumption) {
 	LuiBehaviorManager_addBehavior(7, &dance_data, dance_start, dance_act, dance_stop, 's', subsumption);
 	LuiBehaviorManager_addBehavior(104, &play_dead_data, play_dead_start, play_dead_act, play_dead_stop,'s', subsumption);
 	LuiBehaviorManager_addBehavior(103, &hide_data, hide_start, hide_act, hide_stop,'s', subsumption);
-	LuiBehaviorManager_addBehavior(97, &follow_data, follow_start, follow_act, follow_stop,'s', subsumption);
+	LuiBehaviorManager_addBehavior(8, &follow_data, follow_start, follow_act, follow_stop,'s', subsumption);
 
-	//LuiBehaviorManager_addBehavior(97, kNN_compound, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 'c', subsumption);
+	LuiBehaviorManager_addBehavior(97, kNN_compound, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 'c', subsumption);
 	LuiBehaviorManager_addBehavior(98, playback_data, playback_start, playback_act, playback_stop, 'r', subsumption);
 	LuiBehaviorManager_addBehavior(99, kNN_behavior, knn_behavior_start, knn_behavior_act, knn_behavior_stop, 't', subsumption);
 }
@@ -99,7 +99,6 @@ void applyControlOutput(signed char* outputValues, char nOutput){
 		ase_printf("%i ", dynaCtrl[i].cPos);*/
 
 		//indirect control within a range
-
 		if(dynamixelApi_isWheelMode(i)) {
 			int speed = (int)(10.23f*outputValues[i]);//;(int)((outputValues[i]<50)?2*10.23f*(outputValues[i]) : 2*10.23f*(outputValues[i]-50)+1024);
 			//ase_printf("%i: speed = %i (%i)\n", i, speed, outputValues[i]);
@@ -122,7 +121,7 @@ int getInputType(int index) {
 	if(index==0) return DISTANCE;
 	else if(index==1) return DISTANCE;
 	else if(index==2) return DISTANCE;
-	else if(index==3) return NOISE;
+	else if(index==3) return LONG_DISTANCE;//NOISE;
 	else return NONE;
 }
 
@@ -130,12 +129,22 @@ int getOutputType(int index) {
 	if(dynamixelApi_isWheelMode(index)) return WHEEL;
 	else return JOINT;
 }
-
+static signed char crop(int x, int min, int max) {
+	if(x>max) return max;
+	else if(x<min) return min;
+	else return x;
+}
 int getControlInput(signed char* inputValues, char maxInputs, bool* readSuccess){
-	inputValues[0] = (signed char) abs(dynamixelApi_CM510_getADC(4)/4); //top dist
-	inputValues[1] = (signed char) abs(dynamixelApi_CM510_getADC(5)/4); //left dist
-	inputValues[2] = (signed char) abs(dynamixelApi_CM510_getADC(0)/4); //right dist
-	inputValues[3] = (signed char) (dynamixelApi_CM510_getMicEventCount()%2); //mic
+	inputValues[0] = crop(dynamixelApi_CM510_getADC(4)/4, 0, 100); //top dist
+	inputValues[1] = crop(dynamixelApi_CM510_getADC(5)/4, 0, 100); //left dist
+	inputValues[2] = crop(dynamixelApi_CM510_getADC(0)/4, 0, 100); //right dist
+	inputValues[3] = crop((dynamixelApi_CM510_getADC(3)-50)/5, 0, 100); //right dist
+	//crop(100*(dynamixelApi_CM510_getMicEventCount()%2), 0, 100); //mic
+	//adc 2 = extra brick
+	//adc 1 =
+	//adc 3 =
+	//ase_printf("%i %i %i \n", dynamixelApi_CM510_getADC(1), dynamixelApi_CM510_getADC(2), dynamixelApi_CM510_getADC(3));
+	ase_printf("Dist = %i\n", inputValues[3]);
 	*readSuccess = true;
 	return 0;
 }
@@ -287,7 +296,7 @@ void controller_init() {
   kNN_init(kNN_behavior, 1);
   kNN_setMode(kNN_behavior, KNN_MODE_MEAN);
   kNN_init(kNN_compound, 1);
-  kNN_setMode(kNN_compound, KNN_MODE_MOST_FREQUENT_OUT);
+  kNN_setMode(kNN_compound, KNN_MODE_MOST_FREQUENT_SET);
   Playback_init(playback_data);
   installBehaviors(LUI_getSubsumptionProcess());
   configureLUIBoard(0);

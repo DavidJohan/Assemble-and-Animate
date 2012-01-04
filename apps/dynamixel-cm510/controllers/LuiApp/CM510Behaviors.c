@@ -24,6 +24,21 @@ static bool isSomeThingNearby(signed char* input, char nInputs) {
 	return near;
 }
 
+static bool isSomeTingVisible(signed char* input, char nInputs) {
+	bool near = false;
+	for(int i=0;i<nInputs;i++) {
+		if(getInputType(i)==LONG_DISTANCE) {
+			if(input[i]>10) {
+				near = true;
+			}
+		}
+	}
+	return near;
+}
+
+
+
+
 void playback_start(void* data){
 	Playback_startPlayback(data);
 }
@@ -69,13 +84,13 @@ void knn_behavior_act(signed char* input, char nInputs, signed char* output, cha
 void escape_start(void* data) {
 	CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
 	escape_data->dir=1;
-	escape_data->startTime = getLocalMsTime();
+
 }
 
 void escape_stop(void* data) {}
 void escape_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
   	CM510Behavior_escape_t* escape_data = (CM510Behavior_escape_t*) data;
-  	if(isSomeThingNearby(input, nInputs)) {
+  	/*if(isSomeThingNearby(input, nInputs)) {
   		if((escape_data->startTime+750)<getLocalMsTime()) {
   			if(escape_data->dir==1) escape_data->dir = -1;
   			else escape_data->dir = 1;
@@ -85,6 +100,33 @@ void escape_act(signed char* input, char nInputs, signed char* output, char nOut
   		for(int i=0;i<getNumberOfActuators();i++)  {
   			if(i%2==0) output[i] = -escape_data->dir*100;
   			if(i%2==1) output[i] = escape_data->dir*100;
+  		}
+  	}*/
+  	long dTime = getLocalMsTime()-escape_data->startTime;
+  	if(isSomeTingVisible(input, nInputs) && dTime>2000) {
+  		escape_data->startTime = getLocalMsTime();
+  		dTime = getLocalMsTime()-escape_data->startTime;
+  		ase_printf("#play escape.wav 50 1\n");
+  		escape_data->dir = (rand()%2==0)?-1:1;
+	}
+  	if(dTime<2000) {
+  		if(dTime<750) {
+  			for(int i=0;i<getNumberOfActuators();i++)  {
+  				if(getOutputType(i) == WHEEL)  {
+  					output[i] = escape_data->dir * 100;
+  				}
+  				else {
+  					output[i] = escape_data->dir * 100;
+  				}
+  			}
+  		}
+  		else {
+  			for(int i=0;i<getNumberOfActuators();i++)  {
+  				if(getOutputType(i) == WHEEL)  {
+  					if(i%2==0) output[i] = -100;
+  					else output[i] = 100;
+  				}
+			}
   		}
   	}
 }
@@ -129,26 +171,40 @@ void seek_act(signed char* input, char nInputs, signed char* output, char nOutpu
   	float t = getLocalTime();
 	for(int i=0;i<getNumberOfActuators();i++) {
 		int sign = (i%2==0)?-1:1;
-		output[i] += sin(6.28f*t/(6.0f+i))*sign*50;
+		if(getOutputType(i)==WHEEL) {
+			output[i] = -(sin(6.28f*t/(6.0f+i))+1)*sign*60/2; //only forward
+		}
+		else {
+			output[i] = sin(6.28f*t/(6.0f+i))*sign*50;
+		}
+
 		if(output[i]>100) output[i] = 100;
 		if(output[i]<-100) output[i] = -100;
 	}
 	if(isSomeThingNearby(input, nInputs) || (getLocalMsTime()-data->detectTime)<2000) {
 		//found someting behavior
-		if(isSomeThingNearby(input, nInputs)) {
-			data->detectTime = getLocalMsTime();
+		if(data->detectTime==0 ) {
+			data->detectTime=getLocalMsTime();
 		}
 		for(int i=0;i<getNumberOfActuators();i++) {
-			output[i] = -1*output[i];
-			if(getOutputType(i) == WHEEL)  {
-				if(output[i]>0) output[i] = 90;
-				if(output[i]<0) output[i] = -90;
+			if((getLocalMsTime()-data->detectTime)<750) {
+				output[i] = 0;
+			}
+			else {
+				if(getOutputType(i) == WHEEL)  {
+					if(data->turnDir) output[i] = 70;
+					else output[i] = -70;
+				}
+				else {
+					output[i] = 0;
+				}
 			}
 		}
 		if(data->playingSound) {
 			ase_printf("#play running_up_carpeted_stairs.wav 50 0\n");
-			ase_printf("#play found.wav 50 0\n");
+			ase_printf("#play found.wav 50 1\n");
 			data->playingSound = false;
+			data->turnDir = rand()%2==0;
 		}
 	}
 	else {
@@ -157,6 +213,7 @@ void seek_act(signed char* input, char nInputs, signed char* output, char nOutpu
 			ase_printf("#play running_up_carpeted_stairs.wav 50 2\n");
 			data->playingSound = true;
 		}
+		data->detectTime = 0;
 	}
 }
 
@@ -336,7 +393,8 @@ void attack_stop(void* _data){
 }
 void attack_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* _data){
 	CM510Behavior_attack_t* data = (CM510Behavior_attack_t*) _data;
-	if(isSomeThingNearby(input, nInputs)) { //then attack
+	//if(isSomeThingNearby(input, nInputs)) { //then attack
+	if(isSomeTingVisible(input, nInputs)) { //then attack
 		if((getLocalMsTime()-data->startTime)<2000) {
 			if(!data->playingAngrySound) {
 				ase_printf("#play angry.wav 50 2\n");
@@ -424,13 +482,17 @@ int crop(int val, int min, int max) {
 	if(val>max) return max;
 	return val;
 }
-void follow_start(void* data) {
-
+void follow_start(void* _data) {
+	CM510Behavior_follow_t* data = (CM510Behavior_follow_t*) _data;
+	data->playingSound = false;
 }
-void follow_stop(void* data) {
-
+void follow_stop(void* _data) {
+	CM510Behavior_follow_t* data = (CM510Behavior_follow_t*) _data;
+	data->playingSound = false;
+	ase_printf("#play fly0.wav 50 0\n");
 }
-void follow_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* data) {
+void follow_act(signed char* input, char nInputs, signed char* output, char nOutputs, void* _data) {
+	CM510Behavior_follow_t* data = (CM510Behavior_follow_t*) _data;
 	bool follow = false;
 	for(int i=0;i<nInputs;i++) {
 		if(getInputType(i)==DISTANCE) {
@@ -440,6 +502,10 @@ void follow_act(signed char* input, char nInputs, signed char* output, char nOut
 		}
 	}
 	if(follow) {
+		if(!data->playingSound) {
+			ase_printf("#play fly0.wav 50 1\n");
+			data->playingSound = true;
+		}
 		int sIndex=1;
 		for(int i=nOutputs;i>=0;i--) {
 			if(getOutputType(i)==WHEEL) {
@@ -448,7 +514,7 @@ void follow_act(signed char* input, char nInputs, signed char* output, char nOut
 				while(!found && sIndex<nInputs) {
 					if(getInputType(sIndex)==DISTANCE) {
 						if(input[sIndex]>5 && input[sIndex]<30) { //if there is someting
-							output[i] = crop(7*sign*(50-input[sIndex]), -50, 50);
+							output[i] = crop(15*sign*(50-input[sIndex]), -100, 100);
 						}
 						else {
 							output[i] = 0;
@@ -463,6 +529,12 @@ void follow_act(signed char* input, char nInputs, signed char* output, char nOut
 				//slow movemet with head;
 				output[i] = 0;
 			}
+		}
+	}
+	else {
+		if(data->playingSound) {
+			ase_printf("#play fly0.wav 50 0\n");
+			data->playingSound = false;
 		}
 	}
 }

@@ -105,9 +105,8 @@ static int myCmp(Behavior_t* b0, Behavior_t* b1) {
 }
 void Subsumption_act(signed char* input, char nInput, signed char* output, char nOutput, Subsumption_t* sub) {
 	qsort(sub->behaviors, SUBSUMPTION_N_BEHAVIORS, sizeof(Behavior_t), (int(*)(const void*, const void*))myCmp);
-	int i;
-	for(i=0;i<nOutput;i++) output[i] = 0;
-	for(i=0;i<SUBSUMPTION_N_BEHAVIORS;i++) {
+	for(int i=0;i<nOutput;i++) output[i] = 0;
+	for(int i=0;i<SUBSUMPTION_N_BEHAVIORS;i++) {
 		if(sub->behaviors[i].id!=0 && sub->behaviors[i].active==1) {
 			if(!sub->behaviors[i].was_active) {
 				sub->behaviors[i].start(sub->behaviors[i].data);	

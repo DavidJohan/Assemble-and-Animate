@@ -63,17 +63,20 @@ void addtoSubsumption(char behaviorId) {
 		kNN_t* knn = (kNN_t*) LuiBehaviorManager_getData(behaviorId);
 		kNN_getOutput(knn, knnInput, nKnnInput, selectedBehaviors, 5);
 		int i;
+		ase_printf("Selected behaviors: ");
 		for(i=0;i<5;i++) {
+			ase_printf("%i, ",selectedBehaviors[i]);
 			addtoSubsumption(selectedBehaviors[i]);
 		}
+		ase_printf("\n");
 	}	
 }
 
 typedef struct {
 	bool userError;
 	bool systemError;
-	bool knnTraining;
-	bool knnBrickFull;
+	bool training;
+	bool brickFull;
 } LuiState_t;
 LuiState_t luiState;
 
@@ -84,31 +87,31 @@ void sound_timer_fired(int id) { //1 hz
 		ase_printf("#play user-error.wav 50 1\n");
 		luiState.userError = false;
 	}
-	if(luiState.knnTraining) {
-	  	ase_printf("#play learning.wav 50 1\n");
-		luiState.knnTraining =  false;
+	if(luiState.training) {
+	  	//ase_printf("#play learning.wav 50 1\n");
+		luiState.training =  false;
 	}
-	if(luiState.knnBrickFull) {
+	if(luiState.brickFull) {
 		ase_printf("#play fullBrick.wav 50 1\n");
-		luiState.knnBrickFull =  false;
+		luiState.brickFull =  false;
 	}
 	if(luiState.systemError) { 
 	  	luiState.systemError = false;
 	}
 }
 
-void updateKnnStatus(int result) {
+void updateBrickStatus(int result) {
 	if(result == 0) {
-    		luiState.knnTraining = false; 
-		luiState.knnBrickFull = false;
+    	luiState.training = false;
+		luiState.brickFull = false;
 	}
 	if(result == 1) {
-		luiState.knnTraining = true; 
-		luiState.knnBrickFull = false;
+		luiState.training = true;
+		luiState.brickFull = false;
 	}
 	if(result == 2) {
-		luiState.knnTraining = false; 
-		luiState.knnBrickFull = true;  	
+		luiState.training = false;
+		luiState.brickFull = true;
 	}
 }
 
@@ -128,6 +131,16 @@ void doSubsumptionBehaviors(signed char* behaviors, unsigned char nBehaviors) {
 	LuiManager_applyControlOutput(output, nOutputs);
 }
 
+static void doNothing() {
+	int nOutputs = LuiManager_getNumberOfOutputDevices();
+	int nInputs = LuiManager_getNumberOfInputDevices();
+	signed char output[nOutputs];
+	Subsumption_deactivateAll(&SubsumptionProcess);
+	Subsumption_act(LuiManager_getDeviceReadList(), nInputs, output, nOutputs, &SubsumptionProcess);
+	LuiManager_applyControlOutput(output, nOutputs);
+	ase_printf("Do nothing...\n");
+}
+
 void board_timer_fired(int id) { //10hz
   	LuiManager_updateDeviceReadList();
 	if(!LuiManager_deviceReadSuccess()) {
@@ -136,19 +149,17 @@ void board_timer_fired(int id) { //10hz
 		return;
 	}
   	int nOutputs = LuiManager_getNumberOfOutputDevices();
-	int nInputs = LuiManager_getNumberOfInputDevices();
-	signed char output[MAX_KNN_OUTPUTS];
 	if(board.start!=0) {
 		if(board.cTrain!=0) {
 		  	if(LuiBehaviorManager_isCompound(board.cTrain)) {
-				if(LuiEventManager_isWaitingForEvent()) {
+				if(!LuiEventManager_isWaitingForEvent()) {
 					int result = LuiTraining_knn_train(LuiBehaviorManager_getData(board.cTrain), LuiManager_getSelectedBehaviorList(), 5);
-					updateKnnStatus(result);
-					doSubsumptionBehaviors(LuiManager_getSelectedBehaviorList(), 5);
+					updateBrickStatus(result);
+					if(result!=2) doSubsumptionBehaviors(LuiManager_getSelectedBehaviorList(), 5);
+					else doNothing();
 				}
 				else {
-					Subsumption_deactivateAll(&SubsumptionProcess);
-					Subsumption_act(LuiManager_getDeviceReadList(), nInputs, output, nOutputs, &SubsumptionProcess);
+					doNothing();
 				}
 			}
 			else {
@@ -157,15 +168,14 @@ void board_timer_fired(int id) { //10hz
 		}
 		else if(board.train!=0) { //sample kNN training data
 			if(LuiBehaviorManager_isTrain(board.train)) {
-				if(LuiEventManager_isWaitingForEvent()) {
+				if(!LuiEventManager_isWaitingForEvent()) {
 					int result = LuiTraining_knn_train(LuiBehaviorManager_getData(board.train),LuiManager_getDeviceRCList(), nOutputs);
-					updateKnnStatus(result);
-					LuiManager_applyControlOutput(LuiManager_getDeviceRCList(), nOutputs);
+					updateBrickStatus(result);
+					if(result!=2) LuiManager_applyControlOutput(LuiManager_getDeviceRCList(), nOutputs);
+					else doNothing();
 				}
 				else {
-					ase_printf("Waiting...\n");
-					Subsumption_deactivateAll(&SubsumptionProcess);
-					Subsumption_act(LuiManager_getDeviceReadList(), nInputs, output, nOutputs, &SubsumptionProcess);
+					doNothing();
 				}
 			}
 			else {
@@ -174,8 +184,15 @@ void board_timer_fired(int id) { //10hz
 		}
 		else if(board.record!=0) {
 			if(LuiBehaviorManager_isRecord(board.record)) { //10hz upto 100 samples = max 10 sec recording
-				Playback_record(LuiBehaviorManager_getData(board.record),LuiManager_getDeviceRCList(), nOutputs);
-				LuiManager_applyControlOutput(LuiManager_getDeviceRCList(),nOutputs);
+				Playback_record_if_novel(LuiBehaviorManager_getData(board.record),LuiManager_getDeviceRCList(), nOutputs);
+				if(!Playback_isFull(LuiBehaviorManager_getData(board.record))) {
+					LuiManager_applyControlOutput(LuiManager_getDeviceRCList(),nOutputs);
+					updateBrickStatus(1);
+				}
+				else {
+					doNothing();
+					updateBrickStatus(2);
+				}
 			}
 			else {
 				luiState.userError = true;
@@ -192,9 +209,7 @@ void board_timer_fired(int id) { //10hz
 		}
 	}
 	else {
-		int i;
-		for(i=0;i<nOutputs;i++) output[i] = 0;
-		LuiManager_applyControlOutput(output,nOutputs);
+		doNothing();
 	}
 }
 

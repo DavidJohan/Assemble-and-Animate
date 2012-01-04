@@ -29,6 +29,7 @@ void move_act(signed char* input, char nInputs, signed char* output, char nOutpu
 typedef struct {
 	long detectTime;
 	bool playingSound;
+	bool turnDir;
 } CM510Behavior_seek_t;
 void seek_start(void* data);
 void seek_stop(void* data);
@@ -94,6 +95,7 @@ void play_dead_act(signed char* input, char nInputs, signed char* output, char n
 
 typedef struct {
 	long startTime;
+	bool playingSound;
 }CM510Behavior_follow_t;
 void follow_start(void* data);
 void follow_stop(void* data);

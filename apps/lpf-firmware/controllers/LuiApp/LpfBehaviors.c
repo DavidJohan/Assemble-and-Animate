@@ -105,7 +105,7 @@ void escape_act(signed char* input, char nInputs, signed char* output, char nOut
 			output[motors[i]] = escape_data->dir*sign*100;
 		}
 		if(escape_data->dir==1) ase_printf("Escape forward %i sec\n", getLocalMsTime()-escape_data->startTime);
-		if(escape_data->dir==-1) ase_printf("Escape bacckwards %i sec\n", getLocalMsTime()-escape_data->startTime);
+		if(escape_data->dir==-1) ase_printf("Escape backwards %i sec\n", getLocalMsTime()-escape_data->startTime);
 	}
 	else {
 		escape_data->startTime = -1;

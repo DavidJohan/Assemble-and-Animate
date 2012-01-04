@@ -16,9 +16,7 @@
 typedef struct {
 	signed char output[MAX_PLAYBACK_OUTPUTS];
 	long timeMs;
-	//int timeMs;
 } PlaybackSet_t;
-
 
 typedef struct {
 	short label;
@@ -43,7 +41,14 @@ void Playback_getOutput(Playback_t* process, signed char* output, int nOutputs);
  */
 bool Playback_record(Playback_t* process, signed char* output, int nOutputs);
 
+/**
+ *
+ */
+bool Playback_record_if_novel(Playback_t* process, signed char* output, int nOutputs);
 
+
+
+bool Playback_isFull(Playback_t* process);
 void Playback_startPlayback(Playback_t* process);
 void Playback_startRecording(Playback_t* process);
 void Playback_clearRecordings(Playback_t* process);

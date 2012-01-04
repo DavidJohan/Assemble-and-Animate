@@ -22,6 +22,7 @@ SET (FULL_SRCS
         ${REL_PATH}/control/strategies/RandomSearch/RandomSearch.c
         ${REL_PATH}/control/strategies/kNN/kNN.c
         ${REL_PATH}/control/strategies/ANN/ann.c  
+        ${REL_PATH}/control/strategies/ffANN/ffANN.c  
         ${REL_PATH}/control/strategies/GA/ga.c  
         ${REL_PATH}/control/strategies/PSO/pso.c  
         ${REL_PATH}/control/strategies/Playback/Playback.c

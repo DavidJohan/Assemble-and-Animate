@@ -138,9 +138,10 @@ void dynamixelApi_CM510_init() {
 	PORTD = 0x20; //0x13;
 
 	//ZigBee setup
-	//PORTD &= ~0x80;	//PORT_LINK_PLUGIN = 0;   // no pull up
-	//PORTD &= ~0x20;	//PORT_ENABLE_RXD_LINK_PC = 0;
-	//PORTD |= 0x40;	//PORT_ENABLE_RXD_LINK_ZIGBEE = 1;
+	PORTD &= ~0x80;	//PORT_LINK_PLUGIN = 0;   // no pull up
+	PORTD &= ~0x20;	//PORT_ENABLE_RXD_LINK_PC = 0;
+	PORTD |= 0x40;	//PORT_ENABLE_RXD_LINK_ZIGBEE = 1;
+
 
 
 	DDRE  = 0x0C;

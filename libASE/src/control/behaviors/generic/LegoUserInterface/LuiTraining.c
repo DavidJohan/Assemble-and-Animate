@@ -32,7 +32,7 @@ int LuiTraining_knn_train(kNN_t* kNN_process, signed char* outputs, char nOutput
 
 	if(true || information>0) {
 		if(kNN_addTraningSet(kNN_process, knnInput, nKnnInput, outputs, nOutput) == true) {
-			ase_printf("kNN added traning (info = %i)\n", information);
+			//ase_printf("kNN added traning (info = %i)\n", information);
 			//ase_printf("#play learning.wav 50 1\n");
 			return  1;
 		}

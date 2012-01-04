@@ -16,7 +16,7 @@ static void delay(long delayMs) {
 	while(getLocalMsTime()<(start+delayMs));
 }
 void controller_init() {
-	Playback_init(&PlaybackProcess);
+	Playback_init(&PlaybackProcess, 100);
 	signed char output[1];
 	int i;
 	Playback_startRecording(&PlaybackProcess);
