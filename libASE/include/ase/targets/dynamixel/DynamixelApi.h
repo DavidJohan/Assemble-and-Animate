@@ -186,6 +186,7 @@ void dynamixelApi_CM510_buzz();
 int dynamixelApi_CM510_getButton(int index);
 int dynamixelApi_CM510_getADC(int index);
 int dynamixelApi_CM510_getMic();
+void dynamixelApi_CM510_setZigBee(bool on);
 #endif
 
 #define DYNAMIXELAPI_H_

@@ -122,6 +122,17 @@ static void updateStates(int id) {
 		}
 	}
 }
+void dynamixelApi_CM510_setZigBee(bool on) {
+	if(on) {
+		//ZigBee setup
+		PORTD &= ~0x80;	//PORT_LINK_PLUGIN = 0;   // no pull up
+		PORTD &= ~0x20;	//PORT_ENABLE_RXD_LINK_PC = 0;
+		PORTD |= 0x40;	//PORT_ENABLE_RXD_LINK_ZIGBEE = 1;
+	}
+	else {
+		PORTD = 0x20;
+	}
+}
 
 void dynamixelApi_CM510_init() {
 	//Init ports
@@ -135,12 +146,15 @@ void dynamixelApi_CM510_init() {
 	PORTC = 0x7E; //set all leds
 
 	DDRD  = 0x70;
-	PORTD = 0x20; //0x13;
+
+	dynamixelApi_CM510_setZigBee(false);
+	//debug serial?
+	//PORTD = 0x20; //0x13;
 
 	//ZigBee setup
-	PORTD &= ~0x80;	//PORT_LINK_PLUGIN = 0;   // no pull up
+	/*PORTD &= ~0x80;	//PORT_LINK_PLUGIN = 0;   // no pull up
 	PORTD &= ~0x20;	//PORT_ENABLE_RXD_LINK_PC = 0;
-	PORTD |= 0x40;	//PORT_ENABLE_RXD_LINK_ZIGBEE = 1;
+	PORTD |= 0x40;	//PORT_ENABLE_RXD_LINK_ZIGBEE = 1;*/
 
 
 

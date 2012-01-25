@@ -221,7 +221,7 @@ static void handleMessage(char* topic, Event_t* event) {
 	if(length>0) type = msg->message[0];
 	else return;
 	if(type==LUI_SET_RC_STATE) {
-	  	LuiManager_setDeviceRCList((signed char*)(&msg->message[1]), msg->messageSize-1, -100);
+		LuiManager_setDeviceRCList((signed char*)(&msg->message[1]), msg->messageSize-1, -100);
 	}
 	else if(type==LUI_UPDATE_DEVICELIST) {
 		//int msgLength = LuiManager_updateDeviceCountList();
