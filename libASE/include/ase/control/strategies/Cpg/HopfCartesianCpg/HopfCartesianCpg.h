@@ -64,6 +64,12 @@ void HCCpg_resetState(HCCpg_t *cpg);
 void HCCpg_setUpdateRate(float updatesPerPeriode, HCCpg_t *cpg);
 
 /**
+ * Get the number of times HCCpg_iterate(.) will be called in one
+ * CPG period.
+ */
+
+int HCCpg_getUpdateRate(HCCpg_t *cpg);
+/**
  * Add coupling to cpg from another CPG, x1 and y1 are the state variables of the other CPG,
  * coupling specifies the coupling strength and desired phase difference
  */

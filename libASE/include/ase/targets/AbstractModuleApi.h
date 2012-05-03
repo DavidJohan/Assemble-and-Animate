@@ -44,11 +44,16 @@
 #ifdef LMF
   //#define ase_printf(format,...)  //printf(format, ##__VA_ARGS__);
   #include "d_usart.h"
-  static char ase_printf_buffer[100];
-  #define ase_printf(format,...)   {\
+  #include "stm32f10x.h"
+  #ifdef USART1_AS_SERIAL_PRINTF
+    extern char ase_printf_buffer[100]; 
+    #define ase_printf(format,...)   {\
                                       sprintf(ase_printf_buffer, format, ##__VA_ARGS__);\
                                       SerialPutString(ase_printf_buffer);\
-                                   }
+                                     }
+  #else
+    #define ase_printf(format,...)  
+  #endif
 #endif
 
 #ifdef CM510 //Dynamixel controller

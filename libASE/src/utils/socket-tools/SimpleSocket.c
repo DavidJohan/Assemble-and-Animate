@@ -5,7 +5,7 @@
 #include <string.h>
 
 #ifdef __MINGW32__
-//# include <Winsock2.h> //mingw compilation of this target does currently not work use a unix system
+#include <Winsock2.h> //mingw compilation of this target does currently not work use a unix system
 #else
 #include <netdb.h>
 #include <sys/types.h>

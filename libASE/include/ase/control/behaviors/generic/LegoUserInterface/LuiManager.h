@@ -7,6 +7,7 @@ signed char* LuiManager_getDeviceRCList();
 void LuiManager_applyControlOutput(signed char* outputValues, char nOutput);
 //int LuiManager_updateDeviceCountList();
 int LuiManager_updateDeviceReadList();
+long LuiManager_getDeviceRCListUpdateTime();
 bool LuiManager_deviceReadSuccess();
 signed char* LuiManager_getDeviceRCList();
 signed char* LuiManager_getDeviceReadList();

@@ -111,3 +111,7 @@ void HCCpg_setUpdateRate(float updatesPerPeriode, HCCpg_t *cpg) {
 	cpg->parent.updatesPerperiode = updatesPerPeriode;
 	cpg->h = 6.28318531f/(cpg->omega*updatesPerPeriode);
 }
+
+int HCCpg_getUpdateRate(HCCpg_t *cpg) {
+	return cpg->parent.updatesPerperiode;
+}

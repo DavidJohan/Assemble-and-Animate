@@ -222,7 +222,7 @@ void dynamixelApi_setMaxTorque(int actuator, int maxTorque) {
 //////////START OF RAM AREA//////////////
 
 void dynamixelApi_setTorqueEnable(int actuator, bool enable) {
-	dxl_write_byte(dyna.actuators[actuator], P_TORQUE_ENABLE, enable);
+	dxl_write_byte(dyna.actuators[actuator], P_TORQUE_ENABLE, 0);
 	checkForError(actuator,7);
 }
 void dynamixelApi_setLed(int actuator, bool led) {

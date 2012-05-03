@@ -61,7 +61,7 @@ float CpgGait_getOffset(int index) {
 }
 
 void CpgGait_setPhaseShift(float phaseShift, int index) {
-	ase_printf("PhaseShift of %i is set to %f\n", index, phaseShift);
+	//ase_printf("PhaseShift of %i is set to %f\n", index, phaseShift);
 	CpgSuper_setPhaseDifference(l2gCoupling[index],phaseShift);
 	CpgSuper_setPhaseDifference(g2lCoupling[index],6.28318531f-phaseShift);
 }
@@ -70,10 +70,56 @@ float CpgGait_getPhaseShift(int index) {
 	return CpgSuper_getPhaseDifference(l2gCoupling[index]);
 }
 
+static int getNewUpdateRate(float hz) {
+	int minUR = 25; int maxUR = 200;
+	int minHz = 0; int maxHz = 2;
+
+	int newUpdateRate = maxUR-(maxUR-minUR)/(maxHz-minHz)*hz;
+	newUpdateRate = (newUpdateRate<=minUR)?minUR:newUpdateRate;
+	newUpdateRate = (newUpdateRate>maxUR)?maxUR:newUpdateRate;
+
+	/*if(fabs(hz)>0.01f) {
+		//newUpdateRate = (int)(100.0f/hz);
+		newUpdateRate = (newUpdateRate<=minUR)?minUR:newUpdateRate;
+		newUpdateRate = (newUpdateRate>maxUR)?maxUR:newUpdateRate;
+	}
+	else {
+		newUpdateRate = maxUR;
+	}*/
+	return 25;//newUpdateRate;
+}
+void CpgGait_setGlobalFrequency(float hz) {
+	int newUpdateRate = getNewUpdateRate(hz);
+	HCCpg_setUpdateRate(newUpdateRate, cpgGlobal);
+	for(int index=0;index<getNumberOfActuators();index++) {
+		if(HCCpg_getUpdateRate(cpgLocal[index])!=newUpdateRate) {
+			HCCpg_setUpdateRate(newUpdateRate, cpgLocal[index]);
+		}
+		if(CpgSuper_getFrequency((CpgSuper_t*)cpgLocal[index]) != hz) {
+			CpgSuper_setFrequency(hz, (CpgSuper_t*) cpgLocal[index]);
+		}
+	}
+	if(CpgSuper_getFrequency((CpgSuper_t*)cpgGlobal) != hz) {
+		CpgSuper_setFrequency(hz, (CpgSuper_t*) cpgGlobal);
+	}
+	if(HCCpg_getUpdateRate(cpgGlobal)!=newUpdateRate) {
+		HCCpg_setUpdateRate(newUpdateRate, cpgGlobal);
+	}
+	//ase_printf("New update rate = %i\n", newUpdateRate);
+
+}
+
 void CpgGait_setFrequency(float hz, int index) {
+	int newUpdateRate = getNewUpdateRate(hz);
+	if(HCCpg_getUpdateRate(cpgLocal[index])!=newUpdateRate) {
+		ase_printf("new update rate = %i\n", newUpdateRate);
+		HCCpg_setUpdateRate(newUpdateRate, cpgLocal[index]);
+		HCCpg_setUpdateRate(newUpdateRate, cpgGlobal);
+	}
 	CpgSuper_setFrequency(hz, (CpgSuper_t*) cpgLocal[index]);
 	CpgSuper_setFrequency(hz, (CpgSuper_t*) cpgGlobal);
 }
+
 float CpgGait_getFrequency(int index) {
 	return CpgSuper_getFrequency((CpgSuper_t*) cpgGlobal);
 }
@@ -177,7 +223,7 @@ void CpgGait_init() {
 	int i,j;
 	for(i=2;i<2+getNumberOfActuators();i++) {
 		cpgLocal[i-2] = HCCpgManager_createCpg(i, 0.2f);
-		l2gCoupling[i-2] = HCCpgManager_createCoupling(i, GLOBAL_CPG_LABEL, 1.0f, 0); //5.0f
+		l2gCoupling[i-2] = HCCpgManager_createCoupling(i, GLOBAL_CPG_LABEL, 0*1.0f, 0); //5.0f
 		g2lCoupling[i-2] = HCCpgManager_createCoupling(GLOBAL_CPG_LABEL, i, 2.0f, 0);//1.0f
 		for(j=0;j<MAX_NODE_DEGREE;j++)  {
 			l2gCoupling[i-2]->apply_to_channels[j] = 0;

@@ -12,7 +12,7 @@
 /**
  * Static memory allocation in ASE
  */
-#define ASE_MEMORY_ALLOCATED		1000	//bytes of ram statically allocated but dynamically assigned at runtime in the initialization phase
+#define ASE_MEMORY_ALLOCATED		2000	//bytes of ram statically allocated but dynamically assigned at runtime in the initialization phase
 
 //#define PRINTF						//if defined target is assumed to have "printf" avaliable, comment out to reduce ram usage
 
@@ -96,9 +96,9 @@
 #define MC_MAX_HANDLERS			25 	//Typical=25 max number of handlers of modular commander messages
 
 
-#define	LEARNING_MAX_ACTIONS	10	//Typical=10
-#define LEARNING_PROCESSES_MAX	10	//Typical=10
-#define SPSA_N_PARAMETERS_MAX	500
+#define	LEARNING_MAX_ACTIONS	1	//Typical=10
+#define LEARNING_PROCESSES_MAX	1	//Typical=10
+#define SPSA_N_PARAMETERS_MAX	1 //500
 
 #define GOSSIP_MAX				3	//numbers of gossip algorithms
 #define GOSSIP_MAX_MSG_SIZE		5  	//max number of bytes communicated through gossiping

@@ -1,0 +1,6 @@
+[submodule "libASE/src/targets/non-public"]
+	path = libASE/src/targets/non-public
+	url = https://DavidJohan@github.com/Playware/ASE-non-public-source.git
+[submodule "libASE/include/ase/targets/non-public"]
+	path = libASE/include/ase/targets/non-public
+	url = https://DavidJohan@github.com/Playware/ASE-non-public-headers.git

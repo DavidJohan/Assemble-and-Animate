@@ -9,7 +9,7 @@
 static unsigned char buffer[50];
 static int bufferIndex = 0;
 void handleSerialMessages() {
-	if(serial_get_qstate()>0) {
+	while(serial_get_qstate()>0) {
 		serial_read(&buffer[bufferIndex], 1);
 		//ase_printf("%c", buffer[bufferIndex]); //ecco
 		if(buffer[bufferIndex]=='\n'||buffer[bufferIndex]=='\r') {

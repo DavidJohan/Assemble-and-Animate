@@ -28,9 +28,21 @@ bool CpgSuper_updateIfTime(CpgSuper_t* cpg, void (*iterate)(CpgSuper_t*)) {
 	return updated;
 }
 void CpgSuper_setFrequency(float hz, CpgSuper_t* cpg) {
-	int newDelay = (int) (1000.0f/(hz*((float)cpg->updatesPerperiode)));
-	PeriodicStrategy_setDelay(newDelay, (PeriodicStrategy_t*) cpg);
-	PeriodicStrategy_catchUp((PeriodicStrategy_t*) cpg);
+	int newDelay;
+	if(fabs(hz)<0.01f) {
+		newDelay = 10000;
+	}
+	else {
+		newDelay = (int) (1000.0f/(hz*((float)cpg->updatesPerperiode)));
+	}
+	if(newDelay<=5) {
+		ase_printf("WARNING: too fast CPG updates may crash system (%i,%i,%i)...\n", newDelay, ((int)hz), (int)(cpg->updatesPerperiode));
+		newDelay = 5;
+	}
+	if(PeriodicStrategy_getDelay((PeriodicStrategy_t*) cpg) != newDelay) {
+		PeriodicStrategy_setDelay(newDelay, (PeriodicStrategy_t*) cpg);
+		PeriodicStrategy_catchUp((PeriodicStrategy_t*) cpg);
+	}
 }
 
 float CpgSuper_getFrequency(CpgSuper_t* cpg) {
@@ -114,7 +126,7 @@ void CpgSuper_initialize(CpgSuper_t *cpg, uint8_t label, float hz) {
 	cpg->ampl = 1.0f;
 	cpg->x_offset = 0.0f;
 	cpg->y_offset = 0.0f;
-	cpg->updatesPerperiode = 100;//25;
+	cpg->updatesPerperiode = 50;//100;//25;
 	CpgSuper_setFrequency(hz, cpg);
 	CpgSuper_resetState(cpg);
 }

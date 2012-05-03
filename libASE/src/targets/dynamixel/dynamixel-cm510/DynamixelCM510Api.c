@@ -73,7 +73,6 @@ static Dynamixel_t dyna;
 
 static void checkForError(int actuator,int callerID) {
 	if( dxl_get_result() != COMM_RXSUCCESS ) {
-		ase_printf( "ERROR: Dynamixel #%i, ID=%i: ", callerID, dyna.actuators[actuator]);
 		char* errorType;
 		switch( dxl_get_result() ) 	{
 			case COMM_TXFAIL:
@@ -102,6 +101,7 @@ static void checkForError(int actuator,int callerID) {
 				printf("Unknown error!!!\n");
 				break;
 		}
+		ase_printf( "ERROR: Dynamixel #%i, ID=%i: ", callerID, dyna.actuators[actuator]);
 		ase_printf(errorType);
 		ase_printf("\n");
 		Event_t event; event.val_prt = errorType;
@@ -147,7 +147,8 @@ void dynamixelApi_CM510_init() {
 
 	DDRD  = 0x70;
 
-	dynamixelApi_CM510_setZigBee(false);
+	//dynamixelApi_CM510_setZigBee(true);
+	dynamixelApi_CM510_setZigBee(true);
 	//debug serial?
 	//PORTD = 0x20; //0x13;
 
@@ -163,6 +164,7 @@ void dynamixelApi_CM510_init() {
 
 	//init serial comm
 	serial_initialize(57600);				// USART Initialize
+	// serial_initialize(1000000);				// USART Initialize
 
 	//Init ADC
 	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1);	// ADC Enable, Clock 1/64div.
@@ -213,23 +215,25 @@ bool dynamixelApi_setup(int baud, void (*msgHandler)(char*, char, char)) {
 bool dynamixelApi_connect(int actId) {
 	dxl_ping(actId);
 	if (dxl_get_result() == COMM_RXSUCCESS) 	{
-		ase_printf("SUCCESS: Found Dynamixel with id = %i renamed to %i \n", actId, dyna.nActuators);
+		ase_printf("SUCCESS: Found Dynamixel with id = %i renamed to %i - ", actId, dyna.nActuators);
 		int wValue = dxl_read_word(actId, P_MODEL_NUMBER_L);
 		if (dxl_get_result() == COMM_RXSUCCESS)
 			ase_printf("Model number:%d, ", wValue);
 		int bValue = dxl_read_byte(actId, P_VERSION);
 		if (dxl_get_result() == COMM_RXSUCCESS)
-			ase_printf("Version:%d\n", bValue);
+			ase_printf("Version:%d", bValue);
 		dyna.actuators[dyna.nActuators] = actId;
-		dynamixelApi_setWheelMode(dyna.nActuators, false);
 		dyna.nActuators++;
+		ase_printf("\n");
 		return true;
 	}
 	else {
+		dyna.nActuators++;
 		ase_printf("ERROR: Unable to connect to Dynamixel with id = %i\n", actId);
 		return false;
 	}
 }
+
 void dynamixelApi_setIsLoggingPos(bool isLogging) {
 	dyna.logPos = isLogging;
 }

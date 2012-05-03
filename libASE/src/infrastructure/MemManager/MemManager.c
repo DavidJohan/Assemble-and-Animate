@@ -27,8 +27,8 @@ void* MemManager_malloc(int size) {
                 init();
         }
         if((manager.index+size)>ASE_MEMORY_ALLOCATED) {
-                //ase_printf("ERROR: out of static memory (%i bytes allocated)!!!! - allocate more at compile time...\n",ASE_MEMORY_ALLOCATED);
-                //ase_printf("...using dynamic memory instead\n");
+                ase_printf("ERROR: out of static memory (%i bytes allocated)!!!! - allocate more at compile time...\n",ASE_MEMORY_ALLOCATED);
+                ase_printf("...using dynamic memory instead\n");
                 void* mem = malloc(size);
                 if (mem == NULL) {
                 	while(1) ase_printf("Out of memory... %i\n", size);
@@ -41,8 +41,8 @@ void* MemManager_malloc(int size) {
                 manager.index += size;
         }
         else {
-                ase_printf("ERROR: trying to allocate memory when locked !!!!\n");
                 manager.index += size;
+                ase_printf("ERROR: trying to allocate memory when locked (%i bytes used)!!!!\n", manager.index);
         }
         return ptr;
 }

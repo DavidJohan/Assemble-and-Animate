@@ -67,7 +67,7 @@ float CpgGait_getFeedbackTerm(int nr, int index);
  * Set the frequency (in hz) of the CPG which controls actuator index [0, 1, 2,..]
  */
 void CpgGait_setFrequency(float hz, int index);
-
+void CpgGait_setGlobalFrequency(float hz);
 
 /**
  * Set the feedback terms using in Hopf cpg's, nr indicates which feedback type:

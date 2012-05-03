@@ -10,6 +10,7 @@ static signed char deviceRCList[100];
 static signed char deviceReadList[100];
 static int nDevices;
 static bool readSuccess;
+static long deviceRCListUpdateTime=-1000;
 
 void LuiManager_init() {
 	int i;
@@ -25,6 +26,12 @@ void LuiManager_setDeviceRCList(signed char* data, int nData, int offset) {
 		if(i<nData) deviceRCList[i] = data[i]+offset;
 		else deviceRCList[i] = 0;
 	}
+	//ase_printf("%i %i\n",deviceRCList[0],deviceRCList[1]);
+	deviceRCListUpdateTime = getLocalMsTime();
+}
+
+long LuiManager_getDeviceRCListUpdateTime() {
+	return deviceRCListUpdateTime;
 }
 
 void LuiManager_setSelectedBehaviorList(signed char* behaviors) {

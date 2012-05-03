@@ -386,7 +386,8 @@ void LUI_init() {
 	LuiEventManager_init();
 	LuiBoard_init(&board);
 	Subsumption_init(&SubsumptionProcess);
-	boardTimer = TimerManager_createPeriodicTimer(100, 0, board_timer_fired);
+	//boardTimer = TimerManager_createPeriodicTimer(100, 0, board_timer_fired);
+	boardTimer = TimerManager_createPeriodicTimer(25, 0, board_timer_fired);
 	soundTimer = TimerManager_createPeriodicTimer(1000, 1, sound_timer_fired);
 	EventManager_subscribe(MSG_RECV_EVENT, handleMessage);
 	ase_printf("Lego User Interface Initialized\n");
