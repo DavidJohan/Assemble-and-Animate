@@ -9,6 +9,8 @@ EventListner.h provides together with  CommandSender.h an generic socket based i
 */
 
 #ifndef EVENTLISTNER_H_
+#define __USE_POSIX
+#define __USE_GNU
 /**
 Initialize the event listner with a free socket port and a host (typically LOCALHOST)
 */

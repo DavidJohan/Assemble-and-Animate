@@ -10,6 +10,9 @@ CommandSender.h provides together with  EventListner.h an generic socket based i
 
 
 #ifndef COMMANDSENDER_H_
+#define __USE_POSIX
+#define __USE_GNU
+
 /**
 Initialize the commandSender with a free socket port (e.g. 1234) and a host (typically LOCALHOST)
 */

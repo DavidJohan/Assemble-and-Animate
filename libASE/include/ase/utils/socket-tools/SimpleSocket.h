@@ -10,6 +10,9 @@ SimpleSocket.h provides simple socket interface as needed by CommandSender.h and
 
 #ifndef SIMPLESOCKET_H_
 
+#define __USE_POSIX
+#define __USE_GNU
+
 void sprintf_take();
 void sprintf_release();
 /**
