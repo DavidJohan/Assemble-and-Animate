@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+#include <ase/utils/socket-tools/SimpleSocket.h>
 
 #ifdef __MINGW32__
 #include <Winsock2.h> //mingw compilation of this target does currently not work use a unix system
