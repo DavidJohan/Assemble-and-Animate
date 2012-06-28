@@ -1,5 +1,5 @@
 CC=avr-gcc
-TARGET=dynamixel-CM510
+TARGET=dynamixel-cm510
 CFLAGS=-mmcu=atmega2561 -std=gnu99 -Wall -DDYNAMIXEL -DCM510 -I$(ASE_HOME)/include/
 LIBFLAGS=-L. -L$(ASE_HOME)/lib/$(TARGET) -lControl -lASE -lm 
 APPLICATION=-o appX.elf
