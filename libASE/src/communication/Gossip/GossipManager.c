@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <ase/communication/Gossip/GossipManager.h>
 #include <ase/targets/AbstractModuleApi.h>
-#include <ase/Infrastructure.h>
+#include <ase/infrastructure.h>
 #include <ase/config/ConfigASE.h>
 #include <ase/communication/CommDefs.h>
 

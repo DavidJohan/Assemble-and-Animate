@@ -8,7 +8,7 @@
 #include <ase/config/ConfigASE.h>
 #include <ase/tools/LinkedList/LinkedList.h>
 #include <ase/communication/Broadcast/Broadcaster.h>
-#include <ase/Infrastructure.h>
+#include <ase/infrastructure.h>
 
 static EventManager_t manager;
 
