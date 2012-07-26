@@ -16,8 +16,8 @@ volatile unsigned char gbSerialBufferTail = 0;
 static FILE *device;
 
 
-void serial_put_queue( unsigned char data );
-unsigned char serial_get_queue(void);
+//void serial_put_queue( unsigned char data );
+//unsigned char serial_get_queue(void);
 int std_putchar(char c);
 int std_getchar(void);
 
@@ -37,6 +37,7 @@ void serial_initialize(long ubrr)
 	//Bit 1: Double The USART Transmission Speed
 	//Bit 0: Multi-Processor Communication Mode
 	UCSR1A = 0b01000010;
+	//UCSR1A = 0b01000000;
 	
 	// set UART register B
 	// bit7: enable rx interrupt
@@ -57,10 +58,10 @@ void serial_initialize(long ubrr)
 	UDR1 = 0xFF;
 	gbSerialBufferHead = 0;
 	gbSerialBufferTail = 0;
-
-	// set baudrate
+	
 	UBRR1H = (unsigned char)(baud>>8);
 	UBRR1L = (unsigned char)(baud & 0xFF);
+	
 	DIR_RXD;
 	device = fdevopen( std_putchar, std_getchar );
 }
@@ -125,7 +126,7 @@ unsigned char serial_get_queue(void)
 	unsigned char data;
 	
 	if( gbSerialBufferHead == gbSerialBufferTail )
-		return 0xff;
+		return 0x00;
 		
 	data = gbSerialBuffer[gbSerialBufferHead];
 		

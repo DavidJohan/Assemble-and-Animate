@@ -148,9 +148,9 @@ void dynamixelApi_CM510_init() {
 	DDRD  = 0x70;
 
 	//dynamixelApi_CM510_setZigBee(true);
-	dynamixelApi_CM510_setZigBee(true);
+	//dynamixelApi_CM510_setZigBee(true);
 	//debug serial?
-	//PORTD = 0x20; //0x13;
+	PORTD = 0x20;
 
 	//ZigBee setup
 	/*PORTD &= ~0x80;	//PORT_LINK_PLUGIN = 0;   // no pull up
@@ -163,7 +163,7 @@ void dynamixelApi_CM510_init() {
 	PORTE = 0xF0;
 
 	//init serial comm
-	serial_initialize(57600);				// USART Initialize
+	serial_initialize(9600);				// USART Initialize
 	// serial_initialize(1000000);				// USART Initialize
 
 	//Init ADC
