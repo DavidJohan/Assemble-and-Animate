@@ -191,6 +191,7 @@ void cpg_forwardGait(float freq) {
 	CpgGait_setPhaseShift(-1.928f, LEFT_BACK_LOWER_INDEX);
 	CpgGait_setPhaseShift(-1.928f, RIGHT_BACK_LOWER_INDEX);
 }
+
 void cpg_backwardGait(float freq) {
 	CpgGait_setGlobalFrequency(freq);
 

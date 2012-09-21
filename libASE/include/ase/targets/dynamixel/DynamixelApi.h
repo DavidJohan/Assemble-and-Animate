@@ -95,6 +95,8 @@ void dynamixelApi_setVoltageLimits(int actuator, int minVoltage, int maxVoltage)
  * NOTE: Careful writes to EEPROM (limited erase/write cycles)
  */
 void dynamixelApi_setMaxTorque(int actuator, int maxTorque);
+void dynamixelApi_setReturnDelayTime(int actuator, unsigned char delay_2xus);
+
 //////////START OF RAM AREA//////////////
 void dynamixelApi_setTorqueEnable(int actuator, bool enable);
 void dynamixelApi_setLed(int actuator, bool led);
@@ -112,6 +114,7 @@ void dynamixelApi_setGoalPos(int actuator, int pos);
 void dynamixelApi_setMovingSpeed(int actuator, int speed);
 int dynamixelApi_getSpeed(int actuator);
 void dynamixelApi_setTorqueLimit(int actuator, int maxTorque);
+
 /**
  * Get the position of the actuator in the interval [0;1024]
  */

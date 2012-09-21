@@ -228,7 +228,7 @@ bool dynamixelApi_connect(int actId) {
 		return true;
 	}
 	else {
-		dyna.nActuators++;
+		//dyna.nActuators++;
 		ase_printf("ERROR: Unable to connect to Dynamixel with id = %i\n", actId);
 		return false;
 	}
@@ -290,6 +290,16 @@ void dynamixelApi_setMaxTorque(int actuator, int maxTorque) {
 	dxl_write_word(dyna.actuators[actuator], P_MAX_TORQUE_L, maxTorque);
 	checkForError(actuator,6);
 }
+
+/**
+ * A value between 0 and 254
+ * NOTE: Careful writes to EEPROM (limited erase/write cycles)
+ */
+void dynamixelApi_setReturnDelayTime(int actuator, unsigned char delay_2xus) {
+	dxl_write_byte(dyna.actuators[actuator], P_RETURN_DELAY_TIME, delay_2xus);
+	checkForError(actuator,13);
+}
+
 
 //////////START OF RAM AREA//////////////
 
