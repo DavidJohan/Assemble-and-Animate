@@ -60,6 +60,10 @@
 #define ase_printf(format, ...) printf(format, ##__VA_ARGS__);
 #endif
 
+#ifdef FABLE //Dynamixel controller
+#define ase_printf(format, ...) printf(format, ##__VA_ARGS__);
+#endif
+
 /**
 Get the time in seconds since the module was started
 */

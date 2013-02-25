@@ -58,3 +58,59 @@ bool LinkedList_contains(listnode_t* node, void* data, bool (*equals)(void*,void
 		return false;
 	}
 }
+/*
+ * WARNING: THE FOLLOWING CODE HAS !!NOT!! BEEN TESTED!
+ * DO NOT RELY ON IT!
+ */
+/*
+ * Removes first occourrence of data.
+ *  Requires a pointer to the head of the list.
+ *  Returns a pointer to the head of the list.
+ */
+listnode_t* LinkedList_remove(listnode_t* node, void* data, bool (*equals)(void*,void*)){
+	listnode_t* head = node;
+	listnode_t* curr = node;
+	if(equals(data,head->data)){
+		curr=head->next;
+		free(head);
+		return curr;
+	}
+	curr=curr->next;
+	listnode_t* prev= node;
+	while(curr!=NULL) {
+		if(equals(data, curr->data)) {
+			curr=curr->next;
+			free(prev->next);
+			prev->next=curr;
+			return head;
+		}
+		curr= curr->next;
+		prev=prev->next;
+	}
+	return head;
+}
+/*
+ * WARNING: THE FOLLOWING CODE HAS !!NOT!! BEEN TESTED!
+ * DO NOT RELY ON IT!
+ */
+/*
+ * Adds an element to the last positon of the list.
+ */
+void LinkedList_addLast(listnode_t* head, void* data){
+	listnode_t* newNode = createNode(data);
+	while(head->next!=NULL)
+		head=head->next;
+	head->next=newNode;
+}
+/*
+ * WARNING: THE FOLLOWING CODE HAS !!NOT!! BEEN TESTED!
+ * DO NOT RELY ON IT!
+ */
+listnode_t* LinkedList_modify(listnode_t* head, void*oldData, void*newData, bool (*equals)(void*,void*)){
+	listnode_t* p=NULL;
+	p=LinkedList_findNext(head,oldData,equals);
+	if(p==NULL)
+		return NULL;
+	p->data=newData;
+	return head;
+}

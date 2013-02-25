@@ -75,6 +75,13 @@
 #define MAX_ACTUATORS			0  //atron=1, mtran=2, roombot=3
 #endif
 
+#ifdef FABLE
+#ifndef MAX_NODE_DEGREE
+	#define MAX_NODE_DEGREE			4	//Max number of communication channels per module
+	#define MAX_ACTUATORS			3  //atron=1, mtran=2, roombot=3
+#endif
+#endif
+
 
 /**
  * Static memory allocation which cannot be assigned in a semi-dynamic way
