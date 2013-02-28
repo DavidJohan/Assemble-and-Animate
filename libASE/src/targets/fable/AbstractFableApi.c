@@ -9,13 +9,14 @@
 #include <ase/targets/dynamixel/DynamixelApi.h>
 
 #include "ase/targets/fable/firmware/ext_uart.h"
+#include "ase/targets/fable/firmware/timer.h"
 
 float getLocalTime() {
-	return dynamixelApi_getTime();
+	return read_system_clock()/1000.0f;
 }
 
 long getLocalMsTime() {
-	return dynamixelApi_getMsTime();
+	return read_system_clock();
 }
 
 long getRandomSeed() {

@@ -451,11 +451,11 @@ void dynamixelApi_terminate() {
 }
 
 
-
-ISR(TIMER0_COMPA_vect) {
-	time_ms++;
-}
-
+//
+//ISR(TIMER0_COMPA_vect) {
+//	time_ms++;
+//}
+//
 
 
 

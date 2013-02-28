@@ -28,6 +28,21 @@ void ext_uart_enable_int_rx(uint8_t level,const ext_uart_int_callback callback);
 void ext_uart_loop_off(uint8_t channel);
 void ext_uart_loop_on(uint8_t channel);
 
-void ext_uart_send(uint8_t addr, char* message, uint8_t length);
+void ext_uart_send(uint8_t addr, uint8_t* message, uint8_t length);
+
+void ext_uart_0_send(uint8_t byte);
+void ext_uart_1_send(uint8_t byte);
+void ext_uart_2_send(uint8_t byte);
+void ext_uart_3_send(uint8_t byte);
+
+uint8_t ext_uart_0_rx(void);
+uint8_t ext_uart_1_rx(void);
+uint8_t ext_uart_2_rx(void);
+uint8_t ext_uart_3_rx(void);
+
+uint8_t ext_uart_0_poll(void);
+uint8_t ext_uart_1_poll(void);
+uint8_t ext_uart_2_poll(void);
+uint8_t ext_uart_3_poll(void);
 
 #endif /* EXT_UART_H_ */

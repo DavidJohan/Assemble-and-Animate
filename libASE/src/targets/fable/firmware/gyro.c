@@ -4,7 +4,7 @@
  * Created: 18/09/2012 18:09:16
  *  Author: Walteruzzu
  */ 
-#include "ase/targets/fable/firmware/gyro.h"
+#include <ase/targets/fable/firmware/gyro.h>
 
 void gyro_write_byte(uint8_t reg, uint8_t value){
 	i2c_write_byte(GYRO_ADDR,reg,value);
@@ -39,8 +39,13 @@ int16_t gyro_read_axis(uint8_t axis){
 	datah=i2c_receive_data(0);
 	i2c_send_stop();
 	return ((datah<<8) + datal);//&0x7ff;*/
-	
-	return i2c_read_word(GYRO_ADDR, (axis | (1<<7)));
+	int16_t x = i2c_read_word(GYRO_ADDR, (axis | (1<<7)));
+
+	//SIGN EXTEND!
+	struct {signed int x:10;} b;
+	b.x=x;
+
+	return b.x;
 }
 
 void gyro_read_all(int16_t*x,int16_t*y,int16_t*z){

@@ -1,9 +1,11 @@
+#define __DELAY_BACKWARD_COMPATIBLE__
 #include <avr/io.h>
 #include <avr/iom2561.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "ase/targets/fable/firmware/dxl_hal.h"
 #include "ase/targets/fable/firmware/macro.h"
+
 
 #define DYNAMYXEL_EN_PORT PORTE
 #define DYNAMIXEL_EN_TX 2

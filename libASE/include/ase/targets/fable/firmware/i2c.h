@@ -34,7 +34,7 @@ void i2c_write_byte(uint8_t dev, uint8_t addr, uint8_t data);
 uint8_t i2c_read_byte(uint8_t dev, uint8_t addr);
 
 void i2c_write_word(uint8_t dev, uint8_t addr, uint16_t data);
-uint16_t i2c_read_word(uint8_t dev, uint8_t addr);
+int16_t i2c_read_word(uint8_t dev, uint8_t addr);
 
 void i2c_seq_read(uint8_t dev, uint8_t start_addr, uint8_t*buff, uint8_t len);
 
